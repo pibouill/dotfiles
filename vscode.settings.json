@@ -1,0 +1,43 @@
+{
+    "workbench.startupEditor": "none",
+    "workbench.tree.indent": 15,
+    "workbench.tree.renderIndentGuides": "always",
+    "workbench.colorTheme": "Tokyo Night Storm",
+	"workbench.colorCustomizations":
+	{
+		"[Tokyo Night Storm]":
+		{
+			"editor.selectionBackground": "#13688f93",
+			"editor.selectionHighlightBackground": "#13688f93"
+
+		},
+        "terminal.selectionBackground": "#dbdacc",
+        "terminal.selectionForeground": "#000000"
+	},
+
+    "files.autoSave": "afterDelay",
+    "files.insertFinalNewline": true,
+    "42header.email": "",
+    "42header.username": "",
+    "security.workspace.trust.untrustedFiles": "open",
+
+    "editor.insertSpaces": false,
+    "editor.fontFamily": "JetBrainsMono Nerd Font",
+    "editor.fontSize": 13,
+    "editor.tabSize": 4,
+    "editor.lineHeight": 22,
+    "editor.minimap.enabled": false,
+    "editor.renderWhitespace": "trailing",
+    "editor.fontWeight": "450",
+    "editor.linkedEditing": true,
+    "editor.suggest.insertMode": "replace",
+    "editor.acceptSuggestionOnCommitCharacter": false,
+    "files.trimTrailingWhitespace": true,
+
+
+    "explorer.autoReveal": false,
+
+    "json.schemas": [
+
+    ]
+}

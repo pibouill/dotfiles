@@ -1,0 +1,81 @@
+{
+	"$schema": "https://raw.githubusercontent.com/JanDeDobbeleer/oh-my-posh/main/themes/schema.json",
+	"blocks": 
+	[
+	  {
+		"alignment": "left",
+		"segments": 
+		[
+		  {
+			"background": "#feae34",
+			"foreground": "#262b44",
+			"leading_diamond": "\ue0b6",
+			"powerline_symbol": "\ue0b0",
+			"properties": {
+			  "style": "folder"
+			},
+			"style": "diamond",
+			"template": " \ue5ff {{ .Path }} ",
+			"trailing_diamond": "\ue0b0",
+			"type": "path"
+		  },
+		  {
+			"background": "#fffb38",
+			"background_templates": [
+			  "{{ if or (.Working.Changed) (.Staging.Changed) }}#FF9248{{ end }}",
+			  "{{ if and (gt .Ahead 0) (gt .Behind 0) }}#ff4500{{ end }}",
+			  "{{ if gt .Ahead 0 }}#B388FF{{ end }}",
+			  "{{ if gt .Behind 0 }}#B388FF{{ end }}"
+			],
+			"foreground": "#193549",
+			"leading_diamond": "\ue0b6",
+			"powerline_symbol": "\ue0b0",
+			"properties": {
+			  "branch_max_length": 25,
+			  "fetch_stash_count": true,
+			  "fetch_status": true,
+			  "fetch_upstream_icon": true
+			},
+			"style": "powerline",
+			"template": " {{ .UpstreamIcon }}{{ .HEAD }}{{ .BranchStatus }}{{ if .Working.Changed }} \uf044 {{ .Working.String }}{{ end }}{{ if and (.Working.Changed) (.Staging.Changed) }} |{{ end }}{{ if .Staging.Changed }} \uf046 {{ .Staging.String }}{{ end }}{{ if gt .StashCount 0 }} \uf692 {{ .StashCount }}{{ end }} ",
+			"trailing_diamond": "\ue0b4",
+			"type": "git"
+		  },
+		  {
+			"background": "#01446b",
+			"background_templates": [
+			  "{{ if gt .Code 0 }}#ff0044{{ end }}"
+			],
+			"foreground": "#ffffff",
+			"leading_diamond": "<transparent,background>\ue0b0</>",
+			"properties": {
+			  "always_enabled": true
+			},
+			"style": "diamond",
+			"template": " \uf0e7 ",
+			"trailing_diamond": "\ue0b4",
+			"type": "exit"
+		  }
+		],
+		"type": "prompt"
+	},
+		  {
+			"segments": 
+			[
+					{
+						"background": "#0d1117",
+						"foreground": "#f97926",
+						"invert_powerline": true,
+						"leading_diamond": "\ue0b2",
+						"style": "diamond",
+						"template": " {{ .CurrentDate | date .Format }} ",
+						"trailing_diamond": "\ue0b4",
+						"type": "time"
+					 }
+			],
+			"type": "rprompt"
+		  }
+	],
+	"final_space": true,
+	"version": 2
+}
