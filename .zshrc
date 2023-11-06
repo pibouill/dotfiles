@@ -1,6 +1,6 @@
 
 autoload -U colors && colors
-
+# test
 
 # History in cache directory
 HISTSIZE=10000
