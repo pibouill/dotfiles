@@ -1,0 +1,1 @@
+/nfs/homes/pibouill/.zshrc
