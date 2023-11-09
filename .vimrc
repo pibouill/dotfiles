@@ -20,7 +20,8 @@ set modelines=5
 set ignorecase	"ignore case in search
 set incsearch
 set nohlsearch
-"set termguicolors
+set termguicolors
+colorscheme catppuccin_macchiato
 set scrolloff=8
 set signcolumn=yes
 set updatetime=50
@@ -67,17 +68,20 @@ Plug 'tpope/vim-fugitive'
 Plug 'vim-syntastic/syntastic'
 Plug 'alexandregv/norminette-vim'
 Plug 'itchyny/lightline.vim'
+Plug 'catppuccin/vim', { 'as': 'catppuccin' }
 call plug#end()
 
 
 
 "lightline 
 let g:lightline = {
-            \'colorscheme': 'wombat',
+            \'colorscheme': 'rosepine',
             \'component': {
             \   'lineinfo': "%{line('.') . '/' . line('$')}",
             \},
             \}
+
+set background=dark
 
 "NORMINETTE PLUGIN CONFIG
 " Enable norminette-vim (and gcc)

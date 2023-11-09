@@ -1,6 +1,5 @@
 
 autoload -U colors && colors
-# test
 
 # History in cache directory
 HISTSIZE=10000
@@ -51,13 +50,17 @@ source ~/.customi/powerlevel10k/powerlevel10k.zsh-theme
 alias vim-be-good="docker run -it --rm brandoncc/vim-be-good:stable"
 alias francinette="$HOME"/francinette/tester.sh
 alias paco="$HOME"/francinette/tester.sh
+alias cclean='bash ~/Cleaner_42.sh'
 
 # shortcuts
 tc() {
   touch "$1.c"
 }
 
+# Load Catpuccin syntax highlight
+source /nfs/homes/pibouill/.customi/catppuccin_syntax/catppuccin_macchiato-zsh-syntax-highlighting.zsh
 
 # Load zsh-syntax-highlight
 source /nfs/homes/pibouill/.customi/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
+
 
