@@ -41,8 +41,8 @@
     "terminal.integrated.fontFamily": "MesloLGS NF",
     "glassit.alpha": 245,
     "vim.vimrc.enable": true,
-    "window.zoomLevel": -1,
     "workbench.colorTheme": "Catppuccin Macchiato",
     "workbench.iconTheme": "catppuccin-macchiato",
+    "debug.onTaskErrors": "debugAnyway",
 
 }
