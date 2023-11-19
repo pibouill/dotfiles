@@ -40,6 +40,8 @@ alias vi  vim
 alias i="open https://profile.intra.42.fr/"
 alias gh="open https://github.com/pibouill"
 alias vz="vi ~/.zshrc"
+alias vrc="vi ~/.vimrc"
+alias swcaps="./.config/switch_caps_ctrl.sh"
 
 source ~/.customi/powerlevel10k/powerlevel10k.zsh-theme
 
@@ -64,3 +66,4 @@ source /nfs/homes/pibouill/.customi/catppuccin_syntax/catppuccin_macchiato-zsh-s
 source /nfs/homes/pibouill/.customi/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
 
 
+export MAIL=pibouill@student.42prague.com
