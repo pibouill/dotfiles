@@ -41,7 +41,7 @@ alias i="open https://profile.intra.42.fr/"
 alias gh="open https://github.com/pibouill"
 alias vz="vi ~/.zshrc"
 alias vrc="vi ~/.vimrc"
-alias swcaps="./.config/switch_caps_ctrl.sh"
+alias swcaps="~/.config/switch_caps_ctrl.sh"
 
 source ~/.customi/powerlevel10k/powerlevel10k.zsh-theme
 
@@ -60,7 +60,7 @@ tc() {
 }
 
 # Load Catpuccin syntax highlight
-source /nfs/homes/pibouill/.customi/catppuccin_syntax/catppuccin_macchiato-zsh-syntax-highlighting.zsh
+source /nfs/homes/pibouill/.customi/catppuccin_syntax/catppuccin_mocha-zsh-syntax-highlighting.zsh
 
 # Load zsh-syntax-highlight
 source /nfs/homes/pibouill/.customi/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh

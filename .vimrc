@@ -9,6 +9,7 @@
 set number relativenumber
 syntax enable
 syntax on							" Highlight syntax
+filetype on
 set mouse=r							" Enable mouse click + copy paste
 set tabstop=4						" set tab to 4 spaces
 set softtabstop=4
@@ -20,8 +21,8 @@ set modelines=5
 set ignorecase	"ignore case in search
 set incsearch
 set nohlsearch
-set termguicolors
 colorscheme catppuccin_macchiato
+set termguicolors
 set background=dark
 set scrolloff=8
 set signcolumn=yes
@@ -53,6 +54,7 @@ nnoremap J mzJ`z
 nnoremap <Leader>s :%s/\<<C-r><C-w>\>/<C-r><C-w>/gI<Left><Left><Left>
 nnoremap <Leader><Leader> :so $MYVIMRC<CR>
 
+
 "PLUG MANAGER
 let data_dir = has('nvim') ? stdpath('data') . '/site' : '~/.vim'
 if empty(glob(data_dir . '/autoload/plug.vim'))
@@ -70,8 +72,16 @@ Plug 'vim-syntastic/syntastic'
 Plug 'itchyny/lightline.vim'
 Plug 'catppuccin/vim', { 'as': 'catppuccin' }
 Plug '42Paris/42header'
+Plug 'ludovicchabant/vim-gutentags'
+Plug 'luochen1990/rainbow'
 call plug#end()
 
+
+if has('termguicolors')
+    set termguicolors
+endif
+
+hi Normal guibg=NONE ctermbg=NONE
 
 
 "lightline 
@@ -84,3 +94,7 @@ let g:lightline = {
 
 let g:user42 = 'pibouill'
 let g:mail42 = 'pibouill@student.42prague.com'
+let g:rainbow_active = 1
+let g:rainbow_conf = {
+\       'guifgs': ['lightblue', 'lightgreen', 'lightcyan', 'lightyellow']
+\    }
