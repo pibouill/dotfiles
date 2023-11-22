@@ -45,5 +45,6 @@
     "workbench.iconTheme": "catppuccin-macchiato",
     "debug.onTaskErrors": "debugAnyway",
     "window.zoomLevel": -1,
+    "terminal.explorerKind": "external",
 
 }

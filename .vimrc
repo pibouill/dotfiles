@@ -15,12 +15,14 @@ set tabstop=4						" set tab to 4 spaces
 set softtabstop=4
 set shiftwidth=4
 set expandtab
+set autoindent
+set noexpandtab
 set smartindent
 set modeline	" make vim change in a specific file
 set modelines=5
 set ignorecase	"ignore case in search
 set incsearch
-set nohlsearch
+"set nohlsearch
 colorscheme catppuccin_macchiato
 set termguicolors
 set background=dark
@@ -43,6 +45,7 @@ map <C-l> <C-w>l
 let mapleader = " "
 nnoremap <Leader>u :UndotreeToggle<CR>
 nnoremap <Leader>gs :Git<CR>
+nnoremap <Leader>ff :Files<CR>
 nnoremap <C-d> <C-d>zz
 nnoremap <C-u> <C-u>zz
 nnoremap n nzzzv
@@ -72,17 +75,16 @@ Plug 'vim-syntastic/syntastic'
 Plug 'itchyny/lightline.vim'
 Plug 'catppuccin/vim', { 'as': 'catppuccin' }
 Plug '42Paris/42header'
-Plug 'ludovicchabant/vim-gutentags'
 Plug 'luochen1990/rainbow'
 call plug#end()
 
-
+" transparent bg""""""""""""""""""
 if has('termguicolors')
     set termguicolors
 endif
 
 hi Normal guibg=NONE ctermbg=NONE
-
+""""""""""""""""""""""""""""""""""
 
 "lightline 
 let g:lightline = {
