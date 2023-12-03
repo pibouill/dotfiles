@@ -1,4 +1,14 @@
 
+# Check for OS and defines home path
+if [[ "$OSTYPE" == "darwin"* ]]; then
+	export PATH_TO_HOME="/Users/pierre"
+	. /Users/pierre/
+elif [[ "$OSTYPE" == "linux-gnu" ]]; then
+	export PATH_TO_HOME="/nfs/pibouill"
+	. /nfs/homes/pibouill/
+fi
+echo "My path is: $PATH_TO_HOME"
+#
 autoload -U colors && colors
 
 # History in cache directory
@@ -13,7 +23,6 @@ if [[ -r "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh" ]]
   source "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh"
 fi
 
-. /nfs/homes/pibouill/
 
 PROMPT='%n@%m%~%% '
 
@@ -43,7 +52,7 @@ alias vz="vi ~/.zshrc"
 alias vrc="vi ~/.vimrc"
 alias swcaps="~/.config/switch_caps_ctrl.sh"
 
-source ~/.customi/powerlevel10k/powerlevel10k.zsh-theme
+source $PATH_TO_HOME/.config/powerlevel10k/powerlevel10k.zsh-theme
 
 # To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
 [[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
@@ -59,11 +68,9 @@ tc() {
   touch "$1.c"
 }
 
-# Load Catpuccin syntax highlight
-source /nfs/homes/pibouill/.customi/catppuccin_syntax/catppuccin_mocha-zsh-syntax-highlighting.zsh
-
-# Load zsh-syntax-highlight
-source /nfs/homes/pibouill/.customi/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
-
-
+export PATH=/opt/homebrew/bin:/usr/local/bin:/System/Cryptexes/App/usr/bin:/usr/bin:/bin:/usr/sbin:/sbin:/var/run/com.apple.security.cryptexd/codex.system/bootstrap/usr/local/bin:/var/run/com.apple.security.cryptexd/codex.system/bootstrap/usr/bin:/var/run/com.apple.security.cryptexd/codex.system/bootstrap/usr/appleinternal/bin
 export MAIL=pibouill@student.42prague.com
+# Load Catpuccin syntax highlight
+source $PATH_TO_HOME/.config/catppuccin_mocha-zsh-syntax-highlighting.zsh
+# Load zsh-syntax-highlight
+source $PATH_TO_HOME/.config/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
