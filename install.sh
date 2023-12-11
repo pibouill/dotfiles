@@ -19,7 +19,7 @@ if ! command -v curl &> /dev/null; then
 fi
 
 # Define the dotfiles directory
-DOTFILES_DIR="$HOME/.config/DOTFILES"
+DOTFILES_DIR="$HOME/.config/dotfiles"
 
 # Clone dotfiles repository (replace URL with your own repository)
 git clone https://github.com/yourusername/dotfiles.git "$DOTFILES_DIR"
