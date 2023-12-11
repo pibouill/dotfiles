@@ -4,12 +4,12 @@
 " `\ V /'| | \_/ | v / \__ 
 "   \_/  |_|_| |_|_|_\\__/ 
 
-
 "SETS
 set number relativenumber
 syntax enable
 syntax on							" Highlight syntax
 filetype on
+filetype plugin on
 set mouse=r							" Enable mouse click + copy paste
 set tabstop=4						" set tab to 4 spaces
 set softtabstop=4
@@ -35,7 +35,6 @@ set laststatus=2 " lightline
 set noshowmode "lightline too
 "Splits
 set splitbelow splitright
-filetype plugin on
 "Splits motions
 map <C-h> <C-w>h
 map <C-j> <C-w>j
