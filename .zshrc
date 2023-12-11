@@ -60,7 +60,7 @@ alias ..="cd .."
 alias grep="grep --color=auto"
 alias dotfiles="cd ~/.config/DOTFILES/"
 
-source ~/.customi/powerlevel10k/powerlevel10k.zsh-theme
+source ~/.config/powerlevel10k/powerlevel10k.zsh-theme
 
 # To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
 [[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
@@ -77,10 +77,10 @@ tc() {
 }
 
 # Load Catpuccin syntax highlight
-source /nfs/homes/pibouill/.customi/catppuccin_syntax/catppuccin_mocha-zsh-syntax-highlighting.zsh
+source $HOME/.config/catppuccin_syntax/catppuccin_mocha-zsh-syntax-highlighting.zsh
 
 # Load zsh-syntax-highlight
-source /nfs/homes/pibouill/.customi/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
+source $HOME/.config/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
 
 
 export MAIL=pibouill@student.42prague.com
@@ -98,3 +98,4 @@ alias devstation="\
   --rm \
   -it -v ${SHARED_FOLDER}:/root/shared jterrazz/devstation zsh
 "
+export PATH=/opt/homebrew/bin:/usr/local/bin:/System/Cryptexes/App/usr/bin:/usr/bin:/bin:/usr/sbin:/sbin:/var/run/com.apple.security.cryptexd/codex.system/bootstrap/usr/local/bin:/var/run/com.apple.security.cryptexd/codex.system/bootstrap/usr/bin:/var/run/com.apple.security.cryptexd/codex.system/bootstrap/usr/appleinternal/bin
