@@ -1,16 +1,34 @@
 #!/bin/bash
 
+# Check if curl is installed
+if ! command -v curl &> /dev/null; then
+    echo "curl is not installed. Installing curl..."
+    # Install curl based on the package manager (adjust for your system)
+    if [ "$(uname)" == "Darwin" ]; then
+        # macOS uses brew
+        /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
+        brew install curl
+    elif [ "$(expr substr $(uname -s) 1 5)" == "Linux" ]; then
+        # Linux uses apt-get (adjust for other package managers as needed)
+        sudo apt-get update
+        sudo apt-get install -y curl
+    else
+        echo "Unsupported operating system. Please install curl manually."
+        exit 1
+    fi
+fi
+
 # Define the dotfiles directory
 DOTFILES_DIR="$HOME/.config/DOTFILES"
 
 # Clone dotfiles repository (replace URL with your own repository)
-git clone https://github.com/pibouill/DOTFILES.git "$DOTFILES_DIR"
+git clone https://github.com/yourusername/dotfiles.git "$DOTFILES_DIR"
 
 # Symlink .zshrc
 ln -sf "$DOTFILES_DIR/.zshrc" "$HOME/.zshrc"
 
-# Install Powerlevel10k for Oh My Zsh
-git clone --depth=1 https://github.com/romkatv/powerlevel10k.git "$HOME/.p10.zsh"
+# Install Powerlevel10k for Zsh
+git clone --depth=1 https://github.com/romkatv/powerlevel10k.git "$HOME/.p10k.zsh"
 
 # Symlink .p10k.zsh
 ln -sf "$DOTFILES_DIR/.p10k.zsh" "$HOME/.p10k.zsh"
