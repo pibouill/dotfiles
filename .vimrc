@@ -86,7 +86,7 @@ Plug 'mbbill/undotree'
 Plug 'tpope/vim-fugitive'
 Plug 'vim-syntastic/syntastic'
 Plug 'itchyny/lightline.vim'
-"Plug 'catppuccin/vim', { 'as': 'catppuccin' }
+Plug 'catppuccin/vim', { 'as': 'catppuccin' }
 Plug '42Paris/42header'
 Plug 'luochen1990/rainbow'
 Plug 'preservim/nerdcommenter'
