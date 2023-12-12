@@ -58,7 +58,7 @@ alias swcaps="~/.config/switch_caps_ctrl.sh"
 alias work="cd ~/projects/"
 alias ..="cd .."
 alias grep="grep --color=auto"
-alias dotfiles="cd ~/.config/DOTFILES/"
+alias dotfiles="cd ~/.config/dotfiles/"
 
 source ~/.config/powerlevel10k/powerlevel10k.zsh-theme
 
