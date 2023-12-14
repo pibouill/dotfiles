@@ -24,7 +24,6 @@ set mouse=r							" Enable mouse click + copy paste
 set tabstop=4						" set tab to 4 spaces
 set softtabstop=4
 set shiftwidth=4
-set expandtab
 set autoindent
 set noexpandtab
 set smartindent
