@@ -65,6 +65,9 @@ vnoremap K :m '<-2<CR>gv=gv'
 nnoremap J mzJ`z
 nnoremap <Leader>s :%s/\<<C-r><C-w>\>/<C-r><C-w>/gI<Left><Left><Left>
 nnoremap <Leader><Leader> :so $MYVIMRC<CR>
+nnoremap <Leader>vs :vs<CR>
+nnoremap <Leader>sp :sp<CR>
+
 
 "cursor
 let &t_SI = "\e[5 q"
