@@ -79,7 +79,7 @@ tc() {
 # Load Catpuccin syntax highlight
 #source $HOME/.config/catppuccin_zsh_syntax/catppuccin_mocha-zsh-syntax-highlighting.zsh
 
-####### DRACULA ZSH SYNTAX WTF STOP VIOLATING MY ZSHRC :@ #######
+####### DRACULA ZSH SYNTAX #######
 #################################################################
 ZSH_HIGHLIGHT_HIGHLIGHTERS=(main cursor)
 typeset -gA ZSH_HIGHLIGHT_STYLES
@@ -129,6 +129,9 @@ ZSH_HIGHLIGHT_STYLES[redirection]='fg=#F8F8F2'
 ZSH_HIGHLIGHT_STYLES[arg0]='fg=#F8F8F2'
 ZSH_HIGHLIGHT_STYLES[default]='fg=#F8F8F2'
 ZSH_HIGHLIGHT_STYLES[cursor]='standout'
+######################################################################
+######################################################################
+
 
 # Load zsh-syntax-highlight
 source $HOME/.config/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
