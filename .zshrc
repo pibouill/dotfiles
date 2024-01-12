@@ -60,6 +60,7 @@ alias ..="cd .."
 alias grep="grep --color=auto"
 alias dotfiles="cd ~/.config/dotfiles/"
 alias gremup="git remote update"
+alias px="exit"
 
 source ~/.config/powerlevel10k/powerlevel10k.zsh-theme
 
