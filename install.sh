@@ -22,7 +22,7 @@ fi
 DOTFILES_DIR="$HOME/.config/dotfiles"
 
 # Clone dotfiles repository (replace URL with your own repository)
-git clone https://github.com/yourusername/dotfiles.git "$DOTFILES_DIR"
+git clone https://github.com/pibouill/dotfiles.git "$DOTFILES_DIR"
 
 # Symlink .zshrc
 ln -sf "$DOTFILES_DIR/.zshrc" "$HOME/.zshrc"
