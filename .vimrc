@@ -17,7 +17,6 @@
 "SETS
 set number relativenumber
 syntax enable
-syntax on							" Highlight syntax
 filetype on
 filetype plugin on
 set mouse=r							" Enable mouse click + copy paste
