@@ -1,4 +1,3 @@
-
 "                              ____
 "               ,---,        ,'  , `.,-.----.     ,----..
 "       ,---.,`--.' |     ,-+-,.' _ |\    /  \   /   /   \
@@ -43,6 +42,7 @@ set laststatus=2 " lightline
 set noshowmode "lightline too
 "Splits
 set splitbelow splitright
+set omnifunc=syntaxcomplete
 "Splits motions
 map <C-h> <C-w>h
 map <C-j> <C-w>j
