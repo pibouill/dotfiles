@@ -95,6 +95,7 @@ Plug '42Paris/42header'
 Plug 'luochen1990/rainbow'
 Plug 'preservim/nerdcommenter'
 Plug 'craigemery/vim-autotag'
+Plug 'sheerun/vim-polyglot'
 call plug#end()
 
 " transparent bg""""""""""""""""""
