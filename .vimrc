@@ -68,6 +68,7 @@ nnoremap <Leader>vs :vs<CR>
 nnoremap <Leader>sp :sp<CR>
 nnoremap <c-z> <nop> 
 nnoremap <leader>s :w<CR>
+imap jj <Esc>
 "disable ctrl+z
 
 
