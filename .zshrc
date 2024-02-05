@@ -46,6 +46,7 @@ bindkey -v '^?' backward-delete-char
 
 # ALIAS
 alias ll='ls -lah --color=auto'
+alias ls='ls --color=auto'
 alias c="clear"
 alias gwww="cc -Wall -Werror -Wextra"
 alias rff="rm -rf"
@@ -59,7 +60,7 @@ alias work="cd ~/work/"
 alias ..="cd .."
 alias grep="grep --color=auto"
 alias dotfiles="cd ~/.config/dotfiles/"
-alias gremup="git remote update"
+alias gru="git remote update"
 alias px="exit"
 
 source ~/.config/powerlevel10k/powerlevel10k.zsh-theme
