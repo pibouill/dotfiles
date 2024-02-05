@@ -66,9 +66,9 @@ nnoremap <Leader>L :%s/\<<C-r><C-w>\>/<C-r><C-w>/gI<Left><Left><Left>
 nnoremap <Leader><Leader> :so $MYVIMRC<CR>
 nnoremap <Leader>vs :vs<CR>
 nnoremap <Leader>sp :sp<CR>
-nnoremap <c-z> <nop> 
+nnoremap <c-z> <nop>
 nnoremap <leader>s :w<CR>
-imap jj <Esc>
+imap jk <Esc>
 "disable ctrl+z
 
 
