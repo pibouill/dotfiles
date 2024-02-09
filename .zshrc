@@ -79,6 +79,8 @@ tc() {
   touch "$1.c"
 }
 
+####### CATPUCCIN ZSH SYNTAX #######
+#################################################################
 # Load Catpuccin syntax highlight
 #source $HOME/.config/catppuccin_zsh_syntax/catppuccin_mocha-zsh-syntax-highlighting.zsh
 
