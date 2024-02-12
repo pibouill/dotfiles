@@ -94,7 +94,7 @@ Plug 'catppuccin/vim', { 'as': 'catppuccin' }
 Plug '42Paris/42header'
 Plug 'luochen1990/rainbow'
 Plug 'preservim/nerdcommenter'
-Plug 'craigemery/vim-autotag'
+Plug 'ludovicchabant/vim-gutentags'
 Plug 'sheerun/vim-polyglot'
 call plug#end()
 
