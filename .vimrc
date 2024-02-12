@@ -67,6 +67,7 @@ nnoremap <Leader><Leader> :so $MYVIMRC<CR>
 nnoremap <Leader>vs :vs<CR>
 nnoremap <Leader>sp :sp<CR>
 nnoremap <c-z> <nop>
+nnoremap <Leader>tags :call pathogen#helptags()<CR>
 imap jk <Esc>
 "disable ctrl+z
 
