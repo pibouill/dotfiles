@@ -61,6 +61,7 @@ alias ..="cd .."
 alias grep="grep --color=auto"
 alias dotfiles="cd ~/.config/dotfiles/"
 alias gru="git remote update"
+alias gst="git status"
 alias px="exit"
 
 source ~/.config/powerlevel10k/powerlevel10k.zsh-theme
