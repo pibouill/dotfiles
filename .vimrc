@@ -25,9 +25,9 @@ set shiftwidth=4
 set autoindent
 set noexpandtab
 set smartindent
-set modeline	" make vim change in a specific file
+set modeline	                    " make vim change in a specific file
 set modelines=5
-set ignorecase	"ignore case in search
+set ignorecase	                    "ignore case in search
 set incsearch
 "set nohlsearch
 colorscheme catppuccin_macchiato
