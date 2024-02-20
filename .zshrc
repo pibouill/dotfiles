@@ -63,6 +63,7 @@ alias dotfiles="cd ~/.config/dotfiles/"
 alias gru="git remote update"
 alias gst="git status"
 alias px="exit"
+alias vglc="valgrind --leak-check=full"
 
 source ~/.config/powerlevel10k/powerlevel10k.zsh-theme
 
