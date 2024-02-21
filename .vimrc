@@ -59,8 +59,8 @@ nnoremap <C-u> <C-u>zz
 nnoremap n nzzzv
 nnoremap N Nzzzv
 nnoremap <Leader>pv :Ex<CR>
-vnoremap J :m '>+1<CR>gv=gv'
-vnoremap K :m '<-2<CR>gv=gv'
+vnoremap J :m '>+1<CR>gv=gv
+vnoremap K :m '<-2<CR>gv=gv
 nnoremap J mzJ`z
 nnoremap <Leader>L :%s/\<<C-r><C-w>\>/<C-r><C-w>/gI<Left><Left><Left>
 nnoremap <Leader><Leader> :so $MYVIMRC<CR>
@@ -99,6 +99,7 @@ Plug 'luochen1990/rainbow'
 Plug 'preservim/nerdcommenter'
 Plug 'ludovicchabant/vim-gutentags'
 Plug 'sheerun/vim-polyglot'
+Plug 'octol/vim-cpp-enhanced-highlight'
 call plug#end()
 
 " transparent bg""""""""""""""""""
