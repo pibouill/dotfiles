@@ -72,6 +72,9 @@ imap jk <Esc>
 nnoremap ` <nop>
 inoremap ` <Esc>
 vnoremap ` <Esc>
+nnoremap <Leader>y "*y
+vnoremap <Leader>y "*y
+nnoremap <Leader>Y "*Y
 
 
 "cursor
