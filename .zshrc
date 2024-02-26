@@ -147,7 +147,7 @@ export MAIL=pibouill@student.42prague.com
 
 SHARED_FOLDER="~"
 
-alias devstation="\
+alias devstation="
 	docker run \
   --cap-drop=ALL  \
   --cap-add=SYS_PTRACE \
