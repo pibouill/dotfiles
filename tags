@@ -9,6 +9,7 @@
 !_TAG_PROGRAM_NAME	Universal Ctags	/Derived from Exuberant Ctags/
 !_TAG_PROGRAM_URL	https://ctags.io/	/official site/
 !_TAG_PROGRAM_VERSION	5.9.0	//
+0	apps_config/vimium-options.json	/^    {$/;"	o	array:exclusionRules
 0	macos/iterm_tokyonightstorm_color.json	/^    "rlogin",$/;"	s	array:Jobs to Ignore
 0x2d-0x40000	macos/iterm_tokyonightstorm_color.json	/^    "0x2d-0x40000" : {$/;"	o	object:Keyboard Map
 0x32-0x40000	macos/iterm_tokyonightstorm_color.json	/^    "0x32-0x40000" : {$/;"	o	object:Keyboard Map
@@ -50,9 +51,13 @@
 0xf729-0x40000	macos/iterm_tokyonightstorm_color.json	/^    "0xf729-0x40000" : {$/;"	o	object:Keyboard Map
 0xf72b-0x20000	macos/iterm_tokyonightstorm_color.json	/^    "0xf72b-0x20000" : {$/;"	o	object:Keyboard Map
 0xf72b-0x40000	macos/iterm_tokyonightstorm_color.json	/^    "0xf72b-0x40000" : {$/;"	o	object:Keyboard Map
+1	apps_config/vimium-options.json	/^    {$/;"	o	array:exclusionRules
 1	macos/iterm_tokyonightstorm_color.json	/^    "ssh",$/;"	s	array:Jobs to Ignore
+2	apps_config/vimium-options.json	/^    {$/;"	o	array:exclusionRules
 2	macos/iterm_tokyonightstorm_color.json	/^    "slogin",$/;"	s	array:Jobs to Ignore
+3	apps_config/vimium-options.json	/^    {$/;"	o	array:exclusionRules
 3	macos/iterm_tokyonightstorm_color.json	/^    "telnet"$/;"	s	array:Jobs to Ignore
+4	apps_config/vimium-options.json	/^    {$/;"	o	array:exclusionRules
 42header.email	vscode/settings.json	/^    "42header.email": "pibouill@student.42prague.com",$/;"	s
 42header.username	vscode/settings.json	/^    "42header.username": "pibouill",$/;"	s
 <C-d>	.vimrc	/^nnoremap <C-d> <C-d>zz$/;"	m
@@ -389,6 +394,7 @@ editor.renderWhitespace	vscode/settings.json	/^    "editor.renderWhitespace": "t
 editor.semanticHighlighting.enabled	vscode/settings.json	/^    "editor.semanticHighlighting.enabled": true,$/;"	b
 editor.suggest.insertMode	vscode/settings.json	/^    "editor.suggest.insertMode": "replace",$/;"	s
 editor.tabSize	vscode/settings.json	/^    "editor.tabSize": 4,$/;"	n
+exclusionRules	apps_config/vimium-options.json	/^  "exclusionRules": [$/;"	a
 explorer.autoReveal	vscode/settings.json	/^    "explorer.autoReveal": false,$/;"	b
 files.autoSave	vscode/settings.json	/^    "files.autoSave": "afterDelay",$/;"	s
 files.insertFinalNewline	vscode/settings.json	/^    "files.insertFinalNewline": true,$/;"	b
@@ -405,13 +411,25 @@ json.schemas	vscode/settings.json	/^    "json.schemas": [$/;"	a
 mapleader	.vimrc	/^let mapleader = " "$/;"	v
 my_git_formatter	.p10k.zsh	/^  function my_git_formatter() {$/;"	f
 n	.vimrc	/^nnoremap n nzzzv$/;"	m
+passKeys	apps_config/vimium-options.json	/^      "passKeys": "",$/;"	s	object:exclusionRules.3
+passKeys	apps_config/vimium-options.json	/^      "passKeys": "?jknpxercgils#uld\/",$/;"	s	object:exclusionRules.4
+passKeys	apps_config/vimium-options.json	/^      "passKeys": "\/",$/;"	s	object:exclusionRules.0
+passKeys	apps_config/vimium-options.json	/^      "passKeys": "\/",$/;"	s	object:exclusionRules.1
+passKeys	apps_config/vimium-options.json	/^      "passKeys": "jklftm><",$/;"	s	object:exclusionRules.2
+pattern	apps_config/vimium-options.json	/^      "pattern": "https?:\/\/github.com\/*"$/;"	s	object:exclusionRules.1
+pattern	apps_config/vimium-options.json	/^      "pattern": "https?:\/\/mail.google.com\/*"$/;"	s	object:exclusionRules.4
+pattern	apps_config/vimium-options.json	/^      "pattern": "https?:\/\/monkeytype.com\/*"$/;"	s	object:exclusionRules.3
+pattern	apps_config/vimium-options.json	/^      "pattern": "https?:\/\/www.google.com\/*"$/;"	s	object:exclusionRules.0
+pattern	apps_config/vimium-options.json	/^      "pattern": "https?:\/\/www.youtube.com\/watch*"$/;"	s	object:exclusionRules.2
 prompt_example	.p10k.zsh	/^  function prompt_example() {$/;"	f
 security.workspace.trust.untrustedFiles	vscode/settings.json	/^    "security.workspace.trust.untrustedFiles": "open",$/;"	s
+settingsVersion	apps_config/vimium-options.json	/^  "settingsVersion": "2.0.5",$/;"	s
 terminal.explorerKind	vscode/settings.json	/^    "terminal.explorerKind": "external",$/;"	s
 terminal.integrated.fontFamily	vscode/settings.json	/^    "terminal.integrated.fontFamily": "MesloLGS NF",$/;"	s
 terminal.integrated.minimumContrastRatio	vscode/settings.json	/^    "terminal.integrated.minimumContrastRatio": 5,$/;"	n
 terminal.selectionBackground	vscode/settings.json	/^        "terminal.selectionBackground": "#dbdacc",$/;"	s	object:workbench.colorCustomizations
 terminal.selectionForeground	vscode/settings.json	/^        "terminal.selectionForeground": "#000000",$/;"	s	object:workbench.colorCustomizations
+userDefinedLinkHintCss	apps_config/vimium-options.json	/^  "userDefinedLinkHintCss": "\/*\\nDracula theme for Vimium\\nby Trollwut (trollwut@trollwut.org/;"	s
 vim.vimrc.enable	vscode/settings.json	/^    "vim.vimrc.enable": true,$/;"	b
 window.titleBarStyle	vscode/settings.json	/^    "window.titleBarStyle": "custom",$/;"	s
 window.zoomLevel	vscode/settings.json	/^    "window.zoomLevel": -1,$/;"	n
