@@ -64,6 +64,7 @@ alias gru="git remote update"
 alias gst="git status"
 alias px="exit"
 alias vglc="valgrind --leak-check=full"
+alias workwork="cd /sgoinfre/goinfre/Perso/pibouill/work"
 
 source ~/.config/powerlevel10k/powerlevel10k.zsh-theme
 

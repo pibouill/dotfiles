@@ -70,6 +70,7 @@ nnoremap <c-z> <nop>
 nnoremap <Leader>tags :call pathogen#helptags()<CR>
 imap jk <Esc>
 nnoremap ` <nop>
+nnoremap Q <nop>
 inoremap ` <Esc>
 vnoremap ` <Esc>
 nnoremap <Leader>y "*y
