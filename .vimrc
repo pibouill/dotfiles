@@ -77,6 +77,12 @@ nnoremap <Leader>y "*y
 vnoremap <Leader>y "*y
 nnoremap <Leader>Y "*Y
 
+" resize buffers
+map <A-S-Left> <C-W>>
+map <A-S-Right> <C-W><
+map <A-S-Up> <C-W>+
+map <A-S-Down> <C-W>-
+
 
 "cursor
 let &t_SI = "\e[5 q"
