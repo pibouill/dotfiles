@@ -60,6 +60,10 @@
 4	apps_config/vimium-options.json	/^    {$/;"	o	array:exclusionRules
 42header.email	vscode/settings.json	/^    "42header.email": "pibouill@student.42prague.com",$/;"	s
 42header.username	vscode/settings.json	/^    "42header.username": "pibouill",$/;"	s
+<A-S-Down>	.vimrc	/^map <A-S-Down> <C-W>-$/;"	m
+<A-S-Left>	.vimrc	/^map <A-S-Left> <C-W>>$/;"	m
+<A-S-Right>	.vimrc	/^map <A-S-Right> <C-W><$/;"	m
+<A-S-Up>	.vimrc	/^map <A-S-Up> <C-W>+$/;"	m
 <C-d>	.vimrc	/^nnoremap <C-d> <C-d>zz$/;"	m
 <C-h>	.vimrc	/^map <C-h> <C-w>h$/;"	m
 <C-j>	.vimrc	/^map <C-j> <C-w>j$/;"	m
@@ -285,6 +289,7 @@ Normal Font	macos/iterm_tokyonightstorm_color.json	/^  "Normal Font" : "JetBrain
 Only The Default BG Color Uses Transparency	macos/iterm_tokyonightstorm_color.json	/^  "Only The Default BG Color Uses Transparency" : true,$/;"	b
 Option Key Sends	macos/iterm_tokyonightstorm_color.json	/^  "Option Key Sends" : 0,$/;"	n
 Prompt Before Closing 2	macos/iterm_tokyonightstorm_color.json	/^  "Prompt Before Closing 2" : false,$/;"	b
+Q	.vimrc	/^nnoremap Q <nop>$/;"	m
 Red Component	macos/iterm_tokyonightstorm_color.json	/^    "Red Component" : 0.11372549086809158,$/;"	n	object:Ansi 0 Color
 Red Component	macos/iterm_tokyonightstorm_color.json	/^    "Red Component" : 0.11372549086809158,$/;"	n	object:Cursor Text Color
 Red Component	macos/iterm_tokyonightstorm_color.json	/^    "Red Component" : 0.14117647707462311,$/;"	n	object:Background Color
