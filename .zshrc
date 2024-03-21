@@ -76,7 +76,6 @@ source ~/.config/powerlevel10k/powerlevel10k.zsh-theme
 alias vim-be-good="docker run -it --rm brandoncc/vim-be-good:stable"
 alias francinette="$HOME"/francinette/tester.sh
 alias paco="$HOME"/francinette/tester.sh
-alias cclean='bash ~/Cleaner_42.sh'
 
 # shortcuts
 tc() {
@@ -160,3 +159,5 @@ alias devstation="
   -it -v ${SHARED_FOLDER}:/root/shared jterrazz/devstation zsh
 "
 export PATH=/opt/homebrew/bin:/usr/local/bin:/System/Cryptexes/App/usr/bin:/usr/bin:/bin:/usr/sbin:/sbin:/var/run/com.apple.security.cryptexd/codex.system/bootstrap/usr/local/bin:/var/run/com.apple.security.cryptexd/codex.system/bootstrap/usr/bin:/var/run/com.apple.security.cryptexd/codex.system/bootstrap/usr/appleinternal/bin
+
+export PATH="$HOME/.cargo/bin:$PATH"
