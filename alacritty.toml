@@ -1,0 +1,16 @@
+import = ["~/.config/alacritty/themes/dracula.toml"]
+
+[font]
+size = 15
+
+[font.normal]
+family = "JetBrainsMonoNL Nerd Font"
+
+[window]
+decorations = "none"
+
+[window.padding]
+x = 7
+y = 0
+
+
