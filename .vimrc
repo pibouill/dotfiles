@@ -77,12 +77,20 @@ nnoremap <Leader>y "*y
 vnoremap <Leader>y "*y
 nnoremap <Leader>Y "*Y
 
+" Terminal mode remaps
+nnoremap <Leader>vt :vert term<CR>
+nnoremap <Leader>st :term<CR>
+tnoremap <C-h> <C-w>h
+tnoremap <C-j> <C-w>j
+tnoremap <C-k> <C-w>k
+tnoremap <C-l> <C-w>l
+tnoremap <C-n> <C-w>N
+
 " resize buffers
 map <A-S-Left> <C-W>>
 map <A-S-Right> <C-W><
 map <A-S-Up> <C-W>+
 map <A-S-Down> <C-W>-
-
 
 "cursor
 let &t_SI = "\e[5 q"
