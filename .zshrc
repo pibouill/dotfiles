@@ -66,6 +66,7 @@ alias px="exit"
 alias vglc="valgrind --leak-check=full"
 alias workwork="cd /sgoinfre/goinfre/Perso/pibouill/work"
 alias checksize='du -bsh $(ls -A) | sort -rh'
+alias tconf="vi ~/.tmux.conf"
 
 source ~/.config/powerlevel10k/powerlevel10k.zsh-theme
 

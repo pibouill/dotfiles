@@ -31,10 +31,10 @@ set ignorecase	                    "ignore case in search
 set incsearch
 "set nohlsearch
 colorscheme catppuccin_macchiato
-set termguicolors
+"set termguicolors
 set background=dark
 set scrolloff=8
-set signcolumn=yes
+set signcolumn=number
 set updatetime=50
 set colorcolumn = "80"
 set wildmode=longest,list,full
