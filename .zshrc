@@ -30,6 +30,9 @@ fi
 
 PROMPT='%n@%m%~%% '
 
+# Set current working project for easy cd access
+export PROJ=~/work/minitalk
+
 # auto/tab complete
 autoload -U compinit
 zstyle ':completion:*' menu select
@@ -67,6 +70,7 @@ alias vglc="valgrind --leak-check=full"
 alias workwork="cd /sgoinfre/goinfre/Perso/pibouill/work"
 alias checksize='du -bsh $(ls -A) | sort -rh'
 alias tconf="vi ~/.tmux.conf"
+alias proj="cd $PROJ"
 
 source ~/.config/powerlevel10k/powerlevel10k.zsh-theme
 
