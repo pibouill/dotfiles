@@ -25,11 +25,14 @@ git clone https://github.com/pibouill/dotfiles.git "$DOTFILES_DIR"
 
 ln -sf "$DOTFILES_DIR/.zshrc" "$HOME/.zshrc"
 
+ln -sf "$DOTFILES_DIR/.vimrc" "$HOME/.vimrc"
+
+ln -sf "$DOTFILES_DIR/.tmux.conf" "$HOME/.tmux.conf"
+
 git clone --depth=1 https://github.com/romkatv/powerlevel10k.git "$HOME/.p10k.zsh"
 
 ln -sf "$DOTFILES_DIR/.p10k.zsh" "$HOME/.p10k.zsh"
 
-ln -sf "$DOTFILES_DIR/.vimrc" "$HOME/.vimrc"
 
 # Install Vim-Plug
 if [ ! -f "$HOME/.vim/autoload/plug.vim" ]; then
@@ -40,5 +43,5 @@ fi
 # Install Vim plugins using Vim-Plug
 vim +PlugInstall +qall
 
-echo "Dotfiles installation completed!"
+echo "Dotfiles installation completed."
 
