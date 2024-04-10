@@ -71,6 +71,7 @@ alias workwork="cd /sgoinfre/goinfre/Perso/pibouill/work"
 alias checksize='du -bsh $(ls -A) | sort -rh'
 alias tconf="vi ~/.tmux.conf"
 alias proj="cd $PROJ"
+alias libft="cd ~/work/libft"
 
 source ~/.config/powerlevel10k/powerlevel10k.zsh-theme
 
