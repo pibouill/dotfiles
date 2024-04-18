@@ -32,6 +32,7 @@ PROMPT='%n@%m%~%% '
 
 # Set current working project for easy cd access
 export PROJ=~/work/minitalk
+################################################
 
 # auto/tab complete
 autoload -U compinit
@@ -72,6 +73,7 @@ alias checksize='du -bsh $(ls -A) | sort -rh'
 alias tconf="vi ~/.tmux.conf"
 alias proj="cd $PROJ"
 alias libft="cd ~/work/libft"
+alias tm="tmux"
 
 source ~/.config/powerlevel10k/powerlevel10k.zsh-theme
 
@@ -150,7 +152,7 @@ export MAIL=pibouill@student.42prague.com
 
 SHARED_FOLDER="~"
 
-alias devstation="
+alias devstation="\
 	docker run \
   --cap-drop=ALL  \
   --cap-add=SYS_PTRACE \
