@@ -32,7 +32,6 @@ git clone --depth=1 https://github.com/romkatv/powerlevel10k.git "$HOME/.p10k.zs
 ln -sf "$DOTFILES_DIR/.p10k.zsh" "$HOME/.p10k.zsh"
 
 
-
 # Install Vim-Plug
 if [ ! -f "$HOME/.vim/autoload/plug.vim" ]; then
     curl -fLo "$HOME/.vim/autoload/plug.vim" --create-dirs \
