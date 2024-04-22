@@ -142,5 +142,3 @@ let g:rainbow_active = 1
 let g:rainbow_conf = {
 \       'guifgs': ['lightblue', 'lightgreen', 'lightcyan', 'lightyellow']
 \    }
-
-let $FZF_DEFAULT_OPTS='--bind=ctrl-k:up,ctrl-j:down'

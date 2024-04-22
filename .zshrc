@@ -75,6 +75,7 @@ alias proj="cd $PROJ"
 alias libft="cd ~/work/libft"
 alias tm="tmux"
 alias gol="git log --oneline"
+alias gd="git diff"
 
 source ~/.config/powerlevel10k/powerlevel10k.zsh-theme
 
