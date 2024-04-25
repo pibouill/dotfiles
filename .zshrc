@@ -76,6 +76,7 @@ alias libft="cd ~/work/libft"
 alias tm="tmux"
 alias gol="git log --oneline"
 alias gd="git diff"
+alias sgoinfre="cd /sgoinfre/goinfre/Perso/pibouill"
 
 source ~/.config/powerlevel10k/powerlevel10k.zsh-theme
 
