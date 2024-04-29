@@ -18,6 +18,12 @@ if ! command -v curl &> /dev/null; then
     fi
 fi
 
+export XDG_CONFIG_HOME="$HOME/.config"
+
+mkdir -p "$XDG_CONFIG_HOME"/alacritty
+mkdir -p "$XDG_CONFIG_HOME"/alacritty/themes
+mkdir "$HOME/.vim/" "$HOME/.vim/autoload"
+
 # Define the dotfiles directory
 DOTFILES_DIR="$HOME/.config/dotfiles"
 
@@ -26,8 +32,8 @@ git clone https://github.com/pibouill/dotfiles.git "$DOTFILES_DIR"
 ln -sf "$DOTFILES_DIR/.zshrc" "$HOME/.zshrc"
 ln -sf "$DOTFILES_DIR/.vimrc" "$HOME/.vimrc"
 ln -sf "$DOTFILES_DIR/.tmux.conf" "$HOME/.tmux.conf"
-mkdir $HOME/.config/alacritty
-ln -sf "$DOTFILES_DIR/.alacritty.toml" "$HOME/.config/alacritty/alacritty.toml"
+ln -sf "$DOTFILES_DIR/.alacritty.toml" "$XDG_CONFIG_HOME/alacritty/alacritty.toml"
+ln -sf "$PWD/vim/autoload/plug.vim" "$HOME/.vim/autoload/plug.vim"
 
 git clone --depth=1 https://github.com/romkatv/powerlevel10k.git "$HOME/.p10k.zsh"
 ln -sf "$DOTFILES_DIR/.p10k.zsh" "$HOME/.p10k.zsh"
