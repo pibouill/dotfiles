@@ -172,4 +172,6 @@ export PATH=/opt/homebrew/bin:/usr/local/bin:/System/Cryptexes/App/usr/bin:/usr/
 
 export PATH="$HOME/.cargo/bin:$PATH"
 
-
+if [[ $(uname) == "Darwin" ]]; then
+   export LIBRARY_PATH=/opt/homebrew/lib
+fi
