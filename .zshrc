@@ -31,7 +31,7 @@ fi
 PROMPT='%n@%m%~%% '
 
 # Set current working project for easy cd access
-export PROJ=~/work/minitalk
+export PROJ=~/work/fdf
 ################################################
 
 # auto/tab complete
