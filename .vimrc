@@ -49,7 +49,7 @@ map <C-j> <C-w>j
 map <C-k> <C-w>k
 map <C-l> <C-w>l
 
-"KEYMAPS
+"""""""""KEYMAPS""""""""""""
 let mapleader = " "
 nnoremap <Leader>u :UndotreeToggle<CR>
 nnoremap <Leader>gs :Git<CR>
@@ -69,10 +69,9 @@ nnoremap <Leader>sp :sp<CR>
 nnoremap <c-z> <nop> 
 nnoremap <Leader>tags :call pathogen#helptags()<CR>
 imap jk <Esc>
-nnoremap ` <nop>
 nnoremap Q <nop>
-inoremap ` <Esc>
-vnoremap ` <Esc>
+
+"Copy to system clipboard
 nnoremap <Leader>y "*y
 vnoremap <Leader>y "*y
 nnoremap <Leader>Y "*Y
@@ -91,6 +90,8 @@ map <A-S-Left> <C-W>>
 map <A-S-Right> <C-W><
 map <A-S-Up> <C-W>+
 map <A-S-Down> <C-W>-
+
+""""""""""""""""""""""""
 
 "cursor
 let &t_SI = "\e[5 q"
