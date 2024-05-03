@@ -30,6 +30,10 @@ fi
 
 PROMPT='%n@%m%~%% '
 
+if [[ $(uname) == "Darwin" ]]; then
+   export LIBRARY_PATH=/opt/homebrew/lib
+fi
+
 # Set current working project for easy cd access
 export PROJ=~/work/fdf
 ################################################
@@ -69,7 +73,7 @@ alias gst="git status"
 alias px="exit"
 alias vglc="valgrind --leak-check=full"
 alias workwork="cd /sgoinfre/goinfre/Perso/pibouill/work"
-alias checksize='du -bsh $(ls -A) | sort -rh'
+alias checksize='du -sh $(ls -A) | sort -rh'
 alias tconf="vi ~/.tmux.conf"
 alias proj="cd $PROJ"
 alias libft="cd ~/work/libft"
@@ -172,6 +176,3 @@ export PATH=/opt/homebrew/bin:/usr/local/bin:/System/Cryptexes/App/usr/bin:/usr/
 
 export PATH="$HOME/.cargo/bin:$PATH"
 
-if [[ $(uname) == "Darwin" ]]; then
-   export LIBRARY_PATH=/opt/homebrew/lib
-fi
