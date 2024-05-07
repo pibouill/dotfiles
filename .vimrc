@@ -119,6 +119,11 @@ Plug 'preservim/nerdcommenter'
 Plug 'ludovicchabant/vim-gutentags'
 Plug 'sheerun/vim-polyglot'
 Plug 'octol/vim-cpp-enhanced-highlight'
+Plug 'vim-pandoc/vim-pandoc'
+Plug 'vim-pandoc/vim-pandoc-syntax'
+Plug 'vim-pandoc/vim-pandoc'
+
+
 call plug#end()
 
 " transparent bg""""""""""""""""""

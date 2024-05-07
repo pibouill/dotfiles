@@ -44,6 +44,7 @@ zstyle ':completion:*' menu select
 zmodload zsh/complist
 compinit
 _comp_options+=(globdots)
+#
 
 # Vim keys in tab complete 
 bindkey -M menuselect 'h' vi-backward-char
@@ -51,6 +52,7 @@ bindkey -M menuselect 'k' vi-up-line-or-history
 bindkey -M menuselect 'l' vi-forward-char
 bindkey -M menuselect 'j' vi-down-line-or-history
 bindkey -v '^?' backward-delete-char
+#
 
 # ALIAS
 alias ll='ls -lah --color=auto'
@@ -81,12 +83,11 @@ alias tm="tmux"
 alias gol="git log --oneline"
 alias gd="git diff"
 alias sgoinfre="cd /sgoinfre/goinfre/Perso/pibouill"
+#
 
 source ~/.config/powerlevel10k/powerlevel10k.zsh-theme
-
 # To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
 [[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
-
 
 alias vim-be-good="docker run -it --rm brandoncc/vim-be-good:stable"
 alias francinette="$HOME"/francinette/tester.sh
@@ -173,6 +174,7 @@ alias devstation="\
 alias 42free='bash /nfs/homes/pibouill/.scripts/42free.sh'
 
 export PATH=/opt/homebrew/bin:/usr/local/bin:/System/Cryptexes/App/usr/bin:/usr/bin:/bin:/usr/sbin:/sbin:/var/run/com.apple.security.cryptexd/codex.system/bootstrap/usr/local/bin:/var/run/com.apple.security.cryptexd/codex.system/bootstrap/usr/bin:/var/run/com.apple.security.cryptexd/codex.system/bootstrap/usr/appleinternal/bin
+export MYVIMRC="$HOME/.vimrc"
 
-export PATH="$HOME/.cargo/bin:$PATH"
+#export PATH="$HOME/.cargo/bin:$PATH"
 
