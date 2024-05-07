@@ -153,4 +153,3 @@ let g:rainbow_conf = {
 
 "vim-markdown
 let g:pandoc#modules#disabled = ["folding"]
-
