@@ -134,6 +134,8 @@ endif
 hi Normal guibg=NONE ctermbg=NONE
 """"""""""""""""""""""""""""""""""
 
+"""""""""PLUGINS CONFIG"""""""""
+
 "lightline 
 let g:lightline = {
             \'colorscheme': 'rosepine',
@@ -148,3 +150,7 @@ let g:rainbow_active = 1
 let g:rainbow_conf = {
 \       'guifgs': ['lightblue', 'lightgreen', 'lightcyan', 'lightyellow']
 \    }
+
+"vim-markdown
+let g:pandoc#modules#disabled = ["folding"]
+
