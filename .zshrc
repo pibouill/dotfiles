@@ -34,6 +34,8 @@ if [[ $(uname) == "Darwin" ]]; then
    export LIBRARY_PATH=/opt/homebrew/lib
 fi
 
+export MYVIMRC="$HOME/.vimrc"
+export DOTFILES="$HOME/.config/dotfiles"
 # Set current working project for easy cd access
 export PROJ=~/work/fdf
 ################################################
@@ -174,7 +176,4 @@ alias devstation="\
 alias 42free='bash /nfs/homes/pibouill/.scripts/42free.sh'
 
 export PATH=/opt/homebrew/bin:/usr/local/bin:/System/Cryptexes/App/usr/bin:/usr/bin:/bin:/usr/sbin:/sbin:/var/run/com.apple.security.cryptexd/codex.system/bootstrap/usr/local/bin:/var/run/com.apple.security.cryptexd/codex.system/bootstrap/usr/bin:/var/run/com.apple.security.cryptexd/codex.system/bootstrap/usr/appleinternal/bin
-export MYVIMRC="$HOME/.vimrc"
-
-#export PATH="$HOME/.cargo/bin:$PATH"
 

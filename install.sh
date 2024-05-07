@@ -5,11 +5,9 @@ if ! command -v curl &> /dev/null; then
     echo "curl is not installed. Installing curl..."
     # Install curl based on the package manager
     if [ "$(uname)" == "Darwin" ]; then
-        # macOS uses brew
         /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
         brew install curl
     elif [ "$(expr substr $(uname -s) 1 5)" == "Linux" ]; then
-        # Linux uses apt-get
         sudo apt-get update
         sudo apt-get install -y curl
     else
@@ -23,6 +21,12 @@ export XDG_CONFIG_HOME="$HOME"/.config
 mkdir -p "$XDG_CONFIG_HOME"/alacritty
 mkdir -p "$XDG_CONFIG_HOME"/alacritty/themes
 mkdir "$HOME/.vim/" "$HOME/.vim/autoload"
+
+git clone https://github.com/dracula/alacritty.git "$XDG_CONFIG_HOME"/alacritty/themes
+
+# Fonts
+#mkdir -p $HOME/.local/share/fonts
+#cp $PWD/fonts/JetBrainsMono $HOME/.local/share/fonts
 
 # Define the dotfiles directory
 DOTFILES_DIR="$HOME/.config/dotfiles"
