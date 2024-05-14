@@ -40,6 +40,9 @@ export DOTFILES="$HOME/.config/dotfiles"
 export PROJ=~/work/fdf
 ################################################
 
+# Set up fzf key bindings and fuzzy completion
+eval "$(fzf --zsh)"
+
 # auto/tab complete
 autoload -U compinit
 zstyle ':completion:*' menu select
@@ -85,6 +88,8 @@ alias tm="tmux"
 alias gol="git log --oneline"
 alias gd="git diff"
 alias sgoinfre="cd /sgoinfre/goinfre/Perso/pibouill"
+alias ff="fzf --preview 'bat --style=numbers --color=always --line-range :500 {}'"
+alias fp='vi $(ff)'
 #
 
 source ~/.config/powerlevel10k/powerlevel10k.zsh-theme
@@ -94,6 +99,9 @@ source ~/.config/powerlevel10k/powerlevel10k.zsh-theme
 alias vim-be-good="docker run -it --rm brandoncc/vim-be-good:stable"
 alias francinette="$HOME"/francinette/tester.sh
 alias paco="$HOME"/francinette/tester.sh
+
+# Using docker for valgrind in macos
+alias valgrind='docker run -it -v $PWD:/tmp -w /tmp valgrind:1.0'
 
 # shortcuts
 tc() {
@@ -176,4 +184,9 @@ alias devstation="\
 alias 42free='bash /nfs/homes/pibouill/.scripts/42free.sh'
 
 export PATH=/opt/homebrew/bin:/usr/local/bin:/System/Cryptexes/App/usr/bin:/usr/bin:/bin:/usr/sbin:/sbin:/var/run/com.apple.security.cryptexd/codex.system/bootstrap/usr/local/bin:/var/run/com.apple.security.cryptexd/codex.system/bootstrap/usr/bin:/var/run/com.apple.security.cryptexd/codex.system/bootstrap/usr/appleinternal/bin
+
+export PATH="$PATH:/Applications/Docker.app/Contents/Resources/bin/"
+
+export FZF_DEFAULT_OPTS='--color=fg:#f8f8f2,bg:#282a36,hl:#bd93f9 --color=fg+:#f8f8f2,bg+:#44475a,hl+:#bd93f9 --color=info:#ffb86c,prompt:#50fa7b,pointer:#ff79c6 --color=marker:#ff79c6,spinner:#ffb86c,header:#6272a4'
+export BAT_THEME="Dracula"
 
