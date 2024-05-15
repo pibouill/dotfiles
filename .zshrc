@@ -65,7 +65,7 @@ alias ls='ls --color=auto'
 alias c="clear"
 alias gwww="cc -Wall -Werror -Wextra"
 alias rff="rm -rf"
-alias vi  vim
+alias vi vim
 alias i="open https://profile.intra.42.fr/"
 alias gh="open https://github.com/pibouill"
 alias vz="vi ~/.zshrc"

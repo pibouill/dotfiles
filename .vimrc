@@ -53,7 +53,8 @@ map <C-l> <C-w>l
 let mapleader = " "
 nnoremap <Leader>u :UndotreeToggle<CR>
 nnoremap <Leader>gs :Git<CR>
-nnoremap <Leader>ff :Files<CR> 
+"nnoremap <Leader>ff :Files<CR> 
+nnoremap <Leader>ff :FuzzyFiles<CR> 
 nnoremap <C-d> <C-d>zz
 nnoremap <C-u> <C-u>zz
 nnoremap n nzzzv
@@ -106,8 +107,8 @@ endif
 
 "PLUGINS
 call plug#begin()
-Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
-Plug 'junegunn/fzf.vim'
+"Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
+"Plug 'junegunn/fzf.vim'
 Plug 'mbbill/undotree'
 Plug 'tpope/vim-fugitive'
 Plug 'vim-syntastic/syntastic'
@@ -121,17 +122,17 @@ Plug 'sheerun/vim-polyglot'
 Plug 'octol/vim-cpp-enhanced-highlight'
 Plug 'vim-pandoc/vim-pandoc'
 Plug 'vim-pandoc/vim-pandoc-syntax'
-Plug 'vim-pandoc/vim-pandoc'
+Plug 'Donaldttt/fuzzyy'
 
 call plug#end()
 
-" transparent bg""""""""""""""""""
+" transparent bg""""""""""""""""
 if has('termguicolors')
     set termguicolors
 endif
 
 hi Normal guibg=NONE ctermbg=NONE
-""""""""""""""""""""""""""""""""""
+""""""""""""""""""""""""""""""""
 
 """""""""PLUGINS CONFIG"""""""""
 
@@ -143,8 +144,11 @@ let g:lightline = {
             \},
             \}
 
+"42 header
 let g:user42 = 'pibouill'
 let g:mail42 = 'pibouill@student.42prague.com'
+
+"rainbow parentheses
 let g:rainbow_active = 1
 let g:rainbow_conf = {
 \       'guifgs': ['lightblue', 'lightgreen', 'lightcyan', 'lightyellow']
@@ -152,3 +156,5 @@ let g:rainbow_conf = {
 
 "vim-markdown
 let g:pandoc#modules#disabled = ["folding"]
+
+""""""""""""""""""""""""""""""""
