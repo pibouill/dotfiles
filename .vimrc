@@ -40,6 +40,7 @@ set colorcolumn = "80"
 set wildmode=longest,list,full
 set laststatus=2 " lightline
 set noshowmode "lightline too
+set nospell "no spelling check (pandoc..)
 "Splits
 set splitbelow splitright
 set omnifunc=syntaxcomplete
@@ -71,6 +72,7 @@ nnoremap <c-z> <nop>
 nnoremap <Leader>tags :call pathogen#helptags()<CR>
 imap jk <Esc>
 nnoremap Q <nop>
+nnoremap <Leader>nn :NoNeckPain<CR>
 
 "Copy to system clipboard
 nnoremap <Leader>y "*y
@@ -98,7 +100,7 @@ map <A-S-Down> <C-W>-
 let &t_SI = "\e[5 q"
 let &t_EI = "\e[2 q"
 
-"PLUG MANAGER
+"""""""""PLUGINS"""""""""""""
 let data_dir = has('nvim') ? stdpath('data') . '/site' : '~/.vim'
 if empty(glob(data_dir . '/autoload/plug.vim'))
   silent execute '!curl -fLo '.data_dir.'/autoload/plug.vim --create-dirs  https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim'
@@ -123,6 +125,7 @@ Plug 'octol/vim-cpp-enhanced-highlight'
 Plug 'vim-pandoc/vim-pandoc'
 Plug 'vim-pandoc/vim-pandoc-syntax'
 Plug 'Donaldttt/fuzzyy'
+"Plug 'shortcuts/no-neck-pain.nvim', { 'tag': '*' }
 
 call plug#end()
 

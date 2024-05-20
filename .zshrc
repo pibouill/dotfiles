@@ -90,6 +90,8 @@ alias gd="git diff"
 alias sgoinfre="cd /sgoinfre/goinfre/Perso/pibouill"
 alias ff="fzf --preview 'bat --style=numbers --color=always --line-range :500 {}'"
 alias fp='vi $(ff)'
+alias sb="vi ~/Documents/obsidian_vaults"
+alias learn="cd ~/work/learn"
 #
 
 source ~/.config/powerlevel10k/powerlevel10k.zsh-theme
