@@ -52,5 +52,7 @@ fi
 # Install Vim plugins using Vim-Plug
 vim +PlugInstall +qall
 
-echo "Dotfiles installation completed."
+printf "\e[38;5;118mDotfiles installation completed.\e[0m\n"
+
+#echo "Dotfiles installation completed."
 

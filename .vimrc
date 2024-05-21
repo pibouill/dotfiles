@@ -54,8 +54,8 @@ map <C-l> <C-w>l
 let mapleader = " "
 nnoremap <Leader>u :UndotreeToggle<CR>
 nnoremap <Leader>gs :Git<CR>
-"nnoremap <Leader>ff :Files<CR> 
-nnoremap <Leader>ff :FuzzyFiles<CR> 
+nnoremap <Leader>ff :Files<CR> 
+"nnoremap <Leader>ff :FuzzyFiles<CR> 
 nnoremap <C-d> <C-d>zz
 nnoremap <C-u> <C-u>zz
 nnoremap n nzzzv
@@ -109,8 +109,8 @@ endif
 
 "PLUGINS
 call plug#begin()
-"Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
-"Plug 'junegunn/fzf.vim'
+Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
+Plug 'junegunn/fzf.vim'
 Plug 'mbbill/undotree'
 Plug 'tpope/vim-fugitive'
 Plug 'vim-syntastic/syntastic'
@@ -124,7 +124,7 @@ Plug 'sheerun/vim-polyglot'
 Plug 'octol/vim-cpp-enhanced-highlight'
 Plug 'vim-pandoc/vim-pandoc'
 Plug 'vim-pandoc/vim-pandoc-syntax'
-Plug 'Donaldttt/fuzzyy'
+"Plug 'Donaldttt/fuzzyy'
 "Plug 'shortcuts/no-neck-pain.nvim', { 'tag': '*' }
 
 call plug#end()
