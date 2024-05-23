@@ -54,8 +54,16 @@ map <C-l> <C-w>l
 let mapleader = " "
 nnoremap <Leader>u :UndotreeToggle<CR>
 nnoremap <Leader>gs :Git<CR>
-nnoremap <Leader>ff :Files<CR> 
-"nnoremap <Leader>ff :FuzzyFiles<CR> 
+
+if has("unix")
+  let s:uname = system("uname")
+    if s:uname == "Darwin\n"
+      nnoremap <Leader>ff :FuzzyFiles<CR> 
+    endif
+else
+  nnoremap <Leader>ff :Files<CR> 
+endif
+
 nnoremap <C-d> <C-d>zz
 nnoremap <C-u> <C-u>zz
 nnoremap n nzzzv
@@ -124,7 +132,7 @@ Plug 'sheerun/vim-polyglot'
 Plug 'octol/vim-cpp-enhanced-highlight'
 Plug 'vim-pandoc/vim-pandoc'
 Plug 'vim-pandoc/vim-pandoc-syntax'
-"Plug 'Donaldttt/fuzzyy'
+Plug 'Donaldttt/fuzzyy'
 "Plug 'shortcuts/no-neck-pain.nvim', { 'tag': '*' }
 
 call plug#end()
