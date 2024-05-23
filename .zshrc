@@ -103,7 +103,9 @@ alias francinette="$HOME"/francinette/tester.sh
 alias paco="$HOME"/francinette/tester.sh
 
 # Using docker for valgrind in macos
-alias valgrind='docker run -it -v $PWD:/tmp -w /tmp valgrind:1.0'
+if [[ $(uname) == "Darwin" ]]; then
+  alias valgrind='docker run -it -v $PWD:/tmp -w /tmp valgrind:1.0'
+fi
 
 # shortcuts
 tc() {
