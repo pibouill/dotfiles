@@ -56,12 +56,12 @@ nnoremap <Leader>u :UndotreeToggle<CR>
 nnoremap <Leader>gs :Git<CR>
 
 if has("unix")
-  let s:uname = system("uname")
-    if s:uname == "Darwin\n"
-      nnoremap <Leader>ff :FuzzyFiles<CR> 
+  let s:uname = system("uname -s")
+    if s:uname == "Linux\n"
+		nnoremap <Leader>ff :Files<CR> 
+  else
+	  nnoremap <Leader>ff :FuzzyFiles<CR> 
     endif
-else
-  nnoremap <Leader>ff :Files<CR> 
 endif
 
 nnoremap <C-d> <C-d>zz
