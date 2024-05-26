@@ -13,30 +13,31 @@
 "      '---" '---'   |   ;/          |   |.'     \   \ .'
 "                    '---'           `---'        `---`
 
-"SETS
+"""""""""SETS""""""""""""
 set number relativenumber
 syntax enable
 filetype on
 filetype plugin on
-set mouse=r							" Enable mouse click + copy paste
-set tabstop=4						" set tab to 4 spaces
+set mouse=r "Enable mouse click + copy paste
+set tabstop=4 "set tab to 4 spaces
 set softtabstop=4
 set shiftwidth=4
 set autoindent
 set noexpandtab
 set smartindent
-set modeline	                    " make vim change in a specific file
+set modeline  "make vim change in a specific file
 set modelines=5
-set ignorecase	                    "ignore case in search
+set ignorecase  "ignore case in search
 set incsearch
 "set nohlsearch
+set history=200
 colorscheme catppuccin_macchiato
-"set termguicolors
+set termguicolors
 set background=dark
 set scrolloff=8
 set signcolumn=number
 set updatetime=50
-set colorcolumn = "80"
+"set colorcolumn=80
 set wildmode=longest,list,full
 set laststatus=2 " lightline
 set noshowmode "lightline too
@@ -108,14 +109,13 @@ map <A-S-Down> <C-W>-
 let &t_SI = "\e[5 q"
 let &t_EI = "\e[2 q"
 
-"""""""""PLUGINS"""""""""""""
+"""""""""PLUGINS"""""""""""
 let data_dir = has('nvim') ? stdpath('data') . '/site' : '~/.vim'
 if empty(glob(data_dir . '/autoload/plug.vim'))
   silent execute '!curl -fLo '.data_dir.'/autoload/plug.vim --create-dirs  https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim'
   autocmd VimEnter * PlugInstall --sync | source $MYVIMRC
 endif
 
-"PLUGINS
 call plug#begin()
 Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
 Plug 'junegunn/fzf.vim'

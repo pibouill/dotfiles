@@ -92,6 +92,8 @@ alias ff="fzf --preview 'bat --style=numbers --color=always --line-range :500 {}
 alias fp='vi $(ff)'
 alias sb="vi ~/Documents/obsidian_vaults"
 alias learn="cd ~/work/learn"
+alias v="nvim"
+alias config="cd ~/.config/"
 #
 
 source ~/.config/powerlevel10k/powerlevel10k.zsh-theme
