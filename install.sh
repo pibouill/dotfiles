@@ -37,6 +37,7 @@ ln -sf "$DOTFILES_DIR/.zshrc" "$HOME/.zshrc"
 ln -sf "$DOTFILES_DIR/.vimrc" "$HOME/.vimrc"
 ln -sf "$DOTFILES_DIR/.tmux.conf" "$HOME/.tmux.conf"
 ln -sf "$DOTFILES_DIR/.alacritty.toml" "$XDG_CONFIG_HOME"/alacritty/alacritty.toml
+ln -sf "$DOTFILES_DIR/starship.toml" $XDG_CONFIG_HOME"
 ln -sf "$PWD/vim/autoload/plug.vim" "$HOME/.vim/autoload/plug.vim"
 
 git clone --depth=1 https://github.com/romkatv/powerlevel10k.git "$HOME/.p10k.zsh"

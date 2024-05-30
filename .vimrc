@@ -32,7 +32,6 @@ set incsearch
 "set nohlsearch
 set history=200
 colorscheme catppuccin_macchiato
-set termguicolors
 set background=dark
 set scrolloff=8
 set signcolumn=number
