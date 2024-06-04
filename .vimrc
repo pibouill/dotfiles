@@ -80,6 +80,7 @@ nnoremap <c-z> <nop>
 nnoremap <Leader>tags :call pathogen#helptags()<CR>
 imap jk <Esc>
 nnoremap Q <nop>
+nnoremap :W <nop>
 nnoremap <Leader>nn :NoNeckPain<CR>
 
 "Copy to system clipboard
