@@ -24,7 +24,13 @@ style = "bright-black"
 [git_metrics]
 disabled = false
 
+[golang]
+format = "[$symbol]($style)"
+symbol = " "
 
+[c]
+symbol = " "
+format = "[$symbol]($style)"
 
 
 
