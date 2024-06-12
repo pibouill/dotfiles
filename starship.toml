@@ -32,7 +32,9 @@ symbol = " "
 symbol = " "
 format = "[$symbol]($style)"
 
-
+[python]
+symbol = " "
+format = "[$symbol]($style)"
 
 
 

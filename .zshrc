@@ -112,8 +112,6 @@ fi
 
 
 alias vim-be-good="docker run -it --rm brandoncc/vim-be-good:stable"
-alias francinette="$HOME"/francinette/tester.sh
-alias paco="$HOME"/francinette/tester.sh
 
 # Using docker for valgrind in macos
 if [[ $(uname) == "Darwin" ]]; then
