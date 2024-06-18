@@ -31,6 +31,7 @@ set ignorecase  "ignore case in search
 set incsearch
 "set nohlsearch
 set history=200
+set nocompatible
 colorscheme catppuccin_macchiato
 set background=dark
 set scrolloff=8
@@ -117,6 +118,7 @@ if empty(glob(data_dir . '/autoload/plug.vim'))
 endif
 
 call plug#begin()
+
 Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
 Plug 'junegunn/fzf.vim'
 Plug 'mbbill/undotree'
