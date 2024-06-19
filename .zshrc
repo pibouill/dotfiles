@@ -102,6 +102,7 @@ alias fp='vi $(ff)'
 alias sb="vi ~/Documents/obsidian_vaults"
 alias learn="cd ~/work/learn"
 alias config="cd ~/.config/"
+alias svenv="source .venv/bin/activate"
 if hostname | grep -q 42prague; then
     alias v="flatpak run io.neovim.nvim"
   else

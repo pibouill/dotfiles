@@ -34,7 +34,7 @@ format = "[$symbol]($style)"
 
 [python]
 symbol = " "
-format = "[$symbol]($style)"
+format = "[${symbol}${virtualenv}]($style)"
 
 
 

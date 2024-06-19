@@ -110,6 +110,9 @@ map <A-S-Down> <C-W>-
 let &t_SI = "\e[5 q"
 let &t_EI = "\e[2 q"
 
+"python indent
+let g:python_recommended_style = 0
+
 """""""""PLUGINS"""""""""""
 let data_dir = has('nvim') ? stdpath('data') . '/site' : '~/.vim'
 if empty(glob(data_dir . '/autoload/plug.vim'))
