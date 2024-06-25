@@ -46,7 +46,7 @@ fi
 export MYVIMRC="$HOME/.vimrc"
 export DOTFILES="$HOME/.config/dotfiles"
 # Set current working project for easy cd access
-export PROJ=~/work/fdf
+export PROJ=~/work/so_long
 ################################################
 
 # Set up fzf key bindings and fuzzy completion
