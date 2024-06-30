@@ -45,6 +45,8 @@ if [ ! -f "$HOME/.vim/autoload/plug.vim" ]; then
         https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
 fi
 
+curl -sS https://starship.rs/install.sh | sh
+
 # Install Vim plugins using Vim-Plug
 vim +PlugInstall +qall
 
