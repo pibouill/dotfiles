@@ -106,6 +106,7 @@ alias svenv="source .venv/bin/activate"
 alias p="python3"
 if hostname | grep -q 42prague; then
     alias v="flatpak run io.neovim.nvim"
+    alias obs="~/tools/obsidian.sh"
   else
     alias v="nvim"
 fi
