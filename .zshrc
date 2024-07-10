@@ -86,8 +86,10 @@ alias grep="grep --color=auto"
 alias dfl="cd ~/.config/dotfiles/"
 alias gru="git remote update"
 alias gst="git status -s"
+alias gsta="git status"
 alias px="exit"
 alias vglc="valgrind --leak-check=full"
+alias vglcs="valgrind --leak-check=full --show-leak-kinds=all"
 alias workwork="cd /sgoinfre/goinfre/Perso/pibouill/work"
 alias checksize='du -sh $(ls -A) | sort -rh'
 alias tconf="vi ~/.tmux.conf"
@@ -106,7 +108,6 @@ alias svenv="source .venv/bin/activate"
 alias p="python3"
 if hostname | grep -q 42prague; then
     alias v="flatpak run io.neovim.nvim"
-    alias obs="~/tools/obsidian.sh"
   else
     alias v="nvim"
 fi
