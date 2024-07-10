@@ -106,6 +106,7 @@ alias learn="cd ~/work/learn"
 alias config="cd ~/.config/"
 alias svenv="source .venv/bin/activate"
 alias p="python3"
+alias exam="cd ~/42-EXAM"
 if hostname | grep -q 42prague; then
     alias v="flatpak run io.neovim.nvim"
   else
