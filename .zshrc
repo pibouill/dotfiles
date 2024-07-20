@@ -101,7 +101,7 @@ alias gd="git diff"
 alias sgoinfre="cd /sgoinfre/goinfre/Perso/pibouill"
 alias ff="fzf --preview 'bat --style=numbers --color=always --line-range :500 {}'"
 alias fp='vi $(ff)'
-alias sb="vi ~/Documents/obsidian_vaults"
+alias sb="cd ~/Documents/obsidian_vaults"
 alias learn="cd ~/work/learn"
 alias config="cd ~/.config/"
 alias svenv="source .venv/bin/activate"
