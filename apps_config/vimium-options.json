@@ -31,8 +31,12 @@
       "pattern": "https?://monkeytype.com/*"
     },
     {
-      "passKeys": "/",
-      "pattern": "https?://www.google.com/*"
+      "passKeys": "",
+      "pattern": "https?://www.tusmo.xyz/*"
+    },
+    {
+      "passKeys": "m pslhglcq",
+      "pattern": "https?://soundcloud.com/*"
     }
   ]
 }
