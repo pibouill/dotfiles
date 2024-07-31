@@ -108,6 +108,7 @@ alias svenv="source .venv/bin/activate"
 alias p="python3"
 alias exam="cd ~/42-EXAM"
 alias gch="git checkout"
+alias gool="git log --color --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit"
 
 if hostname | grep -q 42prague; then
     alias v="flatpak run io.neovim.nvim"
