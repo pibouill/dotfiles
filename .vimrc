@@ -45,6 +45,7 @@ set nospell "no spelling check (pandoc..)
 "Splits
 set splitbelow splitright
 set omnifunc=syntaxcomplete
+
 "Splits motions
 map <C-h> <C-w>h
 map <C-j> <C-w>j
