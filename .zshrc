@@ -111,6 +111,7 @@ alias exam="cd ~/42-EXAM"
 alias gch="git checkout"
 alias drd="valgrind --tool=drd"
 alias helgrind="valgrind --tool=helgrind"
+alias find_word="grep -Rnw . -e"
 
 if hostname | grep -q 42prague; then
     alias v="flatpak run io.neovim.nvim"
