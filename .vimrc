@@ -139,7 +139,7 @@ Plug 'octol/vim-cpp-enhanced-highlight'
 Plug 'vim-pandoc/vim-pandoc'
 Plug 'vim-pandoc/vim-pandoc-syntax'
 Plug 'Donaldttt/fuzzyy'
-Plug 'xavierd/clang_complete'
+"Plug 'xavierd/clang_complete'
 Plug 'wellle/tmux-complete.vim'
 "Plug 'shortcuts/no-neck-pain.nvim', { 'tag': '*' }
 
@@ -177,5 +177,5 @@ let g:rainbow_conf = {
 let g:pandoc#modules#disabled = ["folding"]
 
 "clang_complete
-let g:clang_library_prath='/usr/lib/x86_64-linux-gnu/libclang-14.so.14.0.0'
+"let g:clang_library_path='/usr/lib/x86_64-linux-gnu/libclang-14.so.14.0.0'
 """"""""""""""""""""""""""""""""
