@@ -142,6 +142,7 @@ Plug 'Donaldttt/fuzzyy'
 "Plug 'xavierd/clang_complete'
 Plug 'wellle/tmux-complete.vim'
 "Plug 'shortcuts/no-neck-pain.nvim', { 'tag': '*' }
+Plug 'neoclide/coc.nvim', {'branch': 'release'}
 
 call plug#end()
 
