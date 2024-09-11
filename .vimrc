@@ -105,7 +105,7 @@ map <A-S-Right> <C-W><
 map <A-S-Up> <C-W>+
 map <A-S-Down> <C-W>-
 
-""""""""""""""""""""""""
+"""""""""""""""""""""""""
 
 "cursor
 let &t_SI = "\e[5 q"
@@ -114,7 +114,7 @@ let &t_EI = "\e[2 q"
 "python indent
 let g:python_recommended_style = 0
 
-"""""""""PLUGINS"""""""""""
+""""""""PLUGINS"""""""""""
 let data_dir = has('nvim') ? stdpath('data') . '/site' : '~/.vim'
 if empty(glob(data_dir . '/autoload/plug.vim'))
   silent execute '!curl -fLo '.data_dir.'/autoload/plug.vim --create-dirs  https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim'
@@ -139,7 +139,6 @@ Plug 'octol/vim-cpp-enhanced-highlight'
 Plug 'vim-pandoc/vim-pandoc'
 Plug 'vim-pandoc/vim-pandoc-syntax'
 Plug 'Donaldttt/fuzzyy'
-"Plug 'xavierd/clang_complete'
 Plug 'wellle/tmux-complete.vim'
 "Plug 'shortcuts/no-neck-pain.nvim', { 'tag': '*' }
 Plug 'neoclide/coc.nvim', {'branch': 'release'}
@@ -152,9 +151,9 @@ if has('termguicolors')
 endif
 
 hi Normal guibg=NONE ctermbg=NONE
-""""""""""""""""""""""""""""""""
+"""""""""""""""""""""""""""""""
 
-"""""""""PLUGINS CONFIG"""""""""
+""""""""PLUGINS CONFIG"""""""""
 
 "lightline 
 let g:lightline = {
@@ -177,6 +176,7 @@ let g:rainbow_conf = {
 "vim-markdown
 let g:pandoc#modules#disabled = ["folding"]
 
-"clang_complete
-"let g:clang_library_path='/usr/lib/x86_64-linux-gnu/libclang-14.so.14.0.0'
-""""""""""""""""""""""""""""""""
+" coc.nvim
+let g:coc_global_extensions = ['coc-json', 'coc-sh', 'coc-markdownlint', 'coc-pyright', 'coc-clangd']
+
+"""""""""""""""""""""""""""""""
