@@ -35,7 +35,8 @@ set nocompatible
 colorscheme catppuccin_macchiato
 set background=dark
 set scrolloff=8
-set signcolumn=number
+set signcolumn=yes
+highlight! link SignColumn Normal
 set updatetime=50
 "set colorcolumn=80
 set wildmode=longest,list,full
@@ -51,6 +52,7 @@ map <C-h> <C-w>h
 map <C-j> <C-w>j
 map <C-k> <C-w>k
 map <C-l> <C-w>l
+
 
 """""""""KEYMAPS""""""""""""
 let mapleader = " "
@@ -105,9 +107,6 @@ map <A-S-Right> <C-W><
 map <A-S-Up> <C-W>+
 map <A-S-Down> <C-W>-
 
-" coc autocompletion with tab
-inoremap <silent><expr> <cr> "\<C-g>u\<CR>\<c-r>=coc#on_enter()\<CR>"
-inoremap <silent><expr> <tab> pumvisible() ? coc#pum#confirm() : "\<C-g>u\<tab>"
 
 """""""""""""""""""""""""
 
