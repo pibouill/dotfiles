@@ -1,0 +1,12 @@
+[Desktop Entry]
+Name=Obsidian
+#Exec=AppRun --no-sandbox %U
+Exec=/nfs/homes/pibouill/tools/obsidian/obsidian
+Terminal=false
+Type=Application
+Icon=/nfs/homes/pibouill/tools/obsidian/obsidian.png
+StartupWMClass=obsidian
+X-AppImage-Version=1.6.7
+Comment=Obsidian
+MimeType=x-scheme-handler/obsidian;
+Categories=Office;
