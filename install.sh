@@ -37,7 +37,7 @@ ln -sf "$DOTFILES_DIR/.zshrc" "$HOME/.zshrc"
 ln -sf "$DOTFILES_DIR/.vimrc" "$HOME/.vimrc"
 ln -sf "$DOTFILES_DIR/.tmux.conf" "$HOME/.tmux.conf"
 ln -sf "$DOTFILES_DIR/alacritty.toml" "$XDG_CONFIG_HOME"/alacritty/alacritty.toml
-ln -sf "$DOTFILES_DIR/starship.toml" "$XDG_CONFIG_HOME/starship.toml"
+#ln -sf "$DOTFILES_DIR/starship.toml" "$XDG_CONFIG_HOME/starship.toml"
 ln -sf "$DOTFILES_DIR/vim/autoload/plug.vim" "$HOME/.vim/autoload/plug.vim"
 ln -sf "$DOTFILES_DIR/.gdbinit" "$HOME/.gdbinit"
 ln -sf "$DOTFILES_DIR/vim/coc-settings.json" "$HOME/.vim/"
@@ -47,7 +47,7 @@ if [ ! -f "$HOME/.vim/autoload/plug.vim" ]; then
         https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
 fi
 
-curl -sS https://starship.rs/install.sh | sh
+#curl -sS https://starship.rs/install.sh | sh
 
 # Install Vim plugins using Vim-Plug
 vim +PlugInstall +qall
