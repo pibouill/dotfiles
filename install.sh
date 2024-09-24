@@ -25,7 +25,7 @@ mkdir -p "$HOME/.vim/colors"
 cp -r "$DOTFILES_DIR/vim/colors/* $HOME/.vim/colors/"
 
 git clone https://github.com/dracula/alacritty.git "$XDG_CONFIG_HOME"/alacritty/themes
-git clone https://github.com/zsh-users/zsh-syntax-highlighting.git "$XDG_CONFIG_HOME/"
+git clone https://github.com/zsh-users/zsh-syntax-highlighting.git "$XDG_CONFIG_HOME/zsh-syntax-highlighting"
 
 # Fonts
 #mkdir -p $HOME/.local/share/fonts
