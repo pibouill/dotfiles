@@ -99,6 +99,7 @@ alias gch="git checkout"
 alias drd="valgrind --tool=drd"
 alias helgrind="valgrind --tool=helgrind"
 alias find_word="grep -Rnw . -e"
+alias chtsh="cht.sh"
 
 if hostname | grep -q 42prague; then
     alias v="flatpak run io.neovim.nvim"
@@ -212,3 +213,4 @@ export BAT_THEME="Dracula"
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
 
 eval "$(starship init zsh)"
+export PATH="$HOME/bin:$PATH"
