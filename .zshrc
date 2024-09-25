@@ -99,7 +99,7 @@ alias gch="git checkout"
 alias drd="valgrind --tool=drd"
 alias helgrind="valgrind --tool=helgrind"
 alias find_word="grep -Rnw . -e"
-alias chtsh="cht.sh"
+alias cht="cht.sh"
 
 if hostname | grep -q 42prague; then
     alias v="flatpak run io.neovim.nvim"
