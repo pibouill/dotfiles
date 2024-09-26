@@ -182,7 +182,32 @@ let g:rainbow_conf = {
 "vim-markdown
 let g:pandoc#modules#disabled = ["folding"]
 
-" coc.nvim
+""""""""""""""""""""""""" coc.nvim
 let g:coc_global_extensions = ['coc-json', 'coc-sh', 'coc-markdownlint', 'coc-pyright', 'coc-clangd']
+
+" Function to copy the Coc diagnostic message at the cursor to the clipboard
+function! CopyCocErrorToClipboard() abort
+  " Get diagnostic information at the cursor position
+  let l:diagnostic = CocAction('diagnosticInfo')
+  if empty(l:diagnostic)
+    echo "No diagnostic information found."
+    return
+  endif
+
+  " Extract the message and copy it to the clipboard
+  let l:message = l:diagnostic['message']
+  if empty(l:message)
+    echo "No diagnostic message found at the cursor."
+    return
+  endif
+
+  let @+ = l:message
+  echo "Copied to clipboard: " . l:message
+endfunction
+
+" Map the function to a key binding, e.g., <leader>ce
+nnoremap <silent> <leader>mn :call CopyCocErrorToClipboard()<CR>
+
+
 
 """""""""""""""""""""""""""""""
