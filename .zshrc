@@ -33,7 +33,8 @@ fi
 export MYVIMRC="$HOME/.vimrc"
 export DOTFILES="$HOME/.config/dotfiles"
 # Set current working project for easy cd access
-export PROJ=~/work/philo
+#export PROJ=~/work/philo
+export PROJ=~/work/minishell
 ################################################
 
 # Set up fzf key bindings and fuzzy completion
@@ -199,11 +200,14 @@ alias 42free='bash /nfs/homes/pibouill/.scripts/42free.sh'
 
 export PATH=/opt/homebrew/bin:/usr/local/bin:/System/Cryptexes/App/usr/bin:/usr/bin:/bin:/usr/sbin:/sbin:/var/run/com.apple.security.cryptexd/codex.system/bootstrap/usr/local/bin:/var/run/com.apple.security.cryptexd/codex.system/bootstrap/usr/bin:/var/run/com.apple.security.cryptexd/codex.system/bootstrap/usr/appleinternal/bin
 
-export PATH="$PATH:/Applications/Docker.app/Contents/Resources/bin/"
 if hostname | grep -q 42prague; then
   export PATH="$HOME/.cargo/bin:$PATH"
   export PATH="$HOME/.local/bin:$PATH"
   export PATH="$PATH:/nfs/homes/pibouill/.config/coc/extensions/coc-clangd-data/install/"
+  export PATH=$PATH:~/bin/go/bin/
+  export GOPATH=~/bin/go/bin/
+  else
+    export PATH="$PATH:/Applications/Docker.app/Contents/Resources/bin/"
 fi
 
 
