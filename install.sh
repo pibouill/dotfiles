@@ -18,6 +18,9 @@ fi
 
 export XDG_CONFIG_HOME="$HOME"/.config
 
+# Define the dotfiles directory
+DOTFILES_DIR="$HOME/.config/dotfiles"
+
 mkdir -p "$XDG_CONFIG_HOME"/alacritty
 mkdir -p "$XDG_CONFIG_HOME"/alacritty/themes
 mkdir -p "$HOME/.vim/" "$HOME/.vim/autoload"
@@ -31,8 +34,6 @@ git clone https://github.com/zsh-users/zsh-syntax-highlighting.git "$XDG_CONFIG_
 #mkdir -p $HOME/.local/share/fonts
 #cp $PWD/fonts/JetBrainsMono $HOME/.local/share/fonts
 
-# Define the dotfiles directory
-DOTFILES_DIR="$HOME/.config/dotfiles"
 
 git clone https://github.com/pibouill/dotfiles.git "$DOTFILES_DIR"
 
