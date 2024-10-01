@@ -39,7 +39,7 @@ git clone https://github.com/pibouill/dotfiles.git "$DOTFILES_DIR"
 
 ln -sf "$DOTFILES_DIR/.zshrc" "$HOME/.zshrc"
 ln -sf "$DOTFILES_DIR/.vimrc" "$HOME/.vimrc"
-ln -sf "$DOTFILES_DIR/.tmux.conf" "$HOME/.tmux.conf"
+ln -sf "$DOTFILES_DIR/tmux/.tmux.conf" "$HOME/.tmux.conf"
 ln -sf "$DOTFILES_DIR/alacritty.toml" "$XDG_CONFIG_HOME"/alacritty/alacritty.toml
 #ln -sf "$DOTFILES_DIR/starship.toml" "$XDG_CONFIG_HOME/starship.toml"
 ln -sf "$DOTFILES_DIR/vim/autoload/plug.vim" "$HOME/.vim/autoload/plug.vim"

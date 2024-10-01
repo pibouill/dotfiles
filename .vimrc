@@ -85,6 +85,8 @@ imap jk <Esc>
 nnoremap Q <nop>
 nnoremap :W <nop>
 nnoremap <Leader>nn :NoNeckPain<CR>
+nnoremap <Leader>x :!chmod +x %<CR>
+nnoremap <silent> <C-f> :silent !tmux neww tmux-sessionizer<CR>:redraw!<CR>
 
 "Copy to system clipboard - need vim-gtk3 on ubuntu
 nnoremap <Leader>y "*y
