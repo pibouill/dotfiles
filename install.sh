@@ -25,6 +25,7 @@ mkdir -p "$XDG_CONFIG_HOME"/alacritty
 mkdir -p "$XDG_CONFIG_HOME"/alacritty/themes
 mkdir -p "$HOME/.vim/" "$HOME/.vim/autoload"
 mkdir -p "$HOME/.vim/colors" 
+mkdir -p "$HOME/bin"
 cp -r "$DOTFILES_DIR/vim/colors/*" "$HOME/.vim/colors/"
 
 git clone https://github.com/dracula/alacritty.git "$XDG_CONFIG_HOME"/alacritty/themes
