@@ -1,0 +1,6 @@
+#!/bin/bash
+
+vim +PlugUpdate +qall
+echo "PlugUpdate complete"
+vim +CocUpdate +qall
+echo "CocUpdate complete"
