@@ -211,7 +211,6 @@ if hostname | grep -q 42prague; then
   export PATH="$HOME/.cargo/bin:$PATH"
   export PATH="$HOME/.local/bin:$PATH"
   export PATH="$PATH:/nfs/homes/pibouill/.config/coc/extensions/coc-clangd-data/install/"
-  export PATH=$PATH:~/bin/go/bin/
   export GOPATH=~/bin/go/bin/
   else
     export PATH="$PATH:/Applications/Docker.app/Contents/Resources/bin/"
