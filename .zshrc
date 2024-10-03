@@ -107,6 +107,7 @@ alias drd="valgrind --tool=drd"
 alias helgrind="valgrind --tool=helgrind"
 alias find_word="grep -Rnw . -e"
 alias cht="cht.sh"
+alias lg="lazygit"
 
 if hostname | grep -q 42prague; then
     alias v="flatpak run io.neovim.nvim"
@@ -224,4 +225,6 @@ export BAT_THEME="Dracula"
 
 eval "$(starship init zsh)"
 export PATH="$HOME/bin:$PATH"
+export PATH="$PATH:~/go/bin"
+export PATH="$PATH:~/bin/go/bin/bin"
 bindkey -s '^f' "tmux-sessionizer\n"
