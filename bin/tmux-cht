@@ -1,7 +1,7 @@
 #!/bin/bash
 
 languages=$(echo "bash golang c cpp" | tr " " "\n")
-core_utils=$(echo "find xargs sed awk" | tr " " "\n")
+core_utils=$(echo "grep find xargs sed awk" | tr " " "\n")
 selected=$(echo -e "$languages\n$core_utils" | fzf)
 
 

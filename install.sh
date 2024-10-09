@@ -35,7 +35,6 @@ git clone https://github.com/zsh-users/zsh-syntax-highlighting.git "$XDG_CONFIG_
 #mkdir -p $HOME/.local/share/fonts
 #cp $PWD/fonts/JetBrainsMono $HOME/.local/share/fonts
 
-
 git clone https://github.com/pibouill/dotfiles.git "$DOTFILES_DIR"
 
 ln -sf "$DOTFILES_DIR/.zshrc" "$HOME/.zshrc"
@@ -46,13 +45,14 @@ ln -sf "$DOTFILES_DIR/alacritty.toml" "$XDG_CONFIG_HOME"/alacritty/alacritty.tom
 ln -sf "$DOTFILES_DIR/vim/autoload/plug.vim" "$HOME/.vim/autoload/plug.vim"
 ln -sf "$DOTFILES_DIR/.gdbinit" "$HOME/.gdbinit"
 ln -sf "$DOTFILES_DIR/vim/coc-settings.json" "$HOME/.vim/"
+ln -sf "$DOTFILES_DIR/bin/*" "$HOME/bin/"
 
 if [ ! -f "$HOME/.vim/autoload/plug.vim" ]; then
     curl -fLo "$HOME/.vim/autoload/plug.vim" --create-dirs \
         https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
 fi
 
-#curl -sS https://starship.rs/install.sh | sh
+curl -sS https://starship.rs/install.sh | sh
 
 # Install Vim plugins using Vim-Plug
 vim +PlugInstall +qall
