@@ -1,6 +1,7 @@
 #!/bin/bash
 
-vim +PlugUpdate +qall
+# -E runs Ex mode / -s silent mode 
+vim -E -s +PlugUpdate +qall
 echo "PlugUpdate complete"
-vim +CocUpdate +qall
+vim -E -s +CocUpdate +qall
 echo "CocUpdate complete"
