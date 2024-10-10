@@ -1,10 +1,11 @@
 import = ["~/.config/alacritty/themes/dracula.toml"]
 
 [font]
-size = 15
+size = 10
 
 [font.normal]
 family = "JetBrainsMono Nerd Font"
+style = "Medium"
 
 [window]
 opacity = 0.9
