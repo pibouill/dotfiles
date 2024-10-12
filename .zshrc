@@ -215,7 +215,7 @@ if hostname | grep -q 42prague; then
     export PATH="$PATH:/Applications/Docker.app/Contents/Resources/bin/"
 fi
 
-if uname -i | grep -q Android; then
+if uname -a | grep -q Android; then
    export PATH=/data/data/com.termux/files/usr/bin:${PATH}
 fi
 
