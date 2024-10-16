@@ -184,6 +184,12 @@ let g:rainbow_conf = {
 "vim-markdown
 let g:pandoc#modules#disabled = ["folding"]
 
+"nerdcommenter
+let g:NERDDefaultAlign = 'left'
+let g:NERDAltDelims_c = 1
+"let b:NERDCustomDelimiters = { 'c': { 'left': '//', 'right': '' } }
+let g:NERDSpaceDelims = 0
+
 """"""""""""""""""""""""" coc.nvim
 let g:coc_global_extensions = ['coc-json', 'coc-sh', 'coc-markdownlint', 'coc-pyright', 'coc-clangd']
 
