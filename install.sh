@@ -63,7 +63,7 @@ ln -sf "$DOTFILES_DIR/starship.toml" "$XDG_CONFIG_HOME/starship.toml"
 ln -sf "$DOTFILES_DIR/vim/autoload/plug.vim" "$HOME/.vim/autoload/plug.vim"
 ln -sf "$DOTFILES_DIR/.gdbinit" "$HOME/.gdbinit"
 ln -sf "$DOTFILES_DIR/vim/coc-settings.json" "$HOME/.vim/"
-ln -sf "$DOTFILES_DIR/bin/*" "$HOME/bin/"
+ln -sf $DOTFILES_DIR/bin/* $HOME/bin/
 
 if [ ! -f "$HOME/.vim/autoload/plug.vim" ]; then
     curl -fLo "$HOME/.vim/autoload/plug.vim" --create-dirs \
