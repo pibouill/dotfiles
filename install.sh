@@ -36,6 +36,7 @@ git clone https://github.com/zsh-users/zsh-syntax-highlighting.git "$XDG_CONFIG_
 #cp $PWD/fonts/JetBrainsMono $HOME/.local/share/fonts
 
 git clone https://github.com/pibouill/dotfiles.git "$DOTFILES_DIR"
+git clone https://github.com/tmux-plugins/tpm ~/.tmux/plugins/tpm
 
 ln -sf "$DOTFILES_DIR/.zshrc" "$HOME/.zshrc"
 ln -sf "$DOTFILES_DIR/.vimrc" "$HOME/.vimrc"
