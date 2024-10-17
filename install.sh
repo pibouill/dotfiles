@@ -16,6 +16,24 @@ if ! command -v curl &> /dev/null; then
     fi
 fi
 
+# Check if Cargo is installed
+if ! command cargo version &> /dev/null; then
+    echo "Cargo is not installed. Installing Cargo..."
+    curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh
+    # Add Cargo to PATH for the current session
+    export PATH="$HOME/.cargo/bin:$PATH"
+    echo "maybe need to exec shell"
+else
+    echo "Cargo is already installed."
+fi
+
+# Install packages with Cargo
+packages=("starship")
+for package in "${packages[@]}"; do
+    echo "Installing $package with Cargo..."
+    cargo install "$package" --locked
+done
+
 export XDG_CONFIG_HOME="$HOME"/.config
 
 # Define the dotfiles directory
@@ -51,8 +69,6 @@ if [ ! -f "$HOME/.vim/autoload/plug.vim" ]; then
     curl -fLo "$HOME/.vim/autoload/plug.vim" --create-dirs \
         https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
 fi
-
-curl -sS https://starship.rs/install.sh | sh
 
 # Install Vim plugins using Vim-Plug
 vim +PlugInstall +qall
