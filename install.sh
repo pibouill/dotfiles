@@ -57,6 +57,6 @@ curl -sS https://starship.rs/install.sh | sh
 # Install Vim plugins using Vim-Plug
 vim +PlugInstall +qall
 
-chsh -s $(which zsh)
+#chsh -s $(which zsh)
 
 printf "\e[38;5;118mDotfiles installation completed.\e[0m\n"
