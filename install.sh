@@ -17,7 +17,7 @@ if ! command -v curl &> /dev/null; then
 fi
 
 # Check if Cargo is installed
-if ! command cargo version &> /dev/null; then
+if ! command -v cargo &> /dev/null; then
     echo "Cargo is not installed. Installing Cargo..."
     curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh
     # Add Cargo to PATH for the current session
