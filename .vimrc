@@ -38,7 +38,7 @@ set scrolloff=8
 set signcolumn=yes
 highlight! link SignColumn Normal
 set updatetime=50
-"set colorcolumn=80
+set colorcolumn=80
 set wildmode=longest,list,full
 set laststatus=2 " lightline
 set noshowmode "lightline too
