@@ -67,7 +67,7 @@ alias ls='ls --color=auto'
 alias c="clear"
 alias gwww="cc -Wall -Werror -Wextra"
 alias rff="rm -rf"
-alias vi vim
+alias v=vim
 alias i="open https://profile.intra.42.fr/"
 alias gh="open https://github.com/pibouill"
 alias vz="vi ~/.zshrc"
@@ -109,11 +109,11 @@ alias find_word="grep -Rnw . -e"
 alias cht="cht.sh"
 alias lg="lazygit"
 
-if hostname | grep -q 42prague; then
-    alias v="flatpak run io.neovim.nvim"
-  else
-    alias v="nvim"
-fi
+#if hostname | grep -q 42prague; then
+#    alias v="flatpak run io.neovim.nvim"
+#  else
+#    alias v="nvim"
+#fi
 
 #
 
