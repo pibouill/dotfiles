@@ -229,5 +229,7 @@ eval "$(starship init zsh)"
 
 export PATH="$HOME/bin:$PATH"
 export PATH="$HOME/.npm-global/bin:$PATH"
+export PATH="$PATH:$HOME/bin/go/bin"
+export PATH="$PATH:$HOME/bin/go/bin/bin"
 
 bindkey -s '^f' "tmux-sessionizer\n"
