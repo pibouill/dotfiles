@@ -123,6 +123,8 @@ alias vim-be-good="docker run -it --rm brandoncc/vim-be-good:stable"
 # Using docker for valgrind in macos
 if [[ $(uname) == "Darwin" ]]; then
   alias valgrind='docker run -it -v $PWD:/tmp -w /tmp valgrind:1.0'
+else
+  alias loogo='pkill -u 101370'
 fi
 
 # shortcuts
@@ -231,5 +233,6 @@ export PATH="$HOME/bin:$PATH"
 export PATH="$HOME/.npm-global/bin:$PATH"
 export PATH="$PATH:$HOME/bin/go/bin"
 export PATH="$PATH:$HOME/bin/go/bin/bin"
+#export PATH=$PATH:$GOROOT/bin
 
 bindkey -s '^f' "tmux-sessionizer\n"
