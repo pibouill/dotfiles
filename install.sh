@@ -16,6 +16,8 @@ if ! command -v curl &> /dev/null; then
     fi
 fi
 
+####################Cargo######################################################
+
 # Check if Cargo is installed
 if ! command -v cargo &> /dev/null; then
     echo "Cargo is not installed. Installing Cargo..."
@@ -33,6 +35,8 @@ for package in "${packages[@]}"; do
     echo "Installing $package with Cargo..."
     cargo install "$package" --locked
 done
+
+###############################################################################
 
 export XDG_CONFIG_HOME="$HOME"/.config
 
@@ -55,6 +59,8 @@ git clone https://github.com/zsh-users/zsh-syntax-highlighting.git "$XDG_CONFIG_
 git clone https://github.com/pibouill/dotfiles.git "$DOTFILES_DIR"
 git clone https://github.com/tmux-plugins/tpm ~/.tmux/plugins/tpm
 
+#####################Linking###################################################
+
 ln -sf "$DOTFILES_DIR/.zshrc" "$HOME/.zshrc"
 ln -sf "$DOTFILES_DIR/.vimrc" "$HOME/.vimrc"
 ln -sf "$DOTFILES_DIR/tmux/.tmux.conf" "$HOME/.tmux.conf"
@@ -64,6 +70,8 @@ ln -sf "$DOTFILES_DIR/vim/autoload/plug.vim" "$HOME/.vim/autoload/plug.vim"
 ln -sf "$DOTFILES_DIR/.gdbinit" "$HOME/.gdbinit"
 ln -sf "$DOTFILES_DIR/vim/coc-settings.json" "$HOME/.vim/"
 ln -sf $DOTFILES_DIR/bin/* $HOME/bin/
+
+###############################################################################
 
 if [ ! -f "$HOME/.vim/autoload/plug.vim" ]; then
     curl -fLo "$HOME/.vim/autoload/plug.vim" --create-dirs \
