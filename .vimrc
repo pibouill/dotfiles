@@ -47,6 +47,9 @@ set nospell "no spelling check (pandoc..)
 set splitbelow splitright
 set omnifunc=syntaxcomplete
 
+" No tabs when in py files
+autocmd FileType python setlocal expandtab shiftwidth=4 tabstop=4
+
 "Splits motions
 map <C-h> <C-w>h
 map <C-j> <C-w>j
