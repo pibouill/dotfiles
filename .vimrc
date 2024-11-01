@@ -64,9 +64,15 @@ nnoremap <Leader>gs :Git<CR>
 if has("unix")
   let s:uname = system("uname -s")
     if s:uname == "Linux\n"
+		nnoremap <Leader>y "+y
+		vnoremap <Leader>y "+y
+		nnoremap <Leader>Y "+Y
 		nnoremap <Leader>ff :Files<CR> 
   else
-	  nnoremap <Leader>ff :FuzzyFiles<CR> 
+		nnoremap <Leader>ff :FuzzyFiles<CR> 
+		nnoremap <Leader>y "*y
+		vnoremap <Leader>y "*y
+		nnoremap <Leader>Y "*Y
     endif
 endif
 
@@ -78,7 +84,10 @@ nnoremap <Leader>pv :Ex<CR>
 vnoremap J :m '>+1<CR>gv=gv
 vnoremap K :m '<-2<CR>gv=gv
 nnoremap J mzJ`z
+" change all occurrences
 nnoremap <Leader>L :%s/\<<C-r><C-w>\>/<C-r><C-w>/gI<Left><Left><Left>
+" change all occurrences but ask
+nnoremap <Leader>T :%s/\<<C-r><C-w>\>/<C-r><C-w>/gc<Left><Left><Left>
 nnoremap <Leader><Leader> :so $MYVIMRC<CR>
 nnoremap <Leader>vs :vs<CR>
 nnoremap <Leader>sp :sp<CR>
@@ -92,9 +101,7 @@ nnoremap <Leader>x :!chmod +x %<CR>
 nnoremap <silent> <C-f> :silent !tmux neww tmux-sessionizer<CR>:redraw!<CR>
 
 "Copy to system clipboard - need vim-gtk3 on ubuntu
-nnoremap <Leader>y "*y
-vnoremap <Leader>y "*y
-nnoremap <Leader>Y "*Y
+
 
 " Terminal mode remaps
 "nnoremap <Leader>vt :vert term<CR>
@@ -216,7 +223,6 @@ function! CopyCocErrorToClipboard() abort
   echo "Copied to clipboard: " . l:message
 endfunction
 
-" Map the function to a key binding, e.g., <leader>ce
 nnoremap <silent> <leader>mn :call CopyCocErrorToClipboard()<CR>
 
 
