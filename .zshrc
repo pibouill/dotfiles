@@ -185,7 +185,6 @@ ZSH_HIGHLIGHT_STYLES[cursor]='bg=black'
 ######################################################################
 ######################################################################
 
-
 # Load zsh-syntax-highlight
 source $HOME/.config/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
 
