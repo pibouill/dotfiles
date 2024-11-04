@@ -220,6 +220,7 @@ if hostname | grep -q 42prague; then
   export PATH="$HOME/.local/bin:$PATH"
   export PATH="$HOME/anaconda3/bin:$PATH"
   export PATH="$PATH:/nfs/homes/pibouill/.config/coc/extensions/coc-clangd-data/install/"
+  eval "$(dircolors ~/.dircolors)"
   else
     export PATH="$PATH:/Applications/Docker.app/Contents/Resources/bin/"
 fi
@@ -234,7 +235,6 @@ export FZF_DEFAULT_OPTS='--color=fg:#f8f8f2,bg:#282a36,hl:#bd93f9 --color=fg+:#f
 export BAT_THEME="Dracula"
 
 eval "$(starship init zsh)"
-eval "$(dircolors ~/.dircolors)"
 
 export PATH="$HOME/bin:$PATH"
 export PATH="$HOME/.npm-global/bin:$PATH"
