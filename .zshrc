@@ -182,7 +182,15 @@ ZSH_HIGHLIGHT_STYLES[redirection]='fg=#F8F8F2'
 ZSH_HIGHLIGHT_STYLES[arg0]='fg=#F8F8F2'
 ZSH_HIGHLIGHT_STYLES[default]='fg=#F8F8F2'
 ZSH_HIGHLIGHT_STYLES[cursor]='bg=black'
-######################################################################
+##################man pages###################################################
+export LESS_TERMCAP_mb=$'\e[1;31m'      # begin bold
+export LESS_TERMCAP_md=$'\e[1;34m'      # begin blink
+export LESS_TERMCAP_so=$'\e[01;45;37m'  # begin reverse video
+export LESS_TERMCAP_us=$'\e[01;36m'     # begin underline
+export LESS_TERMCAP_me=$'\e[0m'         # reset bold/blink
+export LESS_TERMCAP_se=$'\e[0m'         # reset reverse video
+export LESS_TERMCAP_ue=$'\e[0m'         # reset underline
+export GROFF_NO_SGR=1                   # for konsole
 ######################################################################
 
 # Load zsh-syntax-highlight
@@ -226,11 +234,14 @@ export FZF_DEFAULT_OPTS='--color=fg:#f8f8f2,bg:#282a36,hl:#bd93f9 --color=fg+:#f
 export BAT_THEME="Dracula"
 
 eval "$(starship init zsh)"
+eval "$(dircolors ~/.dircolors)"
 
 export PATH="$HOME/bin:$PATH"
 export PATH="$HOME/.npm-global/bin:$PATH"
 export PATH="$PATH:$HOME/bin/go/bin"
 export PATH="$PATH:$HOME/bin/go/bin/bin"
 #export PATH=$PATH:$GOROOT/bin
+#
+export MANPAGER="/usr/bin/less -s -M +Gg"
 
 bindkey -s '^f' "tmux-sessionizer\n"
