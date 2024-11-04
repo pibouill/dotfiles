@@ -32,7 +32,6 @@ set incsearch
 "set nohlsearch
 set history=200
 set nocompatible
-colorscheme catppuccin_macchiato
 set background=dark
 set scrolloff=8
 set signcolumn=yes
@@ -147,7 +146,6 @@ Plug 'mbbill/undotree'
 Plug 'tpope/vim-fugitive'
 "Plug 'vim-syntastic/syntastic'
 Plug 'itchyny/lightline.vim'
-Plug 'catppuccin/vim', { 'as': 'catppuccin' }
 Plug '42Paris/42header'
 Plug 'luochen1990/rainbow'
 Plug 'preservim/nerdcommenter'
@@ -158,10 +156,14 @@ Plug 'vim-pandoc/vim-pandoc'
 Plug 'vim-pandoc/vim-pandoc-syntax'
 Plug 'Donaldttt/fuzzyy'
 Plug 'wellle/tmux-complete.vim'
-"Plug 'shortcuts/no-neck-pain.nvim', { 'tag': '*' }
 Plug 'neoclide/coc.nvim', {'branch': 'release'}
+" THEME
+Plug 'catppuccin/vim', { 'as': 'catppuccin' }
+Plug 'dracula/vim', { 'as': 'dracula' }
 
 call plug#end()
+
+colorscheme dracula
 
 " transparent bg""""""""""""""""
 if has('termguicolors')
