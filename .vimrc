@@ -60,6 +60,7 @@ let mapleader = " "
 nnoremap <Leader>u :UndotreeToggle<CR>
 nnoremap <Leader>gs :Git<CR>
 
+" System clipboard access
 if has("unix")
   let s:uname = system("uname -s")
     if s:uname == "Linux\n"
@@ -91,18 +92,15 @@ nnoremap <Leader><Leader> :so $MYVIMRC<CR>
 nnoremap <Leader>vs :vs<CR>
 nnoremap <Leader>sp :sp<CR>
 nnoremap <c-z> <nop> 
-nnoremap <Leader>tags :call pathogen#helptags()<CR>
-imap jk <Esc>
 nnoremap Q <nop>
 nnoremap :W <nop>
+nnoremap <Leader>tags :call pathogen#helptags()<CR>
+imap jk <Esc>
 nnoremap <Leader>nn :NoNeckPain<CR>
 nnoremap <Leader>x :!chmod +x %<CR>
 nnoremap <silent> <C-f> :silent !tmux neww tmux-sessionizer<CR>:redraw!<CR>
 
-"Copy to system clipboard - need vim-gtk3 on ubuntu
-
-
-" Terminal mode remaps
+" Terminal mode remaps (edit)-> tmux is the answer
 "nnoremap <Leader>vt :vert term<CR>
 "nnoremap <Leader>st :term<CR>
 "tnoremap <C-h> <C-w>h
@@ -111,7 +109,7 @@ nnoremap <silent> <C-f> :silent !tmux neww tmux-sessionizer<CR>:redraw!<CR>
 "tnoremap <C-l> <C-w>l
 "tnoremap <C-n> <C-w>N
 
-" resize buffers
+" Resize buffers with Alt+Shift+Left/Right Arrows
 map <A-S-Left> <C-W>>
 map <A-S-Right> <C-W><
 map <A-S-Up> <C-W>+
@@ -158,7 +156,7 @@ Plug 'Donaldttt/fuzzyy'
 Plug 'wellle/tmux-complete.vim'
 Plug 'neoclide/coc.nvim', {'branch': 'release'}
 " THEME
-Plug 'catppuccin/vim', { 'as': 'catppuccin' }
+"Plug 'catppuccin/vim', { 'as': 'catppuccin' }
 Plug 'dracula/vim', { 'as': 'dracula' }
 
 call plug#end()
@@ -226,7 +224,5 @@ function! CopyCocErrorToClipboard() abort
 endfunction
 
 nnoremap <silent> <leader>mn :call CopyCocErrorToClipboard()<CR>
-
-
 
 """""""""""""""""""""""""""""""
