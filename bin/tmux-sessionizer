@@ -1,4 +1,15 @@
 #!/bin/bash
+# **************************************************************************** #
+#                                                                              #
+#                                                         :::      ::::::::    #
+#    tmux-sessionizer                                   :+:      :+:    :+:    #
+#                                                     +:+ +:+         +:+      #
+#    By: pibouill <pibouill@student.42prague.com>   +#+  +:+       +#+         #
+#                                                 +#+#+#+#+#+   +#+            #
+#    Created: 2024/09/13 14:16:27 by pibouill          #+#    #+#              #
+#    Updated: 2024/11/13 14:16:33 by pibouill         ###   ########.fr        #
+#                                                                              #
+# **************************************************************************** #
 
 session=$(find ~ ~/work -mindepth 1 -maxdepth 1 -type d | fzf)
 session_name=$(basename "$session" | tr . _)

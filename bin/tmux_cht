@@ -1,4 +1,15 @@
 #!/bin/bash
+# **************************************************************************** #
+#                                                                              #
+#                                                         :::      ::::::::    #
+#    tmux_cht                                           :+:      :+:    :+:    #
+#                                                     +:+ +:+         +:+      #
+#    By: pibouill <pibouill@student.42prague.com>   +#+  +:+       +#+         #
+#                                                 +#+#+#+#+#+   +#+            #
+#    Created: 2024/09/13 14:16:06 by pibouill          #+#    #+#              #
+#    Updated: 2024/11/13 14:16:22 by pibouill         ###   ########.fr        #
+#                                                                              #
+# **************************************************************************** #
 
 selected=`cat ~/bin/tmux_cht_languages_lst ~/bin/tmux_cht_command_lst | fzf`
 if [[ -z $selected ]]; then
