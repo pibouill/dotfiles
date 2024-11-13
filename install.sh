@@ -1,3 +1,15 @@
+# **************************************************************************** #
+#                                                                              #
+#                                                         :::      ::::::::    #
+#    install.sh                                         :+:      :+:    :+:    #
+#                                                     +:+ +:+         +:+      #
+#    By: pibouill <pibouill@student.42prague.com>   +#+  +:+       +#+         #
+#                                                 +#+#+#+#+#+   +#+            #
+#    Created: 2024/01/13 14:14:48 by pibouill          #+#    #+#              #
+#    Updated: 2024/11/13 14:15:26 by pibouill         ###   ########.fr        #
+#                                                                              #
+# **************************************************************************** #
+
 #!/bin/bash
 
 # Check if curl is installed
@@ -16,14 +28,12 @@ if ! command -v curl &> /dev/null; then
     fi
 fi
 
-####################Cargo######################################################
+#####################Cargo######################################################
 
 # Check if Cargo is installed
 if ! command -v cargo &> /dev/null; then
     echo "Cargo is not installed. Installing Cargo..."
     curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh
-    # Add Cargo to PATH for the current session
-    export PATH="$HOME/.cargo/bin:$PATH"
     echo "maybe need to exec shell"
 else
     echo "Cargo is already installed."
@@ -36,7 +46,7 @@ for package in "${packages[@]}"; do
     cargo install "$package" --locked
 done
 
-###############################################################################
+################################################################################
 
 export XDG_CONFIG_HOME="$HOME"/.config
 
@@ -59,7 +69,7 @@ git clone https://github.com/zsh-users/zsh-syntax-highlighting.git "$XDG_CONFIG_
 git clone https://github.com/pibouill/dotfiles.git "$DOTFILES_DIR"
 git clone https://github.com/tmux-plugins/tpm ~/.tmux/plugins/tpm
 
-#####################Linking###################################################
+######################Linking###################################################
 
 ln -sf "$DOTFILES_DIR/.zshrc" "$HOME/.zshrc"
 ln -sf "$DOTFILES_DIR/.vimrc" "$HOME/.vimrc"
@@ -71,7 +81,7 @@ ln -sf "$DOTFILES_DIR/.gdbinit" "$HOME/.gdbinit"
 ln -sf "$DOTFILES_DIR/vim/coc-settings.json" "$HOME/.vim/"
 ln -sf $DOTFILES_DIR/bin/* $HOME/bin/
 
-###############################################################################
+################################################################################
 
 if [ ! -f "$HOME/.vim/autoload/plug.vim" ]; then
     curl -fLo "$HOME/.vim/autoload/plug.vim" --create-dirs \
