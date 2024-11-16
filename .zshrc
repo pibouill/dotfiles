@@ -1,4 +1,3 @@
-#                         ,---,                      
 #                       ,--.' |                      
 #       ,----,          |  |  :      __  ,-.         
 #     .'   .`| .--.--.  :  :  :    ,' ,'/ /|         
@@ -225,6 +224,7 @@ if hostname | grep -q 42prague; then
   export PATH="$RUSTUP_HOME:$PATH"
   export PATH="$CARGO_HOME/bin:$PATH"
   eval "$(dircolors ~/.dircolors)"
+  #xrdb -merge ~/.Xressources
   else
     export PATH="$PATH:/Applications/Docker.app/Contents/Resources/bin/"
 fi
