@@ -106,6 +106,7 @@ alias helgrind="valgrind --tool=helgrind"
 alias find_word="grep -Rnw . -e"
 alias cht="cht.sh"
 alias lg="lazygit"
+alias gwt="git worktree"
 
 #if hostname | grep -q 42prague; then
 #    alias v="flatpak run io.neovim.nvim"
