@@ -16,8 +16,8 @@
 """""""""SETS""""""""""""
 set number relativenumber
 syntax enable
-filetype on
-filetype plugin on
+filetype off
+filetype plugin indent on
 set mouse=r "Enable mouse click + copy paste
 set tabstop=4 "set tab to 4 spaces
 set softtabstop=4
@@ -129,7 +129,31 @@ let &t_EI = "\e[2 q"
 "python indent
 let g:python_recommended_style = 0
 
-""""""""PLUGINS"""""""""""
+"""""""""VUNDLE""""""""""""""
+" set the runtime path to include Vundle and initialize
+set rtp+=~/.vim/bundle/Vundle.vim
+call vundle#begin()
+" alternatively, pass a path where Vundle should install plugins
+"call vundle#begin('~/some/path/here')
+
+" let Vundle manage Vundle, required
+Plugin 'VundleVim/Vundle.vim'
+Plugin 'ycm-core/YouCompleteMe'
+
+call vundle#end()            " required
+" To ignore plugin indent changes, instead use:
+"filetype plugin on
+"
+" Brief help
+" :PluginList       - lists configured plugins
+" :PluginInstall    - installs plugins; append `!` to update or just :PluginUpdate
+" :PluginSearch foo - searches for foo; append `!` to refresh local cache
+" :PluginClean      - confirms removal of unused plugins; append `!` to auto-approve removal
+"
+" see :h vundle for more details or wiki for FAQ
+" Put your non-Plugin stuff after this line
+
+""""""""VIM-PLUG"""""""""""
 let data_dir = has('nvim') ? stdpath('data') . '/site' : '~/.vim'
 if empty(glob(data_dir . '/autoload/plug.vim'))
   silent execute '!curl -fLo '.data_dir.'/autoload/plug.vim --create-dirs  https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim'
@@ -154,12 +178,14 @@ Plug 'vim-pandoc/vim-pandoc'
 Plug 'vim-pandoc/vim-pandoc-syntax'
 Plug 'Donaldttt/fuzzyy'
 Plug 'wellle/tmux-complete.vim'
-Plug 'neoclide/coc.nvim', {'branch': 'release'}
+"Plug 'neoclide/coc.nvim', {'branch': 'release'}
 " THEME
 "Plug 'catppuccin/vim', { 'as': 'catppuccin' }
 Plug 'dracula/vim', { 'as': 'dracula' }
 
 call plug#end()
+
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 
 colorscheme dracula
 
@@ -201,28 +227,36 @@ let g:NERDAltDelims_c = 1
 let g:NERDSpaceDelims = 0
 
 """"""""""""""""""""""""" coc.nvim
-let g:coc_global_extensions = ['coc-json', 'coc-sh', 'coc-markdownlint', 'coc-pyright', 'coc-clangd']
+"let g:coc_global_extensions = ['coc-json', 'coc-sh', 'coc-markdownlint', 'coc-pyright', 'coc-clangd']
 
-" Function to copy the Coc diagnostic message at the cursor to the clipboard
-function! CopyCocErrorToClipboard() abort
-  " Get diagnostic information at the cursor position
-  let l:diagnostic = CocAction('diagnosticInfo')
-  if empty(l:diagnostic)
-    echo "No diagnostic information found."
-    return
-  endif
+""" Function to copy the Coc diagnostic message at the cursor to the clipboard
+"function! CopyCocErrorToClipboard() abort
+""  " Get diagnostic information at the cursor position
+"  let l:diagnostic = CocAction('diagnosticInfo')
+"  if empty(l:diagnostic)
+"    echo "No diagnostic information found."
+"    return
+"  endif
 
-  " Extract the message and copy it to the clipboard
-  let l:message = l:diagnostic['message']
-  if empty(l:message)
-    echo "No diagnostic message found at the cursor."
-    return
-  endif
+"  " Extract the message and copy it to the clipboard
+"  let l:message = l:diagnostic['message']
+"  if empty(l:message)
+"    echo "No diagnostic message found at the cursor."
+"    return
+"  endif
 
-  let @+ = l:message
-  echo "Copied to clipboard: " . l:message
-endfunction
+"  let @+ = l:message
+"  echo "Copied to clipboard: " . l:message
+"endfunction
 
-nnoremap <silent> <leader>mn :call CopyCocErrorToClipboard()<CR>
+"nnoremap <silent> <leader>mn :call CopyCocErrorToClipboard()<CR>
 
+"""""""""""""""""""""""""" """"""""""""""""""""""""" """""""""""""""""""""""""" 
+" LSP settings
+let g:lsp_use_native_client = 1
+let g:ycm_clangd_binary_path = "/nfs/homes/pibouill/bin/clangd"
+" Let clangd fully control code completion
+let g:ycm_clangd_uses_ycmd_caching = 0
+" Use installed clangd, not YCM-bundled clangd which doesn't get updates.
+let g:ycm_clangd_binary_path = exepath("clangd")
 """""""""""""""""""""""""""""""

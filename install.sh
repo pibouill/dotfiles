@@ -6,7 +6,7 @@
 #    By: pibouill <pibouill@student.42prague.com>   +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/01/13 14:14:48 by pibouill          #+#    #+#              #
-#    Updated: 2024/11/13 14:15:26 by pibouill         ###   ########.fr        #
+#    Updated: 2024/11/26 13:07:35 by pibouill         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -78,7 +78,7 @@ ln -sf "$DOTFILES_DIR/alacritty.toml" "$XDG_CONFIG_HOME"/alacritty/alacritty.tom
 ln -sf "$DOTFILES_DIR/starship.toml" "$XDG_CONFIG_HOME/starship.toml"
 ln -sf "$DOTFILES_DIR/vim/autoload/plug.vim" "$HOME/.vim/autoload/plug.vim"
 ln -sf "$DOTFILES_DIR/.gdbinit" "$HOME/.gdbinit"
-ln -sf "$DOTFILES_DIR/vim/coc-settings.json" "$HOME/.vim/"
+#ln -sf "$DOTFILES_DIR/vim/coc-settings.json" "$HOME/.vim/"
 ln -sf $DOTFILES_DIR/bin/* $HOME/bin/
 
 ################################################################################

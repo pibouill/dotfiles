@@ -66,7 +66,8 @@ alias ls='ls --color=auto'
 alias c="clear"
 alias gwww="cc -Wall -Werror -Wextra"
 alias rff="rm -rf"
-alias v=vim
+alias v=/nfs/homes/pibouill/bin/my_vim/bin/vim
+#alias v=vim
 alias i="open https://profile.intra.42.fr/"
 alias gh="open https://github.com/pibouill"
 alias vz="v ~/.zshrc"
