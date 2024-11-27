@@ -191,11 +191,7 @@ Plug 'vim-pandoc/vim-pandoc'
 Plug 'vim-pandoc/vim-pandoc-syntax'
 Plug 'Donaldttt/fuzzyy'
 Plug 'wellle/tmux-complete.vim'
-Plug 'prabirshrestha/vim-lsp'
-Plug 'mattn/vim-lsp-settings'
-Plug 'prabirshrestha/asyncomplete.vim'
-Plug 'prabirshrestha/asyncomplete-lsp.vim'
-"Plug 'neoclide/coc.nvim', {'branch': 'release'}
+Plug 'yegappan/lsp'
 " THEME
 "Plug 'catppuccin/vim', { 'as': 'catppuccin' }
 Plug 'dracula/vim', { 'as': 'dracula' }
@@ -246,16 +242,35 @@ let g:NERDSpaceDelims = 0
 """""""""""""""""""""""""" """"""""""""""""""""""""" """""""""""""""""""""""""" 
 " LSP settings
 let g:lsp_use_native_client = 1
-let g:lsp_semantic_enabled = 1
-"" YCM begone for now
-"let g:ycm_clangd_binary_path = "/nfs/homes/pibouill/bin/clangd"
-"" Let clangd fully control code completion
-"let g:ycm_clangd_uses_ycmd_caching = 0
-"" Use installed clangd, not YCM-bundled clangd which doesn't get updates.
-"let g:ycm_clangd_binary_path = exepath("clangd")
-"let g:ycm_global_ycm_extra_conf = '~/.config/.ycm_config.ycm_extra_conf.py'
+let lspOpts = #{autoHighlightDiags: v:true}
+autocmd User LspSetup call LspOptionsSet(lspOpts)
 
-"let g:ycm_key_list_stop_completion = ['<C-y>', '<CR>']
-"nmap <leader>yfw <Plug>(YCMFindSymbolInWorkspace)
-"nmap <leader>yfd <Plug>(YCMFindSymbolInDocument)
+let lspServers = [
+	\ {
+	\   'name': 'clang',
+	\   'filetype': ['c', 'cpp'],
+	\   'path': '/nfs/homes/pibouill/bin/clangd',
+	\   'args': ['--background-index']
+	\ },
+	\ {
+	\   'name': 'pyright',
+	\   'filetype': ['python'],
+	\   'path': '/nfs/homes/pibouill/.local/bin/pyright',
+	\   'args': ['--stdio']
+	\ },
+	\ {
+	\   'name': 'bashls',
+	\   'filetype': ['sh'],
+	\   'path': '/nfs/homes/pibouill/.nvm/versions/node/v22.11.0/bin/bash-language-server',
+	\   'args': ['start']
+	\ },
+	\ {
+	\	'name': 'vimls',
+	\	'filetype': 'vim',
+	\	'path': '/nfs/homes/pibouill/.nvm/versions/node/v22.11.0/bin/vim-language-server',
+	\	'args': ['--stdio']
+	\ }
+\ ]
+
+autocmd User LspSetup call LspAddServer(lspServers)
 """""""""""""""""""""""""""""""

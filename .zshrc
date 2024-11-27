@@ -67,7 +67,7 @@ alias c="clear"
 alias gwww="cc -Wall -Werror -Wextra"
 alias rff="rm -rf"
 alias v=/nfs/homes/pibouill/bin/my_vim/bin/vim
-#alias v=vim
+alias vv=nvim
 alias i="open https://profile.intra.42.fr/"
 alias gh="open https://github.com/pibouill"
 alias vz="v ~/.zshrc"
@@ -221,13 +221,13 @@ if hostname | grep -q 42prague; then
   export PATH="$HOME/.local/bin:$PATH"
   export PATH="$HOME/anaconda3/bin:$PATH"
   export PATH="$HOME/sgoinfre/.car:$PATH"
-  export PATH="$PATH:/nfs/homes/pibouill/.config/coc/extensions/coc-clangd-data/install/"
   export CARGO_HOME="$HOME/sgoinfre/.cargo"
   export RUSTUP_HOME="$HOME/sgoinfre/.rustup"
   export PATH="$RUSTUP_HOME:$PATH"
   export PATH="$CARGO_HOME/bin:$PATH"
+  export PATH="$HOME/.nvm/versions/node/v22.11.0/bin:$PATH"
+  export PATH="$PATH:/nfs/homes/pibouill/bin/nvim-linux64/bin"
   eval "$(dircolors ~/.dircolors)"
-  #xrdb -merge ~/.Xressources
   else
     export PATH="$PATH:/Applications/Docker.app/Contents/Resources/bin/"
 fi
