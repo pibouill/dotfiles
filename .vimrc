@@ -115,11 +115,23 @@ map <A-S-Right> <C-W><
 map <A-S-Up> <C-W>+
 map <A-S-Down> <C-W>-
 
-" Make <CR> to accept selected completion item or notify coc.nvim to format
-" <C-g>u breaks current undo, please make your own choice.
-inoremap <silent><expr> <CR> coc#pum#visible() ? coc#pum#confirm()
-                              \: "\<C-g>u\<CR>\<c-r>=coc#on_enter()\<CR>"
+"Use TAB to complete when typing words, else inserts TABs as usual.
+"Uses dictionary and source files to find matching words to complete.
 
+"See help completion for source,
+"Note: usual completion is on <C-n> but more trouble to press all the time.
+"Never type the same word twice and maybe learn a new spellings!
+"Use the Linux dictionary when spelling is in doubt.
+"Window users can copy the file to their machine.
+"function! Tab_Or_Complete()
+"  if col('.')>1 && strpart( getline('.'), col('.')-2, 3 ) =~ '^\w'
+"    return "\<C-N>"
+"  else
+"    return "\<Tab>"
+"  endif
+"endfunction
+":inoremap <Tab> <C-R>=Tab_Or_Complete()<CR>
+":set dictionary="/usr/dict/words"
 """""""""""""""""""""""""
 
 "cursor
@@ -128,6 +140,8 @@ let &t_EI = "\e[2 q"
 
 "python indent
 let g:python_recommended_style = 0
+
+""""""""""""P L U G I N  M A N A G E R S """""""""""""""""""""""""""""""""""""""
 
 """""""""VUNDLE""""""""""""""
 " set the runtime path to include Vundle and initialize
@@ -138,7 +152,6 @@ call vundle#begin()
 
 " let Vundle manage Vundle, required
 Plugin 'VundleVim/Vundle.vim'
-Plugin 'ycm-core/YouCompleteMe'
 
 call vundle#end()            " required
 " To ignore plugin indent changes, instead use:
@@ -178,6 +191,10 @@ Plug 'vim-pandoc/vim-pandoc'
 Plug 'vim-pandoc/vim-pandoc-syntax'
 Plug 'Donaldttt/fuzzyy'
 Plug 'wellle/tmux-complete.vim'
+Plug 'prabirshrestha/vim-lsp'
+Plug 'mattn/vim-lsp-settings'
+Plug 'prabirshrestha/asyncomplete.vim'
+Plug 'prabirshrestha/asyncomplete-lsp.vim'
 "Plug 'neoclide/coc.nvim', {'branch': 'release'}
 " THEME
 "Plug 'catppuccin/vim', { 'as': 'catppuccin' }
@@ -226,37 +243,19 @@ let g:NERDAltDelims_c = 1
 "let b:NERDCustomDelimiters = { 'c': { 'left': '//', 'right': '' } }
 let g:NERDSpaceDelims = 0
 
-""""""""""""""""""""""""" coc.nvim
-"let g:coc_global_extensions = ['coc-json', 'coc-sh', 'coc-markdownlint', 'coc-pyright', 'coc-clangd']
-
-""" Function to copy the Coc diagnostic message at the cursor to the clipboard
-"function! CopyCocErrorToClipboard() abort
-""  " Get diagnostic information at the cursor position
-"  let l:diagnostic = CocAction('diagnosticInfo')
-"  if empty(l:diagnostic)
-"    echo "No diagnostic information found."
-"    return
-"  endif
-
-"  " Extract the message and copy it to the clipboard
-"  let l:message = l:diagnostic['message']
-"  if empty(l:message)
-"    echo "No diagnostic message found at the cursor."
-"    return
-"  endif
-
-"  let @+ = l:message
-"  echo "Copied to clipboard: " . l:message
-"endfunction
-
-"nnoremap <silent> <leader>mn :call CopyCocErrorToClipboard()<CR>
-
 """""""""""""""""""""""""" """"""""""""""""""""""""" """""""""""""""""""""""""" 
 " LSP settings
 let g:lsp_use_native_client = 1
-let g:ycm_clangd_binary_path = "/nfs/homes/pibouill/bin/clangd"
-" Let clangd fully control code completion
-let g:ycm_clangd_uses_ycmd_caching = 0
-" Use installed clangd, not YCM-bundled clangd which doesn't get updates.
-let g:ycm_clangd_binary_path = exepath("clangd")
+let g:lsp_semantic_enabled = 1
+"" YCM begone for now
+"let g:ycm_clangd_binary_path = "/nfs/homes/pibouill/bin/clangd"
+"" Let clangd fully control code completion
+"let g:ycm_clangd_uses_ycmd_caching = 0
+"" Use installed clangd, not YCM-bundled clangd which doesn't get updates.
+"let g:ycm_clangd_binary_path = exepath("clangd")
+"let g:ycm_global_ycm_extra_conf = '~/.config/.ycm_config.ycm_extra_conf.py'
+
+"let g:ycm_key_list_stop_completion = ['<C-y>', '<CR>']
+"nmap <leader>yfw <Plug>(YCMFindSymbolInWorkspace)
+"nmap <leader>yfd <Plug>(YCMFindSymbolInDocument)
 """""""""""""""""""""""""""""""
