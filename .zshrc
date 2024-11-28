@@ -30,6 +30,7 @@ if [[ $(uname) == "Darwin" ]]; then
 fi
 
 export MYVIMRC="$HOME/.vimrc"
+export MYNVIMRC="$HOME/.config/nvim/init.lua"
 export DOTFILES="$HOME/.config/dotfiles"
 # Set current working project for easy cd access
 #export PROJ=~/work/philo
