@@ -83,7 +83,7 @@ map("n", "<Leader>L", [[:%s/\<<C-r><C-w>\>/<C-r><C-w>/gI<Left><Left><Left>]], op
 map("n", "<Leader>T", [[:%s/\<<C-r><C-w>\>/<C-r><C-w>/gc<Left><Left><Left>]], opts)
 
 -- Reload init.lua
-map("n", "<Leader><Leader>", ":so $MYVIMRC<CR>", opts)
+map("n", "<Leader><Leader>", ":so $MYNVIMRC<CR>", opts)
 
 -- Splits
 map("n", "<Leader>vs", ":vs<CR>", opts)

@@ -36,6 +36,9 @@ format = "[$symbol]($style)"
 symbol = " "
 format = "[${symbol}${virtualenv}]($style)"
 
+[lua]
+symbol = '🌙 '
+format = "[$symbol]($style)"
 
 
 [palettes.catppuccin_macchiato]
