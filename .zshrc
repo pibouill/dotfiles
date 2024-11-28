@@ -228,6 +228,7 @@ if hostname | grep -q 42prague; then
   export PATH="$HOME/.nvm/versions/node/v22.11.0/bin:$PATH"
   export PATH="$PATH:/nfs/homes/pibouill/bin/nvim-linux64/bin"
   eval "$(dircolors ~/.dircolors)"
+  eval "$(/nfs/homes/pibouill/sgoinfre/homebrew/bin/brew shellenv)"
   else
     export PATH="$PATH:/Applications/Docker.app/Contents/Resources/bin/"
 fi
