@@ -67,12 +67,12 @@ alias ls='ls --color=auto'
 alias c="clear"
 alias gwww="cc -Wall -Werror -Wextra"
 alias rff="rm -rf"
-alias v=/nfs/homes/pibouill/bin/my_vim/bin/vim
-alias vv=nvim
+alias vv=vim
+alias v=nvim
 alias i="open https://profile.intra.42.fr/"
 alias gh="open https://github.com/pibouill"
-alias vz="v ~/.zshrc"
-alias vrc="v ~/.vimrc"
+alias vz="v $HOME/.zshrc"
+alias vrc="v $HOME/.vimrc"
 alias swcaps="~/.config/switch_caps_ctrl.sh"
 alias work="cd ~/work/"
 alias ..="cd .."
@@ -230,7 +230,7 @@ if hostname | grep -q 42prague; then
   export PATH="$PATH:/nfs/homes/pibouill/bin/nvim-linux64/bin"
   eval "$(dircolors ~/.dircolors)"
   eval "$(/nfs/homes/pibouill/sgoinfre/homebrew/bin/brew shellenv)"
-  else
+  export PATH="$HOME/.local/share/nvim/mason:$PATH"
     export PATH="$PATH:/Applications/Docker.app/Contents/Resources/bin/"
 fi
 
