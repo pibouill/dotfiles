@@ -48,7 +48,7 @@ vim.api.nvim_create_autocmd("FileType", {
 
 -- Keymaps
 local map = vim.api.nvim_set_keymap
-local opts = { noremap = true, silent = true }
+-- local opts = { noremap = true, silent = true }
 local map = vim.keymap.set
 
 -- System clipboard
@@ -83,7 +83,7 @@ map("n", "<Leader>L", [[:%s/\<<C-r><C-w>\>/<C-r><C-w>/gI<Left><Left><Left>]], op
 map("n", "<Leader>T", [[:%s/\<<C-r><C-w>\>/<C-r><C-w>/gc<Left><Left><Left>]], opts)
 
 -- Reload init.lua
-map("n", "<Leader><Leader>", ":so $MYNVIMRC<CR>", opts)
+-- map("n", "<Leader><Leader>", ":so $MYNVIMRC<CR>", opts)
 
 -- Splits
 map("n", "<Leader>vs", ":vs<CR>", opts)
@@ -108,7 +108,7 @@ vim.opt.guicursor = "n-v-c:block,i-ci-ve:ver25,r-cr:hor20,o:hor50"
 vim.g.python_recommended_style = 0
 
 -- Plugin-specific mappings
-map("n", "<Leader>nn", ":NoNeckPain<CR>", opts)
+-- map("n", "<Leader>nn", ":NoNeckPain<CR>", opts)
 map("n", "<Leader>x", ":!chmod +x %<CR>", opts)
 map("n", "<silent> <C-f>", ":silent !tmux neww tmux-sessionizer<CR>:redraw!<CR>", opts)
 map("n", "<Leader>u", ":UndotreeToggle<CR>", opts)

@@ -3,6 +3,17 @@
 - tweaks settings
 - misc. settings
 
+## dfjsiof
+fdiosfj
+- fjiodsf
+fjiods
+- [ ] fjoidsjf
+- [ ] fjoidsjf
+- [ ] fjoidsjf
+- [ ] fjoidsjf
+- [ ] fjoidsjf
+- [x] fjoidsjf
+
 Fixed with dconf ?
 
 save config
