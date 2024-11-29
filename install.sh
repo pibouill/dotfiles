@@ -1,3 +1,4 @@
+#!/bin/bash
 # **************************************************************************** #
 #                                                                              #
 #                                                         :::      ::::::::    #
@@ -9,8 +10,6 @@
 #    Updated: 2024/11/26 13:07:35 by pibouill         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
-
-#!/bin/bash
 
 # Check if curl is installed
 if ! command -v curl &> /dev/null; then
@@ -80,6 +79,7 @@ ln -sf "$DOTFILES_DIR/vim/autoload/plug.vim" "$HOME/.vim/autoload/plug.vim"
 ln -sf "$DOTFILES_DIR/.gdbinit" "$HOME/.gdbinit"
 #ln -sf "$DOTFILES_DIR/vim/coc-settings.json" "$HOME/.vim/"
 ln -sf $DOTFILES_DIR/bin/* $HOME/bin/
+ln -sf $DOTFILES_DIR/nvim $XDG_CONFIG_HOME/nvim
 
 ################################################################################
 

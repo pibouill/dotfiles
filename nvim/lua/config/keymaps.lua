@@ -1,5 +1,5 @@
 
--- General settings
+-- sets
 vim.g.mapleader = ' '
 vim.g.maplocalleader = ' '
 vim.opt.number = true
@@ -25,11 +25,12 @@ vim.opt.updatetime = 50
 vim.opt.colorcolumn = "80"
 vim.opt.wildmode = { "longest", "list", "full" }
 vim.opt.laststatus = 2 -- For lightline
-vim.opt.showmode = false -- Lightline handles this
+vim.opt.showmode = false -- lightline handles this
 vim.opt.spell = false -- Disable spelling check
 vim.opt.splitbelow = true
 vim.opt.splitright = true
 vim.opt.pumheight = 10
+vim.opt.termguicolors = true
 
 vim.keymap.set("n", "<leader>pv", vim.cmd.Ex)
 
@@ -122,4 +123,3 @@ vim.keymap.set('n', '<F1>', '<nop>', { desc = "Disable F1" })
 vim.keymap.set('i', '<F1>', '<nop>', { desc = "Disable F1 in Insert mode" })
 vim.keymap.set('v', '<F1>', '<nop>', { desc = "Disable F1 in Visual mode" })
 vim.keymap.set('t', '<F1>', '<nop>', { desc = "Disable F1 in Terminal mode" })
-
