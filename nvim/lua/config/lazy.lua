@@ -77,31 +77,16 @@ vim.opt.rtp:prepend(lazypath)
 vim.g.mapleader = " "
 vim.g.maplocalleader = " "
 
+
 -- setup lazy.nvim
 require("lazy").setup({
 	spec = {
-		-- import your plugins
+
 		{ import = "plugins" },
--- 		-- add lazyvim and import its plugins
--- 		{ "lazyvim/lazyvim", import = "lazyvim.plugins" },
--- 		-- import/override with your plugins
--- 		{ import = "plugins" },
 	},
--- 	defaults = {
--- 		-- by default, only lazyvim plugins will be lazy-loaded. your custom plugins will load during startup.
--- 		-- if you know what you're doing, you can set this to `true` to have all your custom plugins lazy-loaded by default.
--- 		lazy = false,
--- 		-- it's recommended to leave version=false for now, since a lot the plugin that support versioning,
--- 		-- have outdated releases, which may break your neovim install.
--- 		version = false, -- always use the latest git commit
--- 		-- version = "*", -- try installing the latest stable version for plugins that support semver
--- 	
-	-- configure any other settings here. see the documentation for more details.
-	-- colorscheme that will be used when installing plugins.
-	install = { colorscheme = { "rose-pine" } },
-	-- automatically check for plugin updates
+
+	install = { colorscheme = { "tokyonight", "rose-pine" } },
 	checker = { enabled = false, notify = false},
--- 	checker = {
 -- 		enabled = true, -- check for plugin updates periodically
 -- 		notify = true, -- notify on update
 })
