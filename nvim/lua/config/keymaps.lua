@@ -47,8 +47,8 @@ vim.api.nvim_create_autocmd("FileType", {
 })
 
 -- Keymaps
-local map = vim.api.nvim_set_keymap
--- local opts = { noremap = true, silent = true }
+-- local map = vim.api.nvim_set_keymap
+local opts = { noremap = true, silent = true }
 local map = vim.keymap.set
 
 -- System clipboard
