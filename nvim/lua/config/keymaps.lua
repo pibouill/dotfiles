@@ -1,3 +1,4 @@
+
 -- sets
 vim.g.mapleader = ' '
 vim.g.maplocalleader = ' '
@@ -122,3 +123,12 @@ vim.keymap.set('n', '<F1>', '<nop>', { desc = "Disable F1" })
 vim.keymap.set('i', '<F1>', '<nop>', { desc = "Disable F1 in Insert mode" })
 vim.keymap.set('v', '<F1>', '<nop>', { desc = "Disable F1 in Visual mode" })
 vim.keymap.set('t', '<F1>', '<nop>', { desc = "Disable F1 in Terminal mode" })
+
+--Unamp Ctrls+numbers for harpoon
+vim.keymap.set('n', '<C-1>', '<nop>', { desc = "Disable F1" })
+vim.keymap.set('n', '<C-2>', '<nop>', { desc = "Disable F1 in Insert mode" })
+vim.keymap.set('n', '<C-3>', '<nop>', { desc = "Disable F1 in Visual mode" })
+vim.keymap.set('n', '<C-4>', '<nop>', { desc = "Disable F1 in Terminal mode" })
+
+-- map("n", "<F1>", ":Stdheader<CR>")
+map("n", "<F1>", ":FtHeader<CR>")

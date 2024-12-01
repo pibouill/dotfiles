@@ -1,3 +1,9 @@
+-- For later hehe
+-- vim.keymap.set('n', '<C-1>', '<nop>', { desc = "Disable F1" })
+-- vim.keymap.set('n', '<C-2>', '<nop>', { desc = "Disable F1 in Insert mode" })
+-- vim.keymap.set('n', '<C-3>', '<nop>', { desc = "Disable F1 in Visual mode" })
+-- vim.keymap.set('n', '<C-4>', '<nop>', { desc = "Disable F1 in Terminal mode" })
+
 return {
 	{
 		"theprimeagen/harpoon",
