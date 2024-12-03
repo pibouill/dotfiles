@@ -1,30 +1,75 @@
 return {
-    {
-        "rose-pine/neovim",
-        name = "rose-pine",
-		lazy = false,
-		priority = 1000,
-        config = function()
-            require("rose-pine").setup({
-                variant = "auto", -- auto, main, moon, or dawn
-                dark_variant = "main", -- main, moon, or dawn
-                dim_inactive_windows = false,
-                extend_background_behind_borders = true,
-
-                enable = {
-                    terminal = true,
-                    migrations = true, -- Handle deprecated options automatically
-                },
-
-                styles = {
-                    bold = true,
-                    italic = false,
-                    transparency = true,
-                },
-            })
-			vim.cmd.colorscheme("rose-pine")
-        end,
+	{
+  "catppuccin/nvim",
+  lazy = true,
+  name = "catppuccin",
+  opts = {
+    integrations = {
+      aerial = true,
+      alpha = true,
+      cmp = true,
+      dashboard = true,
+      flash = true,
+      grug_far = true,
+      gitsigns = true,
+      headlines = true,
+      illuminate = true,
+      indent_blankline = { enabled = true },
+      leap = true,
+      lsp_trouble = true,
+      mason = true,
+      markdown = true,
+      mini = true,
+      native_lsp = {
+        enabled = true,
+        underlines = {
+          errors = { "undercurl" },
+          hints = { "undercurl" },
+          warnings = { "undercurl" },
+          information = { "undercurl" },
+        },
+      },
+      navic = { enabled = true, custom_bg = "lualine" },
+      neotest = true,
+      neotree = true,
+      noice = true,
+      notify = true,
+      semantic_tokens = true,
+      snacks = true,
+      telescope = true,
+      treesitter = true,
+      treesitter_context = true,
+      which_key = true,
     },
+  },
+  },
+}
+		--   {
+		--       "rose-pine/neovim",
+		--       name = "rose-pine",
+		-- lazy = false,
+		-- priority = 1000,
+		--       config = function()
+		--           require("rose-pine").setup({
+		--               variant = "auto", -- auto, main, moon, or dawn
+		--               dark_variant = "main", -- main, moon, or dawn
+		--               dim_inactive_windows = false,
+		--               extend_background_behind_borders = true,
+		--
+		--               enable = {
+		--                   terminal = true,
+		--                   migrations = true, -- Handle deprecated options automatically
+		--               },
+		--
+		--               styles = {
+		--                   bold = true,
+		--                   italic = false,
+		--                   transparency = true,
+		--               },
+		--           })
+		-- 	vim.cmd.colorscheme("rose-pine")
+		--       end,
+		--   },
 	-- {
 	-- 	"ellisonleao/gruvbox.nvim",
 	-- 	name = "gruvbox",
@@ -55,4 +100,3 @@ return {
 	-- 		})
 	-- 	end,
 	-- },
-}

@@ -24,6 +24,38 @@ return {
     end,
   },
 
+  {
+	  "nvim-cmp",
+	  optional = true,
+	  dependencies = {
+		{
+		  "garymjr/nvim-snippets",
+		  opts = {
+			friendly_snippets = true,
+		  },
+		  dependencies = { "rafamadriz/friendly-snippets" },
+		},
+	  },
+},
+
+-- Pairs chars -> not sure about it
+{
+  "echasnovski/mini.pairs",
+  event = "VeryLazy",
+  opts = {
+    modes = { insert = true, command = true, terminal = false },
+    -- skip autopair when next character is one of these
+    skip_next = [=[[%w%%%'%[%"%.%`%$]]=],
+    -- skip autopair when the cursor is inside these treesitter nodes
+    skip_ts = { "string" },
+    -- skip autopair when next character is closing pair
+    -- and there are more closing pairs than opening pairs
+    skip_unbalanced = true,
+    -- better deal with markdown code blocks
+    markdown = true,
+  },
+},
+
   -- Mason and Mason-LSPConfig
   {
     'williamboman/mason.nvim',
@@ -61,7 +93,7 @@ return {
     cmd = 'LspInfo',
     event = { 'BufReadPre', 'BufNewFile' },
     dependencies = {
-      { 'hrsh7th/cmp-nvim-lsp' },
+      { 'hrsh7th/cmp-nvim-lsp', 'hrsh7th/cmp-buffer', 'hrsh7th/cmp-path' },
     },
     init = function()
       -- Reserve a space in the gutter
