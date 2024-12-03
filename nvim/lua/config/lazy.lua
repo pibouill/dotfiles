@@ -17,9 +17,9 @@ if not (vim.uv or vim.loop).fs_stat(lazypath) then
 	local out = vim.fn.system({ "git", "clone", "--filter=blob:none", "--branch=stable", lazyrepo, lazypath })
 	if vim.v.shell_error ~= 0 then
 		vim.api.nvim_echo({
-			{ "failed to clone lazy.nvim:\n", "errormsg" },
-			{ out, "warningmsg" },
-			{ "\npress any key to exit..." },
+			{ "Failed to clone lazy.nvim:\n", "ErrorMsg" },
+			{ out, "Warningmsg" },
+			{ "\nPress any key to exit..." },
 		}, true, {})
 		vim.fn.getchar()
 		os.exit(1)
@@ -41,10 +41,21 @@ require("lazy").setup({
 		{ import = "plugins" },
 	},
 
-	install = { colorscheme = { "tokyonight" } },
+	install = { colorscheme = { "tokyonight", "habamax" } },
 	-- 		enabled = true, -- check for plugin updates periodically
 	-- 		notify = true, -- notify on update
-	checker = { enabled = false, notify = false},
+	checker = { enabled = true, notify = false},
 	-- disable the popup message when config changes
 	change_detection = { enabled = false },
+	performance = {
+		rtp = {
+			disabled_plugins = {
+				"gzip",
+				"tarPlugin",
+				"tohtml",
+				"tutor",
+				"zipPlugin",
+			},
+		},
+	},
 })
