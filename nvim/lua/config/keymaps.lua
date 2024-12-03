@@ -1,3 +1,14 @@
+-- ************************************************************************** --
+--                                                                            --
+--                                                        :::      ::::::::   --
+--   keymaps.lua                                        :+:      :+:    :+:   --
+--                                                    +:+ +:+         +:+     --
+--   By: pibouill <pibouill@student.42prague.com>    +#+  +:+       +#+       --
+--                                                +#+#+#+#+#+   +#+           --
+--   Created: 2024/12/02 10:30:50 by pibouill          #+#    #+#             --
+--   Updated: 2024/12/02 10:30:50 by pibouill         ###   ########.fr       --
+--                                                                            --
+-- ************************************************************************** --
 
 -- sets
 vim.g.mapleader = ' '
@@ -51,6 +62,7 @@ vim.api.nvim_create_autocmd("FileType", {
 -- local map = vim.api.nvim_set_keymap
 local opts = { noremap = true, silent = true }
 local map = vim.keymap.set
+local dmap = vim.keymap.del
 
 -- System clipboard
 map("n", "<Leader>y", '"+y', opts)
@@ -109,26 +121,31 @@ vim.opt.guicursor = "n-v-c:block,i-ci-ve:ver25,r-cr:hor20,o:hor50"
 vim.g.python_recommended_style = 0
 
 -- Plugin-specific mappings
--- map("n", "<Leader>nn", ":NoNeckPain<CR>", opts)
 map("n", "<Leader>x", ":!chmod +x %<CR>", opts)
-map("n", "<silent> <C-f>", ":silent !tmux neww tmux-sessionizer<CR>:redraw!<CR>", opts)
-map("n", "<Leader>u", ":UndotreeToggle<CR>", opts)
-map("n", "<Leader>gs", ":Git<CR>", opts)
+
+-- tmux seeshionizer
+if vim.fn.mapcheck("<C-f>", "n") ~= "" then
+  vim.keymap.del("n", "<C-f>")
+end
+
+map("n", "<C-f>", function()
+  vim.cmd("silent !tmux neww tmux-sessionizer")
+  vim.cmd("redraw!")
+end, opts)
 
 -- Map <Esc> in insert mode
 map("i", "jk", "<Esc>", opts)
 
 -- Disable f1 for 42 header's sake
-vim.keymap.set('n', '<F1>', '<nop>', { desc = "Disable F1" })
-vim.keymap.set('i', '<F1>', '<nop>', { desc = "Disable F1 in Insert mode" })
-vim.keymap.set('v', '<F1>', '<nop>', { desc = "Disable F1 in Visual mode" })
-vim.keymap.set('t', '<F1>', '<nop>', { desc = "Disable F1 in Terminal mode" })
+map('n', '<F1>', '<nop>', { desc = "Disable F1" })
+map('i', '<F1>', '<nop>', { desc = "Disable F1 in Insert mode" })
+map('v', '<F1>', '<nop>', { desc = "Disable F1 in Visual mode" })
+map('t', '<F1>', '<nop>', { desc = "Disable F1 in Terminal mode" })
 
 --Unamp Ctrls+numbers for harpoon
-vim.keymap.set('n', '<C-1>', '<nop>', { desc = "Disable F1" })
-vim.keymap.set('n', '<C-2>', '<nop>', { desc = "Disable F1 in Insert mode" })
-vim.keymap.set('n', '<C-3>', '<nop>', { desc = "Disable F1 in Visual mode" })
-vim.keymap.set('n', '<C-4>', '<nop>', { desc = "Disable F1 in Terminal mode" })
+map('n', '<C-1>', '<nop>', { desc = "Disable F1" })
+map('n', '<C-2>', '<nop>', { desc = "Disable F1 in Insert mode" })
+map('n', '<C-3>', '<nop>', { desc = "Disable F1 in Visual mode" })
+map('n', '<C-4>', '<nop>', { desc = "Disable F1 in Terminal mode" })
 
--- map("n", "<F1>", ":Stdheader<CR>")
 map("n", "<F1>", ":FtHeader<CR>")
