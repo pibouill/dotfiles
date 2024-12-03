@@ -28,7 +28,7 @@ return {
       long_message_to_split = true,
     },
   },
-  -- stylua: ignore
+	-- stylua: ignore
   keys = {
     { "<leader>sn", "", desc = "+noice"},
     { "<S-Enter>", function() require("noice").redirect(vim.fn.getcmdline()) end, mode = "c", desc = "Redirect Cmdline" },

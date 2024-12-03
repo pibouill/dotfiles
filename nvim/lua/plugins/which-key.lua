@@ -13,7 +13,7 @@
 --  which-key helps you remember key bindings by showing a popup with the
 --   active keybindings of the command you started typing.
 
--- ok for now for leaning vim but remove later
+-- ok for now for learning stuff but byebye later-on
 return {
   "folke/which-key.nvim",
   event = "VeryLazy",
