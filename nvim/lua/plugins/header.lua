@@ -25,14 +25,5 @@ return {
                 enable = false,
             },
         })
-
-        -- Override the header generation logic to fix the whitespace issue
-        local ft_nvim = require("ft_nvim")
-        local original_insert = ft_nvim.insert
-
-        ft_nvim.insert = function(bufnr, opts)
-            opts.email = string.gsub(opts.email, "%s<", "<") -- Fix email formatting
-            original_insert(bufnr, opts)
-        end
     end
 }

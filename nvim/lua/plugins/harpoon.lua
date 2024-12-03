@@ -1,10 +1,3 @@
--- For later hehe
--- vim.keymap.set('n', '<C-2>', '<nop>')
--- vim.keymap.set('n', '<C-1>', '<nop>')
--- vim.keymap.set('n', '<C-3>', '<nop>')
--- vim.keymap.set('n', '<C-4>', '<nop>')
---
-
 return {
     "ThePrimeagen/harpoon",
     branch = "harpoon2",

@@ -1,30 +1,14 @@
--- DEFAULT LAZYVIM CONF
--- 		os.exit(1)
--- 	end
--- end
--- vim.opt.rtp:prepend(lazypath)
---
--- require("lazy").setup({
--- 	spec = {
--- 		-- add lazyvim and import its plugins
--- 		{ "lazyvim/lazyvim", import = "lazyvim.plugins" },
--- 		-- import/override with your plugins
--- 	performance = {
--- 		rtp = {
--- 			-- disable some rtp plugins
--- 			disabled_plugins = {
--- 				"gzip",
--- 				-- "matchit",
--- 				-- "matchparen",
--- 				-- "netrwplugin",
--- 				"tarplugin",
--- 				"tohtml",
--- 				"tutor",
--- 				"zipplugin",
--- 			},
--- 		},
--- 	},
--- })
+-- ************************************************************************** --
+--                                                                            --
+--                                                        :::      ::::::::   --
+--   lazy.lua                                           :+:      :+:    :+:   --
+--                                                    +:+ +:+         +:+     --
+--   By: pibouill <pibouill@student.42prague.com>    +#+  +:+       +#+       --
+--                                                +#+#+#+#+#+   +#+           --
+--   Created: 2024/12/03 11:46:38 by pibouill          #+#    #+#             --
+--   Updated: 2024/12/03 11:46:38 by pibouill         ###   ########.fr       --
+--                                                                            --
+-- ************************************************************************** --
 
 -- Bootstrap lazy.nvim
 local lazypath = vim.fn.stdpath("data") .. "/lazy/lazy.nvim"
@@ -58,7 +42,9 @@ require("lazy").setup({
 	},
 
 	install = { colorscheme = { "tokyonight" } },
+	-- 		enabled = true, -- check for plugin updates periodically
+	-- 		notify = true, -- notify on update
 	checker = { enabled = false, notify = false},
--- 		enabled = true, -- check for plugin updates periodically
--- 		notify = true, -- notify on update
+	-- disable the popup message when config changes
+	change_detection = { enabled = false },
 })
