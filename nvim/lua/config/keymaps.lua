@@ -62,7 +62,6 @@ vim.api.nvim_create_autocmd("FileType", {
 -- local map = vim.api.nvim_set_keymap
 local opts = { noremap = true, silent = true }
 local map = vim.keymap.set
-local dmap = vim.keymap.del
 
 -- System clipboard
 map("n", "<Leader>y", '"+y', opts)
@@ -123,15 +122,13 @@ vim.g.python_recommended_style = 0
 -- Plugin-specific mappings
 map("n", "<Leader>x", ":!chmod +x %<CR>", opts)
 
--- tmux seeshionizer
-if vim.fn.mapcheck("<C-f>", "n") ~= "" then
-  vim.keymap.del("n", "<C-f>")
-end
+vim.keymap.set("n", "Q", "<nop>")
+vim.keymap.set("n", "<C-f>", "<cmd>silent !tmux neww tmux-sessionizer<CR>")
 
-map("n", "<C-f>", function()
-  vim.cmd("silent !tmux neww tmux-sessionizer")
-  vim.cmd("redraw!")
-end, opts)
+
+vim.keymap.set("n", "<leader><leader>", function()
+    vim.cmd("so")
+end)
 
 -- Map <Esc> in insert mode
 map("i", "jk", "<Esc>", opts)
