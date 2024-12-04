@@ -14,5 +14,5 @@ require("config.lazy")
 require("config.keymaps")
 
 -- available = rose-pine, gruvbox, catppucin
--- check colorscheme.lua
+-- -> check colorscheme.lua
 vim.cmd [[colorscheme catppuccin]]
