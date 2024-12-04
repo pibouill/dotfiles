@@ -10,8 +10,8 @@
 --                                                                            --
 -- ************************************************************************** --
 
-require("config.lazy")
 require("config.keymaps")
+require("config.lazy")
 
 -- available = rose-pine, gruvbox, catppucin
 -- -> check colorscheme.lua
