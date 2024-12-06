@@ -14,13 +14,14 @@ fjiods
 - [ ] fjoidsjf
 - [x] fjoidsjf
 
-Fixed with dconf ?
+_Fixed with dconf ?_
 
 save config
 `dconf dump / > <file>.txt` 
+
 load config
 `dconf load / < <file>.txt`
 
-# Fix vim colors install
-
-
+---
+Update script for migration -> stow i guess
+(binaries and stuff)
