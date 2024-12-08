@@ -77,9 +77,9 @@ install_package() {
         if command -v brew &> /dev/null; then
             brew install "$package"
         elif command -v apt &> /dev/null; then
-            sudo apt-get install -y "$package"
+            apt-get install -y "$package"
         elif command -v yum &> /dev/null; then
-            sudo yum install -y "$package"
+            yum install -y "$package"
         fi
         
         if [ $? -eq 0 ]; then
