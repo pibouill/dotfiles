@@ -11,8 +11,6 @@
 #                                                                              #
 # **************************************************************************** #
 
-#!/bin/bash
-
 # Detect the operating system and check for specific hostname
 OS="$(uname -s)"
 HOSTNAME="$(hostname)"
@@ -37,34 +35,29 @@ COMMON_PACKAGES=(
     "vim"
     "nvim"
     "tmux"
+	"htop"
     "tree"
-    "htop"
-    "ncdu"
-	"python"
+	"lua"
+	"luarocks"
+    "python3"
+    "nodejs"
+    "go"
 	"python3"
-	"cargo"
-	"build-essential"
-	"go"
-	"docker"
-	"nodejs"
 )
 
 LINUX_PACKAGES=(
 )
 
-OSX_PACKAGES=(
-)
 # Function to check if a package is installed
 is_package_installed() {
     local package="$1"
     
     if command -v brew &> /dev/null; then
         brew list "$package" &> /dev/null
-    elif command -v apt &> /dev/null; then
-        dpkg -s "$package" &> /dev/null
-    elif command -v yum &> /dev/null; then
-        rpm -q "$package" &> /dev/null
+    elif command -v "$package" &> /dev/null; then
+        return 0
     fi
+    return 1
 }
 
 # Function to install a package
@@ -76,10 +69,11 @@ install_package() {
     if ! is_package_installed "$package"; then
         if command -v brew &> /dev/null; then
             brew install "$package"
+        elif command -v apt &> /dev/null && [ -w /var/lib/dpkg ]; then
+            sudo apt-get install -y "$package"
         elif command -v apt &> /dev/null; then
-            apt-get install -y "$package"
-        elif command -v yum &> /dev/null; then
-            yum install -y "$package"
+            echo -e "${RED}Cannot install $package: insufficient permissions${NC}"
+            return 1
         fi
         
         if [ $? -eq 0 ]; then
@@ -94,32 +88,44 @@ install_package() {
 
 # Function to install Homebrew
 install_homebrew() {
-    if ! command -v brew &> /dev/null; then
-        echo -e "${YELLOW}Installing Homebrew...${NC}"
-        
-        if is_42prague; then
-            # 42prague specific Homebrew installation
-            HOMEBREW_DIR="$HOME/sgoinfre/homebrew"
-			/bin/bash -c scripts/42brew_install.sh
-            mkdir -p "$HOMEBREW_DIR"
-            
-            # Download and extract Homebrew
-            # curl -L https://github.com/Homebrew/brew/tarball/master | tar xz --strip 1 -C "$HOMEBREW_DIR"
-            
-            # Add Homebrew to PATH
-            # export PATH="$HOMEBREW_DIR/bin:$PATH"
-            # echo "export PATH=\"$HOMEBREW_DIR/bin:\$PATH\"" >> ~/.bashrc
-            # echo "export HOMEBREW_PREFIX=\"$HOMEBREW_DIR\"" >> ~/.bashrc
-        else
-            # Standard Homebrew installation
-            /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
-            
-            # Add Homebrew to PATH for Linux
-            echo 'eval "$(/home/linuxbrew/.linuxbrew/bin/brew shellenv)"' >> ~/.profile
-            eval "$(/home/linuxbrew/.linuxbrew/bin/brew shellenv)"
-        fi
-    else
+    if command -v brew &> /dev/null; then
         echo -e "${GREEN}Homebrew is already installed${NC}"
+        return 0
+    fi
+
+    echo -e "${YELLOW}Installing Homebrew...${NC}"
+    
+    # Determine Homebrew installation directory
+    if is_42prague; then
+        # 42prague specific location
+        HOMEBREW_DIR="$HOME/sgoinfre/homebrew"
+    else
+        # User-space installation
+        HOMEBREW_DIR="$HOME/.homebrew"
+    fi
+
+    # Create Homebrew directory
+    mkdir -p "$HOMEBREW_DIR"
+
+    # Download and install Homebrew
+    git clone https://github.com/Homebrew/brew.git "$HOMEBREW_DIR"
+
+    # Add Homebrew to PATH
+    export PATH="$HOMEBREW_DIR/bin:$PATH"
+    
+    # Persist Homebrew in shell configuration
+    echo "export PATH=\"$HOMEBREW_DIR/bin:\$PATH\"" >> ~/.bashrc
+    echo "export HOMEBREW_PREFIX=\"$HOMEBREW_DIR\"" >> ~/.bashrc
+
+    # Source the updated configuration
+    source ~/.zshrc
+
+    # Verify installation
+    if command -v brew &> /dev/null; then
+        echo -e "${GREEN}✓ Homebrew installed successfully${NC}"
+    else
+        echo -e "${RED}✗ Failed to install Homebrew${NC}"
+        return 1
     fi
 }
 
@@ -154,9 +160,11 @@ main() {
     install_packages
 
     # Update packages
-    echo -e "${YELLOW}Updating packages...${NC}"
-    brew update
-    brew upgrade
+    if command -v brew &> /dev/null; then
+        echo -e "${YELLOW}Updating packages...${NC}"
+        brew update
+        brew upgrade
+    fi
 
     echo -e "${GREEN}✓ Installation complete!${NC}"
 }
