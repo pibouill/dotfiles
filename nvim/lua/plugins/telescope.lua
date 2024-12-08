@@ -1,3 +1,15 @@
+-- ************************************************************************** --
+--                                                                            --
+--                                                        :::      ::::::::   --
+--   telescope.lua                                      :+:      :+:    :+:   --
+--                                                    +:+ +:+         +:+     --
+--   By: pibouill <pibouill@student.42prague.com>   +#+  +:+       +#+        --
+--                                                +#+#+#+#+#+   +#+           --
+--   Created: 2024/12/06 13:11:26 by pibouill          #+#    #+#             --
+--   Updated: 2024/12/06 13:12:34 by pibouill         ###   ########.fr       --
+--                                                                            --
+-- ************************************************************************** --
+
 return {
 	{
 		"nvim-telescope/telescope.nvim", tag = '0.1.8',
@@ -20,5 +32,9 @@ return {
 	{
 		"nvim-telescope/telescope-symbols.nvim",
 		"nvim-telescope/telescope-fzf-native.nvim", build = 'make',
+	},
+	{
+		  "nvim-telescope/telescope.nvim",
+		  optional = true,
 	},
 }
