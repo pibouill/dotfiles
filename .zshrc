@@ -70,19 +70,13 @@ alias rff="rm -rf"
 alias vv=vim
 alias v=nvim
 alias i="open https://profile.intra.42.fr/"
-alias gh="open https://github.com/pibouill"
 alias vz="v $HOME/.zshrc"
-alias vrc="v $HOME/.vimrc"
+alias vrc="v $MYNVIMRC"
 alias swcaps="~/.config/switch_caps_ctrl.sh"
 alias work="cd ~/work/"
 alias ..="cd .."
 alias grep="grep --color=auto"
 alias dfl="cd ~/.config/dotfiles/"
-alias gru="git remote update"
-alias gst="git status -s"
-alias gsta="git status"
-alias gp="git pull"
-alias gpo="git pull origin"
 alias px="exit"
 alias vglc="valgrind --leak-check=full"
 alias vglcs="valgrind --leak-check=full --show-leak-kinds=all"
@@ -92,9 +86,6 @@ alias tconf="vi ~/.tmux.conf"
 alias proj="cd $PROJ"
 alias libft="cd ~/work/libft"
 alias tm="tmux"
-alias gol="git log --graph --oneline --decorate"
-alias gl="git log --color --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit"
-alias gd="git diff"
 alias sgoinfre="cd /sgoinfre/goinfre/Perso/pibouill"
 alias ff="fzf --preview 'bat --style=numbers --color=always --line-range :500 {}'"
 alias fp='vi $(ff)'
@@ -103,22 +94,25 @@ alias learn="cd ~/work/learn"
 alias config="cd ~/.config/"
 alias svenv="source .venv/bin/activate"
 alias p="python3"
-alias gch="git checkout"
 alias drd="valgrind --tool=drd"
 alias helgrind="valgrind --tool=helgrind"
 alias find_word="grep -Rnw . -e"
 alias cht="cht.sh"
+# Git aliases
 alias lg="lazygit"
+alias gh="open https://github.com/pibouill"
+alias gol="git log --graph --oneline --decorate"
+alias gl="git log --color --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit"
+alias gd="git diff"
+alias gch="git checkout"
 alias gwt="git worktree"
-
-#if hostname | grep -q 42prague; then
-#    alias v="flatpak run io.neovim.nvim"
-#  else
-#    alias v="nvim"
-#fi
+alias gru="git remote update"
+alias gst="git status -s"
+alias gsta="git status"
+alias gp="git pull"
+alias gpo="git pull origin"
 
 #
-
 
 alias vim-be-good="docker run -it --rm brandoncc/vim-be-good:stable"
 
@@ -133,7 +127,6 @@ fi
 tc() {
   touch "$1.c"
 }
-
 
 ####### DRACULA ZSH SYNTAX #######
 #################################################################
@@ -201,7 +194,7 @@ source $HOME/.config/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
 
 export MAIL=pibouill@student.42prague.com
 
-SHARED_FOLDER="~"
+SHARED_FOLDER="~/bin"
 
 alias devstation="\
 	docker run \

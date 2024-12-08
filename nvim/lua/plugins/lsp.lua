@@ -135,4 +135,7 @@ return {
       -- require('lspconfig').ocamllsp.setup({})
     end,
   },
+  {
+	  "fyusuf-a/norminette-lsp"
+  },
 }
