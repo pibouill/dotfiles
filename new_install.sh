@@ -19,7 +19,7 @@ HOSTNAME="$(hostname)"
 GREEN='\033[0;32m'
 YELLOW='\033[1;33m'
 RED='\033[0;31m'
-NC='\033[0m' # No Color
+NC='\033[0m' # end color
 
 # Check if running on 42prague
 is_42prague() {
@@ -98,6 +98,7 @@ install_homebrew() {
     # Determine Homebrew installation directory
     if is_42prague; then
         # 42prague specific location
+		echo -e "\n\n${GREEN}42Prague detected${NC}"
         HOMEBREW_DIR="$HOME/sgoinfre/homebrew"
     else
         # User-space installation
