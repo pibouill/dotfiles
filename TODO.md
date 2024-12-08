@@ -3,17 +3,6 @@
 - tweaks settings
 - misc. settings
 
-## dfjsiof
-fdiosfj
-- fjiodsf
-fjiods
-- [ ] fjoidsjf
-- [ ] fjoidsjf
-- [ ] fjoidsjf
-- [ ] fjoidsjf
-- [ ] fjoidsjf
-- [x] fjoidsjf
-
 _Fixed with dconf ?_
 
 save config
@@ -25,3 +14,16 @@ load config
 ---
 Update script for migration -> stow i guess
 (binaries and stuff)
+
+---
+
+## List of dependencies
+
+- **brew** -> I guess main one for the rest of installs
+    - -> brew_install.sh
+- nvim
+- lua
+- luarock
+- cargo
+- nodejs
+- 
