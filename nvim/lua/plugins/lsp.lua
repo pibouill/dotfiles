@@ -33,10 +33,27 @@ return {
 		  opts = {
 			friendly_snippets = true,
 		  },
-		  dependencies = { "rafamadriz/friendly-snippets" },
+		},
+		{ "rafamadriz/friendly-snippets" },
+		{
+		  "chrisgrieser/cmp_yanky",
+		  config = function()
+			require('cmp').setup {
+			  sources = {
+				{
+				  name = 'cmp_yanky',
+				  option = {
+					onlyCurrentFiletype = false,
+					minLength = 3,
+				  },
+				},
+			  },
+			}
+		  end,
 		},
 	  },
 },
+
 
 -- Pairs chars -> not sure about it
 {
