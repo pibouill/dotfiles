@@ -93,4 +93,4 @@ map('n', '<C-2>', '<nop>', { desc = "Disable F1 in Insert mode" })
 map('n', '<C-3>', '<nop>', { desc = "Disable F1 in Visual mode" })
 map('n', '<C-4>', '<nop>', { desc = "Disable F1 in Terminal mode" })
 
-map("n", "<F1>", ":FtHeader<CR>")
+-- map("n", "<F1>", ":FtHeader<CR>")
