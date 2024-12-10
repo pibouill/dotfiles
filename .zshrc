@@ -82,7 +82,7 @@ alias vglc="valgrind --leak-check=full"
 alias vglcs="valgrind --leak-check=full --show-leak-kinds=all"
 alias workwork="cd /sgoinfre/goinfre/Perso/pibouill/work"
 alias checksize='du -sh $(ls -A) | sort -rh'
-alias tconf="vi ~/.tmux.conf"
+alias tconf="v ~/.tmux.conf"
 alias proj="cd $PROJ"
 alias libft="cd ~/work/libft"
 alias tm="tmux"
