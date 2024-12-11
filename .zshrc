@@ -29,6 +29,8 @@ if [[ $(uname) == "Darwin" ]]; then
    export LIBRARY_PATH=/opt/homebrew/lib
 fi
 
+# apparently need to do that but it doesnt work
+# export TERM="xterm-256color"
 export MYVIMRC="$HOME/.vimrc"
 export MYNVIMRC="$HOME/.config/nvim/init.lua"
 export DOTFILES="$HOME/.config/dotfiles"
@@ -111,6 +113,9 @@ alias gst="git status -s"
 alias gsta="git status"
 alias gp="git pull"
 alias gpo="git pull origin"
+alias grs="git restore"
+
+alias bup="brew update && brew upgrade"
 
 #
 
@@ -223,7 +228,6 @@ if hostname | grep -q 42prague; then
   export PATH="$PATH:/nfs/homes/pibouill/bin/nvim-linux64/bin"
   eval "$(dircolors ~/.dircolors)"
   eval "$(/nfs/homes/pibouill/sgoinfre/homebrew/bin/brew shellenv)"
-  export PATH="$HOME/.local/share/nvim/mason:$PATH"
     export PATH="$PATH:/Applications/Docker.app/Contents/Resources/bin/"
 fi
 
@@ -238,10 +242,13 @@ export BAT_THEME="Dracula"
 
 eval "$(starship init zsh)"
 
+export PATH="$HOME/.local/share/nvim/mason:$PATH"
 export PATH="$HOME/bin:$PATH"
 export PATH="$HOME/.npm-global/bin:$PATH"
 export PATH="$PATH:$HOME/sgoinfre/bin/go/bin"
 export PATH="$PATH:$HOME/sgoinfre/bin/go/bin/bin"
+export PATH="/opt/homebrew/opt/llvm/bin:$PATH"
+export PATH="/opt/homebrew/opt/llvm/19.1.5/bin:$PATH"
 #
 export MANPAGER="/usr/bin/less -s -M +Gg"
 
