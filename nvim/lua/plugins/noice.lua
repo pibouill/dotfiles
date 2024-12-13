@@ -6,7 +6,7 @@
 --   By: pibouill <pibouill@student.42prague.com>   +#+  +:+       +#+        --
 --                                                +#+#+#+#+#+   +#+           --
 --   Created: 2024/12/06 14:17:52 by pibouill          #+#    #+#             --
---   Updated: 2024/12/06 14:22:29 by pibouill         ###   ########.fr       --
+--   Updated: 2024/12/13 07:39:24 by pibouill         ###   ########.fr       --
 --                                                                            --
 -- ************************************************************************** --
 
@@ -36,10 +36,13 @@ return {
 		},
 		presets = {
 		  bottom_search = true,
-		  command_palette = true,
+		  command_palette = false,
 		  long_message_to_split = true,
 		  lsp_doc_border = true,
 		},
+	  },
+	  dependencies = {
+		  "MunifTanjim/nui.nvim",
 	  },
 		-- stylua: ignore
 	  keys = {
