@@ -1,29 +1,51 @@
+-- ************************************************************************** --
+--                                                                            --
+--                                                        :::      ::::::::   --
+--   lsp.lua                                            :+:      :+:    :+:   --
+--                                                    +:+ +:+         +:+     --
+--   By: pibouill <pibouill@student.42prague.com>   +#+  +:+       +#+        --
+--                                                +#+#+#+#+#+   +#+           --
+--   Created: 2024/12/15 15:23:48 by pibouill          #+#    #+#             --
+--   Updated: 2024/12/15 15:26:47 by pibouill         ###   ########.fr       --
+--                                                                            --
+-- ************************************************************************** --
+
 return {
   -- Autocompletion
   {
-    'hrsh7th/nvim-cmp',
-    event = 'InsertEnter',
-    config = function()
-      local cmp = require('cmp')
+	  'hrsh7th/nvim-cmp',
+	  event = 'InsertEnter',
+	  config = function()
+		local cmp = require('cmp')
+		local lspkind = require('lspkind')
 
-      cmp.setup({
-        sources = {
-          { name = 'nvim_lsp' },
-        },
-        mapping = cmp.mapping.preset.insert({
-          ['<C-Space>'] = cmp.mapping.complete(),
-          ['<C-u>'] = cmp.mapping.scroll_docs(-4),
-          ['<C-d>'] = cmp.mapping.scroll_docs(4),
-        }),
-        snippet = {
-          expand = function(args)
-            vim.snippet.expand(args.body) -- Replace with your snippet engine.
-          end,
-        },
-      })
-    end,
-  },
-
+		cmp.setup({
+		  sources = {
+			{ name = 'nvim_lsp' },
+			{ name = 'copilot', group_index = 2 },
+		  },
+		  mapping = cmp.mapping.preset.insert({
+			['<C-Space>'] = cmp.mapping.complete(),
+			['<C-u>'] = cmp.mapping.scroll_docs(-4),
+			['<C-d>'] = cmp.mapping.scroll_docs(4),
+		  }),
+		  snippet = {
+			expand = function(args)
+			  vim.fn["vsnip#anonymous"](args.body) -- Replace with your snippet engine. Example: vsnip.
+			end,
+		  },
+		  formatting = {
+			format = lspkind.cmp_format({
+			  mode = 'symbol',
+			  maxwidth = 50, -- Maximum width of menu items
+			  ellipsis_char = '...', -- Truncated text will be replaced with ellipsis
+			}),
+			expandable_indicator = false,
+			fields = { cmp.ItemField.Abbr, cmp.ItemField.Menu },
+		  },
+		})
+	  end,
+	},
   {
 	  "nvim-cmp",
 	  optional = true,

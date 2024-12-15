@@ -51,13 +51,6 @@ return {
       temperature = 0,
       max_tokens = 4096,
     },
-    claude = {
-      endpoint = "https://api.anthropic.com",
-      model = "claude-3-5-sonnet-20241022",
-      timeout = 30000, -- Timeout in milliseconds
-      temperature = 0,
-      max_tokens = 8000,
-    },
     gemini = {
       endpoint = "https://generativelanguage.googleapis.com/v1beta/models",
       model = "gemini-1.5-flash-latest",

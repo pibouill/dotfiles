@@ -1,21 +1,18 @@
 -- ************************************************************************** --
 --                                                                            --
 --                                                        :::      ::::::::   --
---   init.lua                                           :+:      :+:    :+:   --
+--   cop-cmp.lua                                        :+:      :+:    :+:   --
 --                                                    +:+ +:+         +:+     --
---   By: pibouill <pibouill@student.42prague.com>    +#+  +:+       +#+        --
+--   By: pibouill <pibouill@student.42prague.com>   +#+  +:+       +#+        --
 --                                                +#+#+#+#+#+   +#+           --
---   Created: 2024/12/01 10:55:23 by pibouill          #+#    #+#             --
---   Updated: 2024/12/01 10:55:23 by pibouill         ###   ########.fr       --
+--   Created: 2024/12/15 15:01:00 by pibouill          #+#    #+#             --
+--   Updated: 2024/12/15 15:01:14 by pibouill         ###   ########.fr       --
 --                                                                            --
 -- ************************************************************************** --
 
-require("config.lazy")
-require("config.keymaps")
-require("config.options")
-
--- available = rose-pine, gruvbox, catppucin
-----> check colorscheme.lua
-vim.cmd [[colorscheme catppuccin]]
-
--- initialize array
+return {
+  "zbirenbaum/copilot-cmp",
+  config = function ()
+    require("copilot_cmp").setup()
+  end
+}
