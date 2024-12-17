@@ -1,9 +1,7 @@
-general.import = ["~/.config/alacritty/themes/dracula.toml"]
+import = ["~/.config/alacritty/themes/dracula.toml"]
 
 [font]
 size = 15
-
-[font]
 normal.family = "JetBrainsMono Nerd Font"
 bold.family = "JetBrainsMono Nerd Font"
 italic.family = "JetBrainsMono Nerd Font"
