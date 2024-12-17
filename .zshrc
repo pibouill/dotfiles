@@ -227,7 +227,7 @@ if hostname | grep -q 42prague; then
   export PATH="$HOME/.nvm/versions/node/v22.11.0/bin:$PATH"
   export PATH="$PATH:/nfs/homes/pibouill/bin/nvim-linux64/bin"
   eval "$(dircolors ~/.dircolors)"
-  eval "$(/nfs/homes/pibouill/sgoinfre/homebrew/bin/brew shellenv)"
+  # eval "$(/nfs/homes/pibouill/sgoinfre/homebrew/bin/brew shellenv)"
     export PATH="$PATH:/Applications/Docker.app/Contents/Resources/bin/"
 fi
 
@@ -257,3 +257,4 @@ bindkey -s '^f' "tmux-sessionizer\n"
 export NVM_DIR="$HOME/.nvm"
 [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
 [ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
+eval "$(/home/pibouill/homebrew/bin/brew shellenv)"
