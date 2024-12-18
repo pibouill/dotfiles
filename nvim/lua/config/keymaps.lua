@@ -6,7 +6,7 @@
 --   By: pibouill <pibouill@student.42prague.com>    +#+  +:+       +#+       --
 --                                                +#+#+#+#+#+   +#+           --
 --   Created: 2024/12/02 10:30:50 by pibouill          #+#    #+#             --
---   Updated: 2024/12/08 11:25:48 by pibouill         ###   ########.fr       --
+--   Updated: 2024/12/18 12:32:29 by pibouill         ###   ########.fr       --
 --                                                                            --
 -- ************************************************************************** --
 
@@ -93,4 +93,8 @@ map('n', '<C-2>', '<nop>', { desc = "Disable F1 in Insert mode" })
 map('n', '<C-3>', '<nop>', { desc = "Disable F1 in Visual mode" })
 map('n', '<C-4>', '<nop>', { desc = "Disable F1 in Terminal mode" })
 
+map('n', '<A-1>', '<nop>', { desc = "Disable F1" })
+map('n', '<A-2>', '<nop>', { desc = "Disable F1 in Insert mode" })
+map('n', '<A-3>', '<nop>', { desc = "Disable F1 in Visual mode" })
+map('n', '<A-4>', '<nop>', { desc = "Disable F1 in Terminal mode" })
 -- map("n", "<F1>", ":FtHeader<CR>")

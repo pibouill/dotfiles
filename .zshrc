@@ -102,7 +102,7 @@ alias find_word="grep -Rnw . -e"
 alias cht="cht.sh"
 # Git aliases
 alias lg="lazygit"
-alias gh="open https://github.com/pibouill"
+alias gh="firefox https://github.com/pibouill"
 alias gol="git log --graph --oneline --decorate"
 alias gl="git log --color --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit"
 alias gd="git diff"
@@ -199,7 +199,7 @@ source $HOME/.config/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
 
 export MAIL=pibouill@student.42prague.com
 
-SHARED_FOLDER="~/bin"
+SHARED_FOLDER="$HOME/bin"
 
 alias devstation="\
 	docker run \
@@ -228,7 +228,8 @@ if hostname | grep -q 42prague; then
   export PATH="$PATH:/nfs/homes/pibouill/bin/nvim-linux64/bin"
   eval "$(dircolors ~/.dircolors)"
   # eval "$(/nfs/homes/pibouill/sgoinfre/homebrew/bin/brew shellenv)"
-    export PATH="$PATH:/Applications/Docker.app/Contents/Resources/bin/"
+  export PATH="$PATH:/Applications/Docker.app/Contents/Resources/bin/"
+  eval "$(/home/pibouill/homebrew/bin/brew shellenv)"
 fi
 
 if uname -a | grep -q Android; then
@@ -257,4 +258,3 @@ bindkey -s '^f' "tmux-sessionizer\n"
 export NVM_DIR="$HOME/.nvm"
 [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
 [ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
-eval "$(/home/pibouill/homebrew/bin/brew shellenv)"

@@ -29,7 +29,7 @@ return {
 		cmp.setup({
 		  sources = {
 			{ name = 'nvim_lsp' },
-			{ name = 'copilot', group_index = 2 },
+			-- { name = 'copilot', group_index = 2 },
 			{ name = 'path', group_index = 2 },
 			{ name = 'luasnip', group_index = 2 },
 		  },
@@ -45,17 +45,16 @@ return {
 			  end
 			end),
 		  }),
-		  snippet = {
-			expand = function(args)
-			  vim.fn["vsnip#anonymous"](args.body) -- Replace with your snippet engine, e.g., luasnip or vsnip.
-			end,
-		  },
+			--  snippet = {
+			-- expand = function(args)
+			--   vim.fn["vsnip#anonymous"](args.body) -- Replace with your snippet engine, e.g., luasnip or vsnip.
+			-- end,
+			--  },
 		  formatting = {
 			format = lspkind.cmp_format({
 			  mode = 'symbol',
 			  maxwidth = 50, -- Maximum width of menu items
 			  ellipsis_char = '...', -- Truncated text will be replaced with ellipsis
-			  symbol_map = { Copilot = "" },
 			}),
 			expandable_indicator = false,
 			fields = { cmp.ItemField.Abbr, cmp.ItemField.Menu },
@@ -63,7 +62,6 @@ return {
 		  sorting = {
 			priority_weight = 2,
 			comparators = {
-			  require("copilot_cmp.comparators").prioritize,
 
 			  -- Below is the default comparitor list and order for nvim-cmp
 			  cmp.config.compare.offset,
@@ -109,25 +107,6 @@ return {
 		  end,
 		},
 	  },
-},
-
-
--- Pairs chars -> not sure about it
-{
-  "echasnovski/mini.pairs",
-  event = "VeryLazy",
-  opts = {
-    modes = { insert = true, command = true, terminal = false },
-    -- skip autopair when next character is one of these
-    skip_next = [=[[%w%%%'%[%"%.%`%$]]=],
-    -- skip autopair when the cursor is inside these treesitter nodes
-    skip_ts = { "string" },
-    -- skip autopair when next character is closing pair
-    -- and there are more closing pairs than opening pairs
-    skip_unbalanced = true,
-    -- better deal with markdown code blocks
-    markdown = true,
-  },
 },
 
   -- Mason and Mason-LSPConfig
