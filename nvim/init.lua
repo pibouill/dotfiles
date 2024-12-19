@@ -17,5 +17,3 @@ require("config.options")
 -- available = rose-pine, gruvbox, catppucin
 ----> check colorscheme.lua
 vim.cmd [[colorscheme catppuccin]]
-
--- initialize array
