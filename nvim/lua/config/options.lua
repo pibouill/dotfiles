@@ -58,3 +58,5 @@ vim.api.nvim_create_autocmd("FileType", {
 
 -- Cursor styling
 vim.opt.guicursor = "n-v-c:block,i-ci-ve:ver25,r-cr:hor20,o:hor50"
+
+ vim.keymap.set('c', '<tab>', '<C-z>', { silent = false }) -- to fix cmp
