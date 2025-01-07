@@ -1,11 +1,22 @@
+# **************************************************************************** #
+#                                                                              #
+#                                                         :::      ::::::::    #
+#    alacritty.toml                                     :+:      :+:    :+:    #
+#                                                     +:+ +:+         +:+      #
+#    By: pibouill <pibouill@student.42prague.com>   +#+  +:+       +#+         #
+#                                                 +#+#+#+#+#+   +#+            #
+#    Created: 2025/01/07 14:31:26 by pibouill          #+#    #+#              #
+#    Updated: 2025/01/07 14:39:03 by pibouill         ###   ########.fr        #
+#                                                                              #
+# **************************************************************************** #
+
 import = ["~/.config/alacritty/themes/dracula.toml"]
 
 [font]
 size = 15
-normal.family = "JetBrainsMono Nerd Font"
-bold.family = "JetBrainsMono Nerd Font"
-italic.family = "JetBrainsMono Nerd Font"
-bold_italic.family = "JetBrainsMono Nerd Font"
+
+[font.normal]
+family = "JetBrainsMonoNL"
 
 [window]
 opacity = 0.9

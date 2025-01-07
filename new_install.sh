@@ -43,6 +43,7 @@ COMMON_PACKAGES=(
     "nodejs"
     "go"
 	"python3"
+	"ripgrep"
 )
 
 LINUX_PACKAGES=(
