@@ -19,6 +19,7 @@ return {
     },
     settings = {
       save_on_toggle = true,
+	  sync_on_ui_close = true,
     },
   },
   keys = function()
@@ -40,7 +41,6 @@ return {
       },
     }
 	local is_macos = vim.loop.os_uname().sysname == "Darwin"
-	local harpoon = require("harpoon")
 
 		if is_macos then
 		  -- OSX-specific mappings
@@ -50,7 +50,6 @@ return {
 		  vim.keymap.set("n", "¢", function() harpoon:list():select(4) end)
 		else
 		  -- Non-OSX mappings
-		  local keys = {}
 		  for i = 1, 5 do
 			table.insert(keys, {
 			  "<A-" .. i .. ">",
@@ -86,10 +85,10 @@ return {
 --         vim.keymap.set("n", "<leader>a", function() harpoon:list():add() end)
 --         vim.keymap.set("n", "<C-e>", function() harpoon.ui:toggle_quick_menu(harpoon:list()) end)
 --
---         vim.keymap.set("n", "<C-h>", function() harpoon:list():select(1) end)
---         vim.keymap.set("n", "<C-t>", function() harpoon:list():select(2) end)
---         vim.keymap.set("n", "<C-n>", function() harpoon:list():select(3) end)
---         vim.keymap.set("n", "<C-s>", function() harpoon:list():select(4) end)
+--         vim.keymap.set("n", "<M-1>", function() harpoon:list():select(1) end)
+--         vim.keymap.set("n", "<M-2>", function() harpoon:list():select(2) end)
+--         vim.keymap.set("n", "<M-3>", function() harpoon:list():select(3) end)
+--         vim.keymap.set("n", "<A-4>", function() harpoon:list():select(4) end)
 --
 --         -- Toggle previous & next buffers stored within Harpoon list
 -- 		-- vim.keymap.set("n", "<C-S-P>", function() harpoon:list():prev() end)

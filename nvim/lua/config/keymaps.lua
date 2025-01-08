@@ -93,8 +93,9 @@ map('n', '<C-2>', '<nop>', { desc = "Disable F1 in Insert mode" })
 map('n', '<C-3>', '<nop>', { desc = "Disable F1 in Visual mode" })
 map('n', '<C-4>', '<nop>', { desc = "Disable F1 in Terminal mode" })
 
-map('n', '<A-1>', '<nop>', { desc = "Disable F1" })
-map('n', '<A-2>', '<nop>', { desc = "Disable F1 in Insert mode" })
-map('n', '<A-3>', '<nop>', { desc = "Disable F1 in Visual mode" })
-map('n', '<A-4>', '<nop>', { desc = "Disable F1 in Terminal mode" })
+-- Somehow don't need to unmap them now
+-- map('n', '<A-1>', '<nop>', { desc = "Disable F1" })
+-- map('n', '<A-2>', '<nop>', { desc = "Disable F1 in Insert mode" })
+-- map('n', '<A-3>', '<nop>', { desc = "Disable F1 in Visual mode" })
+-- map('n', '<A-4>', '<nop>', { desc = "Disable F1 in Terminal mode" })
 -- map("n", "<F1>", ":FtHeader<CR>")
