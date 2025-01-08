@@ -6,12 +6,11 @@
 --   By: pibouill <pibouill@student.42prague.com>   +#+  +:+       +#+        --
 --                                                +#+#+#+#+#+   +#+           --
 --   Created: 2024/12/20 12:25:11 by pibouill          #+#    #+#             --
---   Updated: 2024/12/20 12:25:20 by pibouill         ###   ########.fr       --
+--   Updated: 2025/01/08 13:17:16 by pibouill         ###   ########.fr       --
 --                                                                            --
 -- ************************************************************************** --
 
 return {
-
   "williamboman/mason.nvim",
   cmd = "Mason",
   keys = { { "<leader>cm", "<cmd>Mason<cr>", desc = "Mason" } },
@@ -25,7 +24,6 @@ return {
       "lua-language-server",
     },
   },
-  ---@param opts MasonSettings | {ensure_installed: string[]}
   config = function(_, opts)
     require("mason").setup(opts)
     local mr = require("mason-registry")

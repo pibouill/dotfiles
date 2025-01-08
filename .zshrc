@@ -214,10 +214,11 @@ alias 42free='bash /nfs/homes/pibouill/.scripts/42free.sh'
 
 export PATH=/opt/homebrew/bin:/usr/local/bin:/System/Cryptexes/App/usr/bin:/usr/bin:/bin:/usr/sbin:/sbin:/var/run/com.apple.security.cryptexd/codex.system/bootstrap/usr/local/bin:/var/run/com.apple.security.cryptexd/codex.system/bootstrap/usr/bin:/var/run/com.apple.security.cryptexd/codex.system/bootstrap/usr/appleinternal/bin
 
+
 if hostname | grep -q 42prague; then
   export PATH="$HOME/.local/bin:$PATH"
   export PATH="$HOME/anaconda3/bin:$PATH"
-  export PATH="$HOME/sgoinfre/.car:$PATH"
+  export PATH="$HOME/sgoinfre/.cargo:$PATH"
   export CARGO_HOME="$HOME/sgoinfre/.cargo"
   export RUSTUP_HOME="$HOME/sgoinfre/.rustup"
   export PATH="$RUSTUP_HOME:$PATH"
@@ -227,6 +228,7 @@ if hostname | grep -q 42prague; then
   eval "$(dircolors ~/.dircolors)"
   # eval "$(/nfs/homes/pibouill/sgoinfre/homebrew/bin/brew shellenv)"
   export PATH="$PATH:/Applications/Docker.app/Contents/Resources/bin/"
+  export PATH="$HOME/sgoinfre:$PATH"
   eval "$(/home/pibouill/homebrew/bin/brew shellenv)"
 fi
 
@@ -234,14 +236,10 @@ if uname -a | grep -q Android; then
    export PATH=/data/data/com.termux/files/usr/bin:${PATH}
 fi
 
-[ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
-# Set up fzf key bindings and fuzzy completion
-source <(fzf --zsh)
 
 export FZF_DEFAULT_OPTS='--color=fg:#f8f8f2,bg:#282a36,hl:#bd93f9 --color=fg+:#f8f8f2,bg+:#44475a,hl+:#bd93f9 --color=info:#ffb86c,prompt:#50fa7b,pointer:#ff79c6 --color=marker:#ff79c6,spinner:#ffb86c,header:#6272a4'
 export BAT_THEME="Dracula"
 
-eval "$(starship init zsh)"
 
 export PATH="$HOME/.local/share/nvim/mason:$PATH"
 export PATH="$HOME/bin:$PATH"
@@ -254,6 +252,10 @@ export PATH="/opt/homebrew/opt/llvm/19.1.5/bin:$PATH"
 export MANPAGER="/usr/bin/less -s -M +Gg"
 
 bindkey -s '^f' "tmux-sessionizer\n"
+
+eval "$(starship init zsh)"
+source <(fzf --zsh)
+[ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
 
 export NVM_DIR="$HOME/.nvm"
 [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
