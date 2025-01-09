@@ -12,6 +12,9 @@
 
 add_newline = false
 
+#
+## catppuccin_macchiato preset
+#
 palette = "catppuccin_macchiato"
 
 [cmd_duration]
