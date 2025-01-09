@@ -1,3 +1,15 @@
+-- ************************************************************************** --
+--                                                                            --
+--                                                        :::      ::::::::   --
+--   treesitter.lua                                     :+:      :+:    :+:   --
+--                                                    +:+ +:+         +:+     --
+--   By: pibouill <pibouill@student.42prague.com>   +#+  +:+       +#+        --
+--                                                +#+#+#+#+#+   +#+           --
+--   Created: 2025/01/08 18:59:15 by pibouill          #+#    #+#             --
+--   Updated: 2025/01/08 19:03:43 by pibouill         ###   ########.fr       --
+--                                                                            --
+-- ************************************************************************** --
+
 return {
   "nvim-treesitter/nvim-treesitter",
   version = false, -- last release is way too old and doesn't work on Windows
