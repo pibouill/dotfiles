@@ -237,8 +237,14 @@ if uname -a | grep -q Android; then
 fi
 
 
-export FZF_DEFAULT_OPTS='--color=fg:#f8f8f2,bg:#282a36,hl:#bd93f9 --color=fg+:#f8f8f2,bg+:#44475a,hl+:#bd93f9 --color=info:#ffb86c,prompt:#50fa7b,pointer:#ff79c6 --color=marker:#ff79c6,spinner:#ffb86c,header:#6272a4'
-export BAT_THEME="Dracula"
+# export FZF_DEFAULT_OPTS='--color=fg:#f8f8f2,bg:#282a36,hl:#bd93f9 --color=fg+:#f8f8f2,bg+:#44475a,hl+:#bd93f9 --color=info:#ffb86c,prompt:#50fa7b,pointer:#ff79c6 --color=marker:#ff79c6,spinner:#ffb86c,header:#6272a4'
+#
+# fzf gruvbox
+export FZF_DEFAULT_OPTS=' --color=fg:#d4be98,fg+:#ddc7a1,bg:#1b1b1b,bg+:#282828 --color=hl:#7daea3,hl+:#89b482,info:#afaf87,marker:#a9b665 --color=prompt:#d3869b,spinner:#af5fff,pointer:#ea6962,header:#87afaf --color=border:#32302f,label:#aeaeae,query:#d9d9d9 --border=rounded --border-label=FZF --border-label-pos=0 --preview-window=border-rounded --padding=0 --margin=1 --prompt="> " --marker=">" --pointer="◆" --separator="─" --scrollbar="│"'
+
+
+
+export BAT_THEME="gruvbox-material-dark"
 
 
 export PATH="$HOME/.local/share/nvim/mason:$PATH"

@@ -16,6 +16,8 @@ add_newline = false
 ## catppuccin_macchiato preset
 #
 palette = "catppuccin_macchiato"
+# palette = "catppuccin_mocha"
+# palette = "my_gruv"
 
 [cmd_duration]
 disabled = true
@@ -55,10 +57,51 @@ format = "[${symbol}${virtualenv}]($style)"
 symbol = '🌙 '
 format = "[$symbol]($style)"
 
+[palettes.my_gruv]
+bg_dim = "#232323"
+bg0 = "#303030"
+bg1 = "#3a3a3a"
+bg2 = "#3c3c3c"
+bg3 = "#504d47"
+bg4 = "#5c5750"
+bg5 = "#6a635c"
+
+bg_statusline1 = "#3a3a3a"
+bg_statusline2 = "#47423f"
+bg_statusline3 = "#5c5750"
+
+bg_diff_green = "#3e421f"
+bg_visual_green = "#475141"
+bg_diff_red = "#4a2625"
+bg_visual_red = "#573c3c"
+bg_diff_blue = "#11484a"
+bg_visual_blue = "#455353"
+bg_visual_yellow = "#5d4c38"
+bg_current_word = "#4a413b"
+
+fg0 = "#e6cb9c"
+fg1 = "#f0d7af"
+
+red = "#f76e68"
+orange = "#f99559"
+yellow = "#e8b256"
+green = "#b3e074"
+aqua = "#99e3ca"
+blue = "#88c2e3"
+purple = "#e09bc3"
+
+bg_red = "#f76e68"
+bg_green = "#b3e074"
+bg_yellow = "#e8b256"
+
+grey0 = "#8b7f70"
+grey1 = "#a59484"
+grey2 = "#b9aa98"
+
 
 [palettes.catppuccin_macchiato]
 rosewater = "#f4dbd6"
-flamingo = "#f0c6c6"
+flamingo = "#d3869b"
 pink = "#f5bde6"
 mauve = "#c6a0f6"
 red = "#ed8796"

@@ -18,6 +18,10 @@ return {
 	-- 	vim.cmd("colorscheme rose-pine")
 	-- end
 	-- },
+	--
+	--
+	--
+	--
 -- {
 --   "catppuccin/nvim",
 --   lazy = true,
@@ -73,6 +77,7 @@ return {
     vim.g.gruvbox_material_background = 'medium'
     vim.g.gruvbox_material_better_performance = 1
     vim.g.gruvbox_material_enable_italic = true
+	vim.g.gruvbox_material_transparent_background = 1
 
     -- Load the colorscheme
   end
