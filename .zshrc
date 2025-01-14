@@ -244,7 +244,7 @@ export FZF_DEFAULT_OPTS=' --color=fg:#d4be98,fg+:#ddc7a1,bg:#1b1b1b,bg+:#282828 
 
 
 
-export BAT_THEME="gruvbox-material-dark"
+export BAT_THEME="gruvbox-dark"
 
 
 export PATH="$HOME/.local/share/nvim/mason:$PATH"
