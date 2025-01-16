@@ -5,7 +5,7 @@
 	"workbench.colorCustomizations":
 	{
         "terminal.selectionBackground": "#dbdacc",
-        "terminal.selectionForeground": "#000000",
+        "terminal.selectionForeground": "#000000"
 
     },
     "files.autoSave": "afterDelay",
@@ -45,6 +45,6 @@
     "workbench.iconTheme": "catppuccin-macchiato",
     "debug.onTaskErrors": "debugAnyway",
     "window.zoomLevel": -1,
-    "terminal.explorerKind": "external",
+    "terminal.explorerKind": "external"
 
 }

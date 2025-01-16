@@ -21,13 +21,26 @@ return {
 				require('telescope.builtin').grep_string({ search = vim.fn.input("Grep > ") })
 			end, desc = "search with grep" },
 		},
-		opts = {
+		require('telescope').setup{
 			pickers = {
 				find_files = {
 					find_command = { "rg", "--files", "--glob", "!**/.git/*", "-L" },
-				},
+					-- theme = 
+				}
 			},
+			extensions = {
+				fzf = {}
+			}
 		},
+		config = function ()
+			-- telescope to nvim config
+			vim.keymap.set("n", "<leader>pn", function ()
+				require("telescope.builtin").find_files {
+					cwd = vim.fn.stdpath("config")
+				}
+			end)
+		end,
+
 	},
 	{
 		"nvim-telescope/telescope-symbols.nvim",
