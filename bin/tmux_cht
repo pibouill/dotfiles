@@ -11,16 +11,16 @@
 #                                                                              #
 # **************************************************************************** #
 
-selected=$(cat ~/bin/tmux_cht_list/tmux_cht_languages_lst ~/bin/tmux_cht_list/tmux_cht_command_lst | fzf)
+selected=$(cat "$HOME"/bin/tmux_cht_list/tmux_cht_languages_lst "$HOME"/bin/tmux_cht_list/tmux_cht_command_lst | fzf)
+
 if [[ -z $selected ]]; then
     exit 0
 fi
 
-read -rp "Watchu wanna know ? (Just press enter if you don't know): " query
+read -p "Watchu wanna know ? (Just press enter if you don't know): " query
 
-if grep -qs "$selected" ~/bin/tmux_cht_list/tmux_cht_languages_lst; then
-    query="echo $query | tr ' ' '+'"
-    #tmux neww bash -c "echo \"curl cht.sh/$selected/$query/\" & curl cht.sh/$selected/$query & while [ : ]; do sleep 1; done"
+if grep -qs "$selected" "$HOME"/bin/tmux_cht_list/tmux_cht_languages_lst; then
+	query=$(echo "$query" | tr ' ' '+')
     tmux neww bash -c "curl -s cht.sh/$selected/$query | less -R"
 else
     tmux neww bash -c "curl -s cht.sh/$selected~$query | less -R"

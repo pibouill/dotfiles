@@ -11,7 +11,7 @@
 #                                                                              #
 # **************************************************************************** #
 
-cd $HOME
+cd "$HOME" || return
 
 if ! command -v brew &>/dev/null; then
     echo -e "Installing Homebrew..."
