@@ -1,4 +1,5 @@
 find
+valgrind
 man
 tldr
 sed
