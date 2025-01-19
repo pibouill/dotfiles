@@ -114,6 +114,7 @@ alias gpo="git pull origin"
 alias grs="git restore"
 
 alias bup="brew update && brew upgrade"
+alias cat=bat
 
 #
 
