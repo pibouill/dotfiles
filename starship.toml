@@ -15,19 +15,18 @@ add_newline = false
 #
 ## catppuccin_macchiato preset
 #
+
 palette = "catppuccin_macchiato"
-# palette = "catppuccin_mocha"
-# palette = "my_gruv"
 
 [cmd_duration]
-disabled = true
+disabled = false
 
 [character]
 error_symbol = "[❯](red)"
 vimcmd_symbol = "VI[❮](green)"
 
 [directory]
-truncation_length = 4
+truncation_length = 10
 style = "bold lavender"
 
 [git_status]
@@ -37,6 +36,7 @@ style = "cyan"
 [git_state]
 format = '\([$state( $progress_current/$progress_total)]($style)\) '
 style = "bright-black"
+disabled = false
 
 [git_metrics]
 disabled = false
@@ -56,6 +56,12 @@ format = "[${symbol}${virtualenv}]($style)"
 [lua]
 symbol = '🌙 '
 format = "[$symbol]($style)"
+
+[sudo]
+disabled = false
+
+[memory_usage]
+disabled = false
 
 [palettes.my_gruv]
 bg_dim = "#232323"

@@ -33,7 +33,7 @@ export DOTFILES="$HOME/.config/dotfiles"
 export PROJ=~/work/minishell
 
 # FZF (fuzzy finder) setup
-[ -f ~/.fzf.bash ] && source ~/.fzf.bash
+[ -f "$HOME"/.fzf.bash ] && source "$HOME"/.fzf.bash
 
 # Aliases
 alias ll='ls -lah --color=auto'

@@ -120,7 +120,7 @@ install_homebrew() {
     echo "export HOMEBREW_PREFIX=\"$HOMEBREW_DIR\"" >> ~/.bashrc
 
     # Source the updated configuration
-    source ~/.zshrc
+    source "$HOME"/.zshrc
 
     # Verify installation
     if command -v brew &> /dev/null; then

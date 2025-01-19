@@ -100,7 +100,7 @@ return {
 			function()
 				return '▊'
 			end,
-			color = { fg = colors.blue }, -- Sets highlighting of component
+			color = { fg = colors.cyan }, -- Sets highlighting of component
 			padding = { left = 0, right = 1 }, -- We don't need space before this
 		}
 
@@ -109,7 +109,7 @@ return {
 			function()
 				-- 𓁨 𓁏 𓁅 𓀡𓀠 𓁭
 				-- 𐇯
-				return '𐇯 𐇯𐇯 𓁨  𓁏  𓁅  𓀡 𓀠 .𓁭'
+				return '𐇯 𐇯𐇯 𓁨  𓁏  𓁅  𓀡 𓀠 ...𓁭'
 			end,
 			color = function()
 				-- auto change color according to neovims mode
@@ -234,7 +234,7 @@ return {
 			function()
 				return '▊'
 			end,
-			color = { fg = colors.blue },
+			color = { fg = colors.cyan},
 			padding = { left = 1 },
 		}
 
