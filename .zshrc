@@ -21,7 +21,7 @@ setopt HIST_IGNORE_SPACE
 setopt HIST_IGNORE_DUPS
 setopt SHARE_HISTORY
 
-. $HOME
+. "$HOME"
 
 PROMPT='%n@%m%~%% '
 
@@ -70,8 +70,8 @@ alias rff="rm -rf"
 alias vv=vim
 alias v=nvim
 alias i="open https://profile.intra.42.fr/"
-alias vz="v $HOME/.zshrc"
-alias vrc="v $MYNVIMRC"
+alias vz=v "$HOME/.zshrc"
+alias vrc=v "$MYNVIMRC"
 alias swcaps="~/.config/switch_caps_ctrl.sh"
 alias work="cd ~/work/"
 alias ..="cd .."
@@ -83,7 +83,7 @@ alias vglcs="valgrind --leak-check=full --show-leak-kinds=all"
 alias workwork="cd /sgoinfre/goinfre/Perso/pibouill/work"
 alias checksize='du -sh $(ls -A) | sort -rh'
 alias tconf="v ~/.tmux.conf"
-alias proj="cd $PROJ"
+alias proj=cd "$PROJ"
 alias libft="cd ~/work/libft"
 alias tm="tmux"
 alias sgoinfre="cd /sgoinfre/goinfre/Perso/pibouill"
@@ -193,7 +193,7 @@ export GROFF_NO_SGR=1                   # for konsole
 ######################################################################
 
 # Load zsh-syntax-highlight
-source $HOME/.config/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
+source "$HOME/.config/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh"
 
 export MAIL=pibouill@student.42prague.com
 
@@ -256,6 +256,8 @@ export PATH="/opt/homebrew/opt/llvm/bin:$PATH"
 export PATH="/opt/homebrew/opt/llvm/19.1.5/bin:$PATH"
 #
 export MANPAGER="/usr/bin/less -s -M +Gg"
+
+export PKG_CONFIG_PATH=/usr/bin/ibus
 
 bindkey -s '^f' "tmux-sessionizer\n"
 
