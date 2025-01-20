@@ -150,6 +150,7 @@ return {
 			'filename',
 			cond = conditions.buffer_not_empty,
 			color = { fg = colors.magenta, gui = 'bold' },
+			path = 3,
 		}
 
 		ins_left { 'location' }
@@ -195,7 +196,6 @@ return {
 			icon = ' LSP:',
 			color = { fg = '#928374', gui = 'bold' },
 		}
-
 
 		-- Add components to right sections
 		ins_right {
