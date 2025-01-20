@@ -50,7 +50,13 @@ return {
       capabilities = require('blink.cmp').get_lsp_capabilities(),
     }
     lspconfig.clangd.setup {
-      capabilities = require('blink.cmp').get_lsp_capabilities(),
+		on_attach = on_attach,
+		capabilities = require('blink.cmp').get_lsp_capabilities(),
+		cmd = {
+			"clangd",
+			"--offset-encoding=utf-16",
+		}
+
     }
   end,
 }
