@@ -60,9 +60,6 @@ format = "[$symbol]($style)"
 [sudo]
 disabled = false
 
-[memory_usage]
-disabled = false
-
 [palettes.my_gruv]
 bg_dim = "#232323"
 bg0 = "#303030"
