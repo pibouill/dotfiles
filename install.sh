@@ -18,7 +18,7 @@ if ! command -v curl &> /dev/null; then
     if [ "$(uname)" == "Darwin" ]; then
         /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
         brew install curl
-    elif [ "$(expr substr $(uname -s) 1 5)" == "Linux" ]; then
+    elif [ "$(expr substr "$(uname -s)" 1 5)" == "Linux" ]; then
         sudo apt-get update
         sudo apt-get install -y curl
     else
@@ -78,8 +78,8 @@ ln -sf "$DOTFILES_DIR/starship.toml" "$XDG_CONFIG_HOME/starship.toml"
 ln -sf "$DOTFILES_DIR/vim/autoload/plug.vim" "$HOME/.vim/autoload/plug.vim"
 ln -sf "$DOTFILES_DIR/.gdbinit" "$HOME/.gdbinit"
 #ln -sf "$DOTFILES_DIR/vim/coc-settings.json" "$HOME/.vim/"
-ln -sf $DOTFILES_DIR/bin/* $HOME/bin/
-ln -sf $DOTFILES_DIR/nvim $XDG_CONFIG_HOME/nvim
+ln -sf "$DOTFILES_DIR/bin/*" "$HOME/bin/"
+ln -sf "$DOTFILES_DIR/nvim" "$XDG_CONFIG_HOME/nvim"
 
 ################################################################################
 
