@@ -18,9 +18,15 @@ return {
   opts = {
     view_options = {
       show_hidden = true,
+	  natural_order = 'fast',
+	  case_insensitive = false,
     },
     float = {
       padding = 5,
+	  get_win_title = nil,
+	  override = function (conf)
+		  return conf
+	  end,
     },
   },
   -- Optional dependencies

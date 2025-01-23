@@ -70,7 +70,7 @@ alias rff="rm -rf"
 alias vv=vim
 alias v=nvim
 alias i="open https://profile.intra.42.fr/"
-alias vz=v "$HOME/.zshrc"
+alias vz="v "$HOME/.zshrc""
 alias vrc=v "$MYNVIMRC"
 alias swcaps="~/.config/switch_caps_ctrl.sh"
 alias work="cd ~/work/"
@@ -115,6 +115,7 @@ alias grs="git restore"
 
 alias bup="brew update && brew upgrade"
 alias cat=bat
+alias nt=nautilus
 
 #
 
