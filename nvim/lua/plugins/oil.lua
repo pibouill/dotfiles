@@ -16,18 +16,28 @@ return {
     { "<leader>e", "<cmd>Oil --float<CR>", desc = "Explorer" },
   },
   opts = {
+	  skip_confirm_for_simple_edits = true,
     view_options = {
       show_hidden = true,
 	  natural_order = 'fast',
 	  case_insensitive = false,
     },
     float = {
-      padding = 5,
+      padding = 2,
+	  max_width = 190,
+	  max_height = 0,
 	  get_win_title = nil,
+	  preview_split = "auto",
 	  override = function (conf)
 		  return conf
 	  end,
     },
+	preview_win = {
+		update_on_cursor_moved = true,
+	},
+	keymaps = {
+		["q"] = "actions.close",
+	}
   },
   -- Optional dependencies
   dependencies = { "nvim-tree/nvim-web-devicons" },

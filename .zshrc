@@ -80,13 +80,12 @@ alias dfl="cd ~/.config/dotfiles/"
 alias px="exit"
 alias vglc="valgrind --leak-check=full"
 alias vglcs="valgrind --leak-check=full --show-leak-kinds=all"
-alias workwork="cd /sgoinfre/goinfre/Perso/pibouill/work"
 alias checksize='du -sh $(ls -A) | sort -rh'
 alias tconf="v ~/.tmux.conf"
 alias proj=cd "$PROJ"
 alias libft="cd ~/work/libft"
 alias tm="tmux"
-alias sgoinfre="cd /sgoinfre/goinfre/Perso/pibouill"
+alias sgoinfre="cd /sgoinfre/pibouill"
 alias ff="fzf --preview 'bat --style=numbers --color=always --line-range :500 {}'"
 alias fp='vi $(ff)'
 alias sb="cd ~/Documents/obsidian_vaults"
@@ -228,10 +227,10 @@ if hostname | grep -q 42prague; then
   export PATH="$HOME/.nvm/versions/node/v22.11.0/bin:$PATH"
   export PATH="$PATH:/nfs/homes/pibouill/bin/nvim-linux64/bin"
   eval "$(dircolors ~/.dircolors)"
-  # eval "$(/nfs/homes/pibouill/sgoinfre/homebrew/bin/brew shellenv)"
   export PATH="$PATH:/Applications/Docker.app/Contents/Resources/bin/"
   export PATH="$HOME/sgoinfre:$PATH"
-  eval "$(/home/pibouill/homebrew/bin/brew shellenv)"
+  export PATH="/sgoinfre/homebrew:$PATH"
+  eval "$(/sgoinfre/pibouill/homebrew/bin/brew shellenv)"
 fi
 
 if uname -a | grep -q Android; then
@@ -245,9 +244,7 @@ fi
 export FZF_DEFAULT_OPTS=' --color=fg:#d4be98,fg+:#ddc7a1,bg:#1b1b1b,bg+:#282828 --color=hl:#7daea3,hl+:#89b482,info:#afaf87,marker:#a9b665 --color=prompt:#d3869b,spinner:#af5fff,pointer:#ea6962,header:#87afaf --color=border:#32302f,label:#aeaeae,query:#d9d9d9 --border=rounded --border-label=FZF --border-label-pos=0 --preview-window=border-rounded --padding=0 --margin=1 --prompt="> " --marker=">" --pointer="◆" --separator="─" --scrollbar="│"'
 
 
-
 export BAT_THEME="gruvbox-dark"
-
 
 export PATH="$HOME/.local/share/nvim/mason:$PATH"
 export PATH="$HOME/bin:$PATH"
