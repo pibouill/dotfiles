@@ -24,6 +24,8 @@ return {
 			window = {
 				width = 0.4,
 			},
+			-- model = 'gpt-4o',
+			model = 'claude-3.5-sonnet',
 		}
 	end,
 	keys = {
