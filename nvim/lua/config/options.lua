@@ -27,6 +27,7 @@ vim.opt.modeline = true
 vim.opt.modelines = 5
 vim.opt.ignorecase = true -- Ignore case in search
 vim.opt.incsearch = true
+vim.opt.hlsearch = true
 vim.opt.history = 200
 vim.opt.compatible = false
 vim.opt.background = "dark"
