@@ -109,7 +109,7 @@ return {
 			function()
 				-- 𓁨 𓁏 𓁅 𓀡𓀠 𓁭
 				-- 𐇯
-				return '𐇯 𐇯𐇯 𓁨  𓁏  𓁅  𓀡 𓀠 ...𓁭'
+				return '𐇯𐇯𐇯𓁨 𓁏𓁅𓀡𓀠 ~𓁭'
 			end,
 			color = function()
 				-- auto change color according to neovims mode
@@ -155,7 +155,12 @@ return {
 
 		ins_left { 'location' }
 
-		ins_left { 'progress', color = { fg = colors.fg, gui = 'bold' } }
+		ins_left {
+			function()
+				return tostring(vim.fn.line('$')) .. " lines"
+			end,
+			color = { fg = colors.fg, gui = 'bold' }
+		}
 
 		ins_left {
 			'diagnostics',
