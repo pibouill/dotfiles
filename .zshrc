@@ -115,6 +115,7 @@ alias grs="git restore"
 alias bup="brew update && brew upgrade"
 alias cat=bat
 alias nt=nautilus
+alias massif=valgrind --tool=massif --massif-out-file=massif.out
 
 #
 
