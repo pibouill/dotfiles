@@ -94,3 +94,21 @@ vim +PlugInstall +qall
 #chsh -s $(which zsh)
 
 printf "\e[38;5;118mDotfiles installation completed.\e[0m\n"
+
+# COLORS
+# 0;30m	Black
+# 0;31m	Red
+# 0;32m	Green
+# 0;33m	Yellow
+# 0;34m	Blue
+# 0;35m	Purple
+# 0;36m	Cyan
+# 0;37m	White
+# 1;30m	Dark Gray
+# 1;31m	Light Red
+# 1;32m	Light Green
+# 1;33m	Light Yellow
+# 1;34m	Light Blue
+# 1;35m	Light Purple
+# 1;36m	Light Cyan
+# 1;37m	Light White
