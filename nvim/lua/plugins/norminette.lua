@@ -10,15 +10,16 @@
 --                                                                            --
 -- ************************************************************************** --
 
-return
-{
+return {
 	"vinicius507/norme.nvim",
 	dependencies = { "jose-elias-alvarez/null-ls.nvim" },
+	-- event = { "BufReadPre *.c", "BufReadPre *.h" },
 	config = function ()
 		require("null-ls").setup()
 		require("norme").setup({
-	-- Your configuration
-		cmd = os.getenv('HOME') .. '/usr/bin/norminette'
+			-- Your configuration
+			-- cmd = os.getenv('HOME') .. '/usr/bin/norminette'
+			cmd = 'norminette'
 		})
 	end,
 	keys = { { "<leader>no", "<cmd>NormeToggle<cr>"}},
