@@ -258,6 +258,7 @@ export PATH="/opt/homebrew/opt/llvm/19.1.5/bin:$PATH"
 export MANPAGER="/usr/bin/less -s -M +Gg"
 
 export PKG_CONFIG_PATH=/usr/bin/ibus
+export EDITOR=nvim
 
 bindkey -s '^f' "tmux-sessionizer\n"
 
