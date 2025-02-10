@@ -16,9 +16,9 @@ import = ["~/.config/alacritty/themes/themes/gruvbox_material_medium_dark.toml"]
 size = 14
 
 [font.normal]
-# family = "JetBrainsMono"
+family = "JetBrainsMono"
 # style = "Medium"
-family = "Ubuntu Mono Nerd Font"
+# family = "Ubuntu Mono Nerd Font"
 style = "Regular"
 
 [window]
