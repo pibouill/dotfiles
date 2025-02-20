@@ -43,6 +43,8 @@ vim.opt.splitbelow = true
 vim.opt.splitright = true
 vim.opt.pumheight = 10
 vim.opt.termguicolors = true
+--obsidian
+vim.opt.conceallevel = 1
 
 -- Highlight SignColumn
 vim.cmd("highlight! link SignColumn Normal")

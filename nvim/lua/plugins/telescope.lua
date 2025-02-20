@@ -21,7 +21,16 @@ return {
 				require('telescope.builtin').grep_string({ search = vim.fn.input("Grep > ") })
 			end, desc = "search with grep" },
 		},
-		require('telescope').setup{
+		require('telescope').setup({
+			defaults = {
+				layout_strategy = "horizontal",
+				layout_config = {
+					horizontal = {
+						preview_width = 0.5,
+						-- preview_cutoff = 20,
+					},
+				},
+			},
 			pickers = {
 				find_files = {
 					find_command = { "rg", "--files", "--glob", "!**/.git/*", "-L" },
@@ -31,8 +40,8 @@ return {
 			},
 			extensions = {
 				fzf = {}
-			}
-		},
+			},
+		}),
 		config = function ()
 			-- telescope to nvim config
 			vim.keymap.set("n", "<leader>pn", function ()
