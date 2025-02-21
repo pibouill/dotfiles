@@ -99,7 +99,7 @@ alias find_word="grep -Rnw . -e"
 alias cht="cht.sh"
 # Git aliases
 alias lg="lazygit"
-alias gh="firefox https://github.com/pibouill"
+# alias gh="firefox https://github.com/pibouill"
 alias gol="git log --graph --oneline --decorate"
 alias gl="git log --color --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit"
 alias gd="git diff"
