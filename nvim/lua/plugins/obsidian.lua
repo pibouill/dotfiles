@@ -29,11 +29,17 @@ return {
 		"nvim-treesitter/nvim-treesitter",
 	},
 	config = function()
+		local vault_path
+		if vim.loop.os_uname().sysname == "Darwin" then
+			vault_path = "/Users/pierre/Documents/obsidian_vaults/new_obs_vault/obs_vault"
+		else
+			vault_path = "/home/pibouill/Documents/obs_vault"
+		end
 		require("obsidian").setup({
 			workspaces = {
 				{
-					name = "obs_vault",
-					path = "/home/pibouill/Documents/obs_vault",
+					name = "obs_vault_42",
+					path = vault_path,
 				},
 			},
 
