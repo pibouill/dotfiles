@@ -33,8 +33,8 @@ return {
 					},
 				},
 				suggestion = {
-					-- enabled = false,
-					enabled = not vim.g.ai_cmp,
+					enabled = false,
+					-- enabled = not vim.g.ai_cmp,
 					auto_trigger = true,
 					hide_during_completion = true,
 					debounce = 75,
