@@ -11,62 +11,65 @@
 -- ************************************************************************** --
 
 return {
-  "ThePrimeagen/harpoon",
-  branch = "harpoon2",
-  opts = {
-    menu = {
-      width = vim.api.nvim_win_get_width(0) - 4,
-    },
-    settings = {
-      save_on_toggle = true,
-	  sync_on_ui_close = true,
-    },
-  },
-  keys = function()
-	local harpoon = require("harpoon")
-    local keys = {
-      {
-        "<leader>h",
-        function()
-          require("harpoon"):list():add()
-        end,
-        desc = "Harpoon File",
-      },
-      {
-        "<C-e>",
-        function()
-          harpoon.ui:toggle_quick_menu(harpoon:list())
-        end,
-        desc = "Harpoon Quick Menu",
-      },
-    }
-	local is_macos = vim.loop.os_uname().sysname == "Darwin"
+	"ThePrimeagen/harpoon",
+	branch = "harpoon2",
+	dependencies = { "nvim-lua/plenary.nvim" },
+	config = function ()
+		local harpoon = require("harpoon")
+		harpoon:setup({
+			menu = {
+				width = vim.api.nvim_win_get_width(0) - 4,
+			},
+			settings = {
+				save_on_toggle = true,
+				sync_on_ui_close = true,
+			}
+		})
+	end,
+	keys = function()
+		local harpoon = require("harpoon")
+		local keys = {
+			{
+				"<leader>h",
+				function()
+					harpoon:list():add()
+				end,
+				desc = "Harpoon File",
+			},
+			{
+				"<C-e>",
+				function()
+					harpoon.ui:toggle_quick_menu(harpoon:list())
+				end,
+				desc = "Harpoon Quick Menu",
+			},
+		}
+		local is_macos = vim.uv.os_uname().sysname == "Darwin"
 
 		if is_macos then
-		  -- OSX-specific mappings
-		  vim.keymap.set("n", "¡", function() harpoon:list():select(1) end)
-		  vim.keymap.set("n", "™", function() harpoon:list():select(2) end)
-		  vim.keymap.set("n", "£", function() harpoon:list():select(3) end)
-		  vim.keymap.set("n", "¢", function() harpoon:list():select(4) end)
+			-- OSX-specific mappings
+			vim.keymap.set("n", "¡", function() harpoon:list():select(1) end)
+			vim.keymap.set("n", "™", function() harpoon:list():select(2) end)
+			vim.keymap.set("n", "£", function() harpoon:list():select(3) end)
+			vim.keymap.set("n", "¢", function() harpoon:list():select(4) end)
 		else
-		  -- Non-OSX mappings
-		  for i = 1, 5 do
-			table.insert(keys, {
-			  "<A-" .. i .. ">",
-			  function()
-				require("harpoon"):list():select(i)
-			  end,
-			  desc = "Harpoon to File " .. i,
-			})
-		  end
-		  -- Apply mappings
-		  for _, key in ipairs(keys) do
-			vim.keymap.set("n", key[1], key[2], { desc = key[3] })
-		  end
+			-- Non-OSX mappings
+			for i = 1, 5 do
+				table.insert(keys, {
+					"<A-" .. i .. ">",
+					function()
+						harpoon:list():select(i)
+					end,
+					desc = "Harpoon to File " .. i,
+				})
+			end
+			-- Apply mappings
+			for _, key in ipairs(keys) do
+				vim.keymap.set("n", key[1], key[2], { desc = key[3] })
+			end
 		end
-
-    return keys
-  end,
+		return keys
+	end,
 }
 -- return {
 --     "ThePrimeagen/harpoon",
