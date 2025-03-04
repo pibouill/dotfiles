@@ -20,6 +20,7 @@ return {
     dashboard = { enabled = true },
     indent = { enabled = true },
     input = { enabled = true },
+	dimming = { enabled = false },
     notifier = {
       enabled = false,
       timeout = 3000,
@@ -35,7 +36,7 @@ return {
     }
   },
   keys = {
-    { "<leader>z",  function() Snacks.zen() end, desc = "Toggle Zen Mode" },
+    { "<leader>z",  function() Snacks.zen() Snacks.dim.disable() end, desc = "Toggle Zen Mode" },
     { "<leader>Z",  function() Snacks.zen.zoom() end, desc = "Toggle Zoom" },
     { "<leader>.",  function() Snacks.scratch() end, desc = "Toggle Scratch Buffer" },
     { "<leader>S",  function() Snacks.scratch.select() end, desc = "Select Scratch Buffer" },
