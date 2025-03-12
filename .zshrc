@@ -113,7 +113,7 @@ alias gpo="git pull origin"
 alias grs="git restore"
 
 alias bup="brew update && brew upgrade && brew cleanup"
-alias cat=bat
+# alias cat=bat
 alias nt=nautilus
 alias massif=valgrind --tool=massif --massif-out-file=massif.out
 
