@@ -16,9 +16,10 @@ return {
 	  version = false,
 	  build = ":TSUpdate",
 	  event = { "BufReadPost", "BufWritePost", "BufNewFile" },
-	  lazy = vim.fn.argc(-1) == 0,
+	  lazy = vim.fn.argc() > 0,
 	  init = function(plugin)
-		  require("lazy.core.loader").add_to_rtp(plugin)
+		  local lazy_core = require("lazy.core.loader")
+		  lazy_core.add_to_rtp(plugin)
 		  require("nvim-treesitter.query_predicates")
 	  end,
 	  cmd = { "TSUpdateSync", "TSUpdate", "TSInstall" },
