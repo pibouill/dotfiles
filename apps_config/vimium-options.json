@@ -37,6 +37,46 @@
     {
       "passKeys": "m pslhglcq",
       "pattern": "https?://soundcloud.com/*"
+    },
+    {
+      "passKeys": "/",
+      "pattern": "https?://www.google.com/*"
+    },
+    {
+      "passKeys": "vh",
+      "pattern": "https?://www.figma.com/*"
+    },
+    {
+      "passKeys": "",
+      "pattern": "https?://fvan-wij.github.io/*"
+    },
+    {
+      "passKeys": "",
+      "pattern": "https?://pepelevi.github.io/*"
+    },
+    {
+      "passKeys": "",
+      "pattern": "https?://en.key-test.ru/*"
+    },
+    {
+      "passKeys": "",
+      "pattern": "https?://www.boot.dev/*"
+    },
+    {
+      "passKeys": "",
+      "pattern": "https?://localhost:8006/*"
+    },
+    {
+      "passKeys": "",
+      "pattern": "https?://www.keyboardtester.com/*"
+    },
+    {
+      "passKeys": "",
+      "pattern": "https?://mausimus.itch.io/*"
+    },
+    {
+      "passKeys": "",
+      "pattern": "https?://kodub.itch.io/*"
     }
   ]
 }
