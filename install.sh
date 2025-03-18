@@ -62,8 +62,8 @@ git clone https://github.com/dracula/alacritty.git "$XDG_CONFIG_HOME"/alacritty/
 git clone https://github.com/zsh-users/zsh-syntax-highlighting.git "$XDG_CONFIG_HOME/zsh-syntax-highlighting"
 
 # Fonts
-#mkdir -p $HOME/.local/share/fonts
-#cp $PWD/fonts/JetBrainsMono $HOME/.local/share/fonts
+mkdir -p "$HOME"/.local/share/fonts
+cp -r "$PWD"/font/JetBrainsMono* "$HOME"/.local/share/fonts
 
 git clone https://github.com/pibouill/dotfiles.git "$DOTFILES_DIR"
 git clone https://github.com/tmux-plugins/tpm ~/.tmux/plugins/tpm
@@ -87,9 +87,6 @@ if [ ! -f "$HOME/.vim/autoload/plug.vim" ]; then
     curl -fLo "$HOME/.vim/autoload/plug.vim" --create-dirs \
         https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
 fi
-
-# Install Vim plugins using Vim-Plug
-vim +PlugInstall +qall
 
 #chsh -s $(which zsh)
 

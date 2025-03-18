@@ -11,7 +11,7 @@
 #                                                                              #
 # **************************************************************************** #
 
-cd "$HOME" || return
+cd "$HOME/sgoinfre/" || return
 
 if ! command -v brew &>/dev/null; then
     echo -e "Installing Homebrew..."
