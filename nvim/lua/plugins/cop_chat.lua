@@ -16,7 +16,7 @@ return {
 	cmd = "CopilotChat",
 	opts = function()
 		local user = (vim.env.USER or "User"):gsub("^%l", string.upper)
-		-- user = user:sub(1, 1):upper() .. user:sub(2)
+		user = user:sub(1, 1):upper() .. user:sub(2)
 		return {
 			auto_insert_mode = true,
 			question_header = "  " .. user .. " ",
@@ -62,8 +62,7 @@ return {
 		{
 			"<leader>ap",
 			function()
-				local actions = require("CopilotChat.actions")
-				actions.pick(actions.prompt_actions())
+				require("CopilotChat").select_prompt()
 			end,
 			desc = "Prompt Actions (CopilotChat)",
 			mode = { "n", "v" },

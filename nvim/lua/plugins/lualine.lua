@@ -157,7 +157,7 @@ return {
 
 		ins_left {
 			function()
-				return tostring(vim.fn.line('$')) .. " lines"
+				return tostring(vim.fn.line('$'))
 			end,
 			color = { fg = colors.fg, gui = 'bold' }
 		}
