@@ -20,8 +20,6 @@ espeak-ng
 fd
 flex
 fzf
-gh
-git-filter-repo
 gobject-introspection
 gpatch
 harfbuzz

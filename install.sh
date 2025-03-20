@@ -30,20 +30,20 @@ fi
 #####################Cargo######################################################
 
 # Check if Cargo is installed
-if ! command -v cargo &> /dev/null; then
-    echo "Cargo is not installed. Installing Cargo..."
-    curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh
-    echo "maybe need to exec shell"
-else
-    echo "Cargo is already installed."
-fi
-
-# Install packages with Cargo
-packages=("starship")
-for package in "${packages[@]}"; do
-    echo "Installing $package with Cargo..."
-    cargo install "$package" --locked
-done
+# if ! command -v cargo &> /dev/null; then
+#     echo "Cargo is not installed. Installing Cargo..."
+#     curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh
+#     echo "maybe need to exec shell"
+# else
+#     echo "Cargo is already installed."
+# fi
+#
+# # Install packages with Cargo
+# packages=("starship, alacritty")
+# for package in "${packages[@]}"; do
+#     echo "Installing $package with Cargo..."
+#     cargo install "$package" --locked
+# done
 
 ################################################################################
 
@@ -88,7 +88,7 @@ if [ ! -f "$HOME/.vim/autoload/plug.vim" ]; then
         https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
 fi
 
-#chsh -s $(which zsh)
+chsh -s $(which zsh)
 
 printf "\e[38;5;118mDotfiles installation completed.\e[0m\n"
 

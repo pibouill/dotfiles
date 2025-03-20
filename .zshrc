@@ -230,7 +230,7 @@ if hostname | grep -q 42prague; then
   eval "$(dircolors ~/.dircolors)"
   export PATH="$PATH:/Applications/Docker.app/Contents/Resources/bin/"
   export PATH="$HOME/sgoinfre:$PATH"
-  export PATH="/sgoinfre/homebrew:$PATH"
+  export PATH="/sgoinfre/pibouill/homebrew:$PATH"
   eval "$(/sgoinfre/pibouill/homebrew/bin/brew shellenv)"
 fi
 
@@ -278,3 +278,4 @@ export CC=/usr/bin/clang
 export CXX=/usr/bin/clang++
 export LDFLAGS="-lc++abi"
 export CXXFLAGS="-Wno-unused-command-line-argument"
+eval "$(/sgoinfre/pibouill/homebrew/bin/brew shellenv)"
