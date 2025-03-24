@@ -17,19 +17,35 @@ return {
   build = ":MasonUpdate",
   opts_extend = { "ensure_installed" },
   opts = {
-    ensure_installed = {
-      "stylua",
-      "shfmt",
-      "clangd",
-      "lua-language-server",
+    -- UI customization
+    ui = {
+      icons = {
+        package_installed = "✓",
+        package_pending = "➜",
+        package_uninstalled = "✗",
+      },
+      border = "rounded",
+      width = 0.8,
+      height = 0.8,
     },
+    -- Only specify formatters and linters here
+    -- LSP servers are defined in mason-lspconfig.lua
+    ensure_installed = {
+      "stylua",     -- Lua formatter
+      "shfmt",      -- Shell formatter
+    },
+    -- Max concurrent installations
+    max_concurrent_installers = 4,
   },
   config = function(_, opts)
     require("mason").setup(opts)
     local mr = require("mason-registry")
-    mr:on("package:install:success", function()
+
+    -- Handle successful installations
+    mr:on("package:install:success", function(pkg)
+      vim.notify("Installed " .. pkg.name, vim.log.levels.INFO)
       vim.defer_fn(function()
-        -- trigger FileType event to possibly load this newly installed LSP server
+        -- Trigger FileType event to possibly load this newly installed LSP server
         require("lazy.core.handler.event").trigger({
           event = "FileType",
           buf = vim.api.nvim_get_current_buf(),
@@ -37,6 +53,7 @@ return {
       end, 100)
     end)
 
+    -- Install tools if missing
     mr.refresh(function()
       for _, tool in ipairs(opts.ensure_installed) do
         local p = mr.get_package(tool)
