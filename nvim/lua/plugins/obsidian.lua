@@ -42,6 +42,7 @@ return {
 					path = vault_path,
 				},
 			},
+			disable_frontmatter = true,
 
 		})
 	end,
