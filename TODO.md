@@ -12,6 +12,7 @@ load config
 `dconf load / < <file>.txt`
 
 ---
+
 Update script for migration -> stow i guess
 (binaries and stuff)
 

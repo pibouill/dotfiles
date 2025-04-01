@@ -16,10 +16,10 @@ general.import = ["~/.config/alacritty/themes/themes/gruvbox_material_medium_dar
 size = 14
 
 [font.normal]
-family = "JetBrainsMono"
-# style = "Medium"
-# family = "Ubuntu Mono Nerd Font"
-style = "Regular"
+# family = "Ubuntu Mono Nerd Font Propo"
+# family = "0xProto Nerd Font"
+family = "JetBrains Mono"
+style = "SemiBold"
 
 [window]
 opacity = 0.9

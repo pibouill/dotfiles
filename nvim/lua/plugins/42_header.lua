@@ -13,9 +13,11 @@
 return {
   "Diogo-ss/42-header.nvim",
   cmd = { "Stdheader" },
-  keys = { "<F1>" },
+  keys = {
+    { "<leader>H", "<cmd>Stdheader<cr>", desc = "Insert/Update 42 Header" }
+  },
   opts = {
-    default_map = true, -- Default mapping <F1> in normal mode.
+    default_map = false, -- Default mapping <F1> in normal mode.
     auto_update = true, -- Update header when saving.
     user = "pibouill",
     mail = "pibouill@student.42prague.com",
