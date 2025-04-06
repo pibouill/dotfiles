@@ -18,7 +18,7 @@ if ! command -v curl &> /dev/null; then
     if [ "$(uname)" == "Darwin" ]; then
         /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
         brew install curl
-    elif [ "$(expr substr "$(uname -s)" 1 5)" == "Linux" ]; then
+	elif [ "$(uname -s | cut -c 1-5)" == "Linux" ]; then
         sudo apt-get update
         sudo apt-get install -y curl
     else
@@ -80,6 +80,7 @@ ln -sf "$DOTFILES_DIR/.gdbinit" "$HOME/.gdbinit"
 #ln -sf "$DOTFILES_DIR/vim/coc-settings.json" "$HOME/.vim/"
 ln -sf "$DOTFILES_DIR/bin/*" "$HOME/bin/"
 ln -sf "$DOTFILES_DIR/nvim" "$XDG_CONFIG_HOME/nvim"
+ln -sf "$DOTFILES_DIR/.gitconfig" "$HOME/.gitconfig"
 
 ################################################################################
 
@@ -88,7 +89,7 @@ if [ ! -f "$HOME/.vim/autoload/plug.vim" ]; then
         https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
 fi
 
-chsh -s $(which zsh)
+chsh -s "$(which zsh)"
 
 printf "\e[38;5;118mDotfiles installation completed.\e[0m\n"
 
