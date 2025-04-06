@@ -27,8 +27,34 @@
 
 [init]
 	defaultBranch = main
+
 [grep]
 	lineNumber = true
 	patternType = perl
+
 [rerere]
 	enabled = true
+
+[column]
+	ui = auto
+
+[branch]
+	sort = -committerdate
+
+[diff]
+	algorithm = histogram
+	; colorMoved = plain
+	; mnemonicPrefix = true
+	renames = true
+
+[push]
+	default = simple
+	autoSetupRemote = true
+
+[fetch]
+	prune = true
+	all = true
+
+[help]
+	autocorrect = prompt
+
