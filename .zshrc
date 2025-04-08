@@ -231,6 +231,8 @@ if hostname | grep -q 42prague; then
   export PATH="$PATH:/Applications/Docker.app/Contents/Resources/bin/"
   export PATH="$HOME/sgoinfre:$PATH"
   export PATH="/sgoinfre/pibouill/homebrew:$PATH"
+  export PATH="$PATH:$HOME/sgoinfre/bin/go/bin/bin"
+  export PATH="$PATH:$HOME/sgoinfre/bin/go/bin"
   eval "$(/sgoinfre/pibouill/homebrew/bin/brew shellenv)"
 fi
 
@@ -250,8 +252,6 @@ export BAT_THEME="gruvbox-dark"
 export PATH="$HOME/.local/share/nvim/mason:$PATH"
 export PATH="$HOME/bin:$PATH"
 export PATH="$HOME/.npm-global/bin:$PATH"
-export PATH="$PATH:$HOME/sgoinfre/bin/go/bin"
-export PATH="$PATH:$HOME/sgoinfre/bin/go/bin/bin"
 export PATH="/opt/homebrew/opt/llvm/bin:$PATH"
 export PATH="/opt/homebrew/opt/llvm/19.1.5/bin:$PATH"
 #
@@ -278,4 +278,3 @@ export CC=/usr/bin/clang
 export CXX=/usr/bin/clang++
 export LDFLAGS="-lc++abi"
 export CXXFLAGS="-Wno-unused-command-line-argument"
-eval "$(/sgoinfre/pibouill/homebrew/bin/brew shellenv)"
