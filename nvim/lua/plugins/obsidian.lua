@@ -30,10 +30,13 @@ return {
 	},
 	config = function()
 		local vault_path
-		if vim.loop.os_uname().sysname == "Darwin" then
-			vault_path = "/Users/pierre/Documents/obsidian_vaults/new_obs_vault/obs_vault"
-		else
-			vault_path = "/home/pibouill/Documents/obs_vault"
+		if vim.loop then
+			if vim.loop.os_uname().sysname == "Darwin" then
+				-- MacOS
+				vault_path = "/Users/pibouill/Documents/obs_vault"
+			else
+				vault_path = "/home/pibouill/Documents/obs_vault"
+			end
 		end
 		require("obsidian").setup({
 			workspaces = {
@@ -43,7 +46,6 @@ return {
 				},
 			},
 			disable_frontmatter = true,
-
 		})
 	end,
 	mappings = {
@@ -61,14 +63,6 @@ return {
 				return require("obsidian").util.toggle_checkbox()
 			end,
 			opts = { buffer = true, mode = "n"},
-			-- default = true
-		},
-		-- Smart action depending on context, either follow link or toggle checkbox.
-		["<cr>"] = {
-			action = function()
-				return require("obsidian").util.smart_action()
-			end,
-			opts = { buffer = true, expr = true, mode = "n" },
 			-- default = true
 		},
 	},
