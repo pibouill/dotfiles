@@ -80,29 +80,39 @@ return {
   },
 
   {
-    "nvim-treesitter/nvim-treesitter-textobjects",
-    event = "VeryLazy",
-    enabled = true,
-    config = function()
-      local move = require("nvim-treesitter.textobjects.move") ---@type table<string,fun(...)>
-      local configs = require("nvim-treesitter.configs")
-      for name, fn in pairs(move) do
-        if name:find("goto") == 1 then
-          move[name] = function(q, ...)
-            if vim.wo.diff then
-              local config = configs.get_module("textobjects.move")[name] ---@type table<string,string>
-              for key, query in pairs(config or {}) do
-                if q == query and key:find("[%]%[][cC]") then
-                  vim.cmd("normal! " .. key)
-                  return
-                end
-              end
-            end
-            return fn(q, ...)
-          end
-        end
-      end
-    end,
+	  "nvim-treesitter/nvim-treesitter-textobjects",
+	  event = "VeryLazy",
+	  enabled = true,
+	  dependencies = { "nvim-treesitter/nvim-treesitter" },
+	  config = function()
+		  -- Wait until treesitter is fully loaded before modifying functions
+		  vim.defer_fn(function()
+			  local move = require("nvim-treesitter.textobjects.move")
+			  local configs = require("nvim-treesitter.configs")
+
+			  -- Store original functions
+			  local original_fns = {}
+			  for name, fn in pairs(move) do
+				  if name:find("goto") == 1 then
+					  original_fns[name] = fn
+					  -- Replace the function safely
+					  move[name] = function(q, ...)
+						  if vim.wo.diff then
+							  local config = configs.get_module("textobjects.move")[name]
+							  for key, query in pairs(config or {}) do
+								  if q == query and key:find("[%]%[][cC]") then
+									  vim.cmd("normal! " .. key)
+									  return
+								  end
+							  end
+						  end
+						  -- Call original function with original arguments
+						  return original_fns[name](q, ...)
+					  end
+				  end
+			  end
+		  end, 100) -- Short delay to ensure proper initialization
+	  end,
   },
 
   {
