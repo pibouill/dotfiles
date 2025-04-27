@@ -33,5 +33,14 @@ return {
 		-- require("lspconfig").clangd.setup { capabilities }
 		-- require("lspconfig").harper_ls.setup { capabilities }
 		-- require("lspconfig").taplo.setup { capabilities }
+
+		vim.api.nvim_create_autocmd('LspAttach', {
+			callback = function(e)
+				local opts = { buffer = e.buf }
+				vim.keymap.set('n', 'gd', vim.lsp.buf.definition, opts)
+				vim.keymap.set('n', 'gD', vim.lsp.buf.declaration, opts)
+				vim.keymap.set('n', 'K', function() vim.lsp.buf.hover() end, opts)
+				end,
+		})
 	end,
 }
