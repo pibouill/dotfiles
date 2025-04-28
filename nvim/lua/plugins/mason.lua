@@ -31,8 +31,14 @@ return {
     -- Only specify formatters and linters here
     -- LSP servers are defined in mason-lspconfig.lua
     ensure_installed = {
-      "stylua",     -- Lua formatter
-      "shfmt",      -- Shell formatter
+		"stylua",     -- Lua formatter
+		"shfmt",      -- Shell formatter
+		"beautysh",
+		"checkmake",
+		"clang-format",
+		"cpplint",
+		"shellcheck",
+		"shellharden",
     },
     -- Max concurrent installations
     max_concurrent_installers = 4,
