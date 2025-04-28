@@ -28,6 +28,8 @@ vimcmd_symbol = "VI[❮](green)"
 
 [directory]
 truncation_length = 10
+fish_style_pwd_dir_length = 1
+truncate_to_repo = false
 style = "bold lavender"
 
 [git_status]

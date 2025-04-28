@@ -57,7 +57,6 @@ return {
         "lua_ls",
         "clangd",
 		"bashls",
-		"bash-language-server",
         -- Add more servers as needed
       },
       automatic_installation = true,
