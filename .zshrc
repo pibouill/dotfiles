@@ -216,6 +216,7 @@ alias devstation="\
 "
 
 alias 42free='bash /nfs/homes/pibouill/.scripts/42free.sh'
+alias tetr='firefox https://tetr.io'
 
 export PATH=/opt/homebrew/bin:/usr/local/bin:/System/Cryptexes/App/usr/bin:/usr/bin:/bin:/usr/sbin:/sbin:/var/run/com.apple.security.cryptexd/codex.system/bootstrap/usr/local/bin:/var/run/com.apple.security.cryptexd/codex.system/bootstrap/usr/bin:/var/run/com.apple.security.cryptexd/codex.system/bootstrap/usr/appleinternal/bin
 

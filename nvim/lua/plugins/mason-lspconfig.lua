@@ -26,6 +26,7 @@ return {
     "williamboman/mason.nvim",
   },
   config = function()
+	require("mason").setup()
     local lspconfig = require("lspconfig")
     local mason_lspconfig = require("mason-lspconfig")
 	local capabilities = require('blink.cmp').get_lsp_capabilities()
@@ -52,15 +53,15 @@ return {
       severity_sort = true,
     })
 
-    mason_lspconfig.setup({
-      ensure_installed = {
-        "lua_ls",
-        "clangd",
-		"bashls",
-        -- Add more servers as needed
-      },
-      automatic_installation = true,
-    })
+	mason_lspconfig.setup({
+		ensure_installed = {
+			"lua_ls",
+			"clangd",
+			"bashls",
+		},
+		automatic_installation = true,
+		automatic_enable = true,
+	})
 
     -- Server-specific configurations
     local server_settings = {
@@ -87,20 +88,20 @@ return {
     }
 
     -- Setup all servers with common config + server-specific settings
-    mason_lspconfig.setup_handlers({
-      function(server_name)
-        local opts = {
-          capabilities = capabilities,
-          on_attach = on_attach,
-        }
-
-        -- Merge server-specific settings if they exist
-        if server_settings[server_name] then
-          opts = vim.tbl_deep_extend("force", opts, server_settings[server_name])
-        end
-
-        lspconfig[server_name].setup(opts)
-      end,
-    })
+    -- mason_lspconfig.setup_handlers({
+    --   function(server_name)
+    --     local opts = {
+    --       capabilities = capabilities,
+    --       on_attach = on_attach,
+    --     }
+    --
+    --     -- Merge server-specific settings if they exist
+    --     if server_settings[server_name] then
+    --       opts = vim.tbl_deep_extend("force", opts, server_settings[server_name])
+    --     end
+    --
+    --     lspconfig[server_name].setup(opts)
+    --   end,
+    -- })
   end,
 }
