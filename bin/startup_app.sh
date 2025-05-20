@@ -13,6 +13,6 @@
 
 slack &
 firefox &
-~/bin/obsidian/obsidian &
-~/.cargo/bin/alacritty &
+~/bin/obsidian &
+/sgoinfre/pibouill/.cargo/bin/alacritty &
 google-chrome &
