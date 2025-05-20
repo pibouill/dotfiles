@@ -62,7 +62,7 @@ git clone https://github.com/zsh-users/zsh-syntax-highlighting.git "$XDG_CONFIG_
 mkdir -p "$HOME"/.local/share/fonts
 cp -r "$PWD"/font/JetBrainsMono* "$HOME"/.local/share/fonts
 
-git clone https://github.com/pibouill/dotfiles.git "$DOTFILES_DIR"
+git clone --depth 1 git@github.com:pibouill/dotfiles.git "$DOTFILES_DIR"
 git clone https://github.com/tmux-plugins/tpm ~/.tmux/plugins/tpm
 
 ######################Linking###################################################
