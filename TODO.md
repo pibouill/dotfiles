@@ -1,11 +1,6 @@
-# Save ubuntu config
-- custom keybinds 
-- tweaks settings
-- misc. settings
 
-_Fixed with dconf ?_
+## save Ubuntu config
 
-save config
 `dconf dump / > <file>.txt` 
 
 load config

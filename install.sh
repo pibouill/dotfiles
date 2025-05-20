@@ -29,7 +29,6 @@ fi
 
 #####################Cargo######################################################
 
-# Check if Cargo is installed
 # if ! command -v cargo &> /dev/null; then
 #     echo "Cargo is not installed. Installing Cargo..."
 #     curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh
@@ -38,7 +37,6 @@ fi
 #     echo "Cargo is already installed."
 # fi
 #
-# # Install packages with Cargo
 # packages=("starship, alacritty")
 # for package in "${packages[@]}"; do
 #     echo "Installing $package with Cargo..."
@@ -49,7 +47,6 @@ fi
 
 export XDG_CONFIG_HOME="$HOME"/.config
 
-# Define the dotfiles directory
 DOTFILES_DIR="$HOME/.config/dotfiles"
 
 mkdir -p "$XDG_CONFIG_HOME"/alacritty
@@ -77,8 +74,9 @@ ln -sf "$DOTFILES_DIR/alacritty.toml" "$XDG_CONFIG_HOME"/alacritty/alacritty.tom
 ln -sf "$DOTFILES_DIR/starship.toml" "$XDG_CONFIG_HOME/starship.toml"
 ln -sf "$DOTFILES_DIR/vim/autoload/plug.vim" "$HOME/.vim/autoload/plug.vim"
 ln -sf "$DOTFILES_DIR/.gdbinit" "$HOME/.gdbinit"
-#ln -sf "$DOTFILES_DIR/vim/coc-settings.json" "$HOME/.vim/"
-ln -sf "$DOTFILES_DIR/bin/*" "$HOME/bin/"
+for file in $DOTFILES_DIR/bin/; do
+	ln -sf "$file" "$HOME/bin/"
+done
 ln -sf "$DOTFILES_DIR/nvim" "$XDG_CONFIG_HOME/nvim"
 ln -sf "$DOTFILES_DIR/.gitconfig" "$HOME/.gitconfig"
 
@@ -88,6 +86,8 @@ if [ ! -f "$HOME/.vim/autoload/plug.vim" ]; then
     curl -fLo "$HOME/.vim/autoload/plug.vim" --create-dirs \
         https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
 fi
+
+################################################################################
 
 chsh -s "$(which zsh)"
 
