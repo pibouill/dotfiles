@@ -1,0 +1,50 @@
+{
+    "workbench.startupEditor": "none",
+    "workbench.tree.indent": 15,
+    "workbench.tree.renderIndentGuides": "always",
+	"workbench.colorCustomizations":
+	{
+        "terminal.selectionBackground": "#dbdacc",
+        "terminal.selectionForeground": "#000000"
+
+    },
+    "files.autoSave": "afterDelay",
+    "files.insertFinalNewline": true,
+    "42header.email": "pibouill@student.42prague.com",
+    "42header.username": "pibouill",
+    "security.workspace.trust.untrustedFiles": "open",
+
+    "editor.insertSpaces": false,
+    "editor.fontFamily": "JetBrains Mono",
+    "editor.fontSize": 14,
+    "editor.tabSize": 4,
+    "editor.lineHeight": 22,
+    "editor.minimap.enabled": false,
+    "editor.renderWhitespace": "trailing",
+    "editor.fontWeight": "450",
+    "editor.linkedEditing": true,
+    "editor.suggest.insertMode": "replace",
+    "editor.acceptSuggestionOnCommitCharacter": false,
+    "files.trimTrailingWhitespace": true,
+    "editor.lineNumbers": "relative",
+	"editor.cursorBlinking": "smooth",
+    "editor.semanticHighlighting.enabled": true,
+    "terminal.integrated.minimumContrastRatio": 5,
+    "window.titleBarStyle": "custom",
+
+
+    "explorer.autoReveal": false,
+
+    "json.schemas": [
+
+    ],
+    "terminal.integrated.fontFamily": "MesloLGS NF",
+    "glassit.alpha": 245,
+    "vim.vimrc.enable": true,
+    "workbench.colorTheme": "Catppuccin Macchiato",
+    "workbench.iconTheme": "catppuccin-macchiato",
+    "debug.onTaskErrors": "debugAnyway",
+    "window.zoomLevel": -1,
+    "terminal.explorerKind": "external"
+
+}

@@ -1,0 +1,60 @@
+# This is Git's per-user configuration file.
+[user]
+	name = pibouill
+	email = pibouill@student.42prague.com
+
+[color]
+	ui = auto
+
+[color "branch"]
+	current = green
+	local = blue
+	remote = red
+
+[color "diff"]
+	meta = yellow bold
+	frag = magenta bold
+	old = red bold
+	new = green bold
+
+[color "status"]
+	added = yellow
+	changed = green
+	untracked = cyan
+
+[core]
+	editor = nvim
+
+[init]
+	defaultBranch = main
+
+[grep]
+	lineNumber = true
+	patternType = perl
+
+[rerere]
+	enabled = true
+
+[column]
+	ui = auto
+
+[branch]
+	sort = -committerdate
+
+[diff]
+	algorithm = histogram
+	; colorMoved = plain
+	; mnemonicPrefix = true
+	renames = true
+
+[push]
+	default = simple
+	autoSetupRemote = true
+
+[fetch]
+	prune = true
+	all = true
+
+[help]
+	autocorrect = prompt
+

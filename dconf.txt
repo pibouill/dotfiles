@@ -1,0 +1,375 @@
+[apps/seahorse/listing]
+keyrings-selected=['secret-service:///org/freedesktop/secrets/collection/login']
+
+[apps/seahorse/windows/key-manager]
+height=517
+width=738
+
+[org/gnome/Totem]
+active-plugins=['open-directory', 'mpris', 'apple-trailers', 'screenshot', 'vimeo', 'skipto', 'movie-properties', 'recent', 'save-file', 'variable-rate', 'screensaver', 'rotation', 'autoload-subtitles']
+subtitle-encoding='UTF-8'
+
+[org/gnome/calculator]
+accuracy=9
+angle-units='degrees'
+base=10
+button-mode='basic'
+number-format='automatic'
+show-thousands=false
+show-zeroes=false
+source-currency=''
+source-units='degree'
+target-currency=''
+target-units='radian'
+window-position=(780, 321)
+word-size=64
+
+[org/gnome/control-center]
+last-panel='sound'
+
+[org/gnome/desktop/a11y]
+always-show-universal-access-status=false
+
+[org/gnome/desktop/a11y/applications]
+screen-keyboard-enabled=false
+
+[org/gnome/desktop/a11y/interface]
+high-contrast=false
+
+[org/gnome/desktop/app-folders]
+folder-children=['Utilities', 'YaST']
+
+[org/gnome/desktop/app-folders/folders/Utilities]
+apps=['gnome-abrt.desktop', 'gnome-system-log.desktop', 'nm-connection-editor.desktop', 'org.gnome.baobab.desktop', 'org.gnome.Connections.desktop', 'org.gnome.DejaDup.desktop', 'org.gnome.Dictionary.desktop', 'org.gnome.DiskUtility.desktop', 'org.gnome.eog.desktop', 'org.gnome.Evince.desktop', 'org.gnome.FileRoller.desktop', 'org.gnome.fonts.desktop', 'org.gnome.seahorse.Application.desktop', 'org.gnome.tweaks.desktop', 'org.gnome.Usage.desktop', 'vinagre.desktop']
+categories=['X-GNOME-Utilities']
+name='X-GNOME-Utilities.directory'
+translate=true
+
+[org/gnome/desktop/app-folders/folders/YaST]
+categories=['X-SuSE-YaST']
+name='suse-yast.directory'
+translate=true
+
+[org/gnome/desktop/background]
+color-shading-type='solid'
+picture-options='centered'
+picture-uri='file:///home/pibouill/.config/dotfiles/wallpapers/miens/nature/cabin_mountains_ruisseau.png'
+picture-uri-dark='file:///home/pibouill/.config/dotfiles/wallpapers/miens/nature/cabin_mountains_ruisseau.png'
+primary-color='#000000'
+secondary-color='#000000'
+
+[org/gnome/desktop/calendar]
+show-weekdate=false
+
+[org/gnome/desktop/input-sources]
+per-window=false
+sources=[('xkb', 'us+fr')]
+xkb-options=['ctrl:nocaps', 'compose:prsc', 'lv3:switch', 'lv3:ralt_alt']
+
+[org/gnome/desktop/interface]
+clock-show-seconds=true
+clock-show-weekday=true
+color-scheme='prefer-dark'
+document-font-name='Cantarell 10'
+enable-animations=false
+font-antialiasing='grayscale'
+font-hinting='slight'
+font-name='Carlito 10'
+gtk-theme='Adwaita-dark'
+icon-theme='Win10Sur'
+monospace-font-name='Monospace 11'
+text-scaling-factor=0.90000000000000002
+toolkit-accessibility=false
+
+[org/gnome/desktop/lockdown]
+disable-lock-screen=true
+disable-user-switching=true
+
+[org/gnome/desktop/notifications]
+application-children=['firefox', 'gnome-control-center', 'slack', 'org-gnome-font-viewer', 'org-gnome-nautilus', 'com-slack-slack', 'com-spotify-client', 'alacritty', 'google-chrome', 'org-gnome-software', 'org-gimp-gimp', 'org-gnome-eog', 'org-gnome-gedit', 'discord']
+
+[org/gnome/desktop/notifications/application/alacritty]
+application-id='alacritty.desktop'
+
+[org/gnome/desktop/notifications/application/com-slack-slack]
+application-id='com.slack.Slack.desktop'
+
+[org/gnome/desktop/notifications/application/com-spotify-client]
+application-id='com.spotify.Client.desktop'
+
+[org/gnome/desktop/notifications/application/discord]
+application-id='discord.desktop'
+
+[org/gnome/desktop/notifications/application/firefox]
+application-id='firefox.desktop'
+
+[org/gnome/desktop/notifications/application/gnome-control-center]
+application-id='gnome-control-center.desktop'
+
+[org/gnome/desktop/notifications/application/google-chrome]
+application-id='google-chrome.desktop'
+
+[org/gnome/desktop/notifications/application/org-gimp-gimp]
+application-id='org.gimp.GIMP.desktop'
+
+[org/gnome/desktop/notifications/application/org-gnome-eog]
+application-id='org.gnome.eog.desktop'
+
+[org/gnome/desktop/notifications/application/org-gnome-font-viewer]
+application-id='org.gnome.font-viewer.desktop'
+
+[org/gnome/desktop/notifications/application/org-gnome-gedit]
+application-id='org.gnome.gedit.desktop'
+
+[org/gnome/desktop/notifications/application/org-gnome-nautilus]
+application-id='org.gnome.Nautilus.desktop'
+
+[org/gnome/desktop/notifications/application/org-gnome-software]
+application-id='org.gnome.Software.desktop'
+
+[org/gnome/desktop/notifications/application/org-mozilla-firefox]
+application-id='org.mozilla.firefox.desktop'
+
+[org/gnome/desktop/notifications/application/org-telegram-desktop]
+enable=false
+
+[org/gnome/desktop/notifications/application/slack]
+application-id='slack.desktop'
+enable-sound-alerts=false
+
+[org/gnome/desktop/peripherals/keyboard]
+numlock-state=true
+
+[org/gnome/desktop/peripherals/touchpad]
+two-finger-scrolling-enabled=true
+
+[org/gnome/desktop/screensaver]
+lock-delay=uint32 0
+lock-enabled=true
+picture-options='stretched'
+picture-uri='file:///usr/share/42/september24-desktop-bkg.jpg'
+
+[org/gnome/desktop/session]
+idle-delay=uint32 0
+
+[org/gnome/desktop/sound]
+allow-volume-above-100-percent=true
+event-sounds=true
+
+[org/gnome/desktop/wm/keybindings]
+activate-window-menu=@as []
+switch-applications=@as []
+switch-applications-backward=@as []
+switch-to-workspace-1=['<Super>1']
+switch-to-workspace-2=['<Super>2']
+switch-to-workspace-3=['<Super>3']
+switch-to-workspace-4=['<Super>4']
+switch-to-workspace-5=['<Super>5']
+switch-to-workspace-6=['<Super>6']
+switch-windows=['<Alt>Tab']
+switch-windows-backward=['<Shift><Alt>Tab']
+
+[org/gnome/desktop/wm/preferences]
+action-middle-click-titlebar='none'
+button-layout='close,minimize:appmenu'
+num-workspaces=5
+titlebar-font='Cantarell Bold 10'
+
+[org/gnome/eog/ui]
+sidebar=false
+
+[org/gnome/eog/view]
+background-color='rgb(0,0,0)'
+use-background-color=true
+
+[org/gnome/evince/default]
+continuous=true
+dual-page=true
+dual-page-odd-left=false
+enable-spellchecking=true
+fullscreen=false
+inverted-colors=false
+show-sidebar=true
+sidebar-page='links'
+sidebar-size=216
+sizing-mode='fit-page'
+window-ratio=(0.64214046822742477, 0.32089323952278986)
+
+[org/gnome/evolution-data-server]
+migrated=true
+network-monitor-gio-name=''
+
+[org/gnome/gedit/plugins]
+active-plugins=['filebrowser', 'modelines', 'openlinks', 'sort', 'spell', 'docinfo']
+
+[org/gnome/gedit/plugins/filebrowser]
+root='file:///'
+tree-view=true
+virtual-root='file:///home/pibouill/Downloads'
+
+[org/gnome/gedit/preferences/editor]
+scheme='Yaru-dark'
+
+[org/gnome/gedit/preferences/ui]
+show-tabs-mode='auto'
+
+[org/gnome/gedit/state/window]
+bottom-panel-size=140
+side-panel-active-page='GeditWindowDocumentsPanel'
+side-panel-size=200
+size=(900, 700)
+state=87168
+
+[org/gnome/gnome-system-monitor]
+cpu-colors=[(uint32 0, '#e6194B'), (1, '#f58231'), (2, '#ffe119'), (3, '#bfef45'), (4, '#3cb44b'), (5, '#42d4f4'), (6, '#4363d8'), (7, '#911eb4'), (8, '#f032e6'), (9, '#fabebe'), (10, '#ffd8b1'), (11, '#fffac8'), (12, '#aaffc3'), (13, '#469990'), (14, '#000075'), (15, '#e6beff'), (16, '#9143f3327999'), (17, '#f3327999b4bf'), (18, '#7999d83af332'), (19, '#f332eaae7999')]
+current-tab='resources'
+maximized=false
+network-total-in-bits=false
+show-dependencies=false
+show-whose-processes='user'
+window-state=(700, 500, 50, 50)
+
+[org/gnome/gnome-system-monitor/disktreenew]
+col-6-visible=true
+col-6-width=0
+
+[org/gnome/gnote]
+start-note='note://gnote/bd736431-1513-4b34-ab5f-15eaccacb0bd'
+
+[org/gnome/mutter]
+center-new-windows=true
+dynamic-workspaces=false
+experimental-features=@as []
+
+[org/gnome/nautilus/list-view]
+default-zoom-level='small'
+
+[org/gnome/nautilus/preferences]
+default-folder-viewer='list-view'
+search-filter-time-type='last_modified'
+search-view='list-view'
+
+[org/gnome/nautilus/window-state]
+initial-size=(959, 894)
+maximized=false
+
+[org/gnome/settings-daemon/plugins/media-keys]
+custom-keybindings=['/org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/custom0/', '/org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/custom1/']
+logout=@as []
+screensaver=@as []
+
+[org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/custom0]
+binding='<Alt>space'
+command='/sgoinfre/pibouill/.cargo/bin/alacritty'
+name='alacritty_launch'
+
+[org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/custom1]
+binding='<Primary><Alt>q'
+command='/usr/share/42/ft_lock'
+name='lock'
+
+[org/gnome/settings-daemon/plugins/power]
+idle-dim=false
+sleep-inactive-ac-timeout=uint32 0
+sleep-inactive-ac-type='nothing'
+
+[org/gnome/shell]
+command-history=['r']
+disable-user-extensions=false
+enabled-extensions=['alternate-tab@gnome-shell-extensions.gcampax.github.com', 'user-theme@gnome-shell-extensions.gcampax.github.com', 'desktop-icons@csoriano', 'LogOutButton@kyle.aims.ac.za', 'drive-menu@gnome-shell-extensions.gcampax.github.com', 'Shortcuts@kyle.aims.ac.za', 'dash-to-panel@jderose9.github.com', 'lockscreen@42network.org']
+favorite-apps=@as []
+had-bluetooth-devices-setup=true
+welcome-dialog-last-shown-version='42.9'
+
+[org/gnome/shell/extensions/dash-to-dock]
+autohide-in-fullscreen=true
+dash-max-icon-size=16
+dock-fixed=true
+dock-position='BOTTOM'
+intellihide-mode='MAXIMIZED_WINDOWS'
+require-pressure-to-show=false
+show-trash=false
+
+[org/gnome/shell/extensions/dash-to-panel]
+appicon-margin=0
+appicon-padding=2
+dot-color-1='#5294e2'
+dot-color-2='#5294e2'
+dot-color-3='#5294e2'
+dot-color-4='#5294e2'
+dot-color-override=false
+dot-color-unfocused-1='#5294e2'
+dot-color-unfocused-2='#5294e2'
+dot-color-unfocused-3='#5294e2'
+dot-color-unfocused-4='#5294e2'
+focus-highlight=true
+focus-highlight-color='#eeeeee'
+hotkeys-overlay-combo='TEMPORARILY'
+intellihide=false
+location-clock='STATUSRIGHT'
+panel-size=48
+taskbar-position='LEFTPANEL'
+
+[org/gnome/shell/extensions/system-monitor]
+battery-display=false
+center-display=true
+compact-display=true
+cpu-individual-cores=false
+cpu-show-text=true
+freq-display=false
+gpu-display=false
+memory-display=false
+move-clock=false
+show-tooltip=false
+
+[org/gnome/shell/extensions/user-theme]
+name='WhiteSur-dark'
+
+[org/gnome/shell/extentions/dash-to-dock]
+animate-show-apps=true
+apply-custom-theme=true
+autohide=false
+click-action='previews'
+dock-fixed=true
+show-apps-at-top=false
+
+[org/gnome/shell/keybindings]
+show-screenshot-ui=['<Shift>Delete']
+switch-to-application-1=@as []
+switch-to-application-2=@as []
+switch-to-application-3=@as []
+switch-to-application-4=@as []
+
+[org/gnome/software]
+first-run=false
+
+[org/gtk/gtk4/settings/file-chooser]
+date-format='regular'
+location-mode='path-bar'
+show-hidden=true
+show-size-column=true
+show-type-column=true
+sidebar-width=156
+sort-column='modified'
+sort-directories-first=false
+sort-order='descending'
+type-format='category'
+window-size=(1049, 788)
+
+[org/gtk/settings/color-chooser]
+custom-colors=[(0.3411764705882353, 0.3411764705882353, 0.3411764705882353, 1.0), (0.20000000000000001, 0.20000000000000001, 0.20000000000000001, 1.0), (0.14901960784313725, 0.14901960784313725, 0.14901960784313725, 1.0), (0.42352941176470588, 0.19215686274509805, 0.8901960784313725, 1.0)]
+selected-color=(true, 0.70980392156862748, 0.51372549019607838, 0.35294117647058826, 1.0)
+
+[org/gtk/settings/file-chooser]
+date-format='regular'
+location-mode='path-bar'
+show-hidden=true
+show-size-column=true
+show-type-column=true
+sidebar-width=157
+sort-column='name'
+sort-directories-first=false
+sort-order='ascending'
+type-format='category'
+window-position=(359, 80)
+window-size=(1203, 902)
