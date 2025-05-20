@@ -238,6 +238,7 @@ if hostname | grep -q 42prague; then
   export PATH="$PATH:$HOME/sgoinfre/bin/go/bin/bin"
   export PATH="$PATH:$HOME/sgoinfre/bin/go/bin"
   eval "$(/sgoinfre/pibouill/homebrew/bin/brew shellenv)"
+  alias v="/sgoinfre/pibouill/homebrew/bin/nvim"
 fi
 
 if uname -a | grep -q Android; then
