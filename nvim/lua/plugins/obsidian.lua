@@ -35,7 +35,7 @@ return {
 				-- MacOS
 				vault_path = "/Users/pibouill/Documents/obs_vault"
 			else
-				vault_path = "/home/pibouill/Documents/obs_vault"
+				vault_path = "/sgoinfre/pibouill/obs_vault_good/"
 			end
 		end
 		require("obsidian").setup({

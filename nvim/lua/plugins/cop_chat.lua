@@ -26,8 +26,8 @@ return {
 			},
 			-- model = 'gpt-4o',
 			-- model = 'claude-3.5-sonnet',
-			-- model = 'gemini-2.0-flash-001',
-			model = 'claude-3.7-sonnet-thought'
+			model = 'gemini-2.0-flash-001',
+			-- model = 'claude-3.7-sonnet-thought'
 		}
 	end,
 	keys = {
