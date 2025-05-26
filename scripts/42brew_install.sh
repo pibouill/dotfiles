@@ -11,7 +11,7 @@
 #                                                                              #
 # **************************************************************************** #
 
-cd "/sgoinfre/pibouill/" || return
+DOTFILES_DIR="/home/pibouill/.config/dotfiles"
 
 if ! command -v brew &>/dev/null; then
     echo -e "Installing Homebrew..."
@@ -20,6 +20,7 @@ if ! command -v brew &>/dev/null; then
     brew update --force --quiet
     chmod -R go-w "$(brew --prefix)/share/zsh"
     echo -e "eval \"\$($(brew --prefix)/bin/brew shellenv)\"" >> ~/.zshrc
+	xargs brew install < "$DOTFILES_DIR"/brewlist.txt
 else
     echo -e "Homebrew is already installed."
 fi
