@@ -34,7 +34,7 @@ return {
 		  ensure_installed = {
 			  "bash", "c", "cpp", "diff", "python", "html", "javascript",
 			  "json", "lua", "luadoc", "luap", "markdown", "markdown_inline",
-			  "regex", "toml", "vim", "vimdoc"
+			  "regex", "toml", "vim", "vimdoc", "printf", "cmake"
 		  },
 		  highlight = { enable = true },
 		  indent = { enable = true },

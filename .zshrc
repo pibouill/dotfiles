@@ -282,4 +282,3 @@ export NVM_DIR="$HOME/.nvm"
 # export CXX=/usr/bin/clang++
 # export LDFLAGS="-lc++abi"
 # export CXXFLAGS="-Wno-unused-command-line-argument"
-eval "$(/sgoinfre/pibouill/homebrew/bin/brew shellenv)"
