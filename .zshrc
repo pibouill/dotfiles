@@ -88,7 +88,7 @@ alias tm="tmux"
 alias sgoinfre="cd /sgoinfre/pibouill"
 alias ff="fzf --preview 'bat --style=numbers --color=always --line-range :500 {}'"
 alias fp='vi $(ff)'
-alias sb="nvim $HOME/Documents/obs_vault"
+alias sb="nvim $HOME/sgoinfre/obs_vault_good/"
 alias learn="cd ~/work/learn"
 alias config="cd ~/.config/"
 alias svenv="source .venv/bin/activate"

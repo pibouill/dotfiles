@@ -15,7 +15,7 @@ return {
   dependencies = {
     {
       "folke/lazydev.nvim",
-      ft = "lua", -- only load on lua files
+      ft = "lua",
       opts = {
         library = {
           { path = "${3rd}/luv/library", words = { "vim%.uv" } },
@@ -24,25 +24,12 @@ return {
     },
     "williamboman/mason-lspconfig.nvim",
     "williamboman/mason.nvim",
+    "hrsh7th/cmp-nvim-lsp",
   },
   config = function()
-	require("mason").setup()
-    local lspconfig = require("lspconfig")
+    require("mason").setup()
     local mason_lspconfig = require("mason-lspconfig")
-	local capabilities = require('blink.cmp').get_lsp_capabilities()
-    -- Global on_attach function for all LSP servers
-    local on_attach = function(_, bufnr)
-      -- Enable completion triggered by <c-x><c-o>
-	  vim.bo[bufnr].omnifunc = 'v:lua.vim.lsp.omnifunc'
-
-      -- Buffer local mappings
-      local opts = { noremap = true, silent = true, buffer = bufnr }
-      vim.keymap.set('n', 'gd', vim.lsp.buf.definition, opts)
-      vim.keymap.set('n', 'gr', vim.lsp.buf.references, opts)
-      vim.keymap.set('n', 'K', vim.lsp.buf.hover, opts)
-      vim.keymap.set('n', '<leader>rn', vim.lsp.buf.rename, opts)
-      vim.keymap.set('n', '<leader>ca', vim.lsp.buf.code_action, opts)
-    end
+    local capabilities = require('cmp_nvim_lsp').default_capabilities()
 
     -- Configure diagnostics display
     vim.diagnostic.config({
@@ -53,15 +40,14 @@ return {
       severity_sort = true,
     })
 
-	mason_lspconfig.setup({
-		ensure_installed = {
-			"lua_ls",
-			"clangd",
-			"bashls",
-		},
-		automatic_installation = true,
-		automatic_enable = true,
-	})
+    mason_lspconfig.setup({
+      ensure_installed = {
+        "lua_ls",
+        "clangd",
+        "bashls",
+      },
+	  automatic_enable = true,
+    })
 
     -- Server-specific configurations
     local server_settings = {
@@ -87,6 +73,17 @@ return {
       },
     }
 
+    -- Global on_attach function for all LSP servers
+    local on_attach = function(_, bufnr)
+      vim.bo[bufnr].omnifunc = 'v:lua.vim.lsp.omnifunc'
+      local opts = { noremap = true, silent = true, buffer = bufnr }
+      vim.keymap.set('n', 'gd', vim.lsp.buf.definition, opts)
+      vim.keymap.set('n', 'gr', vim.lsp.buf.references, opts)
+      vim.keymap.set('n', 'K', vim.lsp.buf.hover, opts)
+      vim.keymap.set('n', '<leader>rn', vim.lsp.buf.rename, opts)
+      vim.keymap.set('n', '<leader>ca', vim.lsp.buf.code_action, opts)
+    end
+
     -- Setup all servers with common config + server-specific settings
     -- mason_lspconfig.setup_handlers({
     --   function(server_name)
@@ -94,13 +91,10 @@ return {
     --       capabilities = capabilities,
     --       on_attach = on_attach,
     --     }
-    --
-    --     -- Merge server-specific settings if they exist
     --     if server_settings[server_name] then
     --       opts = vim.tbl_deep_extend("force", opts, server_settings[server_name])
     --     end
-    --
-    --     lspconfig[server_name].setup(opts)
+    --     require("lspconfig")[server_name].setup(opts)
     --   end,
     -- })
   end,
