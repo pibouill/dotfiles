@@ -11,110 +11,72 @@
 -- ************************************************************************** --
 
 return {
+  -- Treesitter core
   {
-	  "nvim-treesitter/nvim-treesitter",
-	  version = false,
-	  build = ":TSUpdate",
-	  event = { "BufReadPost", "BufWritePost", "BufNewFile" },
-	  lazy = vim.fn.argc() > 0,
-	  init = function(plugin)
-		  local lazy_core = require("lazy.core.loader")
-		  lazy_core.add_to_rtp(plugin)
-		  require("nvim-treesitter.query_predicates")
-	  end,
-	  cmd = { "TSUpdateSync", "TSUpdate", "TSInstall" },
-	  keys = {
-		  { "<c-space>", desc = "Increment Selection" },
-		  { "<bs>", desc = "Decrement Selection", mode = "x" },
-	  },
-	  opts_extend = { "ensure_installed" },
-	  ---@type TSConfig
-	  ---@diagnostic disable-next-line: missing-fields
-	  opts = {
-		  ensure_installed = {
-			  "bash", "c", "cpp", "diff", "python", "html", "javascript",
-			  "json", "lua", "luadoc", "luap", "markdown", "markdown_inline",
-			  "regex", "toml", "vim", "vimdoc", "printf", "cmake"
-		  },
-		  highlight = { enable = true },
-		  indent = { enable = true },
-		  incremental_selection = {
-			  enable = true,
-			  keymaps = {
-				  init_selection = "<C-space>",
-				  node_incremental = "<C-space>",
-				  scope_incremental = false,
-				  node_decremental = "<bs>",
-			  },
-		  },
-		  textobjects = {
-			  move = {
-				  enable = true,
-				  goto_next_start = { ["]f"] = "@function.outer", ["]c"] = "@class.outer", ["]a"] = "@parameter.inner" },
-				  goto_next_end = { ["]F"] = "@function.outer", ["]C"] = "@class.outer", ["]A"] = "@parameter.inner" },
-				  goto_previous_start = { ["[f"] = "@function.outer", ["[c"] = "@class.outer", ["[a"] = "@parameter.inner" },
-				  goto_previous_end = { ["[F"] = "@function.outer", ["[C"] = "@class.outer", ["[A"] = "@parameter.inner" },
-			  },
-		  },
-	  },
-	  ---@param opts TSConfig
-	  config = function(opts, _)
-		  require("nvim-treesitter.configs").setup(opts)
-		  vim.api.nvim_create_autocmd("InsertEnter", {
-			  pattern = "*",
-			  callback = function()
-				  if vim.fn.line("$") > 10000 then
-					  vim.cmd("TSDisable highlight")
-				  end
-			  end,
-		  })
-		  vim.api.nvim_create_autocmd("InsertLeave", {
-			  pattern = "*",
-			  callback = function()
-				  if vim.fn.line("$") > 10000 then
-					  vim.cmd("TSEnable highlight")
-				  end
-			  end,
-		  })
-	  end,
+    "nvim-treesitter/nvim-treesitter",
+    build = ":TSUpdate",
+    config = function()
+      require("nvim-treesitter.configs").setup {
+				ensure_installed = {
+					"lua",
+					"c",
+					"cpp",
+					"vim",
+					"vimdoc",
+					"python",
+					"make",
+					"bash",
+				},
+        highlight = { enable = true },
+        indent = { enable = true },
+        auto_install = true,
+        -- textobjects config can go here, or in the textobjects plugin block
+        textobjects = {
+          select = {
+            enable = true,
+            lookahead = true,
+            keymaps = {
+              ["af"] = "@function.outer",
+              ["if"] = "@function.inner",
+              ["ac"] = "@class.outer",
+              ["ic"] = "@class.inner",
+            },
+          },
+          move = {
+            enable = true,
+            set_jumps = true,
+            goto_next_start = {
+              ["]f"] = "@function.outer",
+              ["]]"] = "@class.outer",
+            },
+            goto_next_end = {
+              ["]f"] = "@function.outer",
+              ["]["] = "@class.outer",
+            },
+            goto_previous_start = {
+              ["[f"] = "@function.outer",
+              ["[["] = "@class.outer",
+            },
+            goto_previous_end = {
+              ["[f"] = "@function.outer",
+              ["[]"] = "@class.outer",
+            },
+          },
+        },
+      }
+    end,
   },
 
+  -- Treesitter textobjects (no need for custom require hacks)
   {
-	  "nvim-treesitter/nvim-treesitter-textobjects",
-	  event = "VeryLazy",
-	  enabled = true,
-	  dependencies = { "nvim-treesitter/nvim-treesitter" },
-	  config = function()
-		  -- Wait until treesitter is fully loaded before modifying functions
-		  vim.defer_fn(function()
-			  local move = require("nvim-treesitter.textobjects.move")
-			  local configs = require("nvim-treesitter.configs")
-
-			  -- Store original functions
-			  local original_fns = {}
-			  for name, fn in pairs(move) do
-				  if name:find("goto") == 1 then
-					  original_fns[name] = fn
-					  -- Replace the function safely
-					  move[name] = function(q, ...)
-						  if vim.wo.diff then
-							  local config = configs.get_module("textobjects.move")[name]
-							  for key, query in pairs(config or {}) do
-								  if q == query and key:find("[%]%[][cC]") then
-									  vim.cmd("normal! " .. key)
-									  return
-								  end
-							  end
-						  end
-						  -- Call original function with original arguments
-						  return original_fns[name](q, ...)
-					  end
-				  end
-			  end
-		  end, 100) -- Short delay to ensure proper initialization
-	  end,
+    "nvim-treesitter/nvim-treesitter-textobjects",
+    event = "VeryLazy",
+    dependencies = { "nvim-treesitter/nvim-treesitter" },
+    enabled = true,
+    -- No config needed if you configure textobjects in the main block above!
   },
 
+  -- Autotag for HTML/JSX/etc.
   {
     "windwp/nvim-ts-autotag",
     event = { "BufReadPost", "BufWritePost", "BufNewFile" },
