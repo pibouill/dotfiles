@@ -11,7 +11,6 @@
 -- ************************************************************************** --
 
 return {
-  -- Treesitter core
   {
     "nvim-treesitter/nvim-treesitter",
     build = ":TSUpdate",
@@ -30,7 +29,6 @@ return {
         highlight = { enable = true },
         indent = { enable = true },
         auto_install = true,
-        -- textobjects config can go here, or in the textobjects plugin block
         textobjects = {
           select = {
             enable = true,
@@ -67,16 +65,6 @@ return {
     end,
   },
 
-  -- Treesitter textobjects (no need for custom require hacks)
-  {
-    "nvim-treesitter/nvim-treesitter-textobjects",
-    event = "VeryLazy",
-    dependencies = { "nvim-treesitter/nvim-treesitter" },
-    enabled = true,
-    -- No config needed if you configure textobjects in the main block above!
-  },
-
-  -- Autotag for HTML/JSX/etc.
   {
     "windwp/nvim-ts-autotag",
     event = { "BufReadPost", "BufWritePost", "BufNewFile" },
