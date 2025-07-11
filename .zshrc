@@ -284,7 +284,3 @@ export NVM_DIR="$HOME/.nvm"
 # export CXXFLAGS="-Wno-unused-command-line-argument"
 alias parrot=/home/pibouill/parrot.sh
 eval "$(/sgoinfre/pibouill/homebrew/bin/brew shellenv)"
-
-alias francinette=/home/pibouill/francinette/tester.sh
-
-alias paco=/home/pibouill/francinette/tester.sh

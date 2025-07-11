@@ -11,33 +11,28 @@
 -- ************************************************************************** --
 
 -- sets
-vim.g.mapleader = ' '
-vim.g.maplocalleader = ' '
 vim.opt.number = true
 vim.opt.relativenumber = true
-vim.opt.syntax = "on"
-vim.opt.mouse = "r" -- Enable mouse click + copy paste
+vim.opt.mouse = "a" -- Enable mouse in all modes
 vim.opt.tabstop = 4
 vim.opt.softtabstop = 4
 vim.opt.shiftwidth = 4
 vim.opt.autoindent = true
 vim.opt.expandtab = false
 vim.opt.smartindent = true
-vim.opt.modeline = true
+vim.opt.modeline = false -- Disabled for security
 vim.opt.modelines = 5
 vim.opt.ignorecase = true -- Ignore case in search
+vim.opt.smartcase = true -- But not if the search pattern contains uppercase letters
 vim.opt.incsearch = true
 vim.opt.hlsearch = true
 vim.opt.history = 200
-vim.opt.compatible = false
 vim.opt.background = "dark"
 vim.opt.scrolloff = 8
 vim.opt.signcolumn = "yes"
-vim.opt.updatetime = 50
+vim.opt.updatetime = 300 -- A higher value for better performance
 vim.opt.colorcolumn = "80"
-vim.opt.wildmode = { "longest", "list", "full" }
-vim.opt.laststatus = 2 -- For lightline
-vim.opt.showmode = false -- lightline handles this
+vim.opt.wildmode = "longest:full,full" -- Corrected syntax for wildmode
 vim.opt.spell = false -- Disable spelling check
 vim.opt.splitbelow = true
 vim.opt.splitright = true
@@ -45,6 +40,9 @@ vim.opt.pumheight = 10
 vim.opt.termguicolors = true
 --obsidian
 vim.opt.conceallevel = 1
+
+-- Keymap to clear search highlights
+vim.keymap.set("n", "<leader>/", "<cmd>nohlsearch<CR>", { desc = "Clear Search Highlight" })
 
 -- Highlight SignColumn
 vim.cmd("highlight! link SignColumn Normal")

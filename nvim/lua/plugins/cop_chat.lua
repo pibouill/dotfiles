@@ -60,7 +60,6 @@ return {
 			desc = "Quick Chat (CopilotChat)",
 			mode = { "n", "v" },
 		},
-		-- Show prompts actions with telescope
 		{
 			"<leader>ap",
 			function()
