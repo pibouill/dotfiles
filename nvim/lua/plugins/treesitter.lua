@@ -51,16 +51,14 @@ return {
               ["]]"] = "@class.outer",
             },
             goto_next_end = {
-              ["]f"] = "@function.outer",
-              ["]["] = "@class.outer",
+              ["]F"] = "@function.outer",
             },
             goto_previous_start = {
               ["[f"] = "@function.outer",
               ["[["] = "@class.outer",
             },
             goto_previous_end = {
-              ["[f"] = "@function.outer",
-              ["[]"] = "@class.outer",
+              ["[F"] = "@function.outer",
             },
           },
         },

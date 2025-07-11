@@ -25,6 +25,7 @@ return {
     "mason-org/mason-lspconfig.nvim",
     "williamboman/mason.nvim",
     "hrsh7th/cmp-nvim-lsp",
+    "hrsh7th/cmp-nvim-lsp-signature-help",
   },
   config = function()
 		local mason_lspconfig = require("mason-lspconfig")
@@ -35,17 +36,8 @@ return {
 			virtual_text = true,
 			signs = true,
 			underline = true,
-			update_in_insert = false,
+			update_in_insert = true,
 			severity_sort = true,
-		})
-
-		mason_lspconfig.setup({
-			ensure_installed = {
-				"lua_ls",
-				"clangd",
-				"bashls",
-			},
-			automatic_enable = true,
 		})
 
 		-- Server-specific configurations
@@ -89,6 +81,11 @@ return {
 
 		-- Setup all servers with common config + server-specific settings
 		mason_lspconfig.setup({
+			ensure_installed = {
+				"lua_ls",
+				"clangd",
+				"bashls",
+			},
 			handlers = {
 				function(server_name)
 					local ok_lspconfig, lspconfig = pcall(require, "lspconfig")
