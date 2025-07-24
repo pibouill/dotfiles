@@ -36,7 +36,7 @@ export MYNVIMRC="$HOME/.config/nvim/init.lua"
 export DOTFILES="$HOME/.config/dotfiles"
 # Set current working project for easy cd access
 #export PROJ=~/work/philo
-export PROJ=~/work/minishell
+export PROJ=~/work/cub3d
 ################################################
 
 
@@ -284,3 +284,4 @@ export NVM_DIR="$HOME/.nvm"
 # export CXXFLAGS="-Wno-unused-command-line-argument"
 alias parrot=/home/pibouill/parrot.sh
 eval "$(/sgoinfre/pibouill/homebrew/bin/brew shellenv)"
+export PATH="/sgoinfre/pibouill/homebrew/opt/clang-format/bin:$PATH"

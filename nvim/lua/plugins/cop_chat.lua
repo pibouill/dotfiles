@@ -25,7 +25,7 @@ return {
 				width = 0.4,
 			},
 			-- model = 'gpt-4o',
-			model = 'claude-3.5-sonnet',
+			model = 'claude-3.7-sonnet',
 			-- model = 'gemini-2.0-flash-001',
 			-- model = 'claude-3.7-sonnet-thought'
 		}
@@ -68,6 +68,16 @@ return {
 			desc = "Prompt Actions (CopilotChat)",
 			mode = { "n", "v" },
 		},
+		-- ppxity
+		{
+			"<leader>ccs",
+			function()
+				local input = vim.fn.input("Perplexity: ")
+				if input ~= "" then
+					require("CopilotChat").ask(input, { agent = "perplexityai", selection = false })
+				end
+			end, { desc = "Perplexity (CopilotChat)" }
+		}
 	},
 	config = function(_, opts)
 		local chat = require("CopilotChat")
