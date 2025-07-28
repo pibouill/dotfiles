@@ -66,6 +66,7 @@ return {
 
 		-- Global on_attach function for all LSP servers
 		local on_attach = function(_, bufnr)
+			print("on attach triggered", bufnr)
 			vim.bo[bufnr].omnifunc = 'v:lua.vim.lsp.omnifunc'
 			local opts = { noremap = true, silent = true, buffer = bufnr }
 			vim.keymap.set('n', 'gd', vim.lsp.buf.definition, opts)
@@ -73,11 +74,23 @@ return {
 			vim.keymap.set('n', 'gr', vim.lsp.buf.references, opts)
 			vim.keymap.set('n', 'K', function() vim.lsp.buf.hover() end, opts)
 			vim.keymap.set('n', '<leader>rn', vim.lsp.buf.rename, opts)
-			vim.keymap.set('n', '<leader>ca', vim.lsp.buf.code_action, opts)
+			vim.keymap.set('n', '<leader>ca', vim.lsp.buf.code_action, { buffer = bufnr, desc = "LSP: Code action"})
 			vim.keymap.set('n', '<leader>E', vim.diagnostic.open_float, opts)
 			vim.keymap.set('n', '[d', vim.diagnostic.goto_prev , opts)
 			vim.keymap.set('n', ']d', vim.diagnostic.goto_next , opts)
 		end
+
+		vim.api.nvim_create_autocmd("LspAttach", {
+			callback = function(ev)
+				local bufnr = ev.buf
+				vim.keymap.set({'n', 'v'}, '<leader>ca', vim.lsp.buf.code_action, { buffer = bufnr, desc = "LSP: Code action" })
+				vim.keymap.set('n', 'K', function() vim.lsp.buf.hover() end, { buffer = bufnr, desc = "LSP: Hover" })
+				vim.keymap.set('n', '<leader>E', vim.diagnostic.open_float, { buffer = bufnr, desc = "LSP: Show diagnostics" })
+				vim.keymap.set('n', 'gd', vim.lsp.buf.definition, { buffer = bufnr, desc = "LSP: Go to definition" })
+				vim.keymap.set('n', 'gD', vim.lsp.buf.declaration, { buffer = bufnr, desc = "LSP: Go to declaration" })
+				vim.keymap.set('n', 'gr', vim.lsp.buf.references, { buffer = bufnr, desc = "LSP: Go to references" })
+			end,
+		})
 
 		-- Setup all servers with common config + server-specific settings
 		mason_lspconfig.setup({
@@ -86,6 +99,13 @@ return {
 				"clangd",
 				"bashls",
 			},
+			-- require('lspconfig').clangd.setup({
+			-- 	on_attach = function(_, bufnr)
+			-- 		print("MY on_attach", bufnr)
+			-- 		vim.keymap.set('n', '<leader>ca', vim.lsp.buf.code_action, { buffer = bufnr })
+			-- 	end,
+			-- 	capabilities = require('cmp_nvim_lsp').default_capabilities(),
+			-- }),
 			handlers = {
 				function(server_name)
 					local ok_lspconfig, lspconfig = pcall(require, "lspconfig")
