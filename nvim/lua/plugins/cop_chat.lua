@@ -76,7 +76,7 @@ return {
 				if input ~= "" then
 					require("CopilotChat").ask(input, { agent = "perplexityai", selection = false })
 				end
-			end, { desc = "Perplexity (CopilotChat)" }
+			end, { desc = "Perplexity (CopilotChat)" , mode = { "n", "v" }}
 		}
 	},
 	config = function(_, opts)
