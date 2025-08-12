@@ -1,0 +1,20 @@
+Language: Cpp
+BasedOnStyle: Microsoft
+AccessModifierOffset: -2
+AlignAfterOpenBracket: Align
+AlignOperands: Align
+AllowShortBlocksOnASingleLine: Never
+AllowShortFunctionsOnASingleLine: None
+AlwaysBreakTemplateDeclarations: MultiLine
+BreakBeforeBraces: Custom
+BraceWrapping:
+  AfterControlStatement: Always
+  AfterFunction: true
+  BeforeElse: true
+  IndentBraces: false
+ColumnLimit: 80
+IndentWidth: 4
+PointerAlignment: Left
+ReflowComments: true
+TabWidth: 4
+UseTab: Never

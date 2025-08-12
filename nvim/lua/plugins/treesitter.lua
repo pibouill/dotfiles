@@ -16,6 +16,9 @@ return {
     build = ":TSUpdate",
     config = function()
       require("nvim-treesitter.configs").setup {
+				modules = {},
+				sync_install = false,
+				ignore_install = {},
 				ensure_installed = {
 					"lua",
 					"c",
@@ -48,16 +51,14 @@ return {
               ["]]"] = "@class.outer",
             },
             goto_next_end = {
-              ["]f"] = "@function.outer",
-              ["]["] = "@class.outer",
+              ["]F"] = "@function.outer",
             },
             goto_previous_start = {
               ["[f"] = "@function.outer",
               ["[["] = "@class.outer",
             },
             goto_previous_end = {
-              ["[f"] = "@function.outer",
-              ["[]"] = "@class.outer",
+              ["[F"] = "@function.outer",
             },
           },
         },
