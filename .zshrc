@@ -285,3 +285,4 @@ export NVM_DIR="$HOME/.nvm"
 alias parrot=/home/pibouill/parrot.sh
 eval "$(/sgoinfre/pibouill/homebrew/bin/brew shellenv)"
 export PATH="/sgoinfre/pibouill/homebrew/opt/clang-format/bin:$PATH"
+[ -f "$DOTFILES/.env" ] && source "$DOTFILES/.env"
