@@ -26,7 +26,7 @@
 	editor = nvim
 
 [init]
-	defaultBranch = main
+	defaultbranch = main
 
 [grep]
 	lineNumber = true
@@ -58,3 +58,5 @@
 [help]
 	autocorrect = prompt
 
+[pull]
+	rebase = true

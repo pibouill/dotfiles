@@ -102,6 +102,7 @@ alias lg="lazygit"
 # alias gh="firefox https://github.com/pibouill"
 alias gol="git log --graph --oneline --decorate"
 alias gl="git log --color --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit"
+alias gla="gl --all"
 alias gd="git diff"
 alias gch="git checkout"
 alias gsw="git switch"
@@ -235,10 +236,9 @@ if hostname | grep -q 42prague; then
   export PATH="$PATH:/Applications/Docker.app/Contents/Resources/bin/"
   export PATH="$HOME/sgoinfre:$PATH"
   export PATH="/sgoinfre/pibouill/homebrew:$PATH"
-  export PATH="$PATH:$HOME/sgoinfre/bin/go/bin/bin"
-  export PATH="$PATH:$HOME/sgoinfre/bin/go/bin"
   eval "$(/sgoinfre/pibouill/homebrew/bin/brew shellenv)"
   alias v="/sgoinfre/pibouill/homebrew/bin/nvim"
+  export PATH=$PATH:/home/pibouill/go/bin
 fi
 
 if uname -a | grep -q Android; then
@@ -286,3 +286,6 @@ alias parrot=/home/pibouill/parrot.sh
 eval "$(/sgoinfre/pibouill/homebrew/bin/brew shellenv)"
 export PATH="/sgoinfre/pibouill/homebrew/opt/clang-format/bin:$PATH"
 [ -f "$DOTFILES/.env" ] && source "$DOTFILES/.env"
+
+# Generated for envman. Do not edit.
+[ -s "$HOME/.config/envman/load.sh" ] && source "$HOME/.config/envman/load.sh"
