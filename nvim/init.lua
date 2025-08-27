@@ -18,3 +18,4 @@ require("config.options")
 ----> check colorscheme.lua
 vim.cmd [[colorscheme gruvbox-material]]
 -- vim.cmd [[colorscheme rose-pine]]
+-- vim.cmd [[colorscheme catppuccin]]
