@@ -40,7 +40,16 @@ return {
 			severity_sort = true,
 		})
 
-		-- Server-specific configurations
+		local orig_handler = vim.lsp.handlers["textDocument/semanticTokens/full"]
+		vim.lsp.handlers["textDocument/semanticTokens/full"] = function(err, result, ctx, config)
+			local ok, res = pcall(orig_handler, err, result, ctx, config)
+			if not ok then
+				vim.notify("Semantic tokens error: " .. vim.inspect(res), vim.log.levels.WARN)
+				return
+			end
+			return res
+		end
+
 		local server_settings = {
 			lua_ls = {
 				settings = {
