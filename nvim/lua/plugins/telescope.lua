@@ -20,41 +20,54 @@ return {
 			{ "<leader>ps", function()
 				require('telescope.builtin').grep_string({ search = vim.fn.input("Grep > ") })
 			end, desc = "search with grep" },
+			{ "<leader>vh", function ()
+				require('telescope.builtin').help_tags()
+			end, desc = "help tags" },
+			{ "<leader>vg", function()
+				require('telescope.builtin').live_grep()
+			end, desc = "Live grep" },
+			{
+				"<leader>pn", function()
+					require('telescope.builtin').find_files {
+						cwd = vim.fn.stdpath("config")
+					}
+				end, desc = "nvim config"
+			}
 		},
-		require('telescope').setup({
-			defaults = {
-				layout_strategy = "horizontal",
-				layout_config = {
-					horizontal = {
-						preview_width = 0.5,
-						-- preview_cutoff = 20,
+		config = function()
+			require('telescope').setup({
+				defaults = {
+					layout_strategy = "horizontal",
+					layout_config = {
+						horizontal = {
+							preview_width = 0.5,
+							-- preview_cutoff = 20,
+						},
 					},
 				},
-			},
-			pickers = {
-				find_files = {
-					find_command = { "rg", "--files", "--glob", "!**/.git/*", "-L" },
-					hidden = true,
-					-- theme = 
-				}
-			},
-			extensions = {
-				fzf = {}
-			},
-		}),
-		config = function ()
-			-- telescope to nvim config
-			vim.keymap.set("n", "<leader>pn", function ()
-				require("telescope.builtin").find_files {
-					cwd = vim.fn.stdpath("config")
-				}
-			end)
+				pickers = {
+					find_files = {
+						find_command = { "rg", "--files", "--glob", "!**/.git/*", "-L" },
+						hidden = true,
+						-- theme = 
+					}
+				},
+				extensions = {
+					fzf = {}
+				},
+			})
 		end,
-
 	},
 	{
 		"nvim-telescope/telescope-symbols.nvim",
+	},
+	{
 		"nvim-telescope/telescope-fzf-native.nvim", build = 'make',
+		config = function()
+			pcall(function()
+				require("telescope").load_extension("fzf")
+			end)
+		end,
 	},
 	{
 		  "nvim-telescope/telescope.nvim",
