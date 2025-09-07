@@ -1,20 +1,21 @@
 Language: Cpp
-BasedOnStyle: Microsoft
-AccessModifierOffset: -2
+BasedOnStyle: LLVM
+AccessModifierOffset: -4
 AlignAfterOpenBracket: Align
 AlignOperands: Align
 AllowShortBlocksOnASingleLine: Never
 AllowShortFunctionsOnASingleLine: None
-AlwaysBreakTemplateDeclarations: MultiLine
-BreakBeforeBraces: Custom
-BraceWrapping:
-  AfterControlStatement: Always
-  AfterFunction: true
-  BeforeElse: true
-  IndentBraces: false
+AlwaysBreakTemplateDeclarations: Yes
+BreakBeforeBraces: Allman
 ColumnLimit: 80
 IndentWidth: 4
 PointerAlignment: Left
 ReflowComments: true
 TabWidth: 4
-UseTab: Never
+UseTab: ForIndentation
+MaxEmptyLinesToKeep: 1
+SpaceAfterCStyleCast: false
+SpaceBeforeParens: ControlStatements
+IndentCaseLabels: false
+NamespaceIndentation: None
+SpacesInParentheses: false
