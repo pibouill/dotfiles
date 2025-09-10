@@ -239,6 +239,7 @@ if hostname | grep -q 42prague; then
   eval "$(/sgoinfre/pibouill/homebrew/bin/brew shellenv)"
   alias v="/sgoinfre/pibouill/homebrew/bin/nvim"
   export PATH=$PATH:/home/pibouill/go/bin
+  eval "$(/sgoinfre/pibouill/homebrew/bin/brew shellenv)"
 fi
 
 if uname -a | grep -q Android; then
@@ -259,6 +260,7 @@ export PATH="$HOME/bin:$PATH"
 export PATH="$HOME/.npm-global/bin:$PATH"
 export PATH="/opt/homebrew/opt/llvm/bin:$PATH"
 export PATH="/opt/homebrew/opt/llvm/19.1.5/bin:$PATH"
+export PATH="$PATH:$HOME/go/bin"
 #
 export MANPAGER="/usr/bin/less -s -M +Gg"
 
@@ -283,7 +285,6 @@ export NVM_DIR="$HOME/.nvm"
 # export LDFLAGS="-lc++abi"
 # export CXXFLAGS="-Wno-unused-command-line-argument"
 alias parrot=/home/pibouill/parrot.sh
-eval "$(/sgoinfre/pibouill/homebrew/bin/brew shellenv)"
 export PATH="/sgoinfre/pibouill/homebrew/opt/clang-format/bin:$PATH"
 [ -f "$DOTFILES/.env" ] && source "$DOTFILES/.env"
 
