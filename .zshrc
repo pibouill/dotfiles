@@ -71,7 +71,7 @@ alias vv=vim
 alias v=nvim
 alias i="open https://profile.intra.42.fr/"
 alias vz="nvim $HOME/.zshrc"
-alias vrc=v $MYNVIMRC
+alias vrc=nvim $MYNVIMRC
 alias swcaps="~/.config/switch_caps_ctrl.sh"
 alias work="cd ~/work/"
 alias ..="cd .."
@@ -88,7 +88,7 @@ alias tm="tmux"
 alias sgoinfre="cd /sgoinfre/pibouill"
 alias ff="fzf --preview 'bat --style=numbers --color=always --line-range :500 {}'"
 alias fp='vi $(ff)'
-alias sb="nvim $HOME/sgoinfre/obs_vault_good/"
+alias sb="v $HOME/sgoinfre/obs_vault_good/"
 alias learn="cd ~/work/learn"
 alias config="cd ~/.config/"
 alias svenv="source .venv/bin/activate"
@@ -237,7 +237,6 @@ if hostname | grep -q 42prague; then
   export PATH="$HOME/sgoinfre:$PATH"
   export PATH="/sgoinfre/pibouill/homebrew:$PATH"
   eval "$(/sgoinfre/pibouill/homebrew/bin/brew shellenv)"
-  alias v="/sgoinfre/pibouill/homebrew/bin/nvim"
   export PATH=$PATH:/home/pibouill/go/bin
   eval "$(/sgoinfre/pibouill/homebrew/bin/brew shellenv)"
 fi
@@ -265,7 +264,7 @@ export PATH="$PATH:$HOME/go/bin"
 export MANPAGER="/usr/bin/less -s -M +Gg"
 
 export PKG_CONFIG_PATH=/usr/bin/ibus
-export EDITOR=nvim
+export EDITOR=/usr/bin/nvim
 
 bindkey -s '^f' "tmux-sessionizer\n"
 
