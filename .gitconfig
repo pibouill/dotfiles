@@ -46,6 +46,7 @@
 	; colorMoved = plain
 	; mnemonicPrefix = true
 	renames = true
+	tool = nvimdiff
 
 [push]
 	default = simple
