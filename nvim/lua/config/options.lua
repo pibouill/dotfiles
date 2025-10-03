@@ -64,6 +64,8 @@ vim.api.nvim_create_autocmd("FileType", {
         vim.opt_local.tabstop = 4
     end,
 })
+
+vim.keymap.set('n', '<leader>cf', ':%!clang-format<CR>', { noremap = true, silent = true, desc = "Format whole file with clang-format" })
 vim.api.nvim_create_autocmd({ "BufRead", "BufNewFile" }, {
     pattern = "*.h",
     callback = function()

@@ -1,6 +1,7 @@
 Language: Cpp
 BasedOnStyle: LLVM
 AccessModifierOffset: -4
+IndentAccessModifiers: true
 AlignAfterOpenBracket: Align
 AlignOperands: Align
 AllowShortBlocksOnASingleLine: Never
@@ -12,10 +13,13 @@ IndentWidth: 4
 PointerAlignment: Left
 ReflowComments: true
 TabWidth: 4
-UseTab: ForIndentation
+UseTab: Always
 MaxEmptyLinesToKeep: 1
 SpaceAfterCStyleCast: false
 SpaceBeforeParens: ControlStatements
 IndentCaseLabels: false
 NamespaceIndentation: None
 SpacesInParentheses: false
+AlignConsecutiveDeclarations: true
+AlignConsecutiveAssignments: false
+DerivePointerAlignment: false
