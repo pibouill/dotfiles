@@ -9,11 +9,11 @@ AllowShortFunctionsOnASingleLine: None
 AlwaysBreakTemplateDeclarations: Yes
 BreakBeforeBraces: Allman
 ColumnLimit: 80
+UseTab: Always
 IndentWidth: 4
 PointerAlignment: Left
 ReflowComments: true
 TabWidth: 4
-UseTab: Always
 MaxEmptyLinesToKeep: 1
 SpaceAfterCStyleCast: false
 SpaceBeforeParens: ControlStatements
