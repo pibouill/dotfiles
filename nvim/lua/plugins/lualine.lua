@@ -105,20 +105,20 @@ return {
 		}
 
 		ins_left {
-			-- mode component
+			function()
+				return ''  -- You can add a mode indicator if desired
+			end,
 			color = function()
 				-- auto change color according to neovims mode
 				local mode_color = {
 					n = colors.red,
 					i = colors.green,
 					v = colors.blue,
-					[''] = colors.blue,
 					V = colors.blue,
 					c = colors.magenta,
 					no = colors.red,
 					s = colors.orange,
 					S = colors.orange,
-					[''] = colors.orange,
 					ic = colors.yellow,
 					R = colors.violet,
 					Rv = colors.violet,
@@ -130,7 +130,9 @@ return {
 					['!'] = colors.red,
 					t = colors.red,
 				}
-				return { fg = mode_color[vim.fn.mode()] }
+				-- Get current mode and fallback to red if mode is unknown
+				local current_mode = vim.fn.mode()
+				return { fg = mode_color[current_mode] or colors.red }
 			end,
 			padding = { right = 1 },
 		}
