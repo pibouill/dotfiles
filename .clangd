@@ -6,6 +6,8 @@ CompileFlags:
     - -pedantic
     - -std=c++98
     - -Wdeprecated-declarations
+    - -I/usr/include
+    - -I/usr/local/include
 
 Diagnostics:
   ClangTidy:
