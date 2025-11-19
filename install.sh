@@ -11,10 +11,8 @@
 #                                                                              #
 # **************************************************************************** #
 
-# Check if curl is installed
 if ! command -v curl &> /dev/null; then
     echo "curl is not installed. Installing curl..."
-    # Install curl based on the package manager
     if [ "$(uname)" == "Darwin" ]; then
         /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
         brew install curl

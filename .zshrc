@@ -290,3 +290,5 @@ export PATH="/sgoinfre/pibouill/homebrew/opt/clang-format/bin:$PATH"
 # Generated for envman. Do not edit.
 [ -s "$HOME/.config/envman/load.sh" ] && source "$HOME/.config/envman/load.sh"
 alias mr="make re"
+# eval "$(/bin/brew shellenv)"
+eval "$(/sgoinfre/pibouill/homebrew/bin/brew shellenv)"

@@ -24,13 +24,7 @@ return {
 			window = {
 				width = 0.4,
 			},
-			-- model = 'gpt-4o',
-			-- model = 'claude-haiku-4.5',
-			-- model = 'claude-3.7-sonnet',
-			-- model = 'gemini-2.0-flash-001',
-			-- model = 'claude-3.7-sonnet-thought'
-			model = 'grok-code-fast-1',
-			-- agent = 'anthropic',
+			model = 'gemini-3-pro-preview',
 		}
 	end,
 	keys = {
