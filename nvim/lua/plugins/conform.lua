@@ -16,15 +16,15 @@ return {
 	lazy = true,
 	cmd = "ConformInfo",
 	keys = {
-		{
-			"<leader>cF",
-			function()
-				local pos = vim.api.nvim_win_get_cursor(0)
-				require("conform").format({ formatters = { "injected" }, timeout_ms = 3000 })
-				vim.api.nvim_win_set_cursor(0, pos)
-			end,
-			mode = { "n", "v" },
-			desc = "Format Injected Langs",
-		},
+		-- {
+		-- 	"<leader>cF",
+		-- 	function()
+		-- 		local pos = vim.api.nvim_win_get_cursor(0)
+		-- 		require("conform").format({ formatters = { "injected" }, timeout_ms = 3000 })
+		-- 		vim.api.nvim_win_set_cursor(0, pos)
+		-- 	end,
+		-- 	mode = { "n", "v" },
+		-- 	desc = "Format Injected Langs",
+		-- },
 	},
 }
