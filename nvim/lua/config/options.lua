@@ -66,6 +66,12 @@ vim.api.nvim_create_autocmd("FileType", {
     end,
 })
 
+vim.filetype.add({
+	extension = {
+		tpp = "cpp",
+	}
+})
+
 vim.keymap.set('n', '<leader>cf', ':%!clang-format<CR>', { noremap = true, silent = true, desc = "Format whole file with clang-format" })
 vim.api.nvim_create_autocmd({ "BufRead", "BufNewFile" }, {
     pattern = "*.h",
