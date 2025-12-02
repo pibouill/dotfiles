@@ -35,8 +35,7 @@ export MYVIMRC="$HOME/.vimrc"
 export MYNVIMRC="$HOME/.config/nvim/init.lua"
 export DOTFILES="$HOME/.config/dotfiles"
 # Set current working project for easy cd access
-#export PROJ=~/work/philo
-export PROJ=~/work/cub3d
+# export PROJ=~/work/cub3d
 ################################################
 
 
@@ -115,7 +114,7 @@ alias gpo="git pull origin"
 alias grs="git restore"
 
 alias bup="brew update && brew upgrade && brew cleanup"
-# alias cat=bat
+alias cat=bat
 alias nt=nautilus
 alias massif=valgrind --tool=massif --massif-out-file=massif.out
 
@@ -230,6 +229,7 @@ if hostname | grep -q 42prague; then
   export RUSTUP_HOME="$HOME/sgoinfre/.rustup"
   export PATH="$RUSTUP_HOME:$PATH"
   export PATH="$CARGO_HOME/bin:$PATH"
+  export NVM_DIR="$HOME/sgoinfre/.nvm"
   export PATH="$HOME/.nvm/versions/node/v22.11.0/bin:$PATH"
   export PATH="$PATH:/nfs/homes/pibouill/bin/nvim-linux64/bin"
   eval "$(dircolors ~/.dircolors)"
@@ -272,7 +272,6 @@ eval "$(starship init zsh)"
 source <(fzf --zsh)
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
 
-export NVM_DIR="$HOME/.nvm"
 [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
 [ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
 
