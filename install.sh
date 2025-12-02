@@ -77,6 +77,7 @@ for file in $DOTFILES_DIR/bin/; do
 done
 ln -sf "$DOTFILES_DIR/nvim" "$XDG_CONFIG_HOME/nvim"
 ln -sf "$DOTFILES_DIR/.gitconfig" "$HOME/.gitconfig"
+ln -sf "$DOTFILES_DIR/.dircolors" "$HOME/.dircolors"
 
 ################################################################################
 
