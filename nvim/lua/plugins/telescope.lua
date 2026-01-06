@@ -17,7 +17,7 @@ return {
 		dependencies = { "nvim-lua/plenary.nvim" },
 		keys = {
 			{
-				"<leader>ff",
+				"<leader>fF",
 				function()
 					local path = vim.api.nvim_buf_get_name(0)
 					if path == "" then
@@ -30,6 +30,13 @@ return {
 					require("telescope.builtin").find_files({ cwd = root })
 				end,
 				desc = "find files",
+			},
+			{
+				"<leader>ff",
+				function()
+					require("telescope.builtin").find_files()
+				end,
+				desc = "Find Files",
 			},
 			{ "<C-p>", "<cmd>Telescope git_files<cr>", desc = "git files search" },
 			{
