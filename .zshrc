@@ -27,6 +27,7 @@ PROMPT='%n@%m%~%% '
 
 if [[ $(uname) == "Darwin" ]]; then
    export LIBRARY_PATH=/opt/homebrew/lib
+   stty -ixon # disables ctrl+s behavior
 fi
 
 # apparently need to do that but it doesnt work
@@ -264,7 +265,7 @@ export PATH="$PATH:$HOME/go/bin"
 export MANPAGER="/usr/bin/less -s -M +Gg"
 
 export PKG_CONFIG_PATH=/usr/bin/ibus
-export EDITOR=/usr/bin/nvim
+export EDITOR=/opt/homebrew/bin/nvim
 
 bindkey -s '^f' "tmux-sessionizer\n"
 
@@ -290,4 +291,3 @@ export PATH="/sgoinfre/pibouill/homebrew/opt/clang-format/bin:$PATH"
 [ -s "$HOME/.config/envman/load.sh" ] && source "$HOME/.config/envman/load.sh"
 alias mr="make re"
 # eval "$(/bin/brew shellenv)"
-eval "$(/sgoinfre/pibouill/homebrew/bin/brew shellenv)"
