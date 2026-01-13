@@ -11,8 +11,16 @@
 #                                                                              #
 # **************************************************************************** #
 
-slack &
-firefox &
-~/bin/obsidian &
-/sgoinfre/pibouill/.cargo/bin/alacritty &
-google-chrome &
+run()
+{
+	if command -v "$1" >/dev/null 2>&1 || [ -x "$1" ]; then
+		"$@" > /dev/null 2>&1 & disown
+	fi
+
+}
+
+run slack
+run firefox
+run "$HOME/bin/obsidian"
+run /sgoinfre/pibouill/.cargo/bin/alacritty
+run google-chrome

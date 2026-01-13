@@ -13,7 +13,7 @@ subtitle-encoding='UTF-8'
 accuracy=9
 angle-units='degrees'
 base=10
-button-mode='basic'
+button-mode='advanced'
 number-format='automatic'
 show-thousands=false
 show-zeroes=false
@@ -21,11 +21,11 @@ source-currency=''
 source-units='degree'
 target-currency=''
 target-units='radian'
-window-position=(780, 321)
+window-position=(576, 388)
 word-size=64
 
 [org/gnome/control-center]
-last-panel='sound'
+last-panel='universal-access'
 
 [org/gnome/desktop/a11y]
 always-show-universal-access-status=false
@@ -52,9 +52,9 @@ translate=true
 
 [org/gnome/desktop/background]
 color-shading-type='solid'
-picture-options='centered'
-picture-uri='file:///home/pibouill/.config/dotfiles/wallpapers/miens/nature/cabin_mountains_ruisseau.png'
-picture-uri-dark='file:///home/pibouill/.config/dotfiles/wallpapers/miens/nature/cabin_mountains_ruisseau.png'
+picture-options='zoom'
+picture-uri='file:///home/pibouill/Pictures/Wallpapers/cabin_mountains_ruisseau.png'
+picture-uri-dark='file:///home/pibouill/Pictures/Wallpapers/cabin_mountains_ruisseau.png'
 primary-color='#000000'
 secondary-color='#000000'
 
@@ -78,7 +78,7 @@ font-name='Carlito 10'
 gtk-theme='Adwaita-dark'
 icon-theme='Win10Sur'
 monospace-font-name='Monospace 11'
-text-scaling-factor=0.90000000000000002
+text-scaling-factor=0.89000000000000001
 toolkit-accessibility=false
 
 [org/gnome/desktop/lockdown]
@@ -86,7 +86,7 @@ disable-lock-screen=true
 disable-user-switching=true
 
 [org/gnome/desktop/notifications]
-application-children=['firefox', 'gnome-control-center', 'slack', 'org-gnome-font-viewer', 'org-gnome-nautilus', 'com-slack-slack', 'com-spotify-client', 'alacritty', 'google-chrome', 'org-gnome-software', 'org-gimp-gimp', 'org-gnome-eog', 'org-gnome-gedit', 'discord']
+application-children=['firefox', 'gnome-control-center', 'slack', 'org-gnome-font-viewer', 'org-gnome-nautilus', 'com-slack-slack', 'com-spotify-client', 'alacritty', 'google-chrome', 'org-gnome-software', 'org-gimp-gimp', 'org-gnome-eog', 'org-gnome-gedit', 'discord', 'xdg-desktop-portal-gnome', 'org-gnome-terminal', 'terminator', 'libreoffice-draw', 'obsidian']
 
 [org/gnome/desktop/notifications/application/alacritty]
 application-id='alacritty.desktop'
@@ -109,6 +109,12 @@ application-id='gnome-control-center.desktop'
 [org/gnome/desktop/notifications/application/google-chrome]
 application-id='google-chrome.desktop'
 
+[org/gnome/desktop/notifications/application/libreoffice-draw]
+application-id='libreoffice-draw.desktop'
+
+[org/gnome/desktop/notifications/application/obsidian]
+application-id='obsidian.desktop'
+
 [org/gnome/desktop/notifications/application/org-gimp-gimp]
 application-id='org.gimp.GIMP.desktop'
 
@@ -127,6 +133,9 @@ application-id='org.gnome.Nautilus.desktop'
 [org/gnome/desktop/notifications/application/org-gnome-software]
 application-id='org.gnome.Software.desktop'
 
+[org/gnome/desktop/notifications/application/org-gnome-terminal]
+application-id='org.gnome.Terminal.desktop'
+
 [org/gnome/desktop/notifications/application/org-mozilla-firefox]
 application-id='org.mozilla.firefox.desktop'
 
@@ -137,8 +146,17 @@ enable=false
 application-id='slack.desktop'
 enable-sound-alerts=false
 
+[org/gnome/desktop/notifications/application/terminator]
+application-id='terminator.desktop'
+
+[org/gnome/desktop/notifications/application/xdg-desktop-portal-gnome]
+application-id='xdg-desktop-portal-gnome.desktop'
+
 [org/gnome/desktop/peripherals/keyboard]
 numlock-state=true
+
+[org/gnome/desktop/peripherals/mouse]
+speed=-1.0
 
 [org/gnome/desktop/peripherals/touchpad]
 two-finger-scrolling-enabled=true
@@ -193,7 +211,7 @@ show-sidebar=true
 sidebar-page='links'
 sidebar-size=216
 sizing-mode='fit-page'
-window-ratio=(0.64214046822742477, 0.32089323952278986)
+window-ratio=(1.6127450980392157, 1.2146464646464648)
 
 [org/gnome/evolution-data-server]
 migrated=true
@@ -234,6 +252,10 @@ col-6-visible=true
 col-6-width=0
 
 [org/gnome/gnote]
+main-window-maximized=false
+search-window-height=400
+search-window-splitter-pos=150
+search-window-width=450
 start-note='note://gnote/bd736431-1513-4b34-ab5f-15eaccacb0bd'
 
 [org/gnome/mutter]
@@ -245,12 +267,12 @@ experimental-features=@as []
 default-zoom-level='small'
 
 [org/gnome/nautilus/preferences]
-default-folder-viewer='list-view'
+default-folder-viewer='icon-view'
 search-filter-time-type='last_modified'
 search-view='list-view'
 
 [org/gnome/nautilus/window-state]
-initial-size=(959, 894)
+initial-size=(1264, 894)
 maximized=false
 
 [org/gnome/settings-daemon/plugins/media-keys]
@@ -276,10 +298,14 @@ sleep-inactive-ac-type='nothing'
 [org/gnome/shell]
 command-history=['r']
 disable-user-extensions=false
-enabled-extensions=['alternate-tab@gnome-shell-extensions.gcampax.github.com', 'user-theme@gnome-shell-extensions.gcampax.github.com', 'desktop-icons@csoriano', 'LogOutButton@kyle.aims.ac.za', 'drive-menu@gnome-shell-extensions.gcampax.github.com', 'Shortcuts@kyle.aims.ac.za', 'dash-to-panel@jderose9.github.com', 'lockscreen@42network.org']
+disabled-extensions=['window-list@gnome-shell-extensions.gcampax.github.com', 'ubuntu-dock@ubuntu.com', 'windowsNavigator@gnome-shell-extensions.gcampax.github.com', 'workspace-indicator@gnome-shell-extensions.gcampax.github.com']
+enabled-extensions=['alternate-tab@gnome-shell-extensions.gcampax.github.com', 'user-theme@gnome-shell-extensions.gcampax.github.com', 'desktop-icons@csoriano', 'LogOutButton@kyle.aims.ac.za', 'drive-menu@gnome-shell-extensions.gcampax.github.com', 'Shortcuts@kyle.aims.ac.za', 'dash-to-panel@jderose9.github.com', 'auto-move-windows@gnome-shell-extensions.gcampax.github.com', 'lockscreen@42network.org']
 favorite-apps=@as []
 had-bluetooth-devices-setup=true
 welcome-dialog-last-shown-version='42.9'
+
+[org/gnome/shell/extensions/auto-move-windows]
+application-list=['slack.desktop:1', 'firefox.desktop:3', 'google-chrome.desktop:4', 'obsidian.desktop:4', 'alacritty.desktop:2']
 
 [org/gnome/shell/extensions/dash-to-dock]
 autohide-in-fullscreen=true
@@ -367,9 +393,9 @@ show-hidden=true
 show-size-column=true
 show-type-column=true
 sidebar-width=157
-sort-column='name'
+sort-column='modified'
 sort-directories-first=false
-sort-order='ascending'
+sort-order='descending'
 type-format='category'
 window-position=(359, 80)
 window-size=(1203, 902)
