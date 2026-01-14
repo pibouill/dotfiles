@@ -34,9 +34,9 @@ return {
 			{
 				"<leader>ff",
 				function()
-					require("telescope.builtin").find_files()
+					require("telescope.builtin").find_files({ cwd = require("telescope.utils").buffer_dir() })
 				end,
-				desc = "Find Files",
+				desc = "Find Files (Buffer Dir)",
 			},
 			{ "<C-p>", "<cmd>Telescope git_files<cr>", desc = "git files search" },
 			{
