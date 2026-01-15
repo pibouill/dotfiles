@@ -11,13 +11,26 @@
 -- ************************************************************************** --
 
 return {
-	-- {
-	-- "rose-pine/neovim",
-	-- name = "rose-pine",
-	-- config = function()
-	-- 	vim.cmd("colorscheme rose-pine")
-	-- end
-	-- },
+	{
+		"rose-pine/neovim",
+		name = "rose-pine",
+		lazy = false,
+		priority = 1000,
+		config = function()
+			require("rose-pine").setup({
+				dark_variant = "moon",
+				styles = {
+					italic = true,
+					transparency = true,
+				},
+				enable = {
+					terminal = true,
+					migrations = true,
+				}
+			})
+			vim.cmd.colorscheme("rose-pine")
+		end
+	},
 	--
 	--
 	--
@@ -68,16 +81,16 @@ return {
 --     },
 --   },
 --   },
-	{
-		'sainnhe/gruvbox-material',
-		lazy = false,
-		priority = 1000,
-		config = function()
-			vim.g.gruvbox_material_background = 'medium'
-			vim.g.gruvbox_material_better_performance = 0
-			vim.g.gruvbox_material_enable_italic = true
-			vim.g.gruvbox_material_transparent_background = 2
-			vim.g.gruvbox_material_ui_contrast = 'high'
-		end
-	},
+	-- {
+	-- 	'sainnhe/gruvbox-material',
+	-- 	lazy = false,
+	-- 	priority = 1000,
+	-- 	config = function()
+	-- 		vim.g.gruvbox_material_background = 'medium'
+	-- 		vim.g.gruvbox_material_better_performance = 0
+	-- 		vim.g.gruvbox_material_enable_italic = true
+	-- 		vim.g.gruvbox_material_transparent_background = 2
+	-- 		vim.g.gruvbox_material_ui_contrast = 'high'
+	-- 	end
+	-- },
 }

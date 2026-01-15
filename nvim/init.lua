@@ -16,6 +16,6 @@ require("config.options")
 
 -- available = rose-pine, gruvbox-material, catppucin, kanagawa
 ----> check colorscheme.lua
-vim.cmd [[colorscheme gruvbox-material]]
--- vim.cmd [[colorscheme rose-pine]]
+-- vim.cmd [[colorscheme gruvbox-material]]
+vim.cmd [[colorscheme rose-pine]]
 -- vim.cmd [[colorscheme catppuccin]]

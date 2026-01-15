@@ -22,19 +22,35 @@ return {
 
 		-- Color table for highlights
 		-- stylua: ignore
+		--
 		local colors = {
-			bg       = '#282828',
-			fg       = '#ddc7a1',
-			yellow   = '#d8a657',
-			cyan     = '#89b482',
-			darkblue = '#0e363e',
-			green    = '#a9b665',
-			orange   = '#e78a4e',
-			violet   = '#d3869b',
-			magenta  = '#d3869b', -- Same as violet
-			blue     = '#7daea3',
-			red      = '#ea6962',
+			bg       = '#191724',
+			fg       = '#e0def4',
+			yellow   = '#f6c177',
+			cyan     = '#9ccfd8',
+			darkblue = '#26233a',
+			green    = '#31748f',
+			orange   = '#fe8019',
+			violet   = '#c4a7e7',
+			magenta  = '#cba7e7',
+			blue     = '#9ccfd8',
+			red      = '#eb6f92',
 		}
+		--
+		-- gruvbox
+		-- local colors = {
+		-- 	bg       = '#282828',
+		-- 	fg       = '#ddc7a1',
+		-- 	yellow   = '#d8a657',
+		-- 	cyan     = '#89b482',
+		-- 	darkblue = '#0e363e',
+		-- 	green    = '#a9b665',
+		-- 	orange   = '#e78a4e',
+		-- 	violet   = '#d3869b',
+		-- 	magenta  = '#d3869b', -- Same as violet
+		-- 	blue     = '#7daea3',
+		-- 	red      = '#ea6962',
+		-- }
 
 
 		local conditions = {
