@@ -39,6 +39,7 @@ return {
 		"cpplint",
 		"shellcheck",
 		"shellharden",
+		"bacon",
     },
     -- Max concurrent installations
     max_concurrent_installers = 4,

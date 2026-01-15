@@ -73,7 +73,7 @@ return {
 				filetypes = { "c", "cpp", "h", "hpp" },
 			},
 			bashls = {
-				filetypes = { "sh", "zsh", "bash", "zshrc", "bashrc" },
+				filetypes = { "sh", "zsh", "bash", "zshrc", "bashrc", ".zsh", ".zshrc" },
 			},
 		}
 
@@ -82,6 +82,10 @@ return {
 				"lua_ls",
 				"clangd",
 				"bashls",
+				"pyright",
+				"pylsp",
+				"rust_analyzer",
+				"stylua",
 			},
 			handlers = {
 				function(server_name)
