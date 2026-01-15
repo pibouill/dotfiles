@@ -24,6 +24,12 @@ return {
 			natural_order = 'fast',
 			case_insensitive = false,
 		},
+		confirmation = {
+			border = "rounded",
+			win_options = {
+				winblend = 15,
+			},
+		},
 		float = {
 			padding = 2,
 			max_width = 190,
