@@ -6,7 +6,7 @@
 --   By: pibouill <pibouill@student.42prague.com>   +#+  +:+       +#+        --
 --                                                +#+#+#+#+#+   +#+           --
 --   Created: 2025/05/30 16:59:09 by pibouill          #+#    #+#             --
---   Updated: 2025/05/30 16:59:17 by pibouill         ###   ########.fr       --
+--   Updated: 2026/01/20 12:13:35 by pibouill         ###   ########.fr       --
 --                                                                            --
 -- ************************************************************************** --
 
@@ -26,14 +26,6 @@ return {
                 TSCppImplWrite = {
                     output_handle = require("nt-cpp-tools.output_handlers").get_add_to_cpp(),
                 },
-                --[[
-                <your impl function custom command name> = {
-                    output_handle = function (str, context) 
-                        -- string contains the class implementation
-                        -- do whatever you want to do with it
-                    end
-                }
-                ]]
             },
         }
         return options

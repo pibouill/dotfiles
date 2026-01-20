@@ -18,8 +18,8 @@ return {
 		config = function ()
 			require('copilot').setup({
 				panel = {
-					enabled = false,
-					auto_refresh = false,
+					enabled = true,
+					auto_refresh = true,
 					keymap = {
 						jump_prev = "[[",
 						jump_next = "]]",
@@ -33,7 +33,7 @@ return {
 					},
 				},
 				suggestion = {
-					enabled = false,
+					enabled = true,
 					-- enabled = not vim.g.ai_cmp,
 					auto_trigger = true,
 					hide_during_completion = true,
@@ -69,7 +69,4 @@ return {
 
 		end,
 	},
-	{
-		"giuxtaposition/blink-cmp-copilot",
-	}
 }
