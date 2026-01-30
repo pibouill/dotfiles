@@ -24,12 +24,12 @@ return {
 		},
 		"mason-org/mason-lspconfig.nvim",
 		"williamboman/mason.nvim",
-		"hrsh7th/cmp-nvim-lsp",
-		"hrsh7th/cmp-nvim-lsp-signature-help",
+		-- "hrsh7th/cmp-nvim-lsp",
+		-- "hrsh7th/cmp-nvim-lsp-signature-help",
 	},
 	config = function()
 		local mason_lspconfig = require("mason-lspconfig")
-		local capabilities = require('cmp_nvim_lsp').default_capabilities()
+		local capabilities = vim.lsp.protocol.make_client_capabilities()
 
 		-- Configure diagnostics display
 		vim.diagnostic.config({
@@ -73,7 +73,7 @@ return {
 				filetypes = { "c", "cpp", "h", "hpp" },
 			},
 			bashls = {
-				filetypes = { "sh", "zsh", "bash", "zshrc", "bashrc", ".zsh", ".zshrc" },
+				filetypes = { "sh", "zsh", "bash", "zshrc", ".zsh", ".zshrc" },
 			},
 		}
 
