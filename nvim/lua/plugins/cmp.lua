@@ -38,9 +38,13 @@ return {
 			},
 			window = {
 				completion = cmp.config.window.bordered(),
-				documentation = cmp.config.window.bordered(),
+				documentation = {
+					border = "rounded",
+					winhighlight = "Normal:Normal,FloatBorder:FloatBorder,CursorLine:Visual,Search:None",
+				}
 			},
 			mapping = cmp.mapping.preset.insert({
+				['<C-k>'] = cmp.mapping.open_docs(),
 				['<C-b>'] = cmp.mapping.scroll_docs(-4),
 				['<C-f>'] = cmp.mapping.scroll_docs(4),
 				['<C-Space>'] = cmp.mapping.complete(),

@@ -1,13 +1,20 @@
 CompileFlags:
-  Add: 
+  Add:
     - -Wall
     - -Werror
     - -Wextra
     - -pedantic
     - -std=c++98
     - -Wdeprecated-declarations
-    - -I/usr/include
-    - -I/usr/local/include
+    - -I /usr/include/c++/10
+    - -I /usr/include/x86_64-linux-gnu/c++/10
+    - -I /usr/include/c++/10/backward
+    - -I /usr/lib/gcc/x86_64-linux-gnu/10/include
+    - -I /usr/local/include
+    - -I /usr/include/x86_64-linux-gnu
+    - -I /usr/include
+
+  QueryDriver: ["/usr/bin/gcc", "/usr/bin/g++"]
 
 Diagnostics:
   ClangTidy:
