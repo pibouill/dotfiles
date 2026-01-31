@@ -36,3 +36,4 @@ chmod
 chown
 make
 nix
+cron

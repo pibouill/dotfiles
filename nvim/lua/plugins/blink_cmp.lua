@@ -12,7 +12,9 @@
 
 return {
 	"saghen/blink.cmp",
-	build = "cargo build --release",
+	-- build = "cargo +nightly build --release",
+	version = "1.*",
+	dependencies = { 'rafamadriz/friendly-snippets' },
 	opts = {
 		signature = {
 			enabled = true,
@@ -22,6 +24,8 @@ return {
 				show_on_insert = true,
 			},
 		},
+		fuzzy = { implementation = 'prefer_rust_with_warning' },
+
 	},
 	window = {
 		border = "rounded",
@@ -29,7 +33,6 @@ return {
 		show_documentation = true,
 	},
 	config = function(_, opts)
-
 		require("blink.cmp").setup(opts)
 
 		vim.keymap.set("i", "<C-x>", function()
