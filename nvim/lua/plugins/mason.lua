@@ -31,7 +31,7 @@ return {
     -- Only specify formatters and linters here
     -- LSP servers are defined in mason-lspconfig.lua
     ensure_installed = {
-		"stylua",
+		-- "stylua",
 		"shfmt",
 		"beautysh",
 		"checkmake",

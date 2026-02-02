@@ -48,15 +48,4 @@ require("lazy").setup({
 	checker = { enabled = false, notify = false},
 	-- disable the popup message when config changes
 	change_detection = { enabled = false },
-	performance = {
-		rtp = {
-			disabled_plugins = {
-				"gzip",
-				"tarPlugin",
-				"tohtml",
-				"tutor",
-				"zipPlugin",
-			},
-		},
-	},
 })

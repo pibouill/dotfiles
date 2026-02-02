@@ -40,6 +40,7 @@ vim.opt.pumheight = 10
 vim.opt.termguicolors = true
 --obsidian
 vim.opt.conceallevel = 1
+vim.opt.timeoutlen = 300
 
 -- Keymap to clear search highlights
 vim.keymap.set("n", "<leader>/", "<cmd>nohlsearch<CR>", { desc = "Clear Search Highlight" })
