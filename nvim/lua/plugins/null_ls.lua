@@ -28,9 +28,9 @@ return {
     null_ls.setup({
       debug = false,
       sources = {
-        null_ls.builtins.diagnostics.checkmake.with({
-          filetypes = { "make", "makefile" },
-        }),
+        -- null_ls.builtins.diagnostics.checkmake.with({
+        --   filetypes = { "make", "makefile" },
+        -- }),
       },
     })
   end,
