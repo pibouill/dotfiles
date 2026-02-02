@@ -85,7 +85,7 @@ return {
 				"pyright",
 				"pylsp",
 				"rust_analyzer",
-				"stylua",
+				-- "stylua",
 			},
 			handlers = {
 				function(server_name)
