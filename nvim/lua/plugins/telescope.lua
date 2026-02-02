@@ -13,8 +13,14 @@
 return {
 	{
 		"nvim-telescope/telescope.nvim",
-		tag = "0.1.8",
-		dependencies = { "nvim-lua/plenary.nvim" },
+		dependencies = {
+			"nvim-lua/plenary.nvim",
+			"nvim-telescope/telescope-symbols.nvim",
+			{
+				"nvim-telescope/telescope-fzf-native.nvim",
+				build = "make",
+			},
+		},
 		keys = {
 			{
 				"<leader>fF",
@@ -71,7 +77,8 @@ return {
 			},
 		},
 		config = function()
-			require("telescope").setup({
+			local telescope = require("telescope")
+			telescope.setup({
 				defaults = {
 					layout_strategy = "horizontal",
 					layout_config = {
@@ -92,22 +99,9 @@ return {
 					fzf = {},
 				},
 			})
-		end,
-	},
-	{
-		"nvim-telescope/telescope-symbols.nvim",
-	},
-	{
-		"nvim-telescope/telescope-fzf-native.nvim",
-		build = "make",
-		config = function()
 			pcall(function()
-				require("telescope").load_extension("fzf")
+				telescope.load_extension("fzf")
 			end)
 		end,
-	},
-	{
-		"nvim-telescope/telescope.nvim",
-		optional = true,
 	},
 }

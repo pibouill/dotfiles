@@ -30,6 +30,5 @@ return {
         }
         return options
     end,
-    -- End configuration
     config = true,
 }
