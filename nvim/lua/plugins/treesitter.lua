@@ -52,6 +52,7 @@ return {
 				},
 				indent = {
 					enable = true,
+					disable = { "cpp" },
 				},
 				folds = {
 					enable = true,
