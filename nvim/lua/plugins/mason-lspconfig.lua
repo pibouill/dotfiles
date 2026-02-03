@@ -144,7 +144,7 @@ return {
 				vim.keymap.set('n', 'gd', vim.lsp.buf.definition, { buffer = bufnr, desc = "LSP: Go to definition" })
 				vim.keymap.set('n', 'gD', vim.lsp.buf.declaration, { buffer = bufnr, desc = "LSP: Go to declaration" })
 				vim.keymap.set('n', 'gr', vim.lsp.buf.references, { buffer = bufnr, desc = "LSP: Go to references" })
-				vim.keymap.set('n', 'K', vim.lsp.buf.hover, { buffer = bufnr, desc = "LSP: Hover" })
+				-- vim.keymap.set('n', 'K', vim.lsp.buf.hover, { buffer = bufnr, desc = "LSP: Hover" })
 				vim.keymap.set('n', '<leader>rn', vim.lsp.buf.rename, { buffer = bufnr, desc = "LSP: Rename symbol" })
 				vim.keymap.set({ 'n', 'v' }, '<leader>ca', vim.lsp.buf.code_action,
 					{ buffer = bufnr, desc = "LSP: Code action" })
