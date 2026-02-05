@@ -61,13 +61,13 @@ return {
 					select = {
 						enable = true,
 						lookahead = true, -- Automatically jump forward to textobj, similar to targets.vim
-						keymaps = {
-							-- You can use the capture groups defined in textobjects.scm
-							["fa"] = "@function.outer",
-							["fi"] = "@function.inner",
-							["ca"] = "@class.outer",
-							["ci"] = "@class.inner",
-						},
+						-- keymaps = {
+						-- 	-- You can use the capture groups defined in textobjects.scm
+						-- 	["fa"] = "@function.outer",
+						-- 	["fi"] = "@function.inner",
+						-- 	["ca"] = "@class.outer",
+						-- 	["ci"] = "@class.inner",
+						-- },
 					},
 					move = {
 						enable = true,
