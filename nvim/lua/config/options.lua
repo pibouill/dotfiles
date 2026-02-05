@@ -73,7 +73,17 @@ vim.filetype.add({
 	}
 })
 
-vim.keymap.set('n', '<leader>cf', ':%!clang-format<CR>', { noremap = true, silent = true, desc = "Format whole file with clang-format" })
+vim.keymap.set('n', '<leader>cf', function()
+	local view = vim.fn.winsaveview()
+	vim.cmd('%!clang-format')
+	if vim.v.shell_error ~= 0 then
+		vim.cmd.undo()
+		vim.notify("clang-format failed", vim.log.levels.ERROR)
+	else
+		vim.fn.winrestview(view)
+	end
+end, { noremap = true, silent = true, desc = "Format whole file with clang-format" })
+-- vim.keymap.set('n', '<leader>cf', ':%!clang-format<CR>', { noremap = true, silent = true, desc = "Format whole file with clang-format" })
 vim.api.nvim_create_autocmd({ "BufRead", "BufNewFile" }, {
     pattern = "*.h",
     callback = function()
