@@ -19,8 +19,8 @@ CompileFlags:
 Diagnostics:
   ClangTidy:
     Add: 
-      - modernize-*
       - performance-*
+      - modernize-*
       # - readability-*
     Remove:
       - modernize-use-trailing-return-type
