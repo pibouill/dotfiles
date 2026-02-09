@@ -1,5 +1,8 @@
 Language: Cpp
 BasedOnStyle: LLVM
+Standard: c++98
+SpacesInAngles: false
+CheckCXX98: true
 AccessModifierOffset: -4
 IndentAccessModifiers: true
 AlignAfterOpenBracket: Align
