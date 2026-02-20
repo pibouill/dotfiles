@@ -19,14 +19,7 @@ CompileFlags:
 Diagnostics:
   ClangTidy:
     Add: 
-      - performance-*
-      - modernize-*
       # - readability-*
-    Remove:
-      - modernize-use-trailing-return-type
-      - modernize-use-auto
-      - modernize-use-nullptr
-      - modernize-use-using
 
 ---
 If-Scope: Local
