@@ -27,4 +27,16 @@ return {
 		-- 	desc = "Format Injected Langs",
 		-- },
 	},
+	opts = {
+		formatters_by_ft = {
+			cpp = { "clang-format" },
+		},
+		formatters = {
+			["clang-format"] = {
+				command = "clang-format",
+				args = { "--style=file" },
+				root_patterns = { ".clang-format" },
+			},
+		},
+	},
 }
