@@ -24,7 +24,7 @@ return {
 			window = {
 				width = 0.4,
 			},
-			model = 'gemini-3-pro-preview',
+			model = 'gemini-3.1-pro',
 		}
 	end,
 	keys = {
