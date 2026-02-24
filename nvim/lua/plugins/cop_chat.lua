@@ -24,7 +24,11 @@ return {
 			window = {
 				width = 0.4,
 			},
-			model = 'gemini-3.1-pro',
+			model = 'gemini-2.5-pro',
+
+			-- FIX 1: Turn off header highlighting to reduce Treesitter lag 
+			-- when generating massive amounts of text
+			highlight_headers = false,
 		}
 	end,
 	keys = {
@@ -79,11 +83,18 @@ return {
 	config = function(_, opts)
 		local chat = require("CopilotChat")
 
-		vim.api.nvim_create_autocmd("BufEnter", {
+		-- FIX 2: Changed "BufEnter" to "FileType" (much safer for plugins)
+		-- and added the fold fixes alongside your number toggles.
+		vim.api.nvim_create_autocmd("FileType", {
 			pattern = "copilot-chat",
 			callback = function()
+				-- Your original settings
 				vim.opt_local.relativenumber = false
 				vim.opt_local.number = false
+
+				-- NEW: Disable folding in the chat window to stop stream freezing
+				vim.opt_local.foldmethod = "manual"
+				vim.opt_local.foldexpr = ""
 			end,
 		})
 
