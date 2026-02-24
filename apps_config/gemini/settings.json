@@ -1,0 +1,27 @@
+{
+  "security": {
+    "auth": {
+      "selectedType": "gemini-api-key"
+    }
+  },
+  "general": {
+    "vimMode": true,
+    "defaultApprovalMode": "default",
+    "enableAutoUpdate": true
+  },
+  "output": {
+    "format": "text"
+  },
+  "ui": {
+    "hideWindowTitle": true,
+    "inlineThinkingMode": "off",
+    "hideBanner": true,
+    "showMemoryUsage": true,
+    "showModelInfoInChat": true
+  },
+  "tools": {
+    "shell": {
+      "showColor": true
+    }
+  }
+}
