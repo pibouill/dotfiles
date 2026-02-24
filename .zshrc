@@ -189,6 +189,7 @@ case "$(uname -s)" in
           eval "$(/sgoinfre/pibouill/homebrew/bin/brew shellenv)"
           export PATH=$PATH:/home/pibouill/go/bin
           eval "$(/sgoinfre/pibouill/homebrew/bin/brew shellenv)"
+		  export NODE_EXTRA_CA_CERTS="/etc/ssl/certs/ca-certificates.crt"
         fi
         ;;
 esac
