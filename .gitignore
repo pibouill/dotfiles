@@ -4,3 +4,4 @@ fonts
 typr*
 .env
 .DS_Store
+nvim/lazy-lock.json
