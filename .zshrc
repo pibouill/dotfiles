@@ -128,6 +128,7 @@ alias tconf="v ~/.tmux.conf"
 alias swcaps="~/.config/switch_caps_ctrl.sh"
 alias cht="cht.sh"
 alias nt=nautilus
+alias weather="bash ~/bin/weather"
 
 # Functions
 tc() {
@@ -146,7 +147,8 @@ case "$(uname -s)" in
         # Homebrew PATHs
         export PATH="/opt/homebrew/bin:$PATH"
         export PATH="/opt/homebrew/opt/llvm/bin:$PATH"
-        export PATH="/opt/homebrew/opt/llvm/19.1.5/bin:$PATH" # Note: may be redundant if llvm is linked
+        export PATH="/opt/homebrew/opt/llvm/19.1.5/bin:$PATH" # Note: may be redundant if llvm is linked export PATH="$HOME/bin:$PATH"
+        export PATH="/Users/pierre/Library/Python/3.9/bin:$PATH"
 
         # Docker-based valgrind for macOS
         alias valgrind='docker run -it -v $PWD:/tmp -w /tmp valgrind:1.0'
@@ -159,7 +161,11 @@ case "$(uname -s)" in
         alias ll='gls -lah --color=auto'
 
         # Homebrew alias
+		#
         alias bup="brew update && brew upgrade && brew cleanup"
+
+		# firefox profiles
+		alias ffp="/Applications/Firefox.app/Contents/MacOS/firefox -P"
         ;;
 
     Linux)
