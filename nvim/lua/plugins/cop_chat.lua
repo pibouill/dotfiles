@@ -13,7 +13,12 @@
 return {
 	"CopilotC-Nvim/CopilotChat.nvim",
 	branch = "main",
-	cmd = "CopilotChat",
+	lazy = false,
+	dependencies = {
+		{ "zbirenbaum/copilot.lua" },
+		{ "nvim-lua/plenary.nvim" },
+	},
+	build = "make tiktoken",
 	opts = function()
 		local user = (vim.env.USER or "User"):gsub("^%l", string.upper)
 		user = user:sub(1, 1):upper() .. user:sub(2)
@@ -22,11 +27,13 @@ return {
 			question_header = "  " .. user .. " ",
 			answer_header = "  Copilot ",
 			window = {
+				layout = 'vertical',
 				width = 0.4,
 			},
 			model = 'gemini-2.5-pro',
+			-- model = 'gemini-3.1-pro-preview',
 
-			-- FIX 1: Turn off header highlighting to reduce Treesitter lag 
+			-- Turn off header highlighting to reduce Treesitter lag 
 			-- when generating massive amounts of text
 			highlight_headers = false,
 		}

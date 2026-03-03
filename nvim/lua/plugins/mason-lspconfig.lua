@@ -84,7 +84,7 @@ return {
 				"bashls",
 				"pyright",
 				"pylsp",
-				"rust_analyzer",
+				-- "rust_analyzer",
 				-- "stylua",
 			},
 			handlers = {
