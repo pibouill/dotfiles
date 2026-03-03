@@ -37,3 +37,5 @@ chown
 make
 nix
 cron
+npm
+npx
