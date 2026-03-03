@@ -10,6 +10,8 @@
 #    Updated: 2024/12/08 13:42:44 by pibouill         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
+#
+# (WIP ) DO NOT USE
 
 # Detect the operating system and check for specific hostname
 OS="$(uname -s)"
