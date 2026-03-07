@@ -306,5 +306,4 @@ export GROFF_NO_SGR=1                   # for konsole
 
 # legacy path configs
 export PKG_CONFIG_PATH=/usr/bin/ibus
-. "$HOME"
 # export PATH=/opt/homebrew/bin:/usr/local/bin:/System/Cryptexes/App/usr/bin:/usr/bin:/bin:/usr/sbin:/sbin:/var/run/com.apple.security.cryptexd/codex.system/bootstrap/usr/local/bin:/var/run/com.apple.security.cryptexd/codex.system/bootstrap/usr/bin:/var/run/com.apple.security.cryptexd/codex.system/bootstrap/usr/appleinternal/bin

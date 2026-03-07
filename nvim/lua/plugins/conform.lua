@@ -30,6 +30,9 @@ return {
 	opts = {
 		formatters_by_ft = {
 			cpp = { "clang-format" },
+			php = { "pint"},
+			-- Fallback to php_cs_fixer if pint isn't in the project
+			-- php = { "pint", "php_cs_fixer", stop_after_first = true },
 		},
 		formatters = {
 			["clang-format"] = {
