@@ -54,7 +54,7 @@ format = "[$symbol]($style)"
 
 [python]
 symbol = " "
-format = "[${symbol}${virtualenv}]($style)"
+format = "[${symbol}${virtualenv} ]($style)"
 
 [lua]
 symbol = '🌙 '
