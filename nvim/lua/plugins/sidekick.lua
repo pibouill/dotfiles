@@ -69,9 +69,9 @@ return {
 			},
 			{
 				"<leader>as",
-				-- function() require("sidekick.cli").select() end,
-				-- Or to select only installed tools:
-				require("sidekick.cli").select({ filter = { installed = true } }),
+				function()
+					require("sidekick.cli").select({ filter = { installed = true } })
+				end,
 				desc = "Select CLI",
 			},
 			{
