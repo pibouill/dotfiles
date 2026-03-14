@@ -38,7 +38,6 @@ export PROJ=~/work/minishell
 # Aliases
 alias ll='ls -lah --color=auto'
 alias ls='ls --color=auto'
-alias c="clear"
 alias gwww="cc -Wall -Werror -Wextra"
 alias rff="rm -rf"
 alias vi=vim

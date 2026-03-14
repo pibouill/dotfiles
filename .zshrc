@@ -61,7 +61,6 @@ bindkey -s '^f' "tmux-sessionizer\n"
 # ALIASES & FUNCTIONS
 # -----------------------------------------------------------------------------
 # General
-alias c="clear"
 alias rff="rm -rf"
 alias vv=vim
 alias v=nvim
