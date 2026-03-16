@@ -1,0 +1,8 @@
+[Desktop Entry]
+Name=Alacritty
+Comment=A fast, cross-platform, OpenGL terminal emulator
+Exec=/sgoinfre/pibouill/.cargo/bin/alacritty
+Icon=/home/pibouill/.local/share/applications/icons/alacritty-term.svg
+Terminal=false
+Type=Application
+Categories=Utility;TerminalEmulator;
