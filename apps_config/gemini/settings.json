@@ -1,13 +1,19 @@
 {
   "security": {
     "auth": {
-      "selectedType": "gemini-api-key"
+      "selectedType": "oauth-personal"
     }
   },
   "general": {
     "vimMode": true,
     "defaultApprovalMode": "default",
-    "enableAutoUpdate": true
+    "enableAutoUpdate": true,
+    "sessionRetention": {
+      "warningAcknowledged": true,
+      "enabled": true,
+      "maxAge": "30d"
+    },
+    "preferredEditor": "neovim"
   },
   "output": {
     "format": "text"
