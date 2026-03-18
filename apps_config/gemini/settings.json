@@ -23,7 +23,8 @@
     "inlineThinkingMode": "off",
     "hideBanner": true,
     "showMemoryUsage": true,
-    "showModelInfoInChat": true
+    "showModelInfoInChat": true,
+    "theme": "GitHub"
   },
   "tools": {
     "shell": {
