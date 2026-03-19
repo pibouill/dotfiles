@@ -10,6 +10,10 @@
 --                                                                            --
 -- ************************************************************************** --
 
+-- Neovim Host Programs
+vim.g.node_host_prog = vim.fn.expand("$HOME/.local/bin/neovim-node-host")
+vim.g.python3_host_prog = vim.fn.expand("$HOME/.local/bin/pynvim-python")
+
 -- sets
 vim.opt.number = true
 vim.opt.relativenumber = true
@@ -99,4 +103,3 @@ vim.opt.guicursor = "n-v-c:block,i-ci-ve:ver25,r-cr:hor20,o:hor50"
 vim.keymap.set('c', '<tab>', '<C-z>', { silent = false }) -- to fix cmp
 
 vim.opt.swapfile = false
-vim.g.rocks_hererocks = false

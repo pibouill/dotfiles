@@ -20,6 +20,8 @@ return {
 		dashboard = { enabled = true },
 		indent = { enabled = true },
 		input = { enabled = true },
+		picker = { enabled = false },
+		ui_select = { enabled = false },
 		dimming = { enabled = false },
 		notifier = {
 			enabled = false,
