@@ -44,16 +44,14 @@ return {
 				desc = "Harpoon Quick Menu",
 			},
 		}
-		local is_macos = vim.loop.os_uname().sysname == "Darwin"
+		local is_macos = (vim.uv or vim.loop).os_uname().sysname == "Darwin"
 
 		if is_macos then
-			-- OSX-specific mappings
 			vim.keymap.set("n", "¡", function() harpoon:list():select(1) end)
 			vim.keymap.set("n", "™", function() harpoon:list():select(2) end)
 			vim.keymap.set("n", "£", function() harpoon:list():select(3) end)
 			vim.keymap.set("n", "¢", function() harpoon:list():select(4) end)
 		else
-			-- Non-OSX mappings
 			for i = 1, 5 do
 				table.insert(keys, {
 					"<A-" .. i .. ">",
