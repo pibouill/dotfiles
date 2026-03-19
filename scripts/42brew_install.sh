@@ -15,7 +15,7 @@ DOTFILES_DIR="/home/pibouill/.config/dotfiles"
 
 if ! command -v brew &>/dev/null; then
     echo -e "Installing Homebrew..."
-	cd ~/sgoinfre || echo "cd failed" exit
+	cd ~/goinfre || echo "cd failed" exit
     git clone https://github.com/Homebrew/brew homebrew
     eval "$(homebrew/bin/brew shellenv)"
     brew update --force --quiet

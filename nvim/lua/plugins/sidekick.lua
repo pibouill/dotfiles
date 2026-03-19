@@ -25,25 +25,77 @@ return {
 					backend = "tmux",
 					enabled = true,
 				},
+				tools = {
+					gemini = {
+						cmd = { "gemini", "--model", "gemini-2.0-pro" },
+					},
+				},
+				---@type table<string, sidekick.context.Fn>
+				context = {
+					file = function(ctx)
+						local Loc = require("sidekick.cli.context.location")
+						if not Loc.is_file(ctx.buf) then return end
+						local lines = vim.api.nvim_buf_get_lines(ctx.buf, 0, -1, false)
+						local loc = Loc.get(ctx, { kind = "file" })[1]
+						local ret = { loc, { "" } }
+						for _, line in ipairs(lines) do
+							ret[#ret + 1] = { { line } }
+						end
+						return ret
+					end,
+					buffers = function(ctx)
+						local Loc = require("sidekick.cli.context.location")
+						local ret = {}
+						for _, buf in ipairs(vim.api.nvim_list_bufs()) do
+							if Loc.is_file(buf) then
+								local lines = vim.api.nvim_buf_get_lines(buf, 0, -1, false)
+								local loc = Loc.get({ buf = buf, cwd = ctx.cwd }, { kind = "file" })[1]
+								if #ret > 0 then ret[#ret + 1] = { { "" } } end
+								ret[#ret + 1] = loc
+								ret[#ret + 1] = { { "" } }
+								for _, line in ipairs(lines) do
+									ret[#ret + 1] = { { line } }
+								end
+							end
+						end
+						return ret
+					end,
+					selection = function(ctx)
+						if not ctx.range then return end
+						local lines = vim.api.nvim_buf_get_lines(ctx.buf, ctx.range.from[1] - 1, ctx.range.to[1], false)
+						if ctx.range.kind == "char" then
+							if #lines > 0 then
+								lines[#lines] = string.sub(lines[#lines], 1, ctx.range.to[2] + 1)
+								lines[1] = string.sub(lines[1], ctx.range.from[2] + 1)
+							end
+						end
+						local ret = {}
+						for _, line in ipairs(lines) do
+							ret[#ret + 1] = { { line } }
+						end
+						return ret
+					end,
+				},
 			},
 		},
 		config = function(_, opts)
 			require("sidekick").setup(opts)
-			-- Enable the copilot language server for NES (Next Edit Suggestion)
-			-- Required for sidekick to provide edit suggestions.
-			if vim.lsp.config then
-				vim.lsp.config.copilot = {
-					cmd = { "copilot-language-server", "--stdio" },
-					settings = {
-						["github-copilot"] = {
-							suggestion = { enabled = true },
-						},
-					},
-				}
-				vim.lsp.enable("copilot")
-			end
 		end,
 		keys = {
+			-- Sidekick CLI Sessions:
+			--  <C-.> or <leader>aa : Toggle CLI (Gemini, Cursor, etc.)
+			--  <leader>as         : Select an installed CLI tool
+			--  <leader>ad         : Detach/Close the current session
+			--  <leader>ap         : Select a prompt (Explain, Optimize, etc.)
+			--  <leader>ac         : Toggle Claude directly
+			--
+			-- Context Sending:
+			--  <leader>at         : Send "This" (current cursor/function context)
+			--  <leader>af         : Send current File content
+			--  <leader>av (visual): Send Visual selection
+			--
+			-- Next Edit Suggestions (NES):
+			--  <tab>              : Jump to or Apply the suggestion
 			{
 				"<tab>",
 				function()
