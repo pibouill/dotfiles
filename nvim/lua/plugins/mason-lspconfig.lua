@@ -150,8 +150,8 @@ return {
 					{ buffer = bufnr, desc = "LSP: Code action" })
 				vim.keymap.set('n', '<leader>E', vim.diagnostic.open_float,
 					{ buffer = bufnr, desc = "LSP: Show diagnostics" })
-				vim.keymap.set('n', '[d', vim.diagnostic.goto_prev, { buffer = bufnr, desc = "LSP: Previous diagnostic" })
-				vim.keymap.set('n', ']d', vim.diagnostic.goto_next, { buffer = bufnr, desc = "LSP: Next diagnostic" })
+				vim.keymap.set('n', '[d', function() vim.diagnostic.jump({ count = -1 }) end, { buffer = bufnr, desc = "LSP: Previous diagnostic" })
+				vim.keymap.set('n', ']d', function() vim.diagnostic.jump({ count = 1 }) end, { buffer = bufnr, desc = "LSP: Next diagnostic" })
 			end,
 		})
 	end,

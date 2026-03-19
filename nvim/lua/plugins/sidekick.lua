@@ -37,7 +37,8 @@ return {
 						if not Loc.is_file(ctx.buf) then return end
 						local lines = vim.api.nvim_buf_get_lines(ctx.buf, 0, -1, false)
 						local loc = Loc.get(ctx, { kind = "file" })[1]
-						local ret = { loc, { "" } }
+						if not loc then return end
+						local ret = { loc, { { "" } } }
 						for _, line in ipairs(lines) do
 							ret[#ret + 1] = { { line } }
 						end
@@ -50,6 +51,7 @@ return {
 							if Loc.is_file(buf) then
 								local lines = vim.api.nvim_buf_get_lines(buf, 0, -1, false)
 								local loc = Loc.get({ buf = buf, cwd = ctx.cwd }, { kind = "file" })[1]
+								if not loc then goto continue end
 								if #ret > 0 then ret[#ret + 1] = { { "" } } end
 								ret[#ret + 1] = loc
 								ret[#ret + 1] = { { "" } }
@@ -57,19 +59,45 @@ return {
 									ret[#ret + 1] = { { line } }
 								end
 							end
+							::continue::
 						end
 						return ret
 					end,
 					selection = function(ctx)
 						if not ctx.range then return end
-						local lines = vim.api.nvim_buf_get_lines(ctx.buf, ctx.range.from[1] - 1, ctx.range.to[1], false)
+						local Loc = require("sidekick.cli.context.location")
+						local from_l = tonumber(ctx.range.from[1]) ---@type integer?
+						local from_c = tonumber(ctx.range.from[2]) ---@type integer?
+						local to_l = tonumber(ctx.range.to[1]) ---@type integer?
+						local to_c = tonumber(ctx.range.to[2]) ---@type integer?
+						if not (from_l and from_c and to_l and to_c) then return end
+
+						local sel_ctx = {
+							buf = ctx.buf,
+							cwd = ctx.cwd,
+							range = {
+								kind = ctx.range.kind,
+								from = { from_l, from_c },
+								to = { to_l, to_c },
+							},
+						}
+
+						---@diagnostic disable-next-line: assign-type-mismatch
+						local loc_sel = Loc.get(sel_ctx, { kind = "selection" })[1]
+						local loc_file = Loc.get({ buf = ctx.buf, cwd = ctx.cwd }, { kind = "file" })[1]
+						local loc = loc_sel or loc_file
+						local lines = vim.api.nvim_buf_get_lines(ctx.buf, from_l - 1, to_l, false)
 						if ctx.range.kind == "char" then
 							if #lines > 0 then
-								lines[#lines] = string.sub(lines[#lines], 1, ctx.range.to[2] + 1)
-								lines[1] = string.sub(lines[1], ctx.range.from[2] + 1)
+								lines[#lines] = string.sub(lines[#lines], 1, to_c + 1)
+								lines[1] = string.sub(lines[1], from_c + 1)
 							end
 						end
 						local ret = {}
+						if loc then
+							ret[#ret + 1] = loc
+							ret[#ret + 1] = { { "" } }
+						end
 						for _, line in ipairs(lines) do
 							ret[#ret + 1] = { { line } }
 						end
@@ -83,7 +111,7 @@ return {
 		end,
 		keys = {
 			-- Sidekick CLI Sessions:
-			--  <C-.> or <leader>aa : Toggle CLI (Gemini, Cursor, etc.)
+			--  <leader>aa : Toggle CLI (Gemini, Cursor, etc.)
 			--  <leader>as         : Select an installed CLI tool
 			--  <leader>ad         : Detach/Close the current session
 			--  <leader>ap         : Select a prompt (Explain, Optimize, etc.)

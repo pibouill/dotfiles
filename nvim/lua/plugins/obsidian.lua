@@ -30,13 +30,12 @@ return {
 	},
 	config = function()
 		local vault_path
-		if vim.loop then
-			if vim.loop.os_uname().sysname == "Darwin" then
-				-- MacOS
-				vault_path = "/Users/pibouill/Documents/obs_vault"
-			else
-				vault_path = "/sgoinfre/pibouill/obs_vault_good/"
-			end
+		local uv = vim.uv or vim.loop
+		if uv.os_uname().sysname == "Darwin" then
+			-- MacOS
+			vault_path = "/Users/pibouill/Documents/obs_vault"
+		else
+			vault_path = "/sgoinfre/pibouill/obs_vault_good/"
 		end
 		require("obsidian").setup({
 			workspaces = {
