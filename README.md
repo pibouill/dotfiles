@@ -23,11 +23,3 @@ The `.zshrc` file is configured for both macOS and Linux. It includes:
 *   Useful aliases and functions.
 *   fzf integration.
 *   Starship prompt.
-
-## Startup Applications
-
-The `bin/startup_app.sh` script launches applications on specific workspaces at startup. It uses `wmctrl` to manage workspaces. Make sure `wmctrl` is installed on your system.
-
-## Neovim
-
-The Neovim configuration is located in the `nvim` directory. It uses Lua and includes various plugins managed by `lazy.nvim`.
