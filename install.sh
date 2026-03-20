@@ -20,11 +20,15 @@ OS="$(uname -s)"
 HOSTNAME="$(hostname)"
 DOTFILES_DIR="$HOME/.config/dotfiles"
 XDG_CONFIG_HOME="${XDG_CONFIG_HOME:-$HOME/.config}"
+LOG_DIR="$DOTFILES_DIR/logs"
+LOG_FILE="$LOG_DIR/install_$(date +%Y%m%d_%H%M%S).log"
 
-COMMON_PACKAGES=(
-    "git" "wget" "curl" "vim" "nvim" "tmux" "htop" "tree" 
-    "lua" "luarocks" "python3" "nodejs" "go" "ripgrep" "fzf"
-)
+mkdir -p "$LOG_DIR"
+
+# Redirect all output to log file while keeping it on screen
+exec > >(tee -a "$LOG_FILE") 2>&1
+
+echo -e "${YELLOW}Starting installation. Full log at: $LOG_FILE${RST}"
 
 is_42prague() {
     [[ "$HOSTNAME" == *"42prague"* ]]
@@ -41,24 +45,9 @@ run_sudo() {
 is_package_installed() {
     local pkg="$1"
     if command -v brew &> /dev/null; then
-        brew list "$pkg" &> /dev/null && return 0
+        brew list "$pkg" && return 0
     fi
-    command -v "$pkg" &> /dev/null
-}
-
-install_package() {
-    local pkg="$1"
-    if is_package_installed "$pkg"; then
-        echo -e "${GREEN}✓ $pkg is already installed${RST}"
-        return 0
-    fi
-
-    echo -e "${YELLOW}Installing $pkg...${RST}"
-    if command -v brew &> /dev/null; then
-        brew install "$pkg"
-    elif [ "$OS" == "Linux" ] && command -v apt-get &> /dev/null; then
-        run_sudo apt-get install -y "$pkg"
-    fi
+    command -v "$pkg"
 }
 
 link_file() {
@@ -105,64 +94,55 @@ prompt_create() {
     fi
 }
 
-if is_42prague; then
-    echo -e "${GREEN}42Prague detected: Using user-space installation${RST}"
-    if [ -d "/goinfre/$USER" ]; then
-        HOMEBREW_DIR="/goinfre/$USER/homebrew"
-    elif [ -d "$HOME/sgoinfre" ]; then
-        HOMEBREW_DIR="$HOME/sgoinfre/homebrew"
+install_homebrew() {
+    if command -v brew &> /dev/null; then
+        echo -e "${GREEN}✓ Homebrew is already installed${RST}"
+        return 0
+    fi
+
+    echo -e "${YELLOW}Installing Homebrew...${RST}"
+    if is_42prague; then
+        if [ -d "/goinfre/$USER" ]; then
+            HOMEBREW_DIR="/goinfre/$USER/homebrew"
+        elif [ -d "$HOME/sgoinfre" ]; then
+            HOMEBREW_DIR="$HOME/sgoinfre/homebrew"
+        else
+            HOMEBREW_DIR="$HOME/.homebrew"
+        fi
+        mkdir -p "$HOMEBREW_DIR"
+        git clone https://github.com/Homebrew/brew.git "$HOMEBREW_DIR"
+        eval "$($HOMEBREW_DIR/bin/brew shellenv)"
     else
-        HOMEBREW_DIR="$HOME/.homebrew"
-    fi
-    
-    if ! command -v brew &> /dev/null || [[ "$PATH" != *"$HOMEBREW_DIR/bin"* ]]; then
-        if [ ! -d "$HOMEBREW_DIR" ]; then
-            echo -e "${YELLOW}Installing Homebrew to $HOMEBREW_DIR...${RST}"
-            mkdir -p "$HOMEBREW_DIR"
-            git clone https://github.com/Homebrew/brew.git "$HOMEBREW_DIR" 2>/dev/null
-        fi
-        export PATH="$HOMEBREW_DIR/bin:$PATH"
-        for rc in "$DOTFILES_DIR/.zshrc" "$DOTFILES_DIR/.bashrc"; do
-            if [ -f "$rc" ]; then
-                if ! grep -q "$HOMEBREW_DIR/bin" "$rc"; then
-                    echo "export PATH=\"$HOMEBREW_DIR/bin:\$PATH\"" >> "$rc"
-                fi
-            fi
-        done
-    fi
-else
-    if ! command -v brew &> /dev/null; then
-        if [ "$OS" == "Darwin" ]; then
-            /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
+        /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
+        if [ "$OS" == "Linux" ]; then
+            eval "$(/home/linuxbrew/.linuxbrew/bin/brew shellenv)"
+        else
+            eval "$(/opt/homebrew/bin/brew shellenv)"
         fi
     fi
-fi
+}
 
-for pkg in "${COMMON_PACKAGES[@]}"; do
-    install_package "$pkg"
-done
+# Main installation logic
+install_homebrew
 
-if [ -f "$DOTFILES_DIR/brewlist.txt" ] && command -v brew &> /dev/null; then
-    read -p "Install additional packages from brewlist.txt? [y/N] " -n 1 -r
-    echo
-    if [[ $REPLY =~ ^[Yy]$ ]]; then
-        while read -r pkg; do
-            [ -n "$pkg" ] && install_package "$pkg"
-        done < "$DOTFILES_DIR/brewlist.txt"
+if command -v brew &> /dev/null; then
+    if [ -f "$DOTFILES_DIR/Brewfile" ]; then
+        echo -e "${YELLOW}Syncing system with Brewfile (Verbose)...${RST}"
+        brew bundle install --verbose --file="$DOTFILES_DIR/Brewfile"
     fi
 fi
 
 mkdir -p "$XDG_CONFIG_HOME" "$HOME/bin" "$HOME/.vim/autoload" "$HOME/.local/share/fonts" "$HOME/.local/share/applications"
 
 if [ -d "$DOTFILES_DIR/font" ]; then
-    cp -r "$DOTFILES_DIR"/font/JetBrainsMono* "$HOME/.local/share/fonts/" 2>/dev/null
-    command -v fc-cache &> /dev/null && fc-cache -f
+    cp -rv "$DOTFILES_DIR"/font/JetBrainsMono* "$HOME/.local/share/fonts/"
+    command -v fc-cache &> /dev/null && fc-cache -fv
 fi
 
-[ ! -d "$XDG_CONFIG_HOME/alacritty/themes" ] && mkdir -p "$XDG_CONFIG_HOME/alacritty" && git clone https://github.com/dracula/alacritty.git "$XDG_CONFIG_HOME/alacritty/themes" 2>/dev/null
-[ ! -d "$XDG_CONFIG_HOME/zsh-syntax-highlighting" ] && git clone https://github.com/zsh-users/zsh-syntax-highlighting.git "$XDG_CONFIG_HOME/zsh-syntax-highlighting" 2>/dev/null
-[ ! -d "$HOME/.tmux/plugins/tpm" ] && mkdir -p "$HOME/.tmux/plugins" && git clone https://github.com/tmux-plugins/tpm "$HOME/.tmux/plugins/tpm" 2>/dev/null
-[ ! -f "$HOME/.vim/autoload/plug.vim" ] && curl -fLo "$HOME/.vim/autoload/plug.vim" --create-dirs https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim 2>/dev/null
+[ ! -d "$XDG_CONFIG_HOME/alacritty/themes" ] && mkdir -p "$XDG_CONFIG_HOME/alacritty" && git clone https://github.com/dracula/alacritty.git "$XDG_CONFIG_HOME/alacritty/themes"
+[ ! -d "$XDG_CONFIG_HOME/zsh-syntax-highlighting" ] && git clone https://github.com/zsh-users/zsh-syntax-highlighting.git "$XDG_CONFIG_HOME/zsh-syntax-highlighting"
+[ ! -d "$HOME/.tmux/plugins/tpm" ] && mkdir -p "$HOME/.tmux/plugins" && git clone https://github.com/tmux-plugins/tpm "$HOME/.tmux/plugins/tpm"
+[ ! -f "$HOME/.vim/autoload/plug.vim" ] && curl -fLo "$HOME/.vim/autoload/plug.vim" --create-dirs https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
 
 link_file "$DOTFILES_DIR/.zshrc" "$HOME/.zshrc"
 link_file "$DOTFILES_DIR/.vimrc" "$HOME/.vimrc"
@@ -219,8 +199,25 @@ if [ "$SHELL" != "$(which zsh 2>/dev/null)" ] && command -v zsh &> /dev/null; th
     chsh -s "$(which zsh)" 2>/dev/null
 fi
 
+echo -e "\n${YELLOW}--- Post-Install Audit ---${RST}"
+ERRORS=$(grep -iEi "error|failed|failed to|could not|incorrect" "$LOG_FILE" | grep -v "0 errors" | sort -u)
+WARNINGS=$(grep -iEi "warning|warn|deprecated" "$LOG_FILE" | grep -v "0 warnings" | sort -u)
+
+if [ -n "$ERRORS" ]; then
+    echo -e "${RED}Found the following errors during installation:${RST}"
+    echo "$ERRORS"
+else
+    echo -e "${GREEN}✓ No critical errors found.${RST}"
+fi
+
+if [ -n "$WARNINGS" ]; then
+    echo -e "\n${YELLOW}Found the following warnings:${RST}"
+    echo "$WARNINGS"
+fi
+
 echo -e "\n${YELLOW}--- Manual Reminders ---${RST}"
 [ -f "$DOTFILES_DIR/apps_config/vimium-options.json" ] && echo -e "${YELLOW}Import Vimium settings: $DOTFILES_DIR/apps_config/vimium-options.json${RST}"
 [ -f "$DOTFILES_DIR/apps_config/youtube_enhancer_config.txt" ] && echo -e "${YELLOW}Import YouTube Enhancer config: $DOTFILES_DIR/apps_config/youtube_enhancer_config.txt${RST}"
 
 echo -e "${GREEN}✓ Dotfiles installation completed successfully!${RST}"
+echo -e "${YELLOW}Full log is available at: $LOG_FILE${RST}"
