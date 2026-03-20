@@ -58,7 +58,7 @@ export MANPAGER="less -s -M +Gg"
 export MAIL="pibouill@student.42prague.com"
 
 # -----------------------------------------------------------------------------
-# PATH MODIFICATIONS (Shared & Dynamic)
+# PATH MODIFICATIONS
 # -----------------------------------------------------------------------------
 typeset -U path # Keep path unique
 path=(
