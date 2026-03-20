@@ -27,7 +27,7 @@ return {
 				},
 				tools = {
 					gemini = {
-						cmd = { "gemini", "--model", "gemini-2.0-pro" },
+						cmd = { "gemini", "--model", "gemini-2.5-pro" },
 					},
 				},
 				---@type table<string, sidekick.context.Fn>
