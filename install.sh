@@ -25,7 +25,6 @@ LOG_FILE="$LOG_DIR/install_$(date +%Y%m%d_%H%M%S).log"
 
 mkdir -p "$LOG_DIR"
 
-# Redirect all output to log file while keeping it on screen
 exec > >(tee -a "$LOG_FILE") 2>&1
 
 echo -e "${YELLOW}Starting installation. Full log at: $LOG_FILE${RST}"

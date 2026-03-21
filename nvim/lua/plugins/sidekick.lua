@@ -110,20 +110,6 @@ return {
 			require("sidekick").setup(opts)
 		end,
 		keys = {
-			-- Sidekick CLI Sessions:
-			--  <leader>aa : Toggle CLI (Gemini, Cursor, etc.)
-			--  <leader>as         : Select an installed CLI tool
-			--  <leader>ad         : Detach/Close the current session
-			--  <leader>ap         : Select a prompt (Explain, Optimize, etc.)
-			--  <leader>ac         : Toggle Claude directly
-			--
-			-- Context Sending:
-			--  <leader>at         : Send "This" (current cursor/function context)
-			--  <leader>af         : Send current File content
-			--  <leader>av (visual): Send Visual selection
-			--
-			-- Next Edit Suggestions (NES):
-			--  <tab>              : Jump to or Apply the suggestion
 			{
 				"<tab>",
 				function()
@@ -191,3 +177,17 @@ return {
 		},
 	}
 }
+			-- Sidekick CLI Sessions:
+			--  <leader>aa : Toggle CLI (Gemini, Cursor, etc.)
+			--  <leader>as         : Select an installed CLI tool
+			--  <leader>ad         : Detach/Close the current session
+			--  <leader>ap         : Select a prompt (Explain, Optimize, etc.)
+			--  <leader>ac         : Toggle Claude directly
+			--
+			-- Context Sending:
+			--  <leader>at         : Send "This" (current cursor/function context)
+			--  <leader>af         : Send current File content
+			--  <leader>av (visual): Send Visual selection
+			--
+			-- Next Edit Suggestions (NES):
+			--  <tab>              : Jump to or Apply the suggestion

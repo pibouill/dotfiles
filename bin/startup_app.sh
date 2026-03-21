@@ -32,8 +32,8 @@ sleep 1
 
 # Launch applications on their designated workspaces.
 # Workspaces are 0-indexed.
-run_on_workspace 0 /sgoinfre/pibouill/.cargo/bin/alacritty
-run_on_workspace 1 firefox
-run_on_workspace 1 google-chrome
-run_on_workspace 2 slack
-run_on_workspace 3 "$HOME/bin/obsidian"
+run_on_workspace 1 slack
+run_on_workspace 2 /sgoinfre/pibouill/.cargo/bin/alacritty
+run_on_workspace 3 firefox
+run_on_workspace 4 google-chrome
+run_on_workspace 4 "$HOME/bin/obsidian"
