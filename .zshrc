@@ -12,28 +12,54 @@
 #                                           `----'   
                                                     
 
-# -----------------------------------------------------------------------------
-# OS DETECTION & HOMEBREW SETUP
-# -----------------------------------------------------------------------------
 OS="$(uname -s)"
 HOSTNAME="$(hostname)"
 
-# Dynamic Homebrew Setup
-if [[ "$OS" == "Darwin" ]]; then
-    [ -f "/opt/homebrew/bin/brew" ] && eval "$(/opt/homebrew/bin/brew shellenv)"
-elif [[ "$OS" == "Linux" ]]; then
-    if hostname | grep -q 42prague; then
-        BREW_PATH="/goinfre/$USER/homebrew/bin/brew"
-        [ ! -f "$BREW_PATH" ] && BREW_PATH="/sgoinfre/$USER/homebrew/bin/brew"
-        [ -f "$BREW_PATH" ] && eval "$($BREW_PATH shellenv)"
-        export NODE_EXTRA_CA_CERTS="/etc/ssl/certs/ca-certificates.crt"
-    else
-        [ -f "/home/linuxbrew/.linuxbrew/bin/brew" ] && eval "$(/home/linuxbrew/.linuxbrew/bin/brew shellenv)"
-    fi
+IS_42PRAGUE=false
+if [[ "$OS" == "Linux" ]] && [[ "$HOSTNAME" == *"42prague"* ]]; then
+    IS_42PRAGUE=true
 fi
 
-# -----------------------------------------------------------------------------
-# GENERAL SHELL OPTIONS
+BREW_CACHE_FILE="$HOME/.zsh-brew-cache"
+
+_update_brew_cache() {
+    local brew_executable
+    if [[ "$OS" == "Darwin" ]]; then
+        brew_executable="/opt/homebrew/bin/brew"
+    elif [[ "$OS" == "Linux" ]]; then
+        if $IS_42PRAGUE; then
+            brew_executable="/goinfre/$USER/homebrew/bin/brew"
+            [ ! -f "$brew_executable" ] && brew_executable="/sgoinfre/$USER/homebrew/bin/brew"
+        else
+            brew_executable="/home/linuxbrew/.linuxbrew/bin/brew"
+        fi
+    fi
+
+    if [[ -x "$brew_executable" ]]; then
+        echo "Updating Homebrew cache..."
+        "$brew_executable" shellenv > "$BREW_CACHE_FILE"
+    else
+        echo "# Homebrew not found" > "$BREW_CACHE_FILE"
+    fi
+}
+
+# Load from cache if it exists, otherwise create it
+if [[ ! -f "$BREW_CACHE_FILE" ]]; then
+    _update_brew_cache
+fi
+
+source "$BREW_CACHE_FILE"
+
+brew_refresh_cache() {
+    _update_brew_cache
+    source "$BREW_CACHE_FILE"
+}
+
+# The NODE_EXTRA_CA_CERTS export needs to be preserved for 42prague
+if $IS_42PRAGUE; then
+    export NODE_EXTRA_CA_CERTS="/etc/ssl/certs/ca-certificates.crt"
+fi
+
 # -----------------------------------------------------------------------------
 autoload -U colors && colors
 
@@ -58,8 +84,6 @@ export MANPAGER="less -s -M +Gg"
 export MAIL="pibouill@student.42prague.com"
 
 # -----------------------------------------------------------------------------
-# PATH MODIFICATIONS
-# -----------------------------------------------------------------------------
 typeset -U path # Keep path unique
 path=(
     "$HOME/bin"
@@ -73,7 +97,7 @@ path=(
 if [[ "$OS" == "Darwin" ]]; then
     path=("/opt/homebrew/opt/llvm/bin" $path)
 elif [[ "$OS" == "Linux" ]]; then
-    if hostname | grep -q 42prague; then
+    if $IS_42PRAGUE; then
         path=(
             "$HOME/sgoinfre/.cargo/bin"
             "$HOME/sgoinfre/.nvm/versions/node/v22.11.0/bin"
@@ -85,23 +109,48 @@ elif [[ "$OS" == "Linux" ]]; then
         export RUSTUP_HOME="$HOME/sgoinfre/.rustup"
         export NVM_DIR="$HOME/sgoinfre/.nvm"
     fi
-    # Use dircolors if available
-    if [ -f "$HOME/.dircolors" ] && command -v dircolors >/dev/null; then
-        eval "$(dircolors "$HOME/.dircolors")"
+    DIRCOLORS_CACHE_FILE="$HOME/.zsh_dircolors_cache"
+    DIRCOLORS_CONFIG_FILE="$HOME/.dircolors"
+
+    _update_dircolors_cache() {
+        if [[ -f "$DIRCOLORS_CONFIG_FILE" ]] && command -v dircolors >/dev/null; then
+            echo "Updating dircolors cache..."
+            dircolors "$DIRCOLORS_CONFIG_FILE" > "$DIRCOLORS_CACHE_FILE"
+        else
+            echo "# dircolors not configured" > "$DIRCOLORS_CACHE_FILE"
+        fi
+    }
+
+    if [[ ! -f "$DIRCOLORS_CACHE_FILE" ]]; then
+        _update_dircolors_cache
     fi
+
+    if [[ -s "$DIRCOLORS_CACHE_FILE" ]]; then
+        eval "$(cat "$DIRCOLORS_CACHE_FILE")"
+    fi
+
+    dircolors_refresh_cache() {
+        _update_dircolors_cache
+        if [[ -s "$DIRCOLORS_CACHE_FILE" ]]; then
+            eval "$(cat "$DIRCOLORS_CACHE_FILE")"
+        fi
+    }
 fi
 export PATH
 
 # -----------------------------------------------------------------------------
-# COMPLETION & KEYBINDINGS
-# -----------------------------------------------------------------------------
 autoload -U compinit
 zstyle ':completion:*' menu select
 zmodload zsh/complist
-compinit
+
+if [[ -n ${ZDOTDIR:-$HOME}/.zcompdump(#qN.m+1) ]]; then
+  compinit
+else
+  compinit -C
+fi
+
 _comp_options+=(globdots)
 
-# Vim keys in tab complete 
 bindkey -M menuselect 'h' vi-backward-char
 bindkey -M menuselect 'k' vi-up-line-or-history
 bindkey -M menuselect 'l' vi-forward-char
@@ -112,9 +161,6 @@ bindkey -v '^?' backward-delete-char
 bindkey -s '^f' "tmux-sessionizer\n"
 
 # -----------------------------------------------------------------------------
-# ALIASES & FUNCTIONS
-# -----------------------------------------------------------------------------
-# General
 alias rff="rm -rf"
 alias vv=vim
 alias v=nvim
@@ -129,7 +175,6 @@ alias cwww="c++ -Wall -Werror -Wextra -std=c++98"
 alias ls='ls --color=auto'
 alias ll='ls -lah --color=auto'
 
-# Navigation
 alias work="cd ~/work/"
 alias dfl="cd ~/.config/dotfiles/"
 alias proj='cd "$PROJ"'
@@ -139,7 +184,6 @@ alias sb="v $HOME/sgoinfre/obs_vault_good/"
 alias learn="cd ~/work/learn"
 alias config="cd ~/.config/"
 
-# Development & Tools
 alias svenv="source .venv/bin/activate"
 alias vglc="valgrind --leak-check=full"
 alias vglcs="valgrind --leak-check=full --show-leak-kinds=all"
@@ -148,7 +192,6 @@ alias helgrind="valgrind --tool=helgrind"
 alias massif='valgrind --tool=massif --massif-out-file=massif.out'
 alias vim-be-good="docker run -it --rm brandoncc/vim-be-good:stable"
 
-# Git
 alias lg="lazygit"
 alias gol="git log --graph --oneline --decorate"
 alias gl="git log --color --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit"
@@ -164,12 +207,10 @@ alias gp="git pull"
 alias gpo="git pull origin"
 alias grs="git restore"
 
-# Search (fzf, grep)
 alias ff="fzf --preview 'bat --style=numbers --color=always --line-range :500 {}'"
 alias fp='vi $(ff)'
 alias find_word="grep -Rnw . -e"
 
-# 42 School Specific
 alias i="open https://profile.intra.42.fr/"
 alias vz="nvim $HOME/.zshrc"
 alias vrc="nvim $MYNVIMRC"
@@ -177,7 +218,6 @@ alias 42free='bash /nfs/homes/pibouill/.scripts/42free.sh'
 alias tetr='firefox https://tetr.io'
 alias parrot=/home/pibouill/parrot.sh
 
-# Misc
 alias tm="tmux"
 alias tconf="v ~/.tmux.conf"
 alias swcaps="~/.config/switch_caps_ctrl.sh"
@@ -185,16 +225,12 @@ alias cht="cht.sh"
 alias nt=nautilus
 alias weather="bash ~/bin/weather"
 
-# Functions
 tc() {
   touch "$1.c"
 }
 
 # -----------------------------------------------------------------------------
-# ZSH THEME & SYNTAX HIGHLIGHTING
-# -----------------------------------------------------------------------------
 
-# ZSH Syntax Highlighting (Dracula theme)
 ZSH_HIGHLIGHT_HIGHLIGHTERS=(main cursor)
 typeset -gA ZSH_HIGHLIGHT_STYLES
 ZSH_HIGHLIGHT_STYLES[comment]='fg=#6272A4'
@@ -245,32 +281,54 @@ ZSH_HIGHLIGHT_STYLES[default]='fg=#F8F8F2'
 ZSH_HIGHLIGHT_STYLES[cursor]='bg=black'
 source "$HOME/.config/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh"
 
-# Starship Prompt
 eval "$(starship init zsh)"
 
 # -----------------------------------------------------------------------------
-# FRAMEWORK & TOOL INITIALIZATION
-# -----------------------------------------------------------------------------
 
-# fzf
 export FZF_DEFAULT_OPTS=' --color=fg:#908caa,bg:#191724,hl:#ebbcba --color=fg+:#e0def4,bg+:#26233a,hl+:#ebbcba --color=border:#403d52,header:#31748f,gutter:#191724 --color=spinner:#f6c177,info:#9ccfd8,separator:#403d52 --color=pointer:#c4a7e7,marker:#eb6f92,prompt:#908caa --color=label:#908caa,query:#e0def4 --border=rounded --border-label=FZF --border-label-pos=0 --preview-window=border-rounded --padding=0 --margin=1 --prompt="> " --marker=">" --pointer="◆" --separator="─" --scrollbar="│"'
-source <(fzf --zsh)
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
 
-# nvm (Node Version Manager)
-[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"
-[ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"
+[ -z "$NVM_DIR" ] && export NVM_DIR="$HOME/.nvm"
 
-# envman & local environment
+nvm_lazy_load() {
+  unset -f nvm node npm npx pnpm yarn 
+  [ -s "$NVM_DIR/nvm.sh" ] && . "$NVM_DIR/nvm.sh"
+  [ -s "$NVM_DIR/bash_completion" ] && . "$NVM_DIR/bash_completion"
+}
+
+nvm() {
+  nvm_lazy_load
+  nvm "$@"
+}
+node() {
+  nvm_lazy_load
+  node "$@"
+}
+npm() {
+  nvm_lazy_load
+  npm "$@"
+}
+npx() {
+  nvm_lazy_load
+  npx "$@"
+}
+pnpm() {
+  nvm_lazy_load
+  pnpm "$@"
+}
+yarn() {
+  nvm_lazy_load
+  yarn "$@"
+}
+
 [ -f "$DOTFILES/.env" ] && source "$DOTFILES/.env"
 [ -s "$HOME/.config/envman/load.sh" ] && source "$HOME/.config/envman/load.sh"
 
-# Man pages colors
-export LESS_TERMCAP_mb=$'\e[1;31m'      # begin bold
-export LESS_TERMCAP_md=$'\e[1;34m'      # begin blink
-export LESS_TERMCAP_so=$'\e[01;45;37m'  # begin reverse video
-export LESS_TERMCAP_us=$'\e[01;36m'     # begin underline
-export LESS_TERMCAP_me=$'\e[0m'         # reset bold/blink
-export LESS_TERMCAP_se=$'\e[0m'         # reset reverse video
-export LESS_TERMCAP_ue=$'\e[0m'         # reset underline
-export GROFF_NO_SGR=1                   # for konsole
+export LESS_TERMCAP_mb=$'\e[1;31m'
+export LESS_TERMCAP_md=$'\e[1;34m'    
+export LESS_TERMCAP_so=$'\e[01;45;37m'
+export LESS_TERMCAP_us=$'\e[01;36m'
+export LESS_TERMCAP_me=$'\e[0m'
+export LESS_TERMCAP_se=$'\e[0m'
+export LESS_TERMCAP_ue=$'\e[0m'
+export GROFF_NO_SGR=1
