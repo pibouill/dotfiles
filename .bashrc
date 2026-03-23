@@ -32,6 +32,41 @@ export MYVIMRC="$HOME/.vimrc"
 export DOTFILES="$HOME/.config/dotfiles"
 export PROJ=~/work/minishell
 
+# Homebrew setup
+OS="$(uname -s)"
+HOSTNAME="$(hostname)"
+IS_42PRAGUE=false
+if [[ "$OS" == "Linux" ]] && [[ "$HOSTNAME" == *"42prague"* ]]; then
+    IS_42PRAGUE=true
+fi
+
+BREW_CACHE_FILE="$HOME/.bash-brew-cache"
+
+_update_brew_cache() {
+    local brew_executable
+    if [[ "$OS" == "Darwin" ]]; then
+        brew_executable="/opt/homebrew/bin/brew"
+    elif [[ "$OS" == "Linux" ]]; then
+        if $IS_42PRAGUE; then
+            brew_executable="/goinfre/$USER/homebrew/bin/brew"
+            [ ! -f "$brew_executable" ] && brew_executable="/sgoinfre/$USER/homebrew/bin/brew"
+        else
+            brew_executable="/home/linuxbrew/.linuxbrew/bin/brew"
+        fi
+    fi
+
+    if [[ -x "$brew_executable" ]]; then
+        "$brew_executable" shellenv > "$BREW_CACHE_FILE"
+    else
+        echo "# Homebrew not found" > "$BREW_CACHE_FILE"
+    fi
+}
+
+if [[ ! -f "$BREW_CACHE_FILE" ]]; then
+    _update_brew_cache
+fi
+source "$BREW_CACHE_FILE"
+
 # FZF (fuzzy finder) setup
 [ -f "$HOME"/.fzf.bash ] && source "$HOME"/.fzf.bash
 
@@ -98,6 +133,9 @@ export BAT_THEME="Dracula"
 # Starship prompt (bash support)
 eval "$(starship init bash)"
 export PATH="$HOME/bin:$PATH"
+export PATH="$HOME/.local/bin:$PATH"
+export PATH="$HOME/.npm-global/bin:$PATH"
+export PATH="$HOME/.local/share/nvim/mason/bin:$PATH"
 export PATH="$PATH:~/go/bin"
 export PATH="$PATH:~/bin/go/bin/bin"
 
@@ -116,9 +154,12 @@ alias devstation="\
 
 # 42-specific aliases and environment
 if hostname | grep -q 42prague; then
-    alias v="flatpak run io.neovim.nvim"
-    export PATH="$HOME/.cargo/bin:$PATH"
-    export PATH="$HOME/.local/bin:$PATH"
+    alias v="nvim"
+    export CARGO_HOME="$HOME/sgoinfre/.cargo"
+    export RUSTUP_HOME="$HOME/sgoinfre/.rustup"
+    export NVM_DIR="$HOME/sgoinfre/.nvm"
+    export PATH="$CARGO_HOME/bin:$PATH"
+    export PATH="$PATH:/nfs/homes/pibouill/bin/nvim-linux64/bin"
     export PATH="$PATH:/nfs/homes/pibouill/.config/coc/extensions/coc-clangd-data/install/"
     export GOPATH=~/bin/go/bin/
 else

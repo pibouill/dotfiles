@@ -55,10 +55,10 @@ brew_refresh_cache() {
     source "$BREW_CACHE_FILE"
 }
 
-# The NODE_EXTRA_CA_CERTS export needs to be preserved for 42prague
 if $IS_42PRAGUE; then
     export NODE_EXTRA_CA_CERTS="/etc/ssl/certs/ca-certificates.crt"
 fi
+
 
 # -----------------------------------------------------------------------------
 autoload -U colors && colors
@@ -84,31 +84,36 @@ export MANPAGER="less -s -M +Gg"
 export MAIL="pibouill@student.42prague.com"
 
 # -----------------------------------------------------------------------------
-typeset -U path # Keep path unique
+typeset -U path
 path=(
     "$HOME/bin"
     "$HOME/.local/bin"
     "$HOME/.npm-global/bin"
     "$HOME/go/bin"
-    "$HOME/.local/share/nvim/mason"
+    "$HOME/.local/share/nvim/mason/bin"
     $path
 )
 
 if [[ "$OS" == "Darwin" ]]; then
     path=("/opt/homebrew/opt/llvm/bin" $path)
-elif [[ "$OS" == "Linux" ]]; then
+fi
+
+if [[ "$OS" == "Linux" ]]; then
     if $IS_42PRAGUE; then
+        export NVM_DIR="$HOME/sgoinfre/.nvm"
+        export CARGO_HOME="$HOME/sgoinfre/.cargo"
+        export RUSTUP_HOME="$HOME/sgoinfre/.rustup"
+
         path=(
-            "$HOME/sgoinfre/.cargo/bin"
-            "$HOME/sgoinfre/.nvm/versions/node/v22.11.0/bin"
+            "$NVM_DIR/versions/node/v22.11.0/bin"
+            "$CARGO_HOME/bin"
             "/nfs/homes/pibouill/bin/nvim-linux64/bin"
             "/sgoinfre/pibouill/homebrew/opt/clang-format/bin"
             $path
         )
-        export CARGO_HOME="$HOME/sgoinfre/.cargo"
-        export RUSTUP_HOME="$HOME/sgoinfre/.rustup"
-        export NVM_DIR="$HOME/sgoinfre/.nvm"
     fi
+
+    # Dircolors logic (Linux only)
     DIRCOLORS_CACHE_FILE="$HOME/.zsh_dircolors_cache"
     DIRCOLORS_CONFIG_FILE="$HOME/.dircolors"
 
@@ -136,9 +141,10 @@ elif [[ "$OS" == "Linux" ]]; then
         fi
     }
 fi
-export PATH
 
+export PATH
 # -----------------------------------------------------------------------------
+
 autoload -U compinit
 zstyle ':completion:*' menu select
 zmodload zsh/complist
@@ -288,44 +294,39 @@ eval "$(starship init zsh)"
 export FZF_DEFAULT_OPTS=' --color=fg:#908caa,bg:#191724,hl:#ebbcba --color=fg+:#e0def4,bg+:#26233a,hl+:#ebbcba --color=border:#403d52,header:#31748f,gutter:#191724 --color=spinner:#f6c177,info:#9ccfd8,separator:#403d52 --color=pointer:#c4a7e7,marker:#eb6f92,prompt:#908caa --color=label:#908caa,query:#e0def4 --border=rounded --border-label=FZF --border-label-pos=0 --preview-window=border-rounded --padding=0 --margin=1 --prompt="> " --marker=">" --pointer="◆" --separator="─" --scrollbar="│"'
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
 
+# -----------------------------------------------------------------------------
+# NVM & Node.js Lazy Loading
+# -----------------------------------------------------------------------------
 [ -z "$NVM_DIR" ] && export NVM_DIR="$HOME/.nvm"
 
 nvm_lazy_load() {
-  unset -f nvm node npm npx pnpm yarn 
-  [ -s "$NVM_DIR/nvm.sh" ] && . "$NVM_DIR/nvm.sh"
-  [ -s "$NVM_DIR/bash_completion" ] && . "$NVM_DIR/bash_completion"
+    # Remove functions so they don't loop
+    unset -f nvm node npm npx pnpm yarn gemini
+    
+    # Load NVM if the script exists
+    if [ -s "$NVM_DIR/nvm.sh" ]; then
+        source "$NVM_DIR/nvm.sh"
+    fi
+    
+    # Load bash_completion if it exists
+    if [ -s "$NVM_DIR/bash_completion" ]; then
+        source "$NVM_DIR/bash_completion"
+    fi
 }
 
-nvm() {
-  nvm_lazy_load
-  nvm "$@"
-}
-node() {
-  nvm_lazy_load
-  node "$@"
-}
-npm() {
-  nvm_lazy_load
-  npm "$@"
-}
-npx() {
-  nvm_lazy_load
-  npx "$@"
-}
-pnpm() {
-  nvm_lazy_load
-  pnpm "$@"
-}
-yarn() {
-  nvm_lazy_load
-  yarn "$@"
-}
+# Create triggers for all Node-related commands
+for cmd in nvm node npm npx pnpm yarn gemini; do
+    eval "$cmd() { nvm_lazy_load; $cmd \"\$@\" }"
+done
 
+# -----------------------------------------------------------------------------
+# Environment & Extras
+# -----------------------------------------------------------------------------
 [ -f "$DOTFILES/.env" ] && source "$DOTFILES/.env"
 [ -s "$HOME/.config/envman/load.sh" ] && source "$HOME/.config/envman/load.sh"
 
 export LESS_TERMCAP_mb=$'\e[1;31m'
-export LESS_TERMCAP_md=$'\e[1;34m'    
+export LESS_TERMCAP_md=$'\e[1;34m'     
 export LESS_TERMCAP_so=$'\e[01;45;37m'
 export LESS_TERMCAP_us=$'\e[01;36m'
 export LESS_TERMCAP_me=$'\e[0m'

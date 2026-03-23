@@ -1,0 +1,7 @@
+alacritty
+bat
+cargo-update
+fd-find
+ripgrep
+starship
+tree-sitter-cli

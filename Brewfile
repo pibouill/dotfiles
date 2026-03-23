@@ -10,9 +10,25 @@
 #                                                                              #
 # **************************************************************************** #
 
+brew "fzf"
 brew "go"
 brew "luarocks"
 brew "composer"
+
+# Core utilities and UI
+brew "bat"
+brew "lazygit"
+brew "starship"
+brew "tmux"
+brew "ripgrep"
+
+# Development tools
+brew "python"
+brew "node"
+brew "neovim"
+brew "valgrind"
+brew "tree-sitter"
+brew "clang-format"
 
 brew "imagemagick"  # Required for Snacks.image
 brew "xsel"         # Clipboard support for Neovim on Linux

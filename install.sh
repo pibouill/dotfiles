@@ -131,6 +131,17 @@ if command -v brew &> /dev/null; then
     fi
 fi
 
+if command -v cargo &> /dev/null; then
+    if [ -f "$DOTFILES_DIR/Cargofile.txt" ]; then
+        echo -e "${YELLOW}Installing Cargo packages from Cargofile.txt...${RST}"
+        while read -r package; do
+            [ -z "$package" ] && continue
+            echo -e "${GREEN}Installing $package...${RST}"
+            cargo install "$package"
+        done < "$DOTFILES_DIR/Cargofile.txt"
+    fi
+fi
+
 mkdir -p "$XDG_CONFIG_HOME" "$HOME/bin" "$HOME/.vim/autoload" "$HOME/.local/share/fonts" "$HOME/.local/share/applications"
 
 if [ -d "$DOTFILES_DIR/font" ]; then
@@ -143,6 +154,8 @@ fi
 [ ! -d "$HOME/.tmux/plugins/tpm" ] && mkdir -p "$HOME/.tmux/plugins" && git clone https://github.com/tmux-plugins/tpm "$HOME/.tmux/plugins/tpm"
 [ ! -f "$HOME/.vim/autoload/plug.vim" ] && curl -fLo "$HOME/.vim/autoload/plug.vim" --create-dirs https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
 
+link_file "$DOTFILES_DIR/.fzf.zsh" "$HOME/.fzf.zsh"
+link_file "$DOTFILES_DIR/.fzf.bash" "$HOME/.fzf.bash"
 link_file "$DOTFILES_DIR/.zshrc" "$HOME/.zshrc"
 link_file "$DOTFILES_DIR/.vimrc" "$HOME/.vimrc"
 link_file "$DOTFILES_DIR/.bashrc" "$HOME/.bashrc"

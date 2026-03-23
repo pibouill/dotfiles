@@ -21,8 +21,7 @@ if ! command -v brew &>/dev/null; then
     brew update --force --quiet
     chmod -R go-w "$(brew --prefix)/share/zsh"
     echo -e "eval \"\$($(brew --prefix)/bin/brew shellenv)\"" >> ~/.zshrc
-	xargs brew install < "$DOTFILES_DIR"/brewlist.txt
-	brew install nvim fzf starship treesitter
+	brew bundle install --file="$DOTFILES_DIR"/Brewfile
 else
     echo -e "Homebrew is already installed."
 fi
