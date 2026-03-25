@@ -20,15 +20,37 @@ run_on_workspace()
 	shift
 	local app_cmd=("$@")
 
-	if command -v "${app_cmd[0]}" >/dev/null 2>&1 || [ -x "${app_cmd[0]}" ]; then
-		wmctrl -s "$workspace"
-		sleep 0.2
-		"${app_cmd[@]}" >/dev/null 2>&1 & disown
+	if ! command -v "${app_cmd[0]}" >/dev/null 2>&1 && ! [ -x "${app_cmd[0]}" ]; then
+		echo "Command not found: ${app_cmd[0]}"
+		return
+	fi
+
+	# Launch the application in the background.
+	"${app_cmd[@]}" >/dev/null 2>&1 &
+	local pid=$!
+	disown $pid
+
+	# Poll for the window to appear, then move it.
+	# We loop for a few seconds, trying to find the window ID.
+	local win_id=""
+	local counter=0
+	while [ $counter -lt 50 ]; do # Try for 5 seconds (50 * 100ms)
+		# Get the window ID for the process ID.
+		win_id=$(wmctrl -lp | grep " $pid " | awk '{print $1}')
+		if [ -n "$win_id" ]; then
+			break
+		fi
+		sleep 0.1
+		counter=$((counter + 1))
+	done
+
+	# If we found a window ID, move the window to the target workspace.
+	if [ -n "$win_id" ]; then
+		wmctrl -i -r "$win_id" -t "$workspace"
+	else
+		echo "Could not find window for ${app_cmd[0]} (PID: $pid)"
 	fi
 }
-
-# Wait for the desktop environment to be ready.
-sleep 1
 
 # Launch applications on their designated workspaces.
 # Workspaces are 0-indexed.

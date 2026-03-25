@@ -110,7 +110,7 @@ install_homebrew() {
         fi
         mkdir -p "$HOMEBREW_DIR"
         git clone https://github.com/Homebrew/brew.git "$HOMEBREW_DIR"
-        eval "$($HOMEBREW_DIR/bin/brew shellenv)"
+        eval "$("$HOMEBREW_DIR"/bin/brew shellenv)"
     else
         /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
         if [ "$OS" == "Linux" ]; then
