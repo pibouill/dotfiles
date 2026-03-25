@@ -21,11 +21,11 @@ source-currency=''
 source-units='degree'
 target-currency=''
 target-units='radian'
-window-position=(576, 388)
+window-position=(205, 137)
 word-size=64
 
 [org/gnome/control-center]
-last-panel='universal-access'
+last-panel='display'
 
 [org/gnome/desktop/a11y]
 always-show-universal-access-status=false
@@ -53,8 +53,8 @@ translate=true
 [org/gnome/desktop/background]
 color-shading-type='solid'
 picture-options='zoom'
-picture-uri='file:///home/pibouill/Pictures/Wallpapers/cabin_mountains_ruisseau.png'
-picture-uri-dark='file:///home/pibouill/Pictures/Wallpapers/cabin_mountains_ruisseau.png'
+picture-uri='file:///home/pibouill/Pictures/Wallpapers/20251114_163022.jpg'
+picture-uri-dark='file:///home/pibouill/Pictures/Wallpapers/20251114_163022.jpg'
 primary-color='#000000'
 secondary-color='#000000'
 
@@ -63,7 +63,7 @@ show-weekdate=false
 
 [org/gnome/desktop/input-sources]
 per-window=false
-sources=[('xkb', 'us+fr')]
+sources=[('xkb', 'us'), ('xkb', 'cz'), ('xkb', 'ru')]
 xkb-options=['ctrl:nocaps', 'compose:prsc', 'lv3:switch', 'lv3:ralt_alt']
 
 [org/gnome/desktop/interface]
@@ -86,10 +86,13 @@ disable-lock-screen=true
 disable-user-switching=true
 
 [org/gnome/desktop/notifications]
-application-children=['firefox', 'gnome-control-center', 'slack', 'org-gnome-font-viewer', 'org-gnome-nautilus', 'com-slack-slack', 'com-spotify-client', 'alacritty', 'google-chrome', 'org-gnome-software', 'org-gimp-gimp', 'org-gnome-eog', 'org-gnome-gedit', 'discord', 'xdg-desktop-portal-gnome', 'org-gnome-terminal', 'terminator', 'libreoffice-draw', 'obsidian']
+application-children=['firefox', 'gnome-control-center', 'slack', 'org-gnome-font-viewer', 'org-gnome-nautilus', 'com-slack-slack', 'com-spotify-client', 'alacritty', 'google-chrome', 'org-gnome-software', 'org-gimp-gimp', 'org-gnome-eog', 'org-gnome-gedit', 'discord', 'xdg-desktop-portal-gnome', 'org-gnome-terminal', 'terminator', 'libreoffice-draw', 'obsidian', 'mixxx', 'bambustudio']
 
 [org/gnome/desktop/notifications/application/alacritty]
 application-id='alacritty.desktop'
+
+[org/gnome/desktop/notifications/application/bambustudio]
+application-id='bambustudio.desktop'
 
 [org/gnome/desktop/notifications/application/com-slack-slack]
 application-id='com.slack.Slack.desktop'
@@ -111,6 +114,9 @@ application-id='google-chrome.desktop'
 
 [org/gnome/desktop/notifications/application/libreoffice-draw]
 application-id='libreoffice-draw.desktop'
+
+[org/gnome/desktop/notifications/application/mixxx]
+application-id='mixxx.desktop'
 
 [org/gnome/desktop/notifications/application/obsidian]
 application-id='obsidian.desktop'
@@ -211,19 +217,19 @@ show-sidebar=true
 sidebar-page='links'
 sidebar-size=216
 sizing-mode='fit-page'
-window-ratio=(1.6127450980392157, 1.2146464646464648)
+window-ratio=(1.5287287397210612, 0.60032270311313596)
 
 [org/gnome/evolution-data-server]
 migrated=true
 network-monitor-gio-name=''
 
 [org/gnome/gedit/plugins]
-active-plugins=['filebrowser', 'modelines', 'openlinks', 'sort', 'spell', 'docinfo']
+active-plugins=['filebrowser', 'spell', 'openlinks', 'sort', 'modelines', 'docinfo']
 
 [org/gnome/gedit/plugins/filebrowser]
 root='file:///'
 tree-view=true
-virtual-root='file:///home/pibouill/Downloads'
+virtual-root='file:///home/pibouill/Downloads/Audiowide'
 
 [org/gnome/gedit/preferences/editor]
 scheme='Yaru-dark'
@@ -267,7 +273,7 @@ experimental-features=@as []
 default-zoom-level='small'
 
 [org/gnome/nautilus/preferences]
-default-folder-viewer='icon-view'
+default-folder-viewer='list-view'
 search-filter-time-type='last_modified'
 search-view='list-view'
 
@@ -296,6 +302,7 @@ sleep-inactive-ac-timeout=uint32 0
 sleep-inactive-ac-type='nothing'
 
 [org/gnome/shell]
+app-picker-layout=[{'software-properties-drivers.desktop': <{'position': <0>}>, 'org.gnome.Contacts.desktop': <{'position': <1>}>, 'alacritty.desktop': <{'position': <2>}>, 'brave-browser.desktop': <{'position': <3>}>, 'byobu.desktop': <{'position': <4>}>, 'chromium-browser.desktop': <{'position': <5>}>, 'org.gnome.Totem.desktop': <{'position': <6>}>, 'org.gnome.Calculator.desktop': <{'position': <7>}>, 'discord.desktop': <{'position': <8>}>, 'org.gnome.gedit.desktop': <{'position': <9>}>, 'emacs.desktop': <{'position': <10>}>, 'emacs-term.desktop': <{'position': <11>}>, 'gnome-system-monitor.desktop': <{'position': <12>}>, 'org.gnome.Extensions.desktop': <{'position': <13>}>, 'org.gnome.Terminal.desktop': <{'position': <14>}>, 'Utilities': <{'position': <15>}>, 'org.gnome.Nautilus.desktop': <{'position': <16>}>, 'yelp.desktop': <{'position': <17>}>, 'firefox.desktop': <{'position': <18>}>, 'fish.desktop': <{'position': <19>}>, 'org.gnome.Gnote.desktop': <{'position': <20>}>, 'google-chrome.desktop': <{'position': <21>}>, 'htop.desktop': <{'position': <22>}>, 'gnome-language-selector.desktop': <{'position': <23>}>}, {'libreoffice-startcenter.desktop': <{'position': <0>}>, 'libreoffice-base.desktop': <{'position': <1>}>, 'libreoffice-calc.desktop': <{'position': <2>}>, 'libreoffice-draw.desktop': <{'position': <3>}>, 'libreoffice-impress.desktop': <{'position': <4>}>, 'libreoffice-math.desktop': <{'position': <5>}>, 'libreoffice-writer.desktop': <{'position': <6>}>, 'microsoft-edge.desktop': <{'position': <7>}>, 'mu.codewith.editor.desktop': <{'position': <8>}>, 'nvim.desktop': <{'position': <9>}>, 'obsidian.desktop': <{'position': <10>}>, 'virtualbox.desktop': <{'position': <11>}>, 'org.gnome.PowerStats.desktop': <{'position': <12>}>, 'remote-viewer.desktop': <{'position': <13>}>, 'gnome-control-center.desktop': <{'position': <14>}>, 'simplescreenrecorder.desktop': <{'position': <15>}>, 'slack.desktop': <{'position': <16>}>, 'org.gnome.Software.desktop': <{'position': <17>}>, 'software-properties-gtk.desktop': <{'position': <18>}>, 'spotify.desktop': <{'position': <19>}>, 'gnome-session-properties.desktop': <{'position': <20>}>, 'sublime_text.desktop': <{'position': <21>}>, 'terminator.desktop': <{'position': <22>}>, 'info.desktop': <{'position': <23>}>}, {'xtigervncviewer.desktop': <{'position': <0>}>, 'debian-uxterm.desktop': <{'position': <1>}>, 'vim.desktop': <{'position': <2>}>, 'virt-manager.desktop': <{'position': <3>}>, 'code.desktop': <{'position': <4>}>, 'vlc.desktop': <{'position': <5>}>, 'debian-xterm.desktop': <{'position': <6>}>}]
 command-history=['r']
 disable-user-extensions=false
 disabled-extensions=['window-list@gnome-shell-extensions.gcampax.github.com', 'ubuntu-dock@ubuntu.com', 'windowsNavigator@gnome-shell-extensions.gcampax.github.com', 'workspace-indicator@gnome-shell-extensions.gcampax.github.com']
@@ -389,7 +396,7 @@ selected-color=(true, 0.70980392156862748, 0.51372549019607838, 0.35294117647058
 [org/gtk/settings/file-chooser]
 date-format='regular'
 location-mode='path-bar'
-show-hidden=true
+show-hidden=false
 show-size-column=true
 show-type-column=true
 sidebar-width=157
