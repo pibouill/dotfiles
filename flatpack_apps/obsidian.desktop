@@ -1,7 +1,7 @@
 [Desktop Entry]
 Name=Obsidian
 #Exec=AppRun --no-sandbox %U
-Exec=/home/pibouill/bin/obsidian/obsidian
+Exec=/home/pibouill/bin/obsidian
 Terminal=false
 Type=Application
 Icon=/home/pibouill/Pictures/logo/obsidian.png
