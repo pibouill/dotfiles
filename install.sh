@@ -29,11 +29,13 @@ exec > >(tee -a "$LOG_FILE") 2>&1
 
 echo -e "${YELLOW}Starting installation. Full log at: $LOG_FILE${RST}"
 
-is_42prague() {
+is_42prague()
+{
     [[ "$HOSTNAME" == *"42prague"* ]]
 }
 
-run_sudo() {
+run_sudo()
+{
     if command -v sudo &> /dev/null; then
         sudo "$@"
     else
@@ -41,7 +43,8 @@ run_sudo() {
     fi
 }
 
-is_package_installed() {
+is_package_installed()
+{
     local pkg="$1"
     if command -v brew &> /dev/null; then
         brew list "$pkg" && return 0
@@ -49,7 +52,8 @@ is_package_installed() {
     command -v "$pkg"
 }
 
-link_file() {
+link_file()
+{
     local src="$1"
     local dst="$2"
 
@@ -71,7 +75,8 @@ link_file() {
     ln -sf "$src" "$dst"
 }
 
-prompt_create() {
+prompt_create()
+{
     local src="$1"
     local dst="$2"
     local default_content="$3"
@@ -93,7 +98,8 @@ prompt_create() {
     fi
 }
 
-install_homebrew() {
+install_homebrew()
+{
     if command -v brew &> /dev/null; then
         echo -e "${GREEN}✓ Homebrew is already installed${RST}"
         return 0
@@ -193,10 +199,24 @@ fi
 
 if [ "$OS" == "Linux" ]; then
     if command -v dconf &> /dev/null; then
-        [ -f "$DOTFILES_DIR/dconf.txt" ] && dconf load / < "$DOTFILES_DIR/dconf.txt"
+        [ -f "$DOTFILES_DIR/dconf.txt" ] && dconf load / < "$DOTFILES_DIR/dconf.txt" 2>/dev/null
     fi
 
-    for app_dir in "applications" "flatpack_apps"; do
+    # Install/Link Apps in Goinfre
+    if [ -f "$DOTFILES_DIR/scripts/install_apps_goinfre.sh" ]; then
+        echo -e "${YELLOW}Installing/Linking Applications in Goinfre...${RST}"
+        bash "$DOTFILES_DIR/scripts/install_apps_goinfre.sh"
+    fi
+
+    # Handle Icons specifically to avoid dangling symlinks
+    if [ -d "$DOTFILES_DIR/apps_desktop/icons" ]; then
+        mkdir -p "$HOME/.local/share/applications/icons"
+        for icon in "$DOTFILES_DIR/apps_desktop/icons/"*; do
+            [ -f "$icon" ] && link_file "$icon" "$HOME/.local/share/applications/icons/$(basename "$icon")"
+        done
+    fi
+
+    for app_dir in "apps_desktop" "flatpack_apps"; do
         if [ -d "$DOTFILES_DIR/$app_dir" ]; then
             for file in "$DOTFILES_DIR/$app_dir"/*.desktop; do
                 [ -f "$file" ] && link_file "$file" "$HOME/.local/share/applications/$(basename "$file")"
@@ -207,8 +227,12 @@ if [ "$OS" == "Linux" ]; then
 fi
 
 if [ "$SHELL" != "$(which zsh 2>/dev/null)" ] && command -v zsh &> /dev/null; then
-    is_42prague && echo -e "${YELLOW}Manual shell change may be needed on 42prague.${RST}"
-    chsh -s "$(which zsh)" 2>/dev/null
+    if is_42prague; then
+        echo -e "${YELLOW}Note: Manual shell change is required on 42prague.${RST}"
+    else
+        echo -e "${YELLOW}Changing shell to zsh...${RST}"
+        chsh -s "$(which zsh)" 2>/dev/null
+    fi
 fi
 
 echo -e "\n${YELLOW}--- Post-Install Audit ---${RST}"

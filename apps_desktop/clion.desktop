@@ -1,8 +1,8 @@
 [Desktop Entry]
 Name=CLion
-Comment=A fast, cross-platform, OpenGL terminal emulator
-Exec=/sgoinfre/pibouill/clion-2025.1.1/bin/clion
-# Icon=/home/pibouill/.local/share/applications/icons/alacritty-term.svg
+Comment=JetBrains CLion IDE
+Exec=/home/pibouill/bin/clion
+Icon=/home/pibouill/.local/share/applications/icons/clion.svg
 Terminal=false
 Type=Application
-Categories=Utility;TerminalEmulator;
+Categories=Development;IDE;

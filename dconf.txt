@@ -115,9 +115,6 @@ application-id='google-chrome.desktop'
 [org/gnome/desktop/notifications/application/libreoffice-draw]
 application-id='libreoffice-draw.desktop'
 
-[org/gnome/desktop/notifications/application/mixxx]
-application-id='mixxx.desktop'
-
 [org/gnome/desktop/notifications/application/obsidian]
 application-id='obsidian.desktop'
 
@@ -403,6 +400,10 @@ sidebar-width=157
 sort-column='modified'
 sort-directories-first=false
 sort-order='descending'
+type-format='category'
+window-position=(359, 80)
+window-size=(1203, 902)
+'
 type-format='category'
 window-position=(359, 80)
 window-size=(1203, 902)

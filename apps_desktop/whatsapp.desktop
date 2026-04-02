@@ -1,6 +1,6 @@
 [Desktop Entry]
-Name=whatsApp
-Exec=/home/pibouill/bin/WhatsApp.AppImage
+Name=WhatsApp
+Exec=/home/pibouill/bin/whatsapp
 Icon=/home/pibouill/.local/share/applications/icons/whatsapp.png
 Type=Application
-Categories=Utility;
+Categories=Network;InstantMessaging;
