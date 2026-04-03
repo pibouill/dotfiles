@@ -75,6 +75,16 @@ return {
 			bashls = {
 				filetypes = { "sh", "zsh", "bash", "zshrc", ".zsh", ".zshrc" },
 			},
+			tsserver = {
+				filetypes = {
+					"javascript",
+					"typescript",
+					"javascriptreact",
+					"typescriptreact",
+					"mjs",
+					"cjs"
+				},
+			},
 		}
 
 		mason_lspconfig.setup({
@@ -84,6 +94,8 @@ return {
 				"bashls",
 				"pyright",
 				"pylsp",
+				"tsserver",
+				"eslint",
 				-- "rust_analyzer",
 				-- "stylua",
 			},
@@ -112,6 +124,8 @@ return {
 		vim.filetype.add({
 			extension = {
 				zsh = "zsh",
+				mjs = "javascript",
+				cjs = "javascript",
 			},
 			filename = {
 				[".zshrc"] = "zsh",
