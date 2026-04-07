@@ -1,6 +1,6 @@
 [Desktop Entry]
 Name=Bambu Studio
-Exec=env LANG=en_US.UTF-8 /home/pibouill/bin/bambu-studio %U
+Exec=/home/pibouill/bin/bambu-studio %U
 Icon=/home/pibouill/.local/share/applications/icons/bambustudio.png
 Type=Application
 Terminal=false
