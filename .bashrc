@@ -42,6 +42,12 @@ fi
 
 BREW_CACHE_FILE="$HOME/.bash-brew-cache"
 
+if $IS_42PRAGUE; then
+    export NODE_EXTRA_CA_CERTS="/etc/ssl/certs/ca-certificates.crt"
+    export CURL_CA_BUNDLE="/etc/ssl/certs/ca-certificates.crt"
+    export SSL_CERT_FILE="/etc/ssl/certs/ca-certificates.crt"
+fi
+
 _update_brew_cache() {
     local brew_executable
     if [[ "$OS" == "Darwin" ]]; then
