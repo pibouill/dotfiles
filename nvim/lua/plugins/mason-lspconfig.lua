@@ -75,7 +75,7 @@ return {
 			bashls = {
 				filetypes = { "sh", "zsh", "bash", "zshrc", ".zsh", ".zshrc" },
 			},
-			tsserver = {
+			ts_ls = {
 				filetypes = {
 					"javascript",
 					"typescript",
@@ -94,7 +94,7 @@ return {
 				"bashls",
 				"pyright",
 				"pylsp",
-				"tsserver",
+				"ts_ls",
 				"eslint",
 				-- "rust_analyzer",
 				-- "stylua",
