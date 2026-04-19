@@ -151,8 +151,14 @@ fi
 mkdir -p "$XDG_CONFIG_HOME" "$HOME/bin" "$HOME/.vim/autoload" "$HOME/.local/share/fonts" "$HOME/.local/share/applications"
 
 if [ -d "$DOTFILES_DIR/font" ]; then
-    cp -rv "$DOTFILES_DIR"/font/JetBrainsMono* "$HOME/.local/share/fonts/"
-    command -v fc-cache &> /dev/null && fc-cache -fv
+    if [ "$OS" == "Darwin" ]; then
+        echo -e "${YELLOW}Installing fonts for macOS...${RST}"
+        cp -rv "$DOTFILES_DIR"/font/JetBrainsMono* "$HOME/Library/Fonts/"
+    else
+        echo -e "${YELLOW}Installing fonts for Linux...${RST}"
+        cp -rv "$DOTFILES_DIR"/font/JetBrainsMono* "$HOME/.local/share/fonts/"
+        command -v fc-cache &> /dev/null && fc-cache -fv
+    fi
 fi
 
 [ ! -d "$XDG_CONFIG_HOME/alacritty/themes" ] && mkdir -p "$XDG_CONFIG_HOME/alacritty" && git clone https://github.com/dracula/alacritty.git "$XDG_CONFIG_HOME/alacritty/themes"
