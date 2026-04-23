@@ -59,6 +59,7 @@ if $IS_42PRAGUE; then
     export NODE_EXTRA_CA_CERTS="/etc/ssl/certs/ca-certificates.crt"
     export CURL_CA_BUNDLE="/etc/ssl/certs/ca-certificates.crt"
     export SSL_CERT_FILE="/etc/ssl/certs/ca-certificates.crt"
+	export HOMEBREW_NO_AUTO_UPDATE=1
 fi
 
 
