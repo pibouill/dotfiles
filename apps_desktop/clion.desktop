@@ -1,8 +1,0 @@
-[Desktop Entry]
-Name=CLion
-Comment=JetBrains CLion IDE
-Exec=/home/pibouill/bin/clion
-Icon=/home/pibouill/.local/share/applications/icons/clion.svg
-Terminal=false
-Type=Application
-Categories=Development;IDE;
