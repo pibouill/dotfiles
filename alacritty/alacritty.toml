@@ -18,8 +18,8 @@ size = 14
 [font.normal]
 # family = "Ubuntu Mono Nerd Font Propo"
 # family = "0xProto Nerd Font"
-family = "JetBrains Mono"
-style = "SemiBold"
+family = "JetBrainsMono Nerd Font"
+style = "Regular"
 
 [window]
 opacity = 0.9
