@@ -1,0 +1,28 @@
+# Common settings
+[font]
+size = 14
+
+[font.normal]
+style = "Regular"
+
+[window]
+opacity = 0.9
+decorations = "none"
+
+[window.padding]
+x = 7
+y = 0
+
+[env]
+COLORTERM = "truecolor"
+TERM = "xterm-256color"
+
+[colors.bright]
+black = "#4d4d4d"
+red = "#e57474"
+green = "#87c28a"
+yellow = "#f4c03c"
+blue = "#7699d9"
+magenta = "#b46fdd"
+cyan = "#63b9a1"
+white = "#b2a58d"
