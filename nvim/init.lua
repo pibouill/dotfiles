@@ -13,6 +13,7 @@
 require("config.lazy")
 require("config.keymaps")
 require("config.options")
+require("config.filetypes")
 
 -- available = rose-pine, gruvbox-material, catppucin, kanagawa
 ----> check colorscheme.lua

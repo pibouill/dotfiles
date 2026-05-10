@@ -18,7 +18,7 @@ return {
 	opts = {
 		bigfile = { enabled = true },
 		dashboard = { enabled = true },
-		indent = { enabled = true },
+		indent = { enabled = false },
 		input = { enabled = true },
 		picker = { enabled = false },
 		ui_select = { enabled = false },
@@ -27,10 +27,10 @@ return {
 			enabled = false,
 			timeout = 3000,
 		},
-		quickfile = { enabled = true },
+		quickfile = { enabled = false },
 		scroll = { enabled = true },
 		statuscolumn = { enabled = true },
-		words = { enabled = true },
+		words = { enabled = false },
 		styles = {
 			notification = {
 				relative = "editor",

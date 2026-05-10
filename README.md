@@ -23,3 +23,38 @@ The `.zshrc` file is configured for both macOS and Linux. It includes:
 *   Useful aliases and functions.
 *   fzf integration.
 *   Starship prompt.
+
+## Neovim
+
+### PDF Editing
+
+Uses [pdfreader.nvim](https://github.com/r-pletnev/pdfreader.nvim) to view PDFs directly in Neovim via Kitty's graphics protocol.
+
+Requirements:
+- Kitty or Ghostty terminal
+- ImageMagick
+- Ghostscript
+- poppler-utils
+
+Keybindings:
+- `<leader>pd` - Show recent PDF books
+- `<leader>pm` - Show PDF bookmarks
+- `n` / `p` - Next/previous page
+- `z` / `q` - Zoom in/out
+
+### DOCX Editing
+
+DOCX files are ZIP archives containing XML. Use pandoc to convert:
+
+```bash
+# Convert DOCX to markdown, edit in nvim, then convert back
+pandoc document.docx -t markdown -o document.md
+nvim document.md
+pandoc document.md -o document.docx
+```
+
+Or use the quick alias (if defined in shell):
+```bash
+doc2md document.docx   # Convert to markdown
+md2doc document.md     # Convert back to DOCX
+```
