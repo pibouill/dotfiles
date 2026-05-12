@@ -1,15 +1,30 @@
-#!/bin/bash
+#!/usr/bin/env bash
 # **************************************************************************** #
 #                                                                              #
 #                                                         :::      ::::::::    #
 #    install.sh                                         :+:      :+:    :+:    #
-#                                                     +:+ +:+         +:+      #
-#    By: pibouill <pibouill@student.42prague.com>   +#+  +:+       +#+         #
-#                                                 +#+#+#+#+#+   +#+            #
+#                                                     +:+ +:+         @@sma     #
+#    By: pibouill <pibouill@student.42prague.com>   @@+  @+@@@+  @+           #
+#                                                 @+@+@+@+@+@+@+@+@+@+        #
 #    Created: 2026/03/19 10:30:31 by pibouill          #+#    #+#              #
-#    Updated: 2026/03/19 10:30:31 by pibouill         ###   ########.fr        #
+#    Updated: 2026/05/12 by pibouill                 ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
+
+DRY_RUN=0
+for arg in "$@"; do
+	case "$arg" in
+		--dry-run|-n) DRY_RUN=1 ;;
+	esac
+done
+
+run() {
+	if [ "$DRY_RUN" -eq 1 ]; then
+		echo -e "${YELLOW}[DRY RUN]${RST} $*"
+	else
+		"$@"
+	fi
+}
 
 GREEN='\033[0;32m'
 YELLOW='\033[1;33m'
@@ -22,6 +37,12 @@ DOTFILES_DIR="$HOME/.config/dotfiles"
 XDG_CONFIG_HOME="${XDG_CONFIG_HOME:-$HOME/.config}"
 LOG_DIR="$DOTFILES_DIR/logs"
 LOG_FILE="$LOG_DIR/install_$(date +%Y%m%d_%H%M%S).log"
+
+HAS_BREW=0
+if command -v brew &>/dev/null; then
+	HAS_BREW=1
+	HOMEBREW_PREFIX="$(brew --prefix 2>/dev/null)"
+fi
 
 mkdir -p "$LOG_DIR"
 
@@ -43,7 +64,7 @@ run_sudo() {
 
 is_package_installed() {
 	local pkg="$1"
-	if command -v brew &>/dev/null; then
+	if [ "$HAS_BREW" -eq 1 ]; then
 		brew list "$pkg" && return 0
 	fi
 	command -v "$pkg"
@@ -94,7 +115,7 @@ prompt_create() {
 }
 
 install_homebrew() {
-	if command -v brew &>/dev/null; then
+	if [ "$HAS_BREW" -eq 1 ]; then
 		echo -e "${GREEN}✓ Homebrew is already installed${RST}"
 		return 0
 	fi
@@ -109,44 +130,54 @@ install_homebrew() {
 			HOMEBREW_DIR="$HOME/.homebrew"
 		fi
 		mkdir -p "$HOMEBREW_DIR"
-		git clone https://github.com/Homebrew/brew.git "$HOMEBREW_DIR"
+		run git clone https://github.com/Homebrew/brew.git "$HOMEBREW_DIR"
 		eval "$("$HOMEBREW_DIR"/bin/brew shellenv)"
+		HOMEBREW_PREFIX="$(brew --prefix)"
+		HAS_BREW=1
 	else
-		/bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
+		run /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
 		if [ "$OS" == "Linux" ]; then
 			eval "$(/home/linuxbrew/.linuxbrew/bin/brew shellenv)"
 		else
 			eval "$(/opt/homebrew/bin/brew shellenv)"
 		fi
+		HOMEBREW_PREFIX="$(brew --prefix)"
+		HAS_BREW=1
 	fi
 }
 
 setup_homebrew_shims() {
+if ! is_42prague; then
+		ln -sf /usr/bin/g++-15 "$HOMEBREW_SHIMS/g++-12"
+	fi
+}
+
+post_install_fixes() {
 	if ! is_42prague; then
 		return 0
 	fi
 
-	HOMEBREW_SHIMS="$HOMEBREW_PREFIX/Library/Homebrew/shims/linux/super"
-	if [ ! -d "$HOMEBREW_SHIMS" ]; then
-		return 0
-	fi
+	echo -e "${YELLOW}Running post-installation fixes...${RST}"
 
-	echo -e "${YELLOW}Setting up Homebrew compiler shims for custom prefix...${RST}"
-
-	if [ ! -f "$HOMEBREW_SHIMS/gcc-12" ] && [ -f /usr/bin/gcc-15 ]; then
-		ln -sf /usr/bin/gcc-15 "$HOMEBREW_SHIMS/gcc-12"
-	fi
-
-	if [ ! -f "$HOMEBREW_SHIMS/g++-12" ] && [ -f /usr/bin/g++-15 ]; then
-		ln -sf /usr/bin/g++-15 "$HOMEBREW_SHIMS/g++-12"
+	if [ -d "$HOMEBREW_PREFIX/lib" ]; then
+		local llhttp_93
+		llhttp_93=$(find "$HOMEBREW_PREFIX/Cellar/llhttp" -path "*/9.3*/lib/libllhttp.so.9.3" -print -quit 2>/dev/null)
+		if [ -n "$llhttp_93" ] && [ ! -L "$HOMEBREW_PREFIX/lib/libllhttp.so.9.3" ]; then
+			echo -e "${GREEN}Linking missing libllhttp.so.9.3 for node compatibility...${RST}"
+			run ln -sf "$llhttp_93" "$HOMEBREW_PREFIX/lib/libllhttp.so.9.3"
+			local llhttp_931
+			llhttp_931=$(find "$(dirname "$llhttp_93")" -name "libllhttp.so.9.3.*" -print -quit 2>/dev/null)
+			[ -n "$llhttp_931" ] && run ln -sf "$llhttp_931" "$HOMEBREW_PREFIX/lib/$(basename "$llhttp_931")"
+		fi
 	fi
 }
 
 # Main installation logic
 install_homebrew
 setup_homebrew_shims
+post_install_fixes
 
-if command -v brew &>/dev/null; then
+if [ "$HAS_BREW" -eq 1 ]; then
 	if [ -f "$DOTFILES_DIR/Brewfile" ]; then
 		echo -e "${YELLOW}Syncing system with Brewfile (Verbose)...${RST}"
 		if is_42prague; then

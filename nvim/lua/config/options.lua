@@ -79,7 +79,8 @@ vim.filetype.add({
 
 vim.keymap.set('n', '<leader>cf', function()
 	local view = vim.fn.winsaveview()
-	vim.cmd('%!clang-format')
+	local clang_format = vim.fn.executable('clang-format') == 1 and 'clang-format' or vim.fn.stdpath('data') .. '/mason/bin/clang-format'
+	vim.cmd('%!' .. clang_format)
 	if vim.v.shell_error ~= 0 then
 		vim.cmd.undo()
 		vim.notify("clang-format failed", vim.log.levels.ERROR)
