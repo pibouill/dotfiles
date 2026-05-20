@@ -189,7 +189,6 @@ alias dfl="cd ~/.config/dotfiles/"
 alias proj='cd "$PROJ"'
 alias libft="cd ~/work/libft"
 alias sgoinfre="cd /sgoinfre/pibouill"
-alias sb="v $HOME/sgoinfre/obs_vault_good/"
 alias learn="cd ~/work/learn"
 alias config="cd ~/.config/"
 

@@ -51,6 +51,5 @@ return {
 			["q"] = "actions.close",
 		}
 	},
-	-- Optional dependencies
-	dependencies = { "nvim-tree/nvim-web-devicons" },
+	dependencies = { "echasnovski/mini.icons" },
 }

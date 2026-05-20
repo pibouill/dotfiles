@@ -13,7 +13,7 @@
 return {
 	{
 		"r-pletnev/pdfreader.nvim",
-		lazy = true,
+		lazy = false,
 		ft = "pdf",
 		cmd = "PDFReader",
 		dependencies = {
@@ -25,7 +25,10 @@ return {
 			{ "<leader>pm", "<cmd>PDFReader showBookmarks<cr>", desc = "PDF bookmarks" },
 		},
 		config = function()
-			require("pdfreader").setup({})
+			require("pdfreader").setup({
+				mode = 2,
+				autosave = true,
+			})
 		end,
 		init = function()
 			vim.api.nvim_create_autocmd("BufReadPost", {

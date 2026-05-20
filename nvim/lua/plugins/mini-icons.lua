@@ -13,7 +13,7 @@
 return {
 	{
 		"echasnovski/mini.icons",
-		lazy = true,
+		lazy = false,
 		opts = {
 			file = {
 				[".keep"] = { glyph = "󰊢", hl = "MiniIconsGrey" },
@@ -30,5 +30,5 @@ return {
 			end
 		end,
 	},
-	{ "MunifTanjim/nui.nvim", lazy = true },
+	{ "MunifTanjim/nui.nvim" },
 }

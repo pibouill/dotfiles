@@ -142,14 +142,7 @@ return {
 				vim.bo.filetype = "zsh"
 			end,
 		})
-		vim.api.nvim_create_autocmd("FileType", {
-			pattern = "zsh",
-			callback = function()
-				vim.defer_fn(function()
-					vim.cmd("LspStart bashls")
-				end, 100)
-			end,
-		})
+		
 		vim.api.nvim_create_autocmd("LspAttach", {
 			callback = function(ev)
 				local bufnr = ev.buf

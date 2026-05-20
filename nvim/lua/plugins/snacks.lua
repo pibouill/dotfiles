@@ -18,6 +18,7 @@ return {
 	opts = {
 		bigfile = { enabled = true },
 		dashboard = { enabled = true },
+		image = { enabled = true },
 		indent = { enabled = false },
 		input = { enabled = true },
 		picker = { enabled = false },
