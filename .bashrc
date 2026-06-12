@@ -178,3 +178,4 @@ if uname -i | grep -q Android; then
    export PATH=/data/data/com.termux/files/usr/bin:${PATH}
 fi
 
+export PATH=/data/data/com.termux/files/usr/bin:/system/bin:/sgoinfre/pibouill/homebrew/opt/clang-format/bin:/data/data/com.termux/files/home/.npm-global/bin:/data/data/com.termux/files/home/bin:/data/data/com.termux/files/home/.local/share/nvim/mason:/data/data/com.termux/files/usr/bin:/data/data/com.termux/files/home/.cargo/bin:/data/data/com.termux/files/usr/bin:/data/data/com.termux/files/home/go/bin
