@@ -1,26 +1,39 @@
 # My Dotfiles
 
-This repository contains my personal dotfiles for various applications and shell environments.
+This repository contains my personal dotfiles, kept in sync across two environments:
+
+*   A personal macOS laptop.
+*   A 42 school Ubuntu machine (detected via hostname, see `is_42prague` in `install.sh`/`.zshrc`).
+
+Both `install.sh` and `.zshrc` branch on OS and hostname to pick the right Homebrew location,
+PATH entries, and certificate settings for whichever machine is running them.
 
 ## Installation
 
-The `install.sh` script is used to set up a new system. It installs Homebrew and then uses the `Brewfile` to install all the necessary packages.
+The `install.sh` script is used to set up a new system. It installs Homebrew (in a
+school-appropriate location under `goinfre`/`sgoinfre` on 42 machines, or the standard
+location elsewhere), then uses the `Brewfile` to install all the necessary packages, and
+symlinks the rest of this repo's configs into place.
 
 To install, run the following command:
 
 ```bash
-./install.sh
+./install.sh          # add --dry-run / -n to preview actions without making changes
 ```
 
-The script will create a log file in the `logs` directory.
+The script will create a log file in the `logs` directory (gitignored, kept local to each machine).
+
+`new_install.sh` and `scripts/42brew_install.sh` have been removed — they were superseded
+by the unified, environment-aware logic now in `install.sh`.
 
 ## Shell
 
 The `.zshrc` file is configured for both macOS and Linux. It includes:
 
-*   Dynamic Homebrew setup.
-*   Organized `PATH` management.
-*   Useful aliases and functions.
+*   Dynamic Homebrew setup, cached per machine.
+*   Organized `PATH` management, with 42-specific entries (`NVM_DIR`, `CARGO_HOME`, etc.) under `sgoinfre`.
+*   Useful aliases and functions — notably `dfl` (jump to this repo), `weather` (wraps `bin/weather.sh`),
+    and `swcaps` (Linux-only Caps/Ctrl swap via `scripts/gnome_tweaks_caps_ctrl.sh`).
 *   fzf integration.
 *   Starship prompt.
 

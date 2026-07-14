@@ -12,10 +12,9 @@
 
 return {
 	"vinicius507/norme.nvim",
-	dependencies = { "jose-elias-alvarez/null-ls.nvim" },
+	dependencies = { "nvimtools/none-ls.nvim" },
 	-- event = { "BufReadPre *.c", "BufReadPre *.h" },
 	config = function ()
-		require("null-ls").setup()
 		require("norme").setup({
 			-- Your configuration
 			-- cmd = os.getenv('HOME') .. '/usr/bin/norminette'

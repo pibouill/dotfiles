@@ -228,10 +228,10 @@ alias parrot=/home/pibouill/parrot.sh
 
 alias tm="tmux"
 alias tconf="v ~/.tmux.conf"
-alias swcaps="~/.config/switch_caps_ctrl.sh"
+alias swcaps="bash $DOTFILES/scripts/gnome_tweaks_caps_ctrl.sh"
 alias cht="cht.sh"
 alias nt=nautilus
-alias weather="bash ~/bin/weather"
+alias weather="bash ~/bin/weather.sh"
 
 tc() {
   touch "$1.c"

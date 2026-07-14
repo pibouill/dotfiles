@@ -147,8 +147,8 @@ install_homebrew() {
 }
 
 setup_homebrew_shims() {
-if ! is_42prague; then
-		ln -sf /usr/bin/g++-15 "$HOMEBREW_SHIMS/g++-12"
+	if ! is_42prague; then
+		ln -sf /usr/bin/g++-15 "$HOMEBREW_PREFIX/bin/g++-12"
 	fi
 }
 
@@ -280,7 +280,7 @@ if [ "$OS" == "Linux" ]; then
 			done
 		fi
 	done
-	[ -f "$DOTFILES_DIR/applications/mimeapps.list" ] && link_file "$DOTFILES_DIR/applications/mimeapps.list" "$XDG_CONFIG_HOME/mimeapps.list"
+	[ -f "$DOTFILES_DIR/apps_desktop/mimeapps.list" ] && link_file "$DOTFILES_DIR/apps_desktop/mimeapps.list" "$XDG_CONFIG_HOME/mimeapps.list"
 fi
 
 if [ "$SHELL" != "$(which zsh 2>/dev/null)" ] && command -v zsh &>/dev/null; then

@@ -13,17 +13,11 @@
 return {
   "nvimtools/none-ls.nvim",
   dependencies = {
-    "williamboman/mason.nvim",
+    "mason-org/mason.nvim",
     "nvim-lua/plenary.nvim",
   },
   config = function()
     local null_ls = require("null-ls")
-
-    require("mason").setup({
-      ensure_installed = {
-        "checkmake",
-      }
-    })
 
     local h = require("null-ls.helpers")
     null_ls.setup({
