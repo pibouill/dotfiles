@@ -232,6 +232,7 @@ alias swcaps="bash $DOTFILES/scripts/gnome_tweaks_caps_ctrl.sh"
 alias cht="cht.sh"
 alias nt=nautilus
 alias weather="bash ~/bin/weather.sh"
+alias sb="cd /Users/pierre/Documents/obsidian_vaults/new_obs_vault/obs_vault/"
 
 tc() {
   touch "$1.c"
