@@ -168,12 +168,8 @@ return {
 				mode = { "n", "x" },
 				desc = "Sidekick Select Prompt",
 			},
-			-- Example of a keybinding to open Claude directly
-			{
-				"<leader>ac",
-				function() require("sidekick.cli").toggle({ name = "claude", focus = true }) end,
-				desc = "Sidekick Toggle Claude",
-			},
+			-- Claude moved to claudecode.nvim (<leader>ac) for native diff review;
+			-- still reachable here via <leader>as if needed.
 		},
 	}
 }
@@ -182,7 +178,7 @@ return {
 			--  <leader>as         : Select an installed CLI tool
 			--  <leader>ad         : Detach/Close the current session
 			--  <leader>ap         : Select a prompt (Explain, Optimize, etc.)
-			--  <leader>ac         : Toggle Claude directly
+			--  (Claude: see claudecode.lua — <leader>ac)
 			--
 			-- Context Sending:
 			--  <leader>at         : Send "This" (current cursor/function context)

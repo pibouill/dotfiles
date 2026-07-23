@@ -60,7 +60,7 @@ return {
 					c = true,
 					lua = true,
 					python = true,
-					cpp = false,
+					cpp = true,
 					asm = false,
 				},
 				copilot_node_command = 'node', -- Node.js version must be > 18.x
