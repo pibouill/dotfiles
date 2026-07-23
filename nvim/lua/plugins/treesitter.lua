@@ -51,6 +51,9 @@ return {
 				"css",
 				"javascript",
 				"typescript",
+				"go",
+				"dockerfile",
+				"svelte",
 			})
 		end,
 	},
