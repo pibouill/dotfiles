@@ -44,26 +44,31 @@ return {
 				desc = "Harpoon Quick Menu",
 			},
 		}
-		local is_macos = (vim.uv or vim.loop).os_uname().sysname == "Darwin"
 
-		if is_macos then
-			vim.keymap.set("n", "¡", function() harpoon:list():select(1) end)
-			vim.keymap.set("n", "™", function() harpoon:list():select(2) end)
-			vim.keymap.set("n", "£", function() harpoon:list():select(3) end)
-			vim.keymap.set("n", "¢", function() harpoon:list():select(4) end)
-		else
-			for i = 1, 5 do
+		-- <A-1..5> works on Linux natively and on macOS via
+		-- option_as_alt = "OnlyLeft" in alacritty_macos.toml
+		for i = 1, 5 do
+			table.insert(keys, {
+				"<A-" .. i .. ">",
+				function()
+					harpoon:list():select(i)
+				end,
+				desc = "Harpoon to File " .. i,
+			})
+		end
+
+		-- macOS fallback for terminals without option-as-alt
+		-- (Option+1..5 types these symbols on a US layout)
+		if (vim.uv or vim.loop).os_uname().sysname == "Darwin" then
+			local syms = { "¡", "™", "£", "¢", "∞" }
+			for i, sym in ipairs(syms) do
 				table.insert(keys, {
-					"<A-" .. i .. ">",
+					sym,
 					function()
 						harpoon:list():select(i)
 					end,
 					desc = "Harpoon to File " .. i,
 				})
-			end
-			-- Apply mappings
-			for _, key in ipairs(keys) do
-				vim.keymap.set("n", key[1], key[2], { desc = key[3] })
 			end
 		end
 		return keys

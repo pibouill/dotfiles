@@ -8,6 +8,9 @@ family = "JetBrainsMono Nerd Font"
 [window]
 opacity = 0.9
 decorations = "none"
+# Left Option acts as Alt so nvim <A-...> maps (harpoon, copilot accept) work;
+# right Option still types symbols/accents (¡™£¢, etc.)
+option_as_alt = "OnlyLeft"
 
 [window.padding]
 x = 7
