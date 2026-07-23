@@ -26,48 +26,13 @@ The script will create a log file in the `logs` directory (gitignored, kept loca
 `new_install.sh` and `scripts/42brew_install.sh` have been removed — they were superseded
 by the unified, environment-aware logic now in `install.sh`.
 
-## Shell
+## Documentation
 
-The `.zshrc` file is configured for both macOS and Linux. It includes:
+Per-tool docs, keybindings, and workflows live in [`docs/`](docs/):
 
-*   Dynamic Homebrew setup, cached per machine.
-*   Organized `PATH` management, with 42-specific entries (`NVM_DIR`, `CARGO_HOME`, etc.) under `sgoinfre`.
-*   Useful aliases and functions — notably `dfl` (jump to this repo), `weather` (wraps `bin/weather.sh`),
-    and `swcaps` (Linux-only Caps/Ctrl swap via `scripts/gnome_tweaks_caps_ctrl.sh`).
-*   fzf integration.
-*   Starship prompt.
-
-## Neovim
-
-### PDF Editing
-
-Uses [pdfreader.nvim](https://github.com/r-pletnev/pdfreader.nvim) to view PDFs directly in Neovim via Kitty's graphics protocol.
-
-Requirements:
-- Kitty or Ghostty terminal
-- ImageMagick
-- Ghostscript
-- poppler-utils
-
-Keybindings:
-- `<leader>pd` - Show recent PDF books
-- `<leader>pm` - Show PDF bookmarks
-- `n` / `p` - Next/previous page
-- `z` / `q` - Zoom in/out
-
-### DOCX Editing
-
-DOCX files are ZIP archives containing XML. Use pandoc to convert:
-
-```bash
-# Convert DOCX to markdown, edit in nvim, then convert back
-pandoc document.docx -t markdown -o document.md
-nvim document.md
-pandoc document.md -o document.docx
-```
-
-Or use the quick alias (if defined in shell):
-```bash
-doc2md document.docx   # Convert to markdown
-md2doc document.md     # Convert back to DOCX
-```
+*   **[Neovim](docs/nvim.md)** — AI setup (copilot / sidekick / claudecode),
+    full keybindings cheat sheet, PDF-as-text and DOCX workflows.
+*   **[Shell](docs/shell.md)** — zsh setup, aliases, and functions.
+*   **[tmux](docs/tmux.md)** — prefix, keybindings, plugins, nvim interop.
+*   **[Alacritty](docs/alacritty.md)** — per-OS configs, macOS Option-as-Alt,
+    graphics protocol limitations.

@@ -28,7 +28,7 @@ brew "node"
 brew "tree-sitter"
 brew "clang-format"
 
-brew "imagemagick"  # Required for Snacks.image and pdfreader.nvim
+brew "imagemagick"  # Required for Snacks.image
 brew "xsel"         # Clipboard support for Neovim on Linux
-brew "poppler"      # Required for pdfreader.nvim (pdftotext)
+brew "poppler"      # pdftotext: PDFs open as text in nvim (see docs/nvim.md)
 brew "anomalyco/tap/opencode"

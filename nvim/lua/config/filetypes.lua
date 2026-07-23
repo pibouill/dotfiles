@@ -42,3 +42,29 @@ vim.api.nvim_create_autocmd("BufReadPost", {
 		end
 	end,
 })
+
+-- PDFs: show extracted text via pdftotext (poppler) — works in any terminal,
+-- no graphics protocol needed (Alacritty has none)
+vim.api.nvim_create_autocmd("BufReadPost", {
+	pattern = "*.pdf",
+	callback = function(args)
+		local buf = args.buf
+		if vim.fn.executable("pdftotext") == 0 then
+			vim.notify("pdftotext not found (install poppler)", vim.log.levels.WARN)
+			return
+		end
+		local out = vim.fn.systemlist({ "pdftotext", "-layout", args.file, "-" })
+		vim.bo[buf].modifiable = true
+		vim.api.nvim_buf_set_lines(buf, 0, -1, false, out)
+		vim.bo[buf].modifiable = false
+		vim.bo[buf].readonly = true
+		vim.bo[buf].buftype = "nowrite"
+		vim.bo[buf].filetype = "text"
+		-- open the real PDF in an external viewer
+		vim.keymap.set("n", "<leader>po", function()
+			local opener = vim.fn.has("mac") == 1 and "open"
+				or (vim.fn.executable("zathura") == 1 and "zathura" or "xdg-open")
+			vim.system({ opener, args.file }, { detach = true })
+		end, { buffer = buf, desc = "Open PDF in external viewer" })
+	end,
+})
